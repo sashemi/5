@@ -1336,7 +1336,13 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/toc/Table of contents-NPCs-1395397534</li>
+
 <li>$:/state/toc/Table of contents-Places-1395397534</li>
+
+<li>$:/state/toc/Table of contents/NPCs-People-of-Anchor-1395397534</li>
+
+<li>$:/state/toc/Table of contents/NPCs-People-of-Athra-1395397534</li>
 
 <li>$:/state/toc/Table of contents/Places-Carcosa-1395397534</li>
 
@@ -4013,13 +4019,13 @@ $amount$
 \end
 </pre>
 </div>
-<div created="20200426012505238" creator="Islander" modified="20201215194803051" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/glossary">
+<div created="20200426012505238" creator="Islander" modified="20201215201303569" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/glossary">
 <pre>\define blinded()
 [[blinded|https://www.dndbeyond.com/sources/basic-rules/appendix-a-conditions#Blinded]]
 \end
 
 \define calendar-fmt(year:&quot;&quot;)
-&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$set name=link_text filter=&quot; $year$&quot; value=&quot;&quot;&quot;&lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt; FC&quot;&quot;&quot; emptyValue=&quot;Far Cycle calendar&quot;&gt;&lt;$set name=link_url filter=&quot; $year$&quot; value=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db?year=$year$&amp;month=0&amp;day=1&quot; emptyValue=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;link_url&gt;&gt; &gt;&lt;&lt;link_text&gt;&gt;&lt;/a&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$set name=link_text filter=&quot; $year$&quot; value=&quot;&quot;&quot;&lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt;MC&quot;&quot;&quot; emptyValue=&quot;Merchant's Calendar&quot;&gt;&lt;$set name=link_url filter=&quot; $year$&quot; value=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba?year=$year$&amp;month=0&amp;day=1&quot; emptyValue=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;link_url&gt;&gt; &gt;&lt;&lt;link_text&gt;&gt;&lt;/a&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$set name=link_text filter=&quot; $year$&quot; value=&quot;&quot;&quot;&lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt; FC&quot;&quot;&quot; emptyValue=&quot;Far Cycle calendar&quot;&gt;&lt;$set name=link_url filter=&quot; $year$&quot; value=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db?year=$year$&amp;month=0&amp;day=1&quot; emptyValue=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;link_url&gt;&gt; target=&quot;_blank&quot;&gt;&lt;&lt;link_text&gt;&gt;&lt;/a&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$set name=link_text filter=&quot; $year$&quot; value=&quot;&quot;&quot;&lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt;MC&quot;&quot;&quot; emptyValue=&quot;Merchant's Calendar&quot;&gt;&lt;$set name=link_url filter=&quot; $year$&quot; value=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba?year=$year$&amp;month=0&amp;day=1&quot; emptyValue=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;link_url&gt;&gt; target=&quot;_blank&quot;&gt;&lt;&lt;link_text&gt;&gt;&lt;/a&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$reveal&gt;
 \end
 
 \define charmed()
@@ -4450,9 +4456,25 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20201215190717528" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<div created="20200429000932368" creator="Islander" modified="20201215202217456" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
 <pre>\define format-number(n t d p)
-&lt;$set name=thousands-separator value=&quot;$t$&quot; emptyValue=&quot;,&quot;&gt;&lt;$set name=decimal-separator value=&quot;$d$&quot; emptyValue=&quot;.&quot;&gt;&lt;$set name=decimal-places value=&quot;$p$&quot; emptyValue=&quot;2&quot;&gt;&lt;$set name=fixed-decimal value={{{ [[$n$]fixed&lt;decimal-places&gt;] }}}&gt;&lt;$set name=integer value={{{ [&lt;fixed-decimal&gt;split[.]first[]] }}}&gt;&lt;$set name=remainder value={{{ [&lt;fixed-decimal&gt;split[.]last[]] }}}&gt;&lt;$set name=length filter=&quot;[&lt;integer&gt;length[]]&quot;&gt;&lt;$macrocall $name=each-digit length=&lt;&lt;length&gt;&gt; /&gt;&lt;$list filter=&quot;[&lt;decimal-places&gt;!match[0]]&quot; variable=nul&gt;&lt;&lt;decimal-separator&gt;&gt;&lt;&lt;remainder&gt;&gt;&lt;/$list&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$set&gt;
+\whitespace trim
+&lt;$set name=thousands-separator value=&quot;$t$&quot; emptyValue=&quot;,&quot;&gt;
+&lt;$set name=decimal-separator value=&quot;$d$&quot; emptyValue=&quot;.&quot;&gt;
+&lt;$set name=decimal-places value=&quot;$p$&quot; emptyValue=&quot;2&quot;&gt;
+&lt;$set name=fixed-decimal value={{{ [[$n$]fixed&lt;decimal-places&gt;] }}}&gt;
+&lt;$set name=integer value={{{ [&lt;fixed-decimal&gt;split[.]first[]] }}}&gt;
+&lt;$set name=remainder value={{{ [&lt;fixed-decimal&gt;split[.]last[]] }}}&gt;
+&lt;$set name=length filter=&quot;[&lt;integer&gt;length[]]&quot;&gt;
+&lt;$macrocall $name=each-digit length=&lt;&lt;length&gt;&gt; /&gt;
+&lt;$list filter=&quot;[&lt;decimal-places&gt;!match[0]]&quot; variable=nul&gt;&lt;&lt;decimal-separator&gt;&gt;&lt;&lt;remainder&gt;&gt;&lt;/$list&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
 \end
 
 \define each-digit(length)
@@ -4461,7 +4483,8 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;$set name=digit filter=&quot;[[$(integer)$]split[]nth&lt;position&gt;]&quot;&gt;
 &lt;$set name=zeros filter=&quot;[[$length$]subtract&lt;position&gt;]&quot;&gt;
 &lt;&lt;digit&gt;&gt;{{{ [&lt;zeros&gt;!match[0]remainder[3]match[0]then&lt;thousands-separator&gt;] }}}
-&lt;/$set&gt;&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
 &lt;/$list&gt;
 \end
 
@@ -4508,7 +4531,7 @@ $weekday$, $day$ $month$&lt;$reveal type=&quot;nomatch&quot; text=&quot;$leap$&q
 \end
 
 \define year-fmt(era-year:&quot;42nd&quot;,era:&quot;Desolation&quot;,year:&quot;664&quot;,callsign:&quot;Ygrimor's Venom&quot;)
-$era-year$ Year of $era$, &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db?year=$year$&amp;month=0&amp;day=1&quot;&gt;year &lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt;&lt;/a&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba?year=$year$&amp;month=0&amp;day=1&quot;&gt;year &lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt;&lt;/a&gt;&lt;/$reveal&gt;; $callsign$
+$era-year$ Year of $era$, &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db?year=$year$&amp;month=0&amp;day=1&quot; target=&quot;_blank&quot;&gt;year &lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt;&lt;/a&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba?year=$year$&amp;month=0&amp;day=1&quot; target=&quot;_blank&quot;&gt;year &lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt;&lt;/a&gt;&lt;/$reveal&gt;; $callsign$
 \end
 
 \define day-fmt(weekday:&quot;Dragul&quot;,day:&quot;1st&quot;,month:&quot;Semori&quot;,leap,festweek:&quot;false&quot;,era-year:&quot;42nd&quot;,era:&quot;Desolation&quot;,year:&quot;664&quot;,,callsign:&quot;Ygrimor's Venom&quot;)
@@ -15109,17 +15132,26 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20200605130449674" creator="Islander" modified="20201011185127072" modifier="Islander" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
-<div created="20201215182441860" creator="Islander" modified="20201215182441860" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20201215201103113" creator="Islander" modified="20201215201103113" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201215182346029" creator="Islander" modified="20201215200650705" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20201215201059306" creator="Islander" modified="20201215202758999" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/.isle/system/Table of contents</pre>
 </div>
-<div created="20201215194421243" creator="Islander" modified="20201215194421243" modifier="Islander" title="$:/state/toc/Table of contents-Places-1395397534">
+<div created="20201215201424824" creator="Islander" modified="20201215202859175" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
 <pre>open</pre>
 </div>
-<div created="20201215194423131" creator="Islander" modified="20201215200016378" modifier="Islander" title="$:/state/toc/Table of contents/Places-Carcosa-1395397534">
+<div created="20201215202804039" creator="Islander" modified="20201215202858591" modifier="Islander" title="$:/state/toc/Table of contents-Places-1395397534">
 <pre>close</pre>
+</div>
+<div created="20201215202901991" creator="Islander" modified="20201215202901991" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Anchor-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201215201429864" creator="Islander" modified="20201215202901375" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Athra-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201215202807342" creator="Islander" modified="20201215202807343" modifier="Islander" title="$:/state/toc/Table of contents/Places-Carcosa-1395397534">
+<pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -15127,7 +15159,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20201215182353654" creator="Islander" list="Tempus-Tandem Seasons Moon-phases $:/.isle/macros/known $:/.isle/macros/statistics $:/.isle/macros/glossary Next-game Sessions Character-creation" modified="20201215200016931" modifier="Islander" title="$:/StoryList">
+<div created="20201215201118394" creator="Islander" list="Toregene Mog $:/.isle/macros/glossary $:/.isle/macros/statistics Next-game Sessions Character-creation" modified="20201215204136247" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -15194,8 +15226,8 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20200530145115699" creator="Islander" modified="20201215191554063" modifier="Islander" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20200530030248083" creator="Islander" modified="20201215195543714" modifier="Islander" title="$:/temp/search">
-<pre></pre>
+<div created="20200530030248083" creator="Islander" modified="20201215204134686" modifier="Islander" title="$:/temp/search">
+<pre>glitter</pre>
 </div>
 <div created="20200214043212866" creator="The Islander" modified="20200214043213778" modifier="The Islander" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
@@ -19142,7 +19174,7 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Hastur&quot;&gt;&gt;&quot;&qu
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="toregene [[toregene khatun]]" caption="Toregene Khatun" created="20200531001151996" creator="Islander" information-subject="person" modified="20201215191151584" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Avalas|https://forgottenrealms.fandom.com/wiki/Avalas]] in {{$:/.isle/content/Locations/Acheron}}" person-residence="[[Mount Akilash]] in the [[Oi]]; she frequently visits [[Ogedei]] who resides in [[Vrogzodgren]]" subtitle="Toregene Khatun" synopsis="Toregene is a warrior witch who is wrenched into [[Carcosa]] by [[King in Yellow|?]] himself, by means of a powerful ritual (&lt;&lt;calendar-fmt 255&gt;&gt;). The King in Yellow's objective summons her so she can build an effective defense for the demiplane against the breaking of [[Anchor]], where {{$:/.isle/content/Terms/Ezran}} militants are in open rebellion against the realm's three &lt;&lt;term &quot;Darklord&quot; &quot;plural&quot;&gt;&gt;. Toregene's first act is the ritualized creation of [[Ogedei]] from an essence of {{$:/.isle/content/Deities/Gruumsh}}." tags="People-of-Griven" title="Toregene">
+<div aliases="toregene [[toregene khatun]]" caption="Toregene Khatun" created="20200531001151996" creator="Islander" information-subject="person" modified="20201215204320174" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Avalas|https://forgottenrealms.fandom.com/wiki/Avalas]] in {{$:/.isle/content/Locations/Acheron}}" person-residence="[[Mount Akilash]] in the [[Oi]]; she frequently visits [[Ogedei]] who resides in [[Vrogzodgren]]" subtitle="Toregene Khatun" synopsis="Toregene is a warrior witch who is pulled into [[Carcosa]] by [[King in Yellow|?]] himself, by means of a powerful ritual in &lt;&lt;calendar-fmt 255&gt;&gt;. The King in Yellow solicits her to build him an effective defense for the demiplane against the impending fall of [[Anchor]] (then known as Delomelonica), where {{$:/.isle/content/Terms/Ezran}} militants are in open rebellion against the realm's three &lt;&lt;term &quot;Darklord&quot; &quot;plural&quot;&gt;&gt;. The Darklord expected to fall first is [[Zalma]], who is seen as a linchpin of the Darklords's support for King in Yellow. Toregene's first act in &lt;&lt;calendar-fmt 265&gt;&gt; is the ritualized creation of [[Ogedei]] from an essence of {{$:/.isle/content/Deities/Gruumsh}}. She uses the auspice of a [[glitterdark|?]] for her success." tags="People-of-Griven" title="Toregene">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Toregene&quot;&gt;&gt;
 &lt;&lt;known location:&quot;[[Griven]], [[Ordos]], or [[Anchor]]&quot; dc:&quot;Legendary person&quot; gender:&quot;her&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
