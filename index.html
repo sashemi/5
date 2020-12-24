@@ -1348,13 +1348,15 @@ Error message and password prompt
 
 <li>$:/plugins/wikilabs/uni-link</li>
 
-<li>$:/Setup/newts</li>
-
 <li>$:/SiteStylesheet</li>
 
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
+
+<li>$:/state/tab/moresidebar-1850697562</li>
+
+<li>$:/state/tab/sidebar--595412856</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -3936,8 +3938,25 @@ Zendril: 90,000</pre>
 <div _canonical_uri="https://i.imgur.com/fhemSqv.jpg" attribution="Sanghyun Kam" attributionurl="https://www.artstation.com/gamgun1" created="20200419133213056" creator="Islander" modified="20200419133407854" modifier="Islander" tags="Media" title="$:/.isle/images/Zendril/Gates" type="image/jpeg">
 <pre></pre>
 </div>
-<div created="20200328023608793" creator="The Islander" modified="20200609055901743" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
-<pre>\define img(tiddler)
+<div created="20200328023608793" creator="The Islander" modified="20201224194811882" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
+<pre>\define teste(tiddler,border:1)
+&lt;$set name=&quot;tiddlerunslugify&quot; filter=&quot;[[$(currentTiddler)$]search-replace:gi[-],[ ]addprefix[$:/.isle/images/]]&quot;&gt;
+&lt;$set name=imgtiddler value=&quot;$tiddler$&quot; emptyValue=&lt;&lt;tiddlerunslugify&gt;&gt; &gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$border$&quot; default=&quot;1&quot;&gt;
+&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
+  &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler &gt;&gt; /&gt;
+&lt;/div&gt;
+&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$border$&quot; default=&quot;0&quot;&gt;
+&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
+  &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler &gt;&gt; /&gt;
+&lt;/div&gt;
+&lt;/$reveal&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+\define img(tiddler)
 &lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
   [img width=&quot;100%&quot; [$tiddler$]]
 &lt;/div&gt;
@@ -4239,7 +4258,7 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 \end
 </pre>
 </div>
-<div created="20200331042858673" creator="The Islander" modified="20201224084014967" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
+<div created="20200331042858673" creator="The Islander" modified="20201224180815608" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
 <pre>\define hb(text)
 &lt;span class=&quot;myhb&quot;&gt;$text$&lt;/span&gt;
 \end
@@ -4257,31 +4276,25 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 \end
 
 \define hb-disclaimer()
-@@background-color: #ffcfc0;
-&lt;&lt;&lt;
+&lt;blockquote style=&quot;background-color: #ffcfc0;&quot;&gt;
 This article modifies official game rules using &lt;&lt;hb &quot;house rules&quot;&gt;&gt; indicated by &lt;&lt;hb &quot;red underline&quot;&gt;&gt;.
-&lt;&lt;&lt;
-@@
+&lt;/blockquote&gt;
 \end
 
 \define hb-disclaimer-all()
-@@background-color: #ffcfc0;
-&lt;&lt;&lt;
+&lt;blockquote style=&quot;background-color: #ffcfc0;&quot;&gt;
 All of the content in this article is a modification of official game rules. House rules are not specifically indicated by &lt;&lt;hb &quot;red underline&quot;&gt;&gt;.
-&lt;&lt;&lt;
-@@
+&lt;/blockquote&gt;
 \end
 
 \define adaptation(book,source,url,type:&quot;rules&quot;)
-@@background-color: #ffcfc0;
-&lt;&lt;&lt;
+&lt;blockquote style=&quot;background-color: #ffcfc0;&quot;&gt;
 &lt;&lt;case-sentence &quot;$type$&quot;&gt;&gt; are sourced from &lt;$reveal type=&quot;nomatch&quot; text=&quot;$book$&quot; default=&quot;&quot;&gt;&lt;&lt;sourcebook &quot;$book$&quot;&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$source$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;$reveal type=&quot;match&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;$source$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;[[$source$|$url$]]&lt;/$reveal&gt;&lt;/$reveal&gt;.
 Note that any $type$ not explicitly quoted here are not used.
 &lt;$reveal type=&quot;match&quot; state=&quot;!!article-is-house-rule&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;
 &lt;&lt;hb &quot;House rules&quot;&gt;&gt; are indicated by &lt;&lt;hb &quot;red underline&quot;&gt;&gt; in shorter articles. Longer articles exclude this notation.
 &lt;/$reveal&gt;
-&lt;&lt;&lt;
-@@
+&lt;/blockquote&gt;
 \end
 </pre>
 </div>
@@ -16536,9 +16549,6 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
     }
 }</pre>
 </div>
-<div created="20190531082851375" modified="20191219050237524" title="$:/Setup/newts">
-<pre>aegeanmists</pre>
-</div>
 <div created="20160325102921349" creator="twMat" modified="20190704125518921" modifier="Mat von TWaddle" tags="$:/tags/Stylesheet" title="$:/SiteStylesheet" type="text/vnd.tiddlywiki">
 <pre>&lt;pre&gt;/* Tweak headings h2, h3, 4h / !!, !!!, !!!! */
 .tc-tiddler-body h2 {margin-bottom:-.2em; margin-top:1.2em;}
@@ -16574,13 +16584,19 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
+<div created="20201224174820247" creator="Islander" modified="20201224192123923" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/System</pre>
+</div>
+<div created="20201224174819041" creator="Islander" modified="20201224192122020" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
+</div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div list="Next-game Sessions Character-creation" title="$:/StoryList">
+<div created="20201224174847392" creator="Islander" list="Reputation $:/.isle/macros/global $:/.isle/macros/case $:/.isle/macros/attribution Next-game Sessions Character-creation" modified="20201224192136188" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -19570,7 +19586,7 @@ You lose 1 renown if you do not interact with a faction, organization, or locati
 
 You lose 5 renown by taking significant actions in opposition to a faction, organization, or location.</pre>
 </div>
-<div aliases="reputation [[reputation points]]" created="20200406164225653" creator="The Islander" modified="20201224084228327" modifier="Islander" synopsis="Reputation enhances non-combat interaction between you and others by providing bonuses to certain skill checks. Those who recognize you are more likely to help you or to do what you ask, provided your reputation is a positive influence on the NPC or monster that recognizes you. A high reputation bonus makes it difficult for you to mask your identity, which can be a problem if you are trying not to be noticed." tags="Social-interaction" title="Reputation">
+<div aliases="reputation [[reputation points]]" created="20200406164225653" creator="The Islander" modified="20201224194823170" modifier="Islander" synopsis="Reputation enhances non-combat interaction between you and others by providing bonuses to certain skill checks. Those who recognize you are more likely to help you or to do what you ask, provided your reputation is a positive influence on the NPC or monster that recognizes you. A high reputation bonus makes it difficult for you to mask your identity, which can be a problem if you are trying not to be noticed." tags="Social-interaction" title="Reputation">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Reputation&quot;&gt;&gt;
 &lt;&lt;adaptation source:&quot;Reputation - d20 SRD rules&quot; url:&quot;http://www.d20srd.org/srd/variant/campaigns/reputation.htm&quot;&gt;&gt;
 {{!!synopsis}}
