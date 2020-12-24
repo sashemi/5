@@ -1356,6 +1356,10 @@ Error message and password prompt
 
 <li>$:/state/showeditpreview</li>
 
+<li>$:/state/tab/moresidebar-1850697562</li>
+
+<li>$:/state/tab/sidebar--595412856</li>
+
 <li>$:/state/toc/Table of contents-Character-creation-1395397534</li>
 
 <li>$:/state/toc/Table of contents-NPCs-1395397534</li>
@@ -1364,7 +1368,11 @@ Error message and password prompt
 
 <li>$:/state/toc/Table of contents-Rules-1395397534</li>
 
+<li>$:/state/toc/Table of contents/Character-creation-Classes-1395397534</li>
+
 <li>$:/state/toc/Table of contents/Character-creation-Races-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Character-creation/Classes-Class-features-1395397534</li>
 
 <li>$:/state/toc/Table of contents/Reference-Trade-goods-1395397534</li>
 
@@ -1379,6 +1387,8 @@ Error message and password prompt
 <li>$:/state/toc/Table of contents/Rules-Magic-1395397534</li>
 
 <li>$:/state/toc/Table of contents/Rules-Magic-items-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Social-interaction-1395397534</li>
 
 <li>$:/state/toc/Table of contents/Rules-Spells-1395397534</li>
 
@@ -1517,6 +1527,8 @@ Error message and password prompt
 <li>Darakka</li>
 
 <li>Darklords</li>
+
+<li>Dedicated-Weapon</li>
 
 <li>Deionarras-vitals</li>
 
@@ -4271,9 +4283,21 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 \end
 </pre>
 </div>
-<div created="20200331042858673" creator="The Islander" modified="20200620183130797" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
+<div created="20200331042858673" creator="The Islander" modified="20201224084014967" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
 <pre>\define hb(text)
 &lt;span class=&quot;myhb&quot;&gt;$text$&lt;/span&gt;
+\end
+
+\define sourcebook(book)
+\whitespace trim
+//
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;phb&quot;&gt;[[Player's Handbook|https://www.dndbeyond.com/sources/phb]]&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;dmg&quot;&gt;[[Dungeon Master's Guide|https://www.dndbeyond.com/sources/dmg]]&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;mm&quot;&gt;[[Monster Manual|https://www.dndbeyond.com/sources/mm]]&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;xgte&quot;&gt;[[Xanathar's Guide to Everything|https://www.dndbeyond.com/sources/xgte]]&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;erftlw&quot;&gt;[[Eberron: Rising from the Last War|https://www.dndbeyond.com/sources/erftlw]]&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;mtof&quot;&gt;[[Mordenkainen's Tome of Foes|https://www.dndbeyond.com/sources/mtof]]&lt;/$reveal&gt;
+//
 \end
 
 \define hb-disclaimer()
@@ -4292,29 +4316,17 @@ All of the content in this article is a modification of official game rules. Hou
 @@
 \end
 
-\define adaptationwurl(source,url,type:&quot;rules&quot;)
+\define adaptation(book,source,url,type:&quot;rules&quot;)
 @@background-color: #ffcfc0;
 &lt;&lt;&lt;
-&lt;&lt;case-sentence &quot;$type$&quot;&gt;&gt; are sourced from [[$source$|$url$]]. Note that any $type$ not explicitly quoted here are not used.
+&lt;&lt;case-sentence &quot;$type$&quot;&gt;&gt; are sourced from &lt;$reveal type=&quot;nomatch&quot; text=&quot;$book$&quot; default=&quot;&quot;&gt;&lt;&lt;sourcebook &quot;$book$&quot;&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$source$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;$reveal type=&quot;match&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;$source$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;[[$source$|$url$]]&lt;/$reveal&gt;&lt;/$reveal&gt;.
+Note that any $type$ not explicitly quoted here are not used.
 &lt;$reveal type=&quot;match&quot; state=&quot;!!article-is-house-rule&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;
 &lt;&lt;hb &quot;House rules&quot;&gt;&gt; are indicated by &lt;&lt;hb &quot;red underline&quot;&gt;&gt; in shorter articles. Longer articles exclude this notation.
 &lt;/$reveal&gt;
 &lt;&lt;&lt;
 @@
 \end
-
-\define adaptation(source,type:&quot;rules&quot;)
-@@background-color: #ffcfc0;
-&lt;&lt;&lt;
-&lt;&lt;case-sentence &quot;$type$&quot;&gt;&gt; are sourced from $source$. Note that any $type$ not explicitly quoted here are not used.
-&lt;$reveal type=&quot;match&quot; state=&quot;!!article-is-house-rule&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;
-&lt;&lt;hb &quot;House rules&quot;&gt;&gt; are indicated by &lt;&lt;hb &quot;red underline&quot;&gt;&gt; in shorter articles. Longer articles exclude this notation.
-&lt;/$reveal&gt;
-&lt;&lt;&lt;
-@@
-\end
-
-
 </pre>
 </div>
 <div created="20200420135252071" creator="Islander" modified="20201215191542566" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/known">
@@ -15230,6 +15242,12 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20200605130449674" creator="Islander" modified="20201011185127072" modifier="Islander" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
+<div created="20201224065808627" creator="Islander" modified="20201224065808627" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/System</pre>
+</div>
+<div created="20201224050408786" creator="Islander" modified="20201224065805820" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
+</div>
 <div created="20201224031339960" creator="Islander" modified="20201224031339960" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
 <pre>open</pre>
 </div>
@@ -15242,7 +15260,13 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20201224031715863" creator="Islander" modified="20201224031715863" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
 <pre>open</pre>
 </div>
+<div created="20201224064423405" creator="Islander" modified="20201224064423405" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Classes-1395397534">
+<pre>open</pre>
+</div>
 <div created="20201224041154900" creator="Islander" modified="20201224041154900" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Races-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201224064424549" creator="Islander" modified="20201224064424549" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation/Classes-Class-features-1395397534">
 <pre>open</pre>
 </div>
 <div created="20201224031944551" creator="Islander" modified="20201224031944551" modifier="Islander" title="$:/state/toc/Table of contents/Reference-Trade-goods-1395397534">
@@ -15257,13 +15281,16 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20201224031901999" creator="Islander" modified="20201224031902895" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Combat-1395397534">
 <pre>close</pre>
 </div>
-<div created="20201224031744382" creator="Islander" modified="20201224031910503" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Crafting-1395397534">
-<pre>close</pre>
+<div created="20201224031744382" creator="Islander" modified="20201224065748443" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Crafting-1395397534">
+<pre>open</pre>
 </div>
 <div created="20201224031723446" creator="Islander" modified="20201224042508739" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Magic-1395397534">
 <pre>close</pre>
 </div>
 <div created="20201224031717542" creator="Islander" modified="20201224042507451" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Magic-items-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201224065742267" creator="Islander" modified="20201224065744443" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Social-interaction-1395397534">
 <pre>close</pre>
 </div>
 <div created="20201224031829078" creator="Islander" modified="20201224031831407" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Spells-1395397534">
@@ -15275,7 +15302,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20201224031727991" creator="Islander" list="Next-game Sessions" modified="20201224044600675" modifier="Islander" title="$:/StoryList">
+<div created="20201224031727991" creator="Islander" list="$:/.isle/macros/hb Dedicated-Weapon Sourcebooks Next-game Sessions" modified="20201224084407318" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -15345,7 +15372,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20200530145115699" creator="Islander" modified="20201219163848796" modifier="Islander" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20200530030248083" creator="Islander" modified="20201219161740268" modifier="Islander" title="$:/temp/search">
+<div created="20200530030248083" creator="Islander" modified="20201224084619144" modifier="Islander" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200214043212866" creator="The Islander" modified="20200214043213778" modifier="The Islander" title="$:/theme">
@@ -16187,9 +16214,9 @@ The conc rock loses these benefits if its master is &lt;&lt;unconscious&gt;&gt; 
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div aliases="crafting craft" created="20200415044247166" creator="Islander" modified="20200512054855355" modifier="Islander" synopsis="With money, ingredients, and the needed tools you can use downtime to craft armor, weapons, clothing, tools, non-magical gear, magic items, poisons, drugs, potions, and alchemical elixirs. You can also fabricate vehicles and structures." tags="Rules" title="Crafting">
+<div aliases="crafting craft" created="20200415044247166" creator="Islander" modified="20201224083350056" modifier="Islander" synopsis="With money, ingredients, and the needed tools you can use downtime to craft armor, weapons, clothing, tools, non-magical gear, magic items, poisons, drugs, potions, and alchemical elixirs. You can also fabricate vehicles and structures." tags="Rules" title="Crafting">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Crafting&quot;&gt;&gt;
-&lt;&lt;adaptation &quot;//Xanathar's Guide to Everything//&quot;&gt;&gt;
+&lt;&lt;adaptation &quot;xgte&quot;&gt;&gt;
 {{!!synopsis}}
 
 ''//Resources and Resolution.//'' In addition to the appropriate tools for the item to be crafted, a character needs raw materials worth half of the mundane item's selling cost. To determine how many [[workweeks|?]] it takes to create an item, divide its gold piece cost by 50. A character can
@@ -16292,6 +16319,9 @@ If all the above requirements are met, the result of the process is an item of t
 <div created="20201213224544074" creator="Islander" modified="20201213224943745" modifier="Islander" tags="Groups" title="Darklords">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Darklords&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis &quot;List of Darklords&quot;&gt;&gt;</pre>
+</div>
+<div created="20201224065712630" creator="Islander" modified="20201224072445482" modifier="Islander" tags="" title="Dedicated-Weapon">
+<pre>&lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;</pre>
 </div>
 <div aliases="[[Deionarra's vitals]]" caption="Deionarra's vitals" created="20200407135253067" creator="The Islander" modified="20201118143940783" modifier="Islander" subtitle="Deionarra's vitals" synopsis="General goods." tags="Trade-lists" title="Deionarras-vitals">
 <pre>&lt;&lt;tabs-caption &quot;[[$:/.isle/images/Deionarras vitals page 1]] [[$:/.isle/images/Deionarras vitals page 2]] [[$:/.isle/images/Deionarras vitals page 3]] [[$:/.isle/images/Deionarras vitals page 4]] [[$:/.isle/images/Deionarras vitals page 5]]&quot; &quot;$:/.isle/images/Deionarras vitals page 1&quot;&gt;&gt;
@@ -16517,8 +16547,8 @@ If your familiar dies, you lose a number of hit points equal to two times your l
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="foraging forage [[food and water]] food water" created="20200505051146821" creator="Islander" modified="20200511000406855" modifier="Islander" synopsis="Characters can gather food and water as the party travels at a normal or slow pace." tags="Gathering" title="Foraging">
-<pre>&lt;&lt;adaptation &quot;//Dungeon Master's Guide//&quot;&gt;&gt;
+<div aliases="foraging forage [[food and water]] food water" created="20200505051146821" creator="Islander" modified="20201224083408279" modifier="Islander" synopsis="Characters can gather food and water as the party travels at a normal or slow pace." tags="Gathering" title="Foraging">
+<pre>&lt;&lt;adaptation &quot;dmg&quot;&gt;&gt;
 {{!!synopsis}}
 
 A foraging character makes a Wisdom (Survival) check, with the DC determined by the abundance of food and water in the region.
@@ -17072,9 +17102,9 @@ Toregene is born to human parents in {{$:/.isle/content/Locations/Acheron}}, iro
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div aliases="[[magic item creation]]" caption="Magic item creation" created="20200418033227501" creator="Islander" modified="20200510191453925" modifier="Islander" subtitle="Magic item creation" synopsis="Creating a magic item requires more than just time, effort, and materials. It is a longterm process that involves one or more adventures to track down rare materials and the lore needed to create the item." tags="Crafting" title="Magic-item-creation">
+<div aliases="[[magic item creation]]" caption="Magic item creation" created="20200418033227501" creator="Islander" modified="20201224083358864" modifier="Islander" subtitle="Magic item creation" synopsis="Creating a magic item requires more than just time, effort, and materials. It is a longterm process that involves one or more adventures to track down rare materials and the lore needed to create the item." tags="Crafting" title="Magic-item-creation">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Magic item creation&quot;&gt;&gt;
-&lt;&lt;adaptation &quot;//Xanathar's Guide to Everything//&quot;&gt;&gt;
+&lt;&lt;adaptation &quot;xgte&quot;&gt;&gt;
 {{!!synopsis}}
 
 [[Potions|Potion-brewing]] and [[spell scrolls|Scribing-spell-scrolls]] are exceptions to the rules below.
@@ -17299,9 +17329,10 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Olhydra&quot;&gt;&gt;&quot;&q
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Monster encounter&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="[[monster hunting]] butchering butcher" caption="Monster hunting" created="20200415222835858" creator="Islander" modified="20200510213735562" modifier="Islander" subtitle="Monster hunting" synopsis="[[Alchemy]], [[cooking|?]], [[magic item creation|?]], [[poison making|?]], and [[potion brewing|?]] invariably requires an exotic material to complete the [[crafting|?]] task. This material can range from the skin of a yeti to a vial of water taken from a whirlpool on the Elemental Plane of Water. Finding that material should take place as part of an adventure." tags="Gathering" title="Monster-hunting">
+<div aliases="[[monster hunting]] butchering butcher" caption="Monster hunting" created="20200415222835858" creator="Islander" modified="20201224083952839" modifier="Islander" subtitle="Monster hunting" synopsis="[[Alchemy]], [[cooking|?]], [[magic item creation|?]], [[poison making|?]], and [[potion brewing|?]] invariably requires an exotic material to complete the [[crafting|?]] task. This material can range from the skin of a yeti to a vial of water taken from a whirlpool on the Elemental Plane of Water. Finding that material should take place as part of an adventure." tags="Gathering" title="Monster-hunting">
 <pre>&lt;&lt;img &quot;$:/.isle/images/Monster hunting&quot;&gt;&gt;
-&lt;&lt;adaptation &quot;//Xanathar's Guide to Everything//, homebrew by [[/u/AeronDrake|https://www.reddit.com/r/UnearthedArcana/comments/8745i9/the_complete_crafter_a_guide_for_harvesting/]], and homebrew by [[/u/Mavrick593|https://www.reddit.com/r/UnearthedArcana/comments/ewawkl/the_comprehensive_guide_to_collecting_crafting_5e/]]&quot;&gt;&gt;
+&lt;$macrocall $name=&quot;adaptation&quot; source=&quot;&quot;&quot;&lt;&lt;sourcebook &quot;xgte&quot;&gt;&gt;, homebrew by [[/u/AeronDrake|https://www.reddit.com/r/UnearthedArcana/comments/8745i9/the_complete_crafter_a_guide_for_harvesting/]], and homebrew by [[/u/Mavrick593|https://www.reddit.com/r/UnearthedArcana/comments/ewawkl/the_comprehensive_guide_to_collecting_crafting_5e/]]&quot;&quot;&quot; /&gt;
+
 {{!!synopsis}}
 
 ! Harvesting Parts
@@ -17552,9 +17583,9 @@ To see which days in the year constitute a glittermoon, see &lt;&lt;calendar-fmt
 &lt;&lt;known location:&quot;[[Qazi]] or {{$:/.isle/content/Locations/Calimshan}}&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="naga nagas" article-is-house-rule="false" created="20200606052702608" creator="Islander" information-subject="race" modified="20201011180520189" modifier="Islander" name-plural="nagas" synopsis="Nagas are an intelligent race of monstrous snakes, who possess a humanoid face and a large serpentine body. Created by a long-lost civilization or god, they are a haughty race of immortal guardians who claim to be the pinnacle of the serpentine form. Much like dragons, some are good and some are evil, some are corrupted through necromancy, and some are even ethereal." tags="Races" title="Naga">
+<div aliases="naga nagas" article-is-house-rule="false" created="20200606052702608" creator="Islander" information-subject="race" modified="20201224084108606" modifier="Islander" name-plural="nagas" synopsis="Nagas are an intelligent race of monstrous snakes, who possess a humanoid face and a large serpentine body. Created by a long-lost civilization or god, they are a haughty race of immortal guardians who claim to be the pinnacle of the serpentine form. Much like dragons, some are good and some are evil, some are corrupted through necromancy, and some are even ethereal." tags="Races" title="Naga">
 <pre>&lt;&lt;img $:/.isle/images/Naga&gt;&gt;
-&lt;&lt;adaptationwurl &quot;/u/TheatreLife&quot; &quot;https://www.reddit.com/r/DnDBehindTheScreen/comments/38bsrz/naga/&quot; &quot;materials&quot;&gt;&gt;
+&lt;&lt;adaptation source:&quot;/u/TheatreLife&quot; url:&quot;https://www.reddit.com/r/DnDBehindTheScreen/comments/38bsrz/naga/&quot; type:&quot;materials&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;known&quot; by=&quot;nagas and &lt;&lt;know-resident&gt;&gt; {{$:/.isle/content/Locations/Toril}}&quot; dc=&quot;Race&quot; /&gt;
 
 &lt;&lt;&lt;
@@ -17771,8 +17802,8 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Gruumsh&quot;&gt;&gt;&quot;&q
 &lt;&lt;tocwresidents&gt;&gt;
 </pre>
 </div>
-<div aliases="[[overland travel]]" caption="Overland travel" created="20200505051253451" creator="Islander" modified="20200509002953213" modifier="Islander" subtitle="Overland travel" tags="Adventuring" title="Overland-travel">
-<pre>&lt;&lt;adaptation &quot;//Player's Handbook//&quot;&gt;&gt;
+<div aliases="[[overland travel]]" caption="Overland travel" created="20200505051253451" creator="Islander" modified="20201224084137078" modifier="Islander" subtitle="Overland travel" tags="Adventuring" title="Overland-travel">
+<pre>&lt;&lt;adaptation &quot;phb&quot;&gt;&gt;
 
 ''//Travel Pace.//'' While traveling, a group of adventurers can move at a normal, fast, or slow pace, as shown on the Travel Pace table. The table states how far the party can move in a period of time and whether the pace has any effect. A fast pace makes characters less perceptive, while a slow pace makes it possible to sneak around and to search an area more carefully.
 
@@ -18297,9 +18328,9 @@ While traveling through your favored terrain &lt;&lt;hb &quot;with your beast co
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Reference&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="relaxation" created="20200418062128857" creator="Islander" modified="20200509013542045" modifier="Islander" synopsis="Sometimes the best thing to do between adventures is relax. Whether a character wants a hard-earned vacation or needs to recover from injuries, relaxation is the ideal option for adventurers who need a break." tags="Downtime" title="Relaxation">
+<div aliases="relaxation" created="20200418062128857" creator="Islander" modified="20201224084155166" modifier="Islander" synopsis="Sometimes the best thing to do between adventures is relax. Whether a character wants a hard-earned vacation or needs to recover from injuries, relaxation is the ideal option for adventurers who need a break." tags="Downtime" title="Relaxation">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Relaxation&quot;&gt;&gt;
-&lt;&lt;adaptation &quot;//Xanathar's Guide to Everything//&quot;&gt;&gt;
+&lt;&lt;adaptation &quot;xgte&quot;&gt;&gt;
 {{!!synopsis}}
 
 ''//Resources.//'' Relaxation requires one week. You need to maintain at least a modest lifestyle while relaxing to gain the benefit of the activity.
@@ -18328,9 +18359,9 @@ You lose 1 renown if you do not interact with a faction, organization, or locati
 
 You lose 5 renown by taking significant actions in opposition to a faction, organization, or location.</pre>
 </div>
-<div aliases="reputation [[reputation points]]" created="20200406164225653" creator="The Islander" modified="20200504131549464" modifier="Islander" synopsis="Reputation enhances non-combat interaction between you and others by providing bonuses to certain skill checks. Those who recognize you are more likely to help you or to do what you ask, provided your reputation is a positive influence on the NPC or monster that recognizes you. A high reputation bonus makes it difficult for you to mask your identity, which can be a problem if you are trying not to be noticed." tags="Social-interaction" title="Reputation">
+<div aliases="reputation [[reputation points]]" created="20200406164225653" creator="The Islander" modified="20201224084228327" modifier="Islander" synopsis="Reputation enhances non-combat interaction between you and others by providing bonuses to certain skill checks. Those who recognize you are more likely to help you or to do what you ask, provided your reputation is a positive influence on the NPC or monster that recognizes you. A high reputation bonus makes it difficult for you to mask your identity, which can be a problem if you are trying not to be noticed." tags="Social-interaction" title="Reputation">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Reputation&quot;&gt;&gt;
-&lt;&lt;adaptationwurl &quot;Reputation - d20 SRD rules&quot; &quot;http://www.d20srd.org/srd/variant/campaigns/reputation.htm&quot;&gt;&gt;
+&lt;&lt;adaptation source:&quot;Reputation - d20 SRD rules&quot; url:&quot;http://www.d20srd.org/srd/variant/campaigns/reputation.htm&quot;&gt;&gt;
 {{!!synopsis}}
 
 @@.phb-caption
@@ -18558,9 +18589,9 @@ Unlike Earthly languages, R’lyehian makes no distinction between nouns, verbs,
 &lt;&lt;tocwresidents&gt;&gt;
 </pre>
 </div>
-<div aliases="[[scribing spell scrolls]]" caption="Scribing spell scrolls" created="20200510023322534" creator="Islander" modified="20200510133400378" modifier="Islander" subtitle="Scribing spell scrolls" synopsis="With time and patience, a spellcaster can transfer a spell to a scroll, creating a spell scroll." tags="Crafting" title="Scribing-spell-scrolls">
+<div aliases="[[scribing spell scrolls]]" caption="Scribing spell scrolls" created="20200510023322534" creator="Islander" modified="20201224084247543" modifier="Islander" subtitle="Scribing spell scrolls" synopsis="With time and patience, a spellcaster can transfer a spell to a scroll, creating a spell scroll." tags="Crafting" title="Scribing-spell-scrolls">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Scribing spell scrolls&quot;&gt;&gt;
-&lt;&lt;adaptation &quot;//Dungeon Master's Guide//&quot;&gt;&gt;
+&lt;&lt;adaptation &quot;dmg&quot;&gt;&gt;
 {{!!synopsis}}
 
 ''//Resources.//'' Scribing a spell scroll takes an amount of time and money related to the level of the spell the character wants to scribe, as shown in the Spell Scroll Costs table. In addition, the character must have proficiency in the Arcana skill, &lt;$macrocall $name=&quot;hb&quot; text=&quot;&quot;&quot;must have proficiency with &lt;&lt;tool-calligrapher &quot;c&quot;&gt;&gt;&quot;&quot;&quot;/&gt;, and must provide any material components required for the casting of the spell. Moreover, the character must have the spell prepared, or it must be among the character's known spells, in order to scribe a scroll of that spell.
@@ -18834,13 +18865,24 @@ The sidhe of the underground begin to lose their spiritual ties to Vaglaskógur.
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div caption="Approved sourcebook material" caption-sort="04. Approved sourcebook material" created="20201224031453515" creator="Islander" modified="20201224050309056" modifier="Islander" subtitle="Approved sourcebook material" synopsis="All material in [[Player's Handbook|https://www.dndbeyond.com/sources/phb]], [[Dungeon Master's Guide|https://www.dndbeyond.com/sources/dmg]], [[Monster Manual|https://www.dndbeyond.com/sources/mm]], [[Xanathar's Guide to Everything|https://www.dndbeyond.com/sources/xgte]], [[Eberron: Rising from the Last War|https://www.dndbeyond.com/sources/erftlw]], [[Guildmasters' Guide to Ravnica|https://www.dndbeyond.com/sources/erftlw]], [[Mordenkainen's Tome of Foes|https://www.dndbeyond.com/sources/mtof]], [[Sword Coast Adventurer's Guide|https://www.dndbeyond.com/sources/scag]], and [[Volo's Guide to Monsters|https://www.dndbeyond.com/sources/vgtm]] are approved for use unless specified otherwise in this article. An older version of an official rule is automatically replaced by a newer version described in a different sourcebook. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all official material. All material in any other official sourcebook is ''disallowed'', unless specified otherwise in this article." tags="Character-creation" title="Sourcebooks">
+<div caption="Approved sourcebook material" caption-sort="04. Approved sourcebook material" created="20201224031453515" creator="Islander" modified="20201224070736219" modifier="Islander" subtitle="Approved sourcebook material" synopsis="All material in [[Player's Handbook|https://www.dndbeyond.com/sources/phb]], [[Dungeon Master's Guide|https://www.dndbeyond.com/sources/dmg]], [[Monster Manual|https://www.dndbeyond.com/sources/mm]], [[Xanathar's Guide to Everything|https://www.dndbeyond.com/sources/xgte]], [[Eberron: Rising from the Last War|https://www.dndbeyond.com/sources/erftlw]], [[Guildmasters' Guide to Ravnica|https://www.dndbeyond.com/sources/erftlw]], [[Mordenkainen's Tome of Foes|https://www.dndbeyond.com/sources/mtof]], [[Sword Coast Adventurer's Guide|https://www.dndbeyond.com/sources/scag]], and [[Volo's Guide to Monsters|https://www.dndbeyond.com/sources/vgtm]] are approved for use unless specified otherwise in this article. An older version of an official rule is automatically replaced by a newer version described in a different sourcebook. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all official material. All material in any other official sourcebook is ''disallowed'', unless specified otherwise in this article." tags="Character-creation" title="Sourcebooks">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Sourcebooks&quot;&gt;&gt;
 {{$:/.isle/system/Playtest}}
 {{!!synopsis}}
 
 ! [[Tasha's Cauldron of Everything|https://www.dndbeyond.com/sources/tcoe]]
-Class Feature: Pact of the Talisman
+
+Class: Artificer
+
+Class Feature:
+
+* Bard - Additional Bard Spells, Bardic Versatility, Magical Inspiration
+* Cleric - Additional Cleric Spells, Blessed Strikes, Cantrip Versatility, Harness Divine Power
+* Druid - Additional Druid Spells, Cantrip Versatility, Wild Companion
+* Monk - Dedicated Weapon
+* Fighter - Martial Versatility
+
+* Warlock - Pact of the Talisman
 
 Eldritch Invocation: all
 
@@ -18858,6 +18900,13 @@ Maneuver: all
 Metamagic: all
 
 Race: Custom Lineage
+
+Subclass:
+
+* Artificer - all
+* Druid - Circle of Spores
+* Warlock - The Genie
+* Wizard - Bladesinging
 
 ! [[Acquisitions Incorporated|https://www.dndbeyond.com/sources/ai]]
 Material from this sourcebook is not approved because it does not conform to the style and setting of the campaign.
@@ -18886,8 +18935,8 @@ Race: Tortle
 &lt;&lt;tocwresidents&gt;&gt;
 </pre>
 </div>
-<div aliases="[[spell versatility]]" caption="Spell Versatility" created="20200410165623340" creator="The Islander" modified="20201031011352452" modifier="Islander" subtitle="Spell Versatility" synopsis="Spell Versatility allows you to switch out one known spell for another after a [[long rest|?]]." tags="Class-features" title="Spell-Versatility">
-<pre>&lt;&lt;adaptationwurl &quot;Class Feature Variants&quot; &quot;https://media.wizards.com/2019/dnd/downloads/UA-ClassFeatures.pdf&quot;&gt;&gt;
+<div aliases="[[spell versatility]]" caption="Spell Versatility" created="20200410165623340" creator="The Islander" modified="20201224084313214" modifier="Islander" subtitle="Spell Versatility" synopsis="Spell Versatility allows you to switch out one known spell for another after a [[long rest|?]]." tags="Class-features" title="Spell-Versatility">
+<pre>&lt;&lt;adaptation source:&quot;Class Feature Variants&quot; url:&quot;https://media.wizards.com/2019/dnd/downloads/UA-ClassFeatures.pdf&quot;&gt;&gt;
 
 &quot;&quot;&quot;
 //1st-level bard, sorcerer, and warlock feature.//
@@ -19306,8 +19355,8 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Elf/Wood elf/Mielikki&quot;&g
 /&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="[[taking 10]] [[take 10]]" caption="Taking 10" created="20200421205207455" creator="Islander" modified="20200509010101384" modifier="Islander" subtitle="Taking 10" synopsis="Taking 10 allows you to improve your chance of succeeding at a task by taking more time." tags="Ability-checks" title="Taking-10">
-<pre>&lt;&lt;adaptationwurl &quot;Using Skills - d20 SRD rules&quot; &quot;https://www.d20srd.org/srd/skills/usingSkills.htm&quot;&gt;&gt;
+<div aliases="[[taking 10]] [[take 10]]" caption="Taking 10" created="20200421205207455" creator="Islander" modified="20201224084333766" modifier="Islander" subtitle="Taking 10" synopsis="Taking 10 allows you to improve your chance of succeeding at a task by taking more time." tags="Ability-checks" title="Taking-10">
+<pre>&lt;&lt;adaptation source:&quot;Using Skills - d20 SRD rules&quot; url:&quot;https://www.d20srd.org/srd/skills/usingSkills.htm&quot;&gt;&gt;
 When you are not being threatened or distracted, you can choose to take 10. Instead of rolling 1d20 for the skill check, calculate your result as if you had rolled a 10. &lt;&lt;hb &quot;If you have advantage, add 5. For disadvantage, subtract 5.&quot;&gt;&gt; For many routine tasks, taking 10 makes you succeed automatically. Distractions or threats, such as combat, make it impossible for you to take 10. In most cases, taking 10 is purely a safety measure — you know (or expect) that an average roll will succeed but fear that a poor roll might fail, so you elect to settle for the average roll (a 10). Taking 10 is especially useful in situations where a particularly high roll wouldn’t help.
 
 &lt;&lt;hb &quot;Taking 10 increases the time needed by you to perform a task by a factor of ten. A task that takes an action takes one minute instead, an activity normally completed within a minute would take ten minutes, and so on.&quot;&gt;&gt;</pre>
@@ -19667,8 +19716,8 @@ Tabaxi:
 &lt;&lt;known location:&quot;[[Vaglaskógur|?]], [[Jehakka|?]], Thornwood, [[Celerity]], or Jehannum&quot; dc:&quot;Lesser known event&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="workweek workweeks" created="20200509011443634" creator="Islander" modified="20200614001347972" modifier="Islander" synopsis="A workweek is a 5 day period. You must spend at least 2 hours of each day engaged in the activity for that day to count toward the activity's completion. If you are traveling, or actively adventuring, then these 2 hours can come out of the &quot;light activity&quot; portion of your daily [[long rest|?]]." tags="Crafting" title="Workweek">
-<pre>&lt;&lt;adaptation &quot;//Xanathar's Guide to Everything//&quot;&gt;&gt;
+<div aliases="workweek workweeks" created="20200509011443634" creator="Islander" modified="20201224084346302" modifier="Islander" synopsis="A workweek is a 5 day period. You must spend at least 2 hours of each day engaged in the activity for that day to count toward the activity's completion. If you are traveling, or actively adventuring, then these 2 hours can come out of the &quot;light activity&quot; portion of your daily [[long rest|?]]." tags="Crafting" title="Workweek">
+<pre>&lt;&lt;adaptation &quot;xgte&quot;&gt;&gt;
 {{!!synopsis}}
 
 The days of an activity do not need to be consecutive; you can spread them over a longer period of time than is required for the activity. If the extended period of time is more than twice as long as the required time then there may be extra complications to double the activity's costs to represent the inefficiency of the character's progress.</pre>
