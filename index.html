@@ -3725,7 +3725,7 @@ Zendril: 90,000</pre>
 <div _canonical_uri="https://i.imgur.com/9VjM9VC.jpg" attribution="Thomas Mack" attributionurl="https://www.artstation.com/zuboros" created="20200418061552473" creator="Islander" modified="20200418061714497" modifier="Islander" tags="Media" title="$:/.isle/images/Relaxation" type="image/jpeg">
 <pre></pre>
 </div>
-<div _canonical_uri="https://i.imgur.com/WMhLWXm.jpg" attribution="Jarreau Wimberly" attributionurl="https://www.artstation.com/reau" created="20200418003658121" creator="Islander" modified="20200418003757656" modifier="Islander" tags="Media" title="$:/.isle/images/Reputation" type="image/jpeg">
+<div _canonical_uri="https://i.imgur.com/WMhLWXm.jpg" attribution="Jarreau Wimberly" attributionurl="https://www.artstation.com/reau" created="20200418003658121" creator="Islander" modified="20201224230210844" modifier="Islander" tags="Media" title="$:/.isle/images/Reputation" type="image/jpeg">
 <pre></pre>
 </div>
 <div _canonical_uri="https://i.imgur.com/tp33wNS.jpg" created="20200426024719325" creator="Islander" modified="20200426024753759" modifier="Islander" tags="Media" title="$:/.isle/images/Rescue Nala" type="image/jpeg">
@@ -3938,10 +3938,13 @@ Zendril: 90,000</pre>
 <div _canonical_uri="https://i.imgur.com/fhemSqv.jpg" attribution="Sanghyun Kam" attributionurl="https://www.artstation.com/gamgun1" created="20200419133213056" creator="Islander" modified="20200419133407854" modifier="Islander" tags="Media" title="$:/.isle/images/Zendril/Gates" type="image/jpeg">
 <pre></pre>
 </div>
-<div created="20200328023608793" creator="The Islander" modified="20201224194811882" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
-<pre>\define teste(tiddler,border:1)
-&lt;$set name=&quot;tiddlerunslugify&quot; filter=&quot;[[$(currentTiddler)$]search-replace:gi[-],[ ]addprefix[$:/.isle/images/]]&quot;&gt;
-&lt;$set name=imgtiddler value=&quot;$tiddler$&quot; emptyValue=&lt;&lt;tiddlerunslugify&gt;&gt; &gt;
+<div created="20200328023608793" creator="The Islander" modified="20201224230144494" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
+<pre>\define trans_attribution() {{$(currentTiddler)$!!attribution}}
+\define trans_attributionurl() {{$(currentTiddler)$!!attributionurl}}
+
+\define imgwattribution(tiddler,border:1)
+&lt;$set name=&quot;tiddlerunslugify&quot; filter=&quot;[[$(currentTiddler)$]search-replace:gi[-],[ ]addprefix[$:/.isle/images/]]&quot; select=&quot;0&quot;&gt;
+&lt;$set name=imgtiddler filter=&quot; $tiddler$&quot; value=&quot;$:/.isle/images/$tiddler$&quot; emptyValue=&lt;&lt;tiddlerunslugify&gt;&gt; &gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$border$&quot; default=&quot;1&quot;&gt;
 &lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
   &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler &gt;&gt; /&gt;
@@ -3952,49 +3955,22 @@ Zendril: 90,000</pre>
   &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler &gt;&gt; /&gt;
 &lt;/div&gt;
 &lt;/$reveal&gt;
+&lt;$list filter=&quot;[&lt;imgtiddler&gt;]&quot;&gt;
+&lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;trans_attribution&gt;&gt; default=&quot;&quot;&gt;
+&lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
+  Artwork by 
+  &lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;trans_attributionurl&gt;&gt; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{!!attributionurl}} target=&quot;_blank&quot;&gt;{{!!attribution}}&lt;/a&gt;&lt;/$reveal&gt;
+  &lt;$reveal type=&quot;match&quot; text=&lt;&lt;trans_attributionurl&gt;&gt; default=&quot;&quot;&gt;{{!!attribution}}&lt;/$reveal&gt;
+&lt;/p&gt;
+&lt;/$reveal&gt;
+&lt;/$list&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;
-\end
-
-\define img(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
-\end
-
-\define imgfade(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
-\end
-
-\define imgwattribution(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
-&lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  Artwork by {{$tiddler$!!attribution}}
-&lt;/p&gt;
-\end
-
-\define imgwattributionurl(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
-&lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  Artwork by &lt;a class=&quot;tc-tiddlylink-external&quot; href={{$tiddler$!!attributionurl}} target=&quot;_blank&quot;&gt;{{$tiddler$!!attribution}}&lt;/a&gt;
-&lt;/p&gt;
 \end
 
 \define attribution(tiddler,type:&quot;Artwork&quot;)
 &lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  $type$ by by {{$tiddler$!!attribution}}
-&lt;/p&gt;
-\end
-
-\define attributionurl(tiddler,type:&quot;Artwork&quot;)
-&lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  $type$ by &lt;a class=&quot;tc-tiddlylink-external&quot; href=&quot;{{$tiddler$!!attributionurl}}&quot; target=&quot;_blank&quot;&gt;{{$tiddler$!!attribution}}&lt;/a&gt;
+  Artwork by &lt;$reveal type=&quot;nomatch&quot; state=&quot;{{$:/.isle/images/$tiddler$!!attributionurl}}&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{$:/.isle/images/$tiddler$!!attributionurl}} target=&quot;_blank&quot;&gt;&lt;/$reveal&gt;{{$:/.isle/images/$tiddler$!!attribution}}&lt;$reveal type=&quot;nomatch&quot; state=&quot;{{$:/.isle/images/$tiddler$!!attributionurl}}&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;/a&gt;&lt;/$reveal&gt;
 &lt;/p&gt;
 \end
 </pre>
@@ -16584,11 +16560,11 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
-<div created="20201224174820247" creator="Islander" modified="20201224192123923" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20201224214949256" creator="Islander" modified="20201224215814095" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201224174819041" creator="Islander" modified="20201224192122020" modifier="Islander" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/More</pre>
+<div created="20201224214947945" creator="Islander" modified="20201224230325004" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/.isle/system/Table of contents</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -16596,7 +16572,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20201224174847392" creator="Islander" list="Reputation $:/.isle/macros/global $:/.isle/macros/case $:/.isle/macros/attribution Next-game Sessions Character-creation" modified="20201224192136188" modifier="Islander" title="$:/StoryList">
+<div created="20201224215010313" creator="Islander" list="Next-game Sessions Character-creation" modified="20201224220040191" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -19586,8 +19562,8 @@ You lose 1 renown if you do not interact with a faction, organization, or locati
 
 You lose 5 renown by taking significant actions in opposition to a faction, organization, or location.</pre>
 </div>
-<div aliases="reputation [[reputation points]]" created="20200406164225653" creator="The Islander" modified="20201224194823170" modifier="Islander" synopsis="Reputation enhances non-combat interaction between you and others by providing bonuses to certain skill checks. Those who recognize you are more likely to help you or to do what you ask, provided your reputation is a positive influence on the NPC or monster that recognizes you. A high reputation bonus makes it difficult for you to mask your identity, which can be a problem if you are trying not to be noticed." tags="Social-interaction" title="Reputation">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Reputation&quot;&gt;&gt;
+<div aliases="reputation [[reputation points]]" created="20200406164225653" creator="The Islander" modified="20201224230303806" modifier="Islander" synopsis="Reputation enhances non-combat interaction between you and others by providing bonuses to certain skill checks. Those who recognize you are more likely to help you or to do what you ask, provided your reputation is a positive influence on the NPC or monster that recognizes you. A high reputation bonus makes it difficult for you to mask your identity, which can be a problem if you are trying not to be noticed." tags="Social-interaction" title="Reputation">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;adaptation source:&quot;Reputation - d20 SRD rules&quot; url:&quot;http://www.d20srd.org/srd/variant/campaigns/reputation.htm&quot;&gt;&gt;
 {{!!synopsis}}
 
@@ -19614,7 +19590,6 @@ Reputation Points
 * ''//B.//'' Use column B for barbarians, fighters, psions, rangers, rogues, sorcerors, wizards, and warlocks.
 * ''//C.//'' Use column C for artificers, clerics, druids, and monks.
 * ''//D.//'' Use column D for bards, blood hunters, and paladins.
-
 
 Reputation points do not increase past 20th level.
 
