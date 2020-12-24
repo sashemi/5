@@ -52,7 +52,22 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 
 <!--~~ Raw markup ~~-->
 
-<link href="https://fonts.googleapis.com/css?family=Magra:wght@700&display=swap" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Magra:wght@700&display=swap" rel="stylesheet" type="text/css"><script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 
 </head>
 <body class="tc-body">
@@ -1348,8 +1363,6 @@ Error message and password prompt
 <li>$:/StoryList</li>
 
 <li>$:/tags/ViewToolbar</li>
-
-<li>$:/temp/info-plugin</li>
 
 <li>$:/theme</li>
 
@@ -16562,82 +16575,16 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <pre>The Fifth Season</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>yes</pre>
+<pre>no</pre>
 </div>
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="Next-game Sessions Character-creation" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
 <pre></pre>
-</div>
-<div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
-<pre>{
-    &quot;tiddlers&quot;: {
-        &quot;$:/info/browser&quot;: {
-            &quot;title&quot;: &quot;$:/info/browser&quot;,
-            &quot;text&quot;: &quot;yes&quot;
-        },
-        &quot;$:/info/node&quot;: {
-            &quot;title&quot;: &quot;$:/info/node&quot;,
-            &quot;text&quot;: &quot;no&quot;
-        },
-        &quot;$:/info/startup-timestamp&quot;: {
-            &quot;title&quot;: &quot;$:/info/startup-timestamp&quot;,
-            &quot;text&quot;: &quot;20201224160527385&quot;
-        },
-        &quot;$:/info/url/full&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;https://tiddlywiki.com/upgrade.html&quot;
-        },
-        &quot;$:/info/url/host&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/host&quot;,
-            &quot;text&quot;: &quot;tiddlywiki.com&quot;
-        },
-        &quot;$:/info/url/hostname&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/hostname&quot;,
-            &quot;text&quot;: &quot;tiddlywiki.com&quot;
-        },
-        &quot;$:/info/url/protocol&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/protocol&quot;,
-            &quot;text&quot;: &quot;https:&quot;
-        },
-        &quot;$:/info/url/port&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/port&quot;,
-            &quot;text&quot;: &quot;&quot;
-        },
-        &quot;$:/info/url/pathname&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/upgrade.html&quot;
-        },
-        &quot;$:/info/url/search&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/search&quot;,
-            &quot;text&quot;: &quot;&quot;
-        },
-        &quot;$:/info/url/origin&quot;: {
-            &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;https://tiddlywiki.com&quot;
-        },
-        &quot;$:/info/browser/screen/width&quot;: {
-            &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
-        },
-        &quot;$:/info/browser/screen/height&quot;: {
-            &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1600&quot;
-        },
-        &quot;$:/info/darkmode&quot;: {
-            &quot;title&quot;: &quot;$:/info/darkmode&quot;,
-            &quot;text&quot;: &quot;yes&quot;
-        },
-        &quot;$:/info/browser/language&quot;: {
-            &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
-        }
-    }
-}</pre>
 </div>
 <div created="20200214043212866" creator="The Islander" modified="20200214043213778" modifier="The Islander" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
