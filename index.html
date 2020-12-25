@@ -1364,6 +1364,12 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/toc/Table of contents-Character-creation-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Character-creation-Classes-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Character-creation/Classes-Class-features-1395397534</li>
+
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
 <li>$:/status/UserName</li>
@@ -4252,7 +4258,7 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 \end
 </pre>
 </div>
-<div created="20200331042858673" creator="The Islander" modified="20201225222409333" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
+<div created="20200331042858673" creator="The Islander" modified="20201225223103765" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
 <pre>\define hb(text)
 &lt;span class=&quot;myhb&quot;&gt;$text$&lt;/span&gt;
 \end
@@ -4293,10 +4299,11 @@ All of the content in this article is a modification of official game rules. Hou
 &lt;/blockquote&gt;
 \end
 
-\define adaptation(book,source,url,type:&quot;rules&quot;)
+\define adaptation(book,source,url,type:&quot;rules&quot;.quoted:1)
 &lt;blockquote style=&quot;background-color: #ffcfc0;&quot;&gt;
 &lt;&lt;case-sentence &quot;$type$&quot;&gt;&gt; are sourced from &lt;$reveal type=&quot;nomatch&quot; text=&quot;$book$&quot; default=&quot;&quot;&gt;&lt;&lt;sourcebook &quot;$book$&quot;&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$source$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;$reveal type=&quot;match&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;$source$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;[[$source$|$url$]]&lt;/$reveal&gt;&lt;/$reveal&gt;.
-Note that any $type$ on this topic which are not explicitly quoted here from the source are not used in the campaign.
+&lt;$reveal type=&quot;match&quot; text=&quot;$quoted$&quot; default=&quot;1&quot;&gt;Note that any $type$ on this topic which are not explicitly quoted here from the source are not used in the campaign.&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$quoted$&quot; default=&quot;0&quot;&gt;Only the $type$ modified or added to from the source are stated below. Not all rules from the source are explicitly quoted here.&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; state=&quot;!!article-is-house-rule&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;
 &lt;&lt;hb &quot;House rules&quot;&gt;&gt; are indicated by &lt;&lt;hb &quot;red underline&quot;&gt;&gt; in shorter articles. Longer articles exclude this notation.
 &lt;/$reveal&gt;
@@ -16594,8 +16601,17 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20201225222109228" creator="Islander" modified="20201225222109228" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201225222108301" creator="Islander" modified="20201225222146644" modifier="Islander" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20201225222108301" creator="Islander" modified="20201225223327701" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/.isle/system/Table of contents</pre>
+</div>
+<div created="20201225223329348" creator="Islander" modified="20201225223329348" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225223331380" creator="Islander" modified="20201225223331380" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Classes-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225223332580" creator="Islander" modified="20201225223332580" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation/Classes-Class-features-1395397534">
+<pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -16603,7 +16619,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20201225222137797" creator="Islander" list="Unofficial $:/.isle/macros/hb Next-game Sessions Character-creation" modified="20201225222526197" modifier="Islander" title="$:/StoryList">
+<div created="20201225222137797" creator="Islander" list="Unofficial Dedicated-Weapon $:/.isle/macros/hb Next-game Sessions Character-creation" modified="20201225223409413" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -17555,9 +17571,9 @@ If all the above requirements are met, the result of the process is an item of t
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis &quot;List of Darklords&quot;&gt;&gt;</pre>
 </div>
-<div aliases="[[dedicated weapon]]" caption="Dedicated Weapon" created="20201224065712630" creator="Islander" modified="20201225072024776" modifier="Islander" subtitle="Dedicated Weapon" tags="Class-features" title="Dedicated-Weapon">
+<div aliases="[[dedicated weapon]]" caption="Dedicated Weapon" created="20201224065712630" creator="Islander" modified="20201225223546220" modifier="Islander" subtitle="Dedicated Weapon" tags="Class-features" title="Dedicated-Weapon">
 <pre>{{$:/.isle/system/Playtest}}
-&lt;&lt;adaptation &quot;tcoe&quot;&gt;&gt;
+&lt;&lt;adaptation book:&quot;tcoe&quot; quoted:0&gt;&gt;
 
 //1st-level monk feature.//
 
@@ -20857,7 +20873,7 @@ faith=&quot;{{$:/.isle/content/Faiths/Human/Ezran/Erudites}}&quot;
 {{!!synopsis}}
 </pre>
 </div>
-<div caption="Approved unofficial material" caption-sort="05. Approved unofficial material" created="20201224040919942" creator="Islander" modified="20201225222343037" modifier="Islander" subtitle="Approved unofficial material" synopsis="All material in any unofficial sourcebook or playtest material is ''disallowed'', unless specified otherwise in this article. For [[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]] specifically, an older version of a rule is automatically replaced by a newer version described in a different release. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all approved unofficial material." tags="Character-creation" title="Unofficial">
+<div caption="Approved unofficial material" caption-sort="05. Approved unofficial material" created="20201224040919942" creator="Islander" modified="20201225223313477" modifier="Islander" subtitle="Approved unofficial material" synopsis="All material in any unofficial sourcebook or playtest material is ''disallowed'', unless specified otherwise in this article. For [[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]] specifically, an older version of a rule is automatically replaced by a newer version described in a different release. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all approved unofficial material." tags="Character-creation" title="Unofficial">
 <pre>&lt;&lt;imgwattribution &quot;Sourcebooks&quot;&gt;&gt;
 {{$:/.isle/system/Playtest}}
 {{!!synopsis}}
@@ -20868,10 +20884,9 @@ Class Feature:
 
 @@.h
 : ''//All classes.//'' Maneuver Versatility, Proficiency Versatility
-: ''//Bard.//'' [[Spell Versatility|?]]
+: ''//Bard, Warlock.//'' [[Spell Versatility|?]] (expanded to more classes)
 : ''//Ranger.//'' See [[Ranger]] class
-: ''//Sorcerer//'' Font of Magic options — Empowering Reserves, Imbuing Touch, Sorcerous Fortitude; [[Spell Versatility|?]]
-: ''//Warlock//'' [[Spell Versatility|?]]
+: ''//Sorcerer//'' Font of Magic options — Empowering Reserves, Imbuing Touch, Sorcerous Fortitude; [[Spell Versatility|?]] (expanded to more classes)
 @@
 
 ! &lt;&lt;sourcebook &quot;ualdu&quot; 0&gt;&gt;
