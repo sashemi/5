@@ -868,6 +868,8 @@ Error message and password prompt
 
 <li>$:/.isle/images/Excavation</li>
 
+<li>$:/.isle/images/Expensive spells</li>
+
 <li>$:/.isle/images/Feats</li>
 
 <li>$:/.isle/images/Find familiar</li>
@@ -875,6 +877,8 @@ Error message and password prompt
 <li>$:/.isle/images/Firearms</li>
 
 <li>$:/.isle/images/Fishing</li>
+
+<li>$:/.isle/images/Foraging</li>
 
 <li>$:/.isle/images/Gathering</li>
 
@@ -1359,6 +1363,30 @@ Error message and password prompt
 <li>$:/state/tab/moresidebar-1850697562</li>
 
 <li>$:/state/tab/sidebar--595412856</li>
+
+<li>$:/state/toc/Table of contents-Rules-1395397534</li>
+
+<li>$:/state/toc/Table of contents-Shops-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Adventuring-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Combat-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Gathering-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Magic-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Magic-items-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Monsters-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Social-interaction-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Spells-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Shops-Services-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Shops-Trade-lists-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -3439,6 +3467,9 @@ Zendril: 90,000</pre>
 <div _canonical_uri="https://i.imgur.com/oPc42x2.jpg" attribution="Alexis Boyer" attributionurl="https://www.artstation.com/azii" created="20200418044947047" creator="Islander" modified="20200418045100655" modifier="Islander" tags="Media" title="$:/.isle/images/Excavation" type="image/jpeg">
 <pre></pre>
 </div>
+<div _canonical_uri="https://i.imgur.com/oiPEgQ0.jpg" attribution="Alex Brock" attributionurl="https://www.artstation.com/alexbrock" created="20201225063759341" creator="Islander" modified="20201225064120002" modifier="Islander" tags="Media" title="$:/.isle/images/Expensive spells" type="image/jpeg">
+<pre></pre>
+</div>
 <div _canonical_uri="https://i.imgur.com/MR5b7EK.jpg" attribution="Hugh Pindur" attributionurl="https://www.artstation.com/pindurski" created="20200426021637580" creator="Islander" modified="20200426021847019" modifier="Islander" tags="Media" title="$:/.isle/images/Feats" type="image/jpeg">
 <pre></pre>
 </div>
@@ -3449,6 +3480,9 @@ Zendril: 90,000</pre>
 <pre></pre>
 </div>
 <div _canonical_uri="https://i.imgur.com/hkfxYew.jpg" attribution="Stephen Stark" attributionurl="https://www.artstation.com/sstarkm" created="20200418014134538" creator="Islander" modified="20200418014417504" modifier="Islander" tags="Media" title="$:/.isle/images/Fishing" type="image/jpeg">
+<pre></pre>
+</div>
+<div _canonical_uri="https://i.imgur.com/NJuMogg.jpg" attribution="Even Amundsen" attributionurl="https://www.artstation.com/mischeviouslittleelf" created="20201225064622972" creator="Islander" modified="20201225064800234" modifier="Islander" tags="Media" title="$:/.isle/images/Foraging" type="image/jpeg">
 <pre></pre>
 </div>
 <div _canonical_uri="https://i.imgur.com/dYOPaov.jpg" attribution="Iga &quot;Igson&quot; Oliwiak" attributionurl="https://www.artstation.com/igsonart" created="20200418011800353" creator="Islander" modified="20200418011857776" modifier="Islander" tags="Media" title="$:/.isle/images/Gathering" type="image/jpeg">
@@ -4084,7 +4118,7 @@ $amount$
 \end
 </pre>
 </div>
-<div created="20200426012505238" creator="Islander" modified="20201215201303569" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/glossary">
+<div created="20200426012505238" creator="Islander" modified="20201225064614458" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/glossary">
 <pre>\define blinded()
 [[blinded|https://www.dndbeyond.com/sources/basic-rules/appendix-a-conditions#Blinded]]
 \end
@@ -4169,6 +4203,10 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 [[$prefix$lchemist's supplies|https://www.dndbeyond.com/equipment/alchemists-supplies]]
 \end
 
+\define tool-artisan(prefix:&quot;A&quot;)
+[[$prefix$rtisan's tools|https://www.dndbeyond.com/sources/basic-rules/equipment#Artisan'sTools]]
+\end
+
 \define tool-brewer(prefix:&quot;B&quot;)
 [[$prefix$rewer's supplies|https://www.dndbeyond.com/equipment/brewers-supplies]]
 \end
@@ -4238,7 +4276,7 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 \end
 </pre>
 </div>
-<div created="20200331042858673" creator="The Islander" modified="20201225054324118" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
+<div created="20200331042858673" creator="The Islander" modified="20201225063707483" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
 <pre>\define hb(text)
 &lt;span class=&quot;myhb&quot;&gt;$text$&lt;/span&gt;
 \end
@@ -4261,7 +4299,7 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;sac&quot;&gt;[[Sage Advice Compendium|http://media.wizards.com/2017/dnd/downloads/SA-Compendium.pdf]]&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;phbe&quot;&gt;[[Player's Handbook Errata|https://media.wizards.com/2020/dnd/downloads/PH-Errata.pdf]]&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;ua&quot;&gt;[[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]]&lt;/$reveal&gt;
-&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;uacfv&quot;&gt;[[Unearthed Arcana: Class Feature Variants|https://dnd.wizards.com/articles/unearthed-arcana]]&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;uacfv&quot;&gt;[[Unearthed Arcana: Class Feature Variants|https://media.wizards.com/2019/dnd/downloads/UA-ClassFeatures.pdf]]&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;
 //
 \end
 
@@ -16574,11 +16612,47 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
-<div created="20201225045200480" creator="Islander" modified="20201225045200480" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20201225045200480" creator="Islander" modified="20201225064220747" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201225045159592" creator="Islander" modified="20201225053430350" modifier="Islander" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/More</pre>
+<div created="20201225045159592" creator="Islander" modified="20201225064833330" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/.isle/system/Table of contents</pre>
+</div>
+<div created="20201225062911786" creator="Islander" modified="20201225065628530" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225065259753" creator="Islander" modified="20201225065625210" modifier="Islander" title="$:/state/toc/Table of contents-Shops-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225063952522" creator="Islander" modified="20201225064855426" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Adventuring-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225063950058" creator="Islander" modified="20201225063951394" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Combat-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225063907930" creator="Islander" modified="20201225065046241" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Gathering-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225062914219" creator="Islander" modified="20201225065105753" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Magic-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225065116737" creator="Islander" modified="20201225065250490" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Magic-items-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225065127457" creator="Islander" modified="20201225065218153" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Monsters-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225065217337" creator="Islander" modified="20201225065253314" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Social-interaction-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225063324050" creator="Islander" modified="20201225065258794" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Spells-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225065318778" creator="Islander" modified="20201225065320450" modifier="Islander" title="$:/state/toc/Table of contents/Shops-Services-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225065321106" creator="Islander" modified="20201225065321106" modifier="Islander" title="$:/state/toc/Table of contents/Shops-Trade-lists-1395397534">
+<pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -16586,7 +16660,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20201225051527024" creator="Islander" list="Long-rest $:/.isle/macros/hb Next-game Sessions Character-creation" modified="20201225054159229" modifier="Islander" title="$:/StoryList">
+<div created="20201225051527024" creator="Islander" list="Next-game Sessions Character-creation" modified="20201225065552082" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -17171,8 +17245,8 @@ The Knights of Hope are dead. Mistral's rebellion has ended. The Age of Desolati
 &lt;&lt;known location:&quot;or [[Jehannum]]&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="channeling channel channeled" created="20200418014026162" creator="Islander" modified="20200507043108169" modifier="Islander" tags="Magic" title="Channeling">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Channeling&quot;&gt;&gt;
+<div aliases="channeling channel channeled" created="20200418014026162" creator="Islander" modified="20201225064844147" modifier="Islander" tags="Magic" title="Channeling">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 </pre>
 </div>
@@ -17394,8 +17468,8 @@ Zure are made of a porous coral-like material that could be any colour, bright o
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="[[conc rock]]" caption="Conc rock" created="20200408063826398" creator="The Islander" modified="20200504131519160" modifier="Islander" subtitle="Conc rock" tags="Monsters" title="Conc-rock">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Conc rock&quot;&gt;&gt;
+<div aliases="[[conc rock]]" caption="Conc rock" created="20200408063826398" creator="The Islander" modified="20201225065144657" modifier="Islander" subtitle="Conc rock" tags="Monsters" title="Conc-rock">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 
 ''//Shared Mind.//'' A conc rock knows everything its master knows, including all the languages the creator can speak and read. While the conc rock is in physical contact with its master, it can magically convey what it senses to its master, and the two can communicate telepathically.
@@ -17426,8 +17500,8 @@ The conc rock loses these benefits if its master is &lt;&lt;unconscious&gt;&gt; 
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="[[cooperative casting]]" caption="Cooperative casting" created="20200418013858681" creator="Islander" modified="20200418014053921" modifier="Islander" subtitle="Cooperative casting" tags="Magic" title="Cooperative-casting">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Cooperative casting&quot;&gt;&gt;
+<div aliases="[[cooperative casting]]" caption="Cooperative casting" created="20200418013858681" creator="Islander" modified="20201225064915939" modifier="Islander" subtitle="Cooperative casting" tags="Magic" title="Cooperative-casting">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
@@ -17634,8 +17708,9 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Olhydra&quot;&gt;&gt;&quot;&q
 {{!!synopsis}}
 </pre>
 </div>
-<div caption="Expensive spells" created="20200628162823255" creator="Islander" modified="20201225053130270" modifier="Islander" subtitle="Expensive spells" synopsis="Some spells require material components to cast. A ''component pouch'' or a ''spellcasting focus'' can be used to substitute for these components, but if a cost is indicated for a component, a character must have that specific component before he or she can cast the spell." tags="Magic" title="Expensive-spells">
-<pre>! [[Material Components|https://www.dndbeyond.com/sources/basic-rules/spellcasting#Components]]
+<div caption="Expensive spells" created="20200628162823255" creator="Islander" modified="20201225064809802" modifier="Islander" subtitle="Expensive spells" synopsis="Some spells require material components to cast. A ''component pouch'' or a ''spellcasting focus'' can be used to substitute for these components, but if a cost is indicated for a component, a character must have that specific component before he or she can cast the spell." tags="Magic" title="Expensive-spells">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
+! [[Material Components|https://www.dndbeyond.com/sources/basic-rules/spellcasting#Components]]
 A character can use a ''component pouch'' or a ''spellcasting focus'' (found in &lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;, Chapter 5) in place of the material components specified for a spell. But if a cost is indicated for a component, a character must have that specific component before he or she can cast the spell.
 
 If a spell states that a material component is consumed by the spell, the caster must provide this component for each casting of the spell.
@@ -17646,7 +17721,7 @@ A spellcaster must have a hand free to access these components, but it can be th
 A bard, cleric, druid, paladin, sorcerer, warlock, or wizard can use a spellcasting focus, as described in &lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;, Chapter 10. Rangers with the [[Druidic Focus|Ranger]] class feature can use a druidic focus. See below for spellcasting focus options per class:
 
 @@.h
-* ''//Artificer.//'' [[Artisan's tools|https://www.dndbeyond.com/sources/basic-rules/equipment#Artisan'sTools]].
+* ''//Artificer.//'' &lt;&lt;tool-artisan&gt;&gt;.
 * ''//Bard.//'' [[Musical instrument|https://www.dndbeyond.com/sources/basic-rules/equipment#MusicalInstrument]].
 * ''//[[Blood Hunter (Order of the Profane Soul)|https://www.dndbeyond.com/classes/blood-hunter#OrderoftheProfaneSoul]].//'' Beginning at 3rd level, while you have an active Crimson Rite, you can use your weapon as a spellcasting focus.
 * ''//Cleric, Paladin.//'' [[Holy symbol|https://www.dndbeyond.com/sources/basic-rules/equipment#HolySymbol]]; these are special in that you only need to wear one or have it on your shield.
@@ -17654,7 +17729,7 @@ A bard, cleric, druid, paladin, sorcerer, warlock, or wizard can use a spellcast
 * ''//Sorcerer, Warlock, Wizard.//'' [[Arcane focus|https://www.dndbeyond.com/sources/basic-rules/equipment#ArcaneFocus]]; an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item — designed to channel the power of arcane spells.
 @@
 
-All other spellcasting classes like Arcane Trickster, Eldritch Knight, and Way of the Four Elements cannot use spellcasting foci but they can use component pouches.
+All other spellcasting classes like Arcane Trickster, Eldritch Knight, Ranger, and Way of the Four Elements cannot use spellcasting foci but they can use component pouches.
 
 ! [[Component Pouch|https://www.dndbeyond.com/equipment/component-pouch]]
 A component pouch costs 25 gp and is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).
@@ -17733,8 +17808,8 @@ Spells marked with a &amp;#10012; require expensive material components that are
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="[[find familiar]]" caption="Find familiar" created="20200411014358249" creator="Islander" modified="20200427212721542" modifier="Islander" subtitle="Find familiar" synopsis="Your familiar can be a temporary animal spirit, as described in //Player's Handbook// or you can form a closer bond with your familiar so that it grows more powerful as you gain levels. " tags="Spells" title="Find-familiar">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Find familiar&quot;&gt;&gt;
+<div aliases="[[find familiar]]" caption="Find familiar" created="20200411014358249" creator="Islander" modified="20201225063341979" modifier="Islander" subtitle="Find familiar" synopsis="Your familiar can be a temporary animal spirit, as described in //Player's Handbook// or you can form a closer bond with your familiar so that it grows more powerful as you gain levels. " tags="Spells" title="Find-familiar">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;hb-disclaimer-all&gt;&gt;
 
 Your familiar obeys your commands as best as it can. It takes its turn on your initiative, and it automatically takes any action it feels would help you. On your turn, you can verbally command your familiar to:
@@ -17766,8 +17841,9 @@ If your familiar dies, you lose a number of hit points equal to two times your l
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="foraging forage [[food and water]] food water" created="20200505051146821" creator="Islander" modified="20201225033046254" modifier="Islander" synopsis="Characters can gather food and water as the party travels at a normal or slow pace." tags="Gathering" title="Foraging">
-<pre>&lt;&lt;adaptation &quot;dmg&quot;&gt;&gt;
+<div aliases="foraging forage [[food and water]] food water" created="20200505051146821" creator="Islander" modified="20201225064816354" modifier="Islander" synopsis="Characters can gather food and water as the party travels at a normal or slow pace." tags="Gathering" title="Foraging">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
+&lt;&lt;adaptation &quot;dmg&quot;&gt;&gt;
 {{!!synopsis}}
 
 A foraging character makes a Wisdom (Survival) check, with the DC determined by the abundance of food and water in the region.
@@ -17919,8 +17995,8 @@ You cannot use //heal// to cure yourself of a disease with a rating of 7 or abov
 &lt;&lt;known location:&quot;[[Vaglaskógur|?]], [[Jehakka|?]], Thornwood, [[Celerity]], or Jehannum&quot; dc:&quot;Lesser known event&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div created="20200418032910036" creator="Islander" modified="20200418033004332" modifier="Islander" tags="Gathering" title="Herbalism">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Herbalism&quot;&gt;&gt;
+<div created="20200418032910036" creator="Islander" modified="20201225064136834" modifier="Islander" tags="Gathering" title="Herbalism">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
 <div aliases="[[heroes feast]]" caption="Heroes' feast" created="20200410130912343" creator="The Islander" modified="20200415043251779" modifier="Islander" subtitle="Heroes' feast" synopsis="Rules to cure a disease have been changed to use opposed ability check like //dispel magic// and //counterspell// rules for higher level spells." tags="Spells" title="Heroes-feast">
@@ -17952,8 +18028,8 @@ Hit Points
 |Wizard | 6 | 4 | d6 |
 @@</pre>
 </div>
-<div created="20200418033141973" creator="Islander" modified="20200418033223636" modifier="Islander" tags="Social-interaction" title="Honor">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Honor&quot;&gt;&gt;
+<div created="20200418033141973" creator="Islander" modified="20201225065225417" modifier="Islander" tags="Social-interaction" title="Honor">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 </pre>
 </div>
@@ -18221,7 +18297,7 @@ You cannot use //lesser restoration// to cure yourself of a disease with a ratin
 9th
 @@</pre>
 </div>
-<div aliases="[[long rest]]" caption="Long rest" created="20200410143716078" creator="The Islander" modified="20201225054442694" modifier="Islander" subtitle="Long rest" synopsis="A long rest is a period of extended downtime, at least 8 hours long, during w hich a character sleeps or perform slight activity: reading, talking, eating, or standing watch for no more than 2 hours." tags="Downtime" title="Long-rest">
+<div aliases="[[long rest]]" caption="Long rest" created="20200410143716078" creator="The Islander" modified="20201225062705276" modifier="Islander" subtitle="Long rest" synopsis="A long rest is a period of extended downtime, at least 8 hours long, during w hich a character sleeps or perform slight activity: reading, talking, eating, or standing watch for no more than 2 hours." tags="Downtime" title="Long-rest">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;hb-disclaimer&gt;&gt;
 
@@ -18230,7 +18306,7 @@ You can only take a long rest every 24 hours, &lt;$macrocall $name=&quot;hb&quot
 You cannot use your [[Spell Versatility|?]] feature to replace a spell that you have cast during a long rest.
 
 ! Slow Natural Healing
-//Dungeon Master's Guide//, Chapter 9: Dungeon Master's Workshop:
+&lt;&lt;sourcebook &quot;dmg&quot;&gt;&gt;, Chapter 9: Dungeon Master's Workshop:
 
 &lt;&lt;&lt;
 Characters don’t regain hit points at the end of a long rest. Instead, a character can spend Hit Dice to heal at the end of a long rest, just as with a short rest.
@@ -18315,8 +18391,8 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Elf/Wood elf/Mielikki&quot;&g
 
 Toregene is born to human parents in {{$:/.isle/content/Locations/Acheron}}, iron-shod battle plane, in the same year [[Belen]] appears in the Carcosi sky (&lt;&lt;calendar-fmt 6&gt;&gt;). There is a primordial connection between Carcosa's blue-green satellite, Belen, and Toregene. Her birth is auspicious, and her fate is tied to demiplane. Toregene matures from childhood to adolescence in the vicinity of [[Nishrek|https://forgottenrealms.fandom.com/wiki/Nishrek]], the last known the last known home of the [[orc pantheon|https://forgottenrealms.fandom.com/wiki/Orc_pantheon]]. She is trained under the tutelege of {{$:/.isle/content/Races/Devil/Baatezu}} and &lt;&lt;race &quot;Orc&quot; &quot;plural&quot;&gt;&gt;. During her upbringing she builds strong connections with both.</pre>
 </div>
-<div created="20200418013816698" creator="Islander" modified="20200530214426598" modifier="Islander" synopsis="Magic permeates all existence, and manifests most prominently in a raw form known as the [[Weave|https://forgottenrealms.fandom.com/wiki/Weave]]. Whether helpful or harmful, magic appears frequently in the life of an adventurer. Practitioners of magic are rare, set apart from the masses of people by their extraordinary talent. Common folk might see evidence of magic on a regular basis, but the effects are often minor." tags="Rules" title="Magic">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Magic&quot;&gt;&gt;
+<div created="20200418013816698" creator="Islander" modified="20201225065058169" modifier="Islander" synopsis="Magic permeates all existence, and manifests most prominently in a raw form known as the [[Weave|https://forgottenrealms.fandom.com/wiki/Weave]]. Whether helpful or harmful, magic appears frequently in the life of an adventurer. Practitioners of magic are rare, set apart from the masses of people by their extraordinary talent. Common folk might see evidence of magic on a regular basis, but the effects are often minor." tags="Rules" title="Magic">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
@@ -18377,8 +18453,8 @@ Magic Item Creation DCs
 
 If all the above requirements are met, the result of the process is a magic item of the desired sort.</pre>
 </div>
-<div aliases="[[magic items]]" caption="Magic items" created="20200530213507582" creator="Islander" modified="20200531005833472" modifier="Islander" subtitle="Magic items" synopsis="Magic items are gleaned from the hoards of conquered monsters or discovered in long-lost vaults. Such items grant capabilities a character could rarely have otherwise, or they complement their owner's capabilities in wondrous ways." tags="Rules" title="Magic-items">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Magic items&quot;&gt;&gt;
+<div aliases="[[magic items]]" caption="Magic items" created="20200530213507582" creator="Islander" modified="20201225065113202" modifier="Islander" subtitle="Magic items" synopsis="Magic items are gleaned from the hoards of conquered monsters or discovered in long-lost vaults. Such items grant capabilities a character could rarely have otherwise, or they complement their owner's capabilities in wondrous ways." tags="Rules" title="Magic-items">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 
 Types of magic items include armor, potions , scrolls, rings, rods, staffs, wands, weapons, and wondrous items. Magic items also have rarities: common, uncommon, rare, very rare, and legendary.
@@ -18680,12 +18756,12 @@ Butchering Food Yield
 Butchering meat does not count towards the maximum harvest checks you can make on a monster's remains.
 </pre>
 </div>
-<div created="20200418045215639" creator="Islander" modified="20200418045301094" modifier="Islander" tags="Rules" title="Monsters">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Monsters&quot;&gt;&gt;
+<div created="20200418045215639" creator="Islander" modified="20201225065134106" modifier="Islander" tags="Rules" title="Monsters">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="[[moon phases]] moondark glitterdark brightmoon glittermoon" caption="Moon phases" created="20200503010019656" creator="Islander" information-subject="location" modified="20201225025405712" modifier="Islander" subtitle="Moon phases" synopsis="The lunar phase or moon phase is the shape of the directly sunlit portion of a moon as viewed from the ground. The lunar phases gradually change over the period relative to  a moon's orbital position around a planet, and the planet's own relative position to its sun." tags="Magic Moons" title="Moon-phases">
+<div aliases="[[moon phases]] moondark glitterdark brightmoon glittermoon" caption="Moon phases" created="20200503010019656" creator="Islander" information-subject="location" modified="20201225064959674" modifier="Islander" subtitle="Moon phases" synopsis="The lunar phase or moon phase is the shape of the directly sunlit portion of a moon as viewed from the ground. The lunar phases gradually change over the period relative to  a moon's orbital position around a planet, and the planet's own relative position to its sun." tags="Magic Moons" title="Moon-phases">
 <pre>[img[$:/.isle/images/Moon phases]]
 &lt;&lt;attribution &quot;Moon phases&quot;&gt;&gt;
 
@@ -18719,7 +18795,7 @@ To see the timing of moon phases, see &lt;&lt;calendar-fmt&gt;&gt;.
 The effects of Carcoca's moons are felt everywhere on the demiplane, even in a location that is deep underground.
 
 !! Moondark
-&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Moon phases/Brightmoon&quot;&gt;&gt;
+&lt;&lt;imgwattribution &quot;Moon phases/Brightmoon&quot;&gt;&gt;
 
 Moondark is a period during which [[Altair]] first transitions to a new moon, and ends when [[Belen]] transitions from a new moon to waxing crescent. The moons greatly influence the [[Weave]] in Carcosa, and a time when the moons are weakest has unfavorable effects on magic.
 
@@ -18966,8 +19042,8 @@ faith=&quot;{{$:/.isle/content/Faiths/Human/Ezran/Erudites}}&quot;
 &lt;&lt;known location:&quot;[[Walkure]], {{$:/.isle/content/Locations/Stygia}}, or {{$:/.isle/content/Locations/Dis}}&quot; dc:&quot;Person&quot; gender:&quot;her&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div created="20200426124221273" creator="Islander" modified="20201213225225537" modifier="Islander" synopsis="An obozu is a special tracker, typically sent after a single quarry of interest to the [[Shou government|https://forgottenrealms.fandom.com/wiki/Shou_Lung#Government]] and [[Celestial Bureaucracy|https://forgottenrealms.fandom.com/wiki/Celestial_Empire#The_Million_Officials]]." tags="Monsters" title="Obozu">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Obozu&quot;&gt;&gt;
+<div created="20200426124221273" creator="Islander" modified="20201225065154609" modifier="Islander" synopsis="An obozu is a special tracker, typically sent after a single quarry of interest to the [[Shou government|https://forgottenrealms.fandom.com/wiki/Shou_Lung#Government]] and [[Celestial Bureaucracy|https://forgottenrealms.fandom.com/wiki/Celestial_Empire#The_Million_Officials]]." tags="Monsters" title="Obozu">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 {{!!synopsis}}
 
@@ -19061,7 +19137,7 @@ Your familiar obeys your commands as best as it can. It takes its turn on your i
 * Take the Attack, Dash, Disengage, Dodge, or Help action.
 </pre>
 </div>
-<div caption="Passive check" created="20200421210828881" creator="Islander" modified="20201225053251046" modifier="Islander" subtitle="Passive check" synopsis="A passive check is a special kind of ability check that doesn't involve any die rolls. Such a check can represent the average result for a task done repeatedly, such as searching for secret doors over and over again, or can be used when the DM wants to secretly determine whether the characters succeed at something without rolling dice, such as noticing a hidden monster." tags="Ability-checks" title="Passive-check">
+<div caption="Passive check" created="20200421210828881" creator="Islander" modified="20201225063741634" modifier="Islander" subtitle="Passive check" synopsis="A passive check is a special kind of ability check that doesn't involve any die rolls. Such a check can represent the average result for a task done repeatedly, such as searching for secret doors over and over again, or can be used when the DM wants to secretly determine whether the characters succeed at something without rolling dice, such as noticing a hidden monster." tags="Ability-checks" title="Passive-check">
 <pre>&lt;&lt;hb-disclaimer&gt;&gt;
 {{!!synopsis}}
 
@@ -19075,7 +19151,7 @@ Your familiar obeys your commands as best as it can. It takes its turn on your i
 
 &lt;&lt;sourcebook &quot;phb&quot;&gt;&gt; rules as written supersede Jeremy Crawford's commentary on //Sage Advice//. You can use a passive Wisdom (Perception) check as long as you are not &lt;&lt;unconscious&gt;&gt; or &lt;&lt;incapacitated&gt;&gt;. If you turn your attention to other tasks and are not focused on watching for danger, you make a passive Wisdom (Perception) check with disadvantage.
 
-&lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;, Chapter 8 - Adventuring:
+&lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;, Chapter 8: Adventuring:
 
 &lt;&lt;&lt;
 Characters who turn their attention to other tasks as the group travels are not focused on watching for danger. These characters don’t contribute their passive Wisdom (Perception) scores to the group’s chance of noticing hidden threats.
@@ -19214,8 +19290,8 @@ Excerpts of Jeremy Crawford, speaking on [[Sage Advice - James Haeck on D&amp;D 
 &lt;&lt;tocwresidents&gt;&gt;
 </pre>
 </div>
-<div aliases="[[qadir's ingot]]" caption="Qadir's Ingot" created="20200531130416677" creator="Islander" information-subject="item" modified="20200624055547384" modifier="Islander" subtitle="Qadir's Ingot" tags="Magic-items" title="Qadirs-Ingot">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Qadirs Ingot&quot;&gt;&gt;
+<div aliases="[[qadir's ingot]]" caption="Qadir's Ingot" created="20200531130416677" creator="Islander" information-subject="item" modified="20201225065124314" modifier="Islander" subtitle="Qadir's Ingot" tags="Magic-items" title="Qadirs-Ingot">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Qazi]]&quot; person:&quot;[[Nafka Qadir|?]], [[Mistral]]&quot; source:&quot;[[Nafka Qadir|?]] and [[Mistral]]&quot; dc:&quot;Legendary Item&quot; skills:&quot;Arcana&quot;&gt;&gt;
 </pre>
 </div>
@@ -19994,8 +20070,8 @@ faith:&quot;{{$:/.isle/content/Faiths/Human/Ezran/Home Faith}}&quot;
 &lt;&lt;known location:&quot;[[Griven]] or [[Anchor]]&quot; dc:&quot;Group&quot; gender:&quot;it&quot;&gt;&gt;
 </pre>
 </div>
-<div aliases="services" created="20200407010428359" creator="The Islander" modified="20200411003637382" modifier="Islander" synopsis="Adventurers can pay non-player characters to assist them or act on their behalf in a variety o f circumstances. Most such hirelings have fairly ordinary skills, while others are masters of a craft or art, and a few are experts with specialized adventuring skills." tags="Shops" title="Services">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Services&quot;&gt;&gt;
+<div aliases="services" created="20200407010428359" creator="The Islander" modified="20201225065316242" modifier="Islander" synopsis="Adventurers can pay non-player characters to assist them or act on their behalf in a variety o f circumstances. Most such hirelings have fairly ordinary skills, while others are masters of a craft or art, and a few are experts with specialized adventuring skills." tags="Shops" title="Services">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
@@ -20015,14 +20091,14 @@ faith:&quot;{{$:/.isle/content/Faiths/Human/Ezran/Home Faith}}&quot;
 &lt;&lt;known location:&quot;[[Walkure]] or {{$:/.isle/content/Locations/Asgard}}&quot; dc:&quot;Person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="shops" created="20200407004202557" creator="The Islander" modified="20200421204751405" modifier="Islander" synopsis="The marketplace of a large city teems with buyers and sellers of many sorts: dwarven smiths and elven woodcarvers, halfling farmers and gnomish jewelers, not to mention humans of every shape, size, and color drawn from a spectrum of nations and cultures. In the largest cities, almost anything imaginable is offered for sale, from exotic spices and luxurious clothing to wicker baskets and practical swords. For an adventurer, the availability of armor, weapons, backpacks, rope, and similar goods is of paramount importance, since proper equipment can mean the difference between life and death in a dungeon or the untamed wilds. " tags="[[Table of contents]]" title="Shops">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Shops&quot;&gt;&gt;
+<div aliases="shops" created="20200407004202557" creator="The Islander" modified="20201225065307610" modifier="Islander" synopsis="The marketplace of a large city teems with buyers and sellers of many sorts: dwarven smiths and elven woodcarvers, halfling farmers and gnomish jewelers, not to mention humans of every shape, size, and color drawn from a spectrum of nations and cultures. In the largest cities, almost anything imaginable is offered for sale, from exotic spices and luxurious clothing to wicker baskets and practical swords. For an adventurer, the availability of armor, weapons, backpacks, rope, and similar goods is of paramount importance, since proper equipment can mean the difference between life and death in a dungeon or the untamed wilds. " tags="[[Table of contents]]" title="Shops">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;
 
 </pre>
 </div>
-<div aliases="[[short rest]]" caption="Short rest" created="20200410143726884" creator="The Islander" modified="20201225032116269" modifier="Islander" subtitle="Short rest" synopsis="A short rest is a period of downtime, at least 1 hour long, during which a character does nothing more strenuous than eating, drinking, reading, and tending to wounds." tags="Downtime" title="Short-rest">
+<div aliases="[[short rest]]" caption="Short rest" created="20200410143726884" creator="The Islander" modified="20201225065609226" modifier="Islander" subtitle="Short rest" synopsis="A short rest is a period of downtime, at least 1 hour long, during which a character does nothing more strenuous than eating, drinking, reading, and tending to wounds." tags="Downtime" title="Short-rest">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;hb-disclaimer&gt;&gt;
 
@@ -20033,7 +20109,7 @@ faith:&quot;{{$:/.isle/content/Faiths/Human/Ezran/Home Faith}}&quot;
 You can maintain concentration on a spell during a short rest.
 
 ! Healer's Kit Dependency
-//Dungeon Master's Guide//, Chapter 9: Dungeon Master's Workshop:
+&lt;&lt;sourcebook &quot;dmg&quot;&gt;&gt;, Chapter 9: Dungeon Master's Workshop:
 
 &lt;&lt;&lt;
 A character can’t spend any Hit Dice after finishing a short rest until someone expends one use of a healer’s kit to bandage and treat the character’s wounds.
@@ -20079,8 +20155,8 @@ The sidhe of the underground begin to lose their spiritual ties to Vaglaskógur.
 &lt;&lt;tocwresidents&gt;&gt;
 </pre>
 </div>
-<div aliases="[[social interaction]]" caption="Social interaction" created="20200418001513671" creator="Islander" modified="20200418001906103" modifier="Islander" subtitle="Social interaction" synopsis="Your ability to interact effectively with others is vital in social situations. Your confidence and eloquence can represent a charming or commanding personality." tags="Rules" title="Social-interaction">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Social interaction&quot;&gt;&gt;
+<div aliases="[[social interaction]]" caption="Social interaction" created="20200418001513671" creator="Islander" modified="20201225065214305" modifier="Islander" subtitle="Social interaction" synopsis="Your ability to interact effectively with others is vital in social situations. Your confidence and eloquence can represent a charming or commanding personality." tags="Rules" title="Social-interaction">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
@@ -20362,8 +20438,8 @@ If you are a warlock, you can choose Intelligence instead of Charisma for the Sp
 Note that this campaign does not use the [[Skills with Different Abilities|https://www.dndbeyond.com/sources/basic-rules/using-ability-scores#VariantSkillswithDifferentAbilities]] variant rule.
 </pre>
 </div>
-<div created="20200409055419383" creator="The Islander" modified="20200415045115139" modifier="Islander" synopsis="Spells can be versatile tools, weapons, or protective wards. They can deal damage or undo it, impose or remove conditions, drain life energy away, and restore life to the dead." tags="Rules" title="Spells">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Spells&quot;&gt;&gt;
+<div created="20200409055419383" creator="The Islander" modified="20201225063410955" modifier="Islander" synopsis="Spells can be versatile tools, weapons, or protective wards. They can deal damage or undo it, impose or remove conditions, drain life energy away, and restore life to the dead." tags="Rules" title="Spells">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
@@ -20741,14 +20817,15 @@ Toregene is born to human parents in {{$:/.isle/content/Locations/Acheron}}, iro
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="[[trade lists]]" caption="Trade lists" created="20200407012143072" creator="The Islander" modified="20201108220047141" modifier="Islander" subtitle="Trade lists" synopsis="Trade lists are selections of goods and services common to a region or country. In normal circumstances, an adventurer can count on reasonable availability of a variety of items for sale at relatively stable prices. To browse and buy from a trade list, you must meet minimum [[renown|Renown]] requirements, and the merchant or vendor must have a minimum currency and trade reputation to stock items in the trade list." tags="Shops" title="Trade-lists">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Trade lists&quot;&gt;&gt;
+<div aliases="[[trade lists]]" caption="Trade lists" created="20200407012143072" creator="The Islander" modified="20201225065327122" modifier="Islander" subtitle="Trade lists" synopsis="Trade lists are selections of goods and services common to a region or country. In normal circumstances, an adventurer can count on reasonable availability of a variety of items for sale at relatively stable prices. To browse and buy from a trade list, you must meet minimum [[renown|Renown]] requirements, and the merchant or vendor must have a minimum currency and trade reputation to stock items in the trade list." tags="Shops" title="Trade-lists">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div aliases="[[tree of life]]" caption="Tree of Life" created="20201213225054099" creator="Islander" modified="20201213225859369" modifier="Islander" tags="Monsters" title="Tree-of-Life">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Tree of Life&quot;&gt;&gt;</pre>
+<div aliases="[[tree of life]]" caption="Tree of Life" created="20201213225054099" creator="Islander" modified="20201225065204226" modifier="Islander" tags="Monsters" title="Tree-of-Life">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
+</pre>
 </div>
 <div aliases="[[true resurrection]]" caption="True resurrection" created="20200415020920014" creator="Islander" modified="20200415043305796" modifier="Islander" subtitle="True resurrection" synopsis="Rules to cure a disease or remove a curse have been changed to use opposed ability check like //dispel magic// and //counterspell// rules for higher level spells." tags="Spells" title="True-resurrection">
 <pre>&lt;&lt;hb-disclaimer-all&gt;&gt;
