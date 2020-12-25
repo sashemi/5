@@ -1358,6 +1358,28 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/toc/Table of contents-Character-creation-1395397534</li>
+
+<li>$:/state/toc/Table of contents-NPCs-1395397534</li>
+
+<li>$:/state/toc/Table of contents-Rules-1395397534</li>
+
+<li>$:/state/toc/Table of contents-Shops-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Character-creation-Races-1395397534</li>
+
+<li>$:/state/toc/Table of contents/NPCs-People-of-Anchor-1395397534</li>
+
+<li>$:/state/toc/Table of contents/NPCs-People-of-Athra-1395397534</li>
+
+<li>$:/state/toc/Table of contents/NPCs-People-of-Celerity-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Crafting-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Gathering-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Shops-Trade-lists-1395397534</li>
+
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
 <li>$:/status/UserName</li>
@@ -3938,29 +3960,26 @@ Zendril: 90,000</pre>
 <div _canonical_uri="https://i.imgur.com/fhemSqv.jpg" attribution="Sanghyun Kam" attributionurl="https://www.artstation.com/gamgun1" created="20200419133213056" creator="Islander" modified="20200419133407854" modifier="Islander" tags="Media" title="$:/.isle/images/Zendril/Gates" type="image/jpeg">
 <pre></pre>
 </div>
-<div created="20200328023608793" creator="The Islander" modified="20201224230144494" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
-<pre>\define trans_attribution() {{$(currentTiddler)$!!attribution}}
-\define trans_attributionurl() {{$(currentTiddler)$!!attributionurl}}
-
-\define imgwattribution(tiddler,border:1)
+<div created="20200328023608793" creator="The Islander" modified="20201225003916720" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
+<pre>\define imgwattribution(tiddler,border:1)
 &lt;$set name=&quot;tiddlerunslugify&quot; filter=&quot;[[$(currentTiddler)$]search-replace:gi[-],[ ]addprefix[$:/.isle/images/]]&quot; select=&quot;0&quot;&gt;
 &lt;$set name=imgtiddler filter=&quot; $tiddler$&quot; value=&quot;$:/.isle/images/$tiddler$&quot; emptyValue=&lt;&lt;tiddlerunslugify&gt;&gt; &gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$border$&quot; default=&quot;1&quot;&gt;
 &lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler &gt;&gt; /&gt;
+  &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler&gt;&gt; /&gt;
 &lt;/div&gt;
 &lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$border$&quot; default=&quot;0&quot;&gt;
 &lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler &gt;&gt; /&gt;
+  &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler&gt;&gt; /&gt;
 &lt;/div&gt;
 &lt;/$reveal&gt;
 &lt;$list filter=&quot;[&lt;imgtiddler&gt;]&quot;&gt;
-&lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;trans_attribution&gt;&gt; default=&quot;&quot;&gt;
+&lt;$reveal type=&quot;nomatch&quot; state=&quot;!!attribution&quot; text=&quot;&quot; default=&quot;&quot;&gt;
 &lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
   Artwork by 
-  &lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;trans_attributionurl&gt;&gt; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{!!attributionurl}} target=&quot;_blank&quot;&gt;{{!!attribution}}&lt;/a&gt;&lt;/$reveal&gt;
-  &lt;$reveal type=&quot;match&quot; text=&lt;&lt;trans_attributionurl&gt;&gt; default=&quot;&quot;&gt;{{!!attribution}}&lt;/$reveal&gt;
+  &lt;$reveal type=&quot;nomatch&quot; state=&quot;!!attributionurl&quot;  text=&quot;&quot; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{!!attributionurl}} target=&quot;_blank&quot;&gt;{{!!attribution}}&lt;/a&gt;&lt;/$reveal&gt;
+  &lt;$reveal type=&quot;match&quot; state=&quot;!!attributionurl&quot; text=&quot;&quot; default=&quot;&quot;&gt;{{!!attribution}}&lt;/$reveal&gt;
 &lt;/p&gt;
 &lt;/$reveal&gt;
 &lt;/$list&gt;
@@ -3970,7 +3989,9 @@ Zendril: 90,000</pre>
 
 \define attribution(tiddler,type:&quot;Artwork&quot;)
 &lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  Artwork by &lt;$reveal type=&quot;nomatch&quot; state=&quot;{{$:/.isle/images/$tiddler$!!attributionurl}}&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{$:/.isle/images/$tiddler$!!attributionurl}} target=&quot;_blank&quot;&gt;&lt;/$reveal&gt;{{$:/.isle/images/$tiddler$!!attribution}}&lt;$reveal type=&quot;nomatch&quot; state=&quot;{{$:/.isle/images/$tiddler$!!attributionurl}}&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;/a&gt;&lt;/$reveal&gt;
+  $type$ by
+  &lt;$reveal type=&quot;nomatch&quot; state=&quot;$:/.isle/images/$tiddler$!!attributionurl&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{$:/.isle/images/$tiddler$!!attributionurl}} target=&quot;_blank&quot;&gt;{{$:/.isle/images/$tiddler$!!attribution}}&lt;/a&gt;&lt;/$reveal&gt;
+  &lt;$reveal type=&quot;match&quot; state=&quot;$:/.isle/images/$tiddler$!!attributionurl&quot; text=&quot;&quot; default=&quot;&quot;&gt;{{$:/.isle/images/$tiddler$!!attribution}}&lt;/$reveal&gt;
 &lt;/p&gt;
 \end
 </pre>
@@ -4234,7 +4255,7 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 \end
 </pre>
 </div>
-<div created="20200331042858673" creator="The Islander" modified="20201224180815608" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
+<div created="20200331042858673" creator="The Islander" modified="20201225004839616" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
 <pre>\define hb(text)
 &lt;span class=&quot;myhb&quot;&gt;$text$&lt;/span&gt;
 \end
@@ -4266,7 +4287,7 @@ All of the content in this article is a modification of official game rules. Hou
 \define adaptation(book,source,url,type:&quot;rules&quot;)
 &lt;blockquote style=&quot;background-color: #ffcfc0;&quot;&gt;
 &lt;&lt;case-sentence &quot;$type$&quot;&gt;&gt; are sourced from &lt;$reveal type=&quot;nomatch&quot; text=&quot;$book$&quot; default=&quot;&quot;&gt;&lt;&lt;sourcebook &quot;$book$&quot;&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$source$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;$reveal type=&quot;match&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;$source$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$url$&quot; default=&quot;&quot;&gt;[[$source$|$url$]]&lt;/$reveal&gt;&lt;/$reveal&gt;.
-Note that any $type$ not explicitly quoted here are not used.
+Note that any $type$ on this topic which are not explicitly quoted here from the source are not used in the campaign.
 &lt;$reveal type=&quot;match&quot; state=&quot;!!article-is-house-rule&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;
 &lt;&lt;hb &quot;House rules&quot;&gt;&gt; are indicated by &lt;&lt;hb &quot;red underline&quot;&gt;&gt; in shorter articles. Longer articles exclude this notation.
 &lt;/$reveal&gt;
@@ -16563,8 +16584,41 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20201224214949256" creator="Islander" modified="20201224215814095" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201224214947945" creator="Islander" modified="20201224230325004" modifier="Islander" title="$:/state/tab/sidebar--595412856">
-<pre>$:/.isle/system/Table of contents</pre>
+<div created="20201224214947945" creator="Islander" modified="20201225004855103" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
+</div>
+<div created="20201225003936887" creator="Islander" modified="20201225003936887" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201224230435220" creator="Islander" modified="20201224230435220" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225003307559" creator="Islander" modified="20201225003307559" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225003541807" creator="Islander" modified="20201225003541807" modifier="Islander" title="$:/state/toc/Table of contents-Shops-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225004325894" creator="Islander" modified="20201225004325894" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Races-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201224230515715" creator="Islander" modified="20201224234536402" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Anchor-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201224230644683" creator="Islander" modified="20201224230644683" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Athra-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201224230800523" creator="Islander" modified="20201224230800523" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Celerity-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225003310423" creator="Islander" modified="20201225003310423" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Crafting-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225003313975" creator="Islander" modified="20201225003313975" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Gathering-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225003544551" creator="Islander" modified="20201225003544551" modifier="Islander" title="$:/state/toc/Table of contents/Shops-Trade-lists-1395397534">
+<pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -16572,7 +16626,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20201224215010313" creator="Islander" list="Next-game Sessions Character-creation" modified="20201224220040191" modifier="Islander" title="$:/StoryList">
+<div created="20201224215010313" creator="Islander" list="Monster-hunting $:/.isle/macros/hb Naga Tez-Jesset Next-game Sessions Character-creation" modified="20201225004858711" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -16705,8 +16759,8 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div aliases="[[ability scores]]" caption="Ability scores" caption-sort="01. Ability scores" created="20200328225523612" creator="The Islander" modified="20201224040307300" modifier="Islander" subtitle="Ability scores" synopsis="Much of what you do in the game depends on your six abilities: ''Strength'', ''Dexterity'', ''Constitution'', ''Intelligence'', ''Wisdom'', and ''Charisma''. Each ability has a score, which is a number you record on your character sheet. New characters use point buy method to determine ability scores." tags="Character-creation" title="Ability-scores">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Ability scores&quot;&gt;&gt;
+<div aliases="[[ability scores]]" caption="Ability scores" caption-sort="01. Ability scores" created="20200328225523612" creator="The Islander" modified="20201225004037112" modifier="Islander" subtitle="Ability scores" synopsis="Much of what you do in the game depends on your six abilities: ''Strength'', ''Dexterity'', ''Constitution'', ''Intelligence'', ''Wisdom'', and ''Charisma''. Each ability has a score, which is a number you record on your character sheet. New characters use point buy method to determine ability scores." tags="Character-creation" title="Ability-scores">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 
 One of three methods can be used to determine your character's ability scores.
 
@@ -16831,8 +16885,8 @@ Altair's lunar cycle is 21 days. Its full moon coincides with Belen's full moon 
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="[[amon valdovan]]" caption="Amon Valdovan" caption-sort="Amon Valdovan" created="20200421012351487" creator="Islander" information-is-unreliable="false" information-subject="person" modified="20200621172556057" modifier="Islander" person-birth-granularity="year" person-birthplace="{{$:/.isle/content/Locations/Suramur}}" subtitle="Amon Valdovan" tags="NPCs" title="Amon-Valdovan">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Amon Valdovan&quot;&gt;&gt;
+<div aliases="[[amon valdovan]]" caption="Amon Valdovan" caption-sort="Amon Valdovan" created="20200421012351487" creator="Islander" information-is-unreliable="false" information-subject="person" modified="20201224230448749" modifier="Islander" person-birth-granularity="year" person-birthplace="{{$:/.isle/content/Locations/Suramur}}" subtitle="Amon Valdovan" tags="NPCs" title="Amon-Valdovan">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;{{$:/.isle/content/Locations/Suramur}}&quot; dc:&quot;Private person&quot;&gt;&gt;
 &lt;&lt;person
 subtitle:&quot;Pallid elf battlemaster&quot;
@@ -16891,8 +16945,8 @@ His bow can target anything in his line of sight, and he can loose arrows of any
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Arcane archer&quot;&gt;&gt;
 &lt;&lt;hb-disclaimer&gt;&gt;</pre>
 </div>
-<div aliases="[[asif akkad]]" caption="Asif Akkad" caption-sort="Asif Akkad" created="20201212222320597" creator="Islander" information-subject="person" modified="20201213022848556" modifier="Islander" person-birthplace="{{$:/.isle/content/Locations/Quasi-Elemental Plane of Lightning}}" subtitle="Asif Akkad" tags="NPCs" title="Asif-Akkad">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Asif Akkad&quot;&gt;&gt;
+<div aliases="[[asif akkad]]" caption="Asif Akkad" caption-sort="Asif Akkad" created="20201212222320597" creator="Islander" information-subject="person" modified="20201224230510324" modifier="Islander" person-birthplace="{{$:/.isle/content/Locations/Quasi-Elemental Plane of Lightning}}" subtitle="Asif Akkad" tags="NPCs" title="Asif-Akkad">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Qatan]], [[Qazi]], {{$:/.isle/content/Locations/Calimshan}}, or {{$:/.isle/content/Locations/Quasi-Elemental Plane of Lightning}}&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
@@ -16930,8 +16984,8 @@ The awakened beast or plant obeys your commands as best as it can. It takes its 
 
 </pre>
 </div>
-<div aliases="[[azim makina]] azim" caption="Azim Makina" created="20201115192733720" creator="Islander" information-subject="person" modified="20201119015621957" modifier="Islander" person-birthplace="{{$:/.isle/content/Locations/Khirad}} XIV" person-residence="[[Azim's Camp|?]] in [[Celerity]]" subtitle="Azim Makina" tags="People-of-Qazi People-of-Celerity" title="Azim-Makina">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Azim Makina&quot;&gt;&gt;
+<div aliases="[[azim makina]] azim" caption="Azim Makina" created="20201115192733720" creator="Islander" information-subject="person" modified="20201224230806908" modifier="Islander" person-birthplace="{{$:/.isle/content/Locations/Khirad}} XIV" person-residence="[[Azim's Camp|?]] in [[Celerity]]" subtitle="Azim Makina" tags="People-of-Qazi People-of-Celerity" title="Azim-Makina">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;{{$:/.isle/content/Locations/Khirad}} XIV, [[Azim's Camp|?]] or [[Qazi]]&quot; dc:&quot;Person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;[[Tanarukk|https://forgottenrealms.fandom.com/wiki/Tanarukk]] [[lord marshall|https://en.wikipedia.org/wiki/Paramount_chief]] of [[Griven]]&quot;
@@ -17000,8 +17054,8 @@ Belen's lunar cycle is 14 days. Its full moon coincides with Belen's full moon r
 * &amp;#10033;''//Vicious Weapon//'' 300 gp. //Weapon (any), uncommon.// When you score a critical hit on your attack roll with this magic weapon, the target takes an extra 7 points of damage of the weapon's type.
 </pre>
 </div>
-<div aliases="[[blaise harlan]]" caption="Blaise Harlan" caption-sort="Blaise Harlan" created="20201213005233997" creator="Islander" information-subject="person" modified="20201213224521456" modifier="Islander" person-birthplace="[[Harlan's Fort]]" subtitle="Blaise Harlan" tags="NPCs" title="Blaise-Harlan">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Blaise Harlan&quot;&gt;&gt;
+<div aliases="[[blaise harlan]]" caption="Blaise Harlan" caption-sort="Blaise Harlan" created="20201213005233997" creator="Islander" information-subject="person" modified="20201224230755859" modifier="Islander" person-birthplace="[[Harlan's Fort]]" subtitle="Blaise Harlan" tags="NPCs" title="Blaise-Harlan">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Harlan's Fort|?]] or [[Ruins of Vyborg|?]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}
 </pre>
@@ -17161,10 +17215,10 @@ The Knights of Hope are dead. Mistral's rebellion has ended. The Age of Desolati
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="[[character advancement]] [[experience points]]" caption="Character advancement" caption-sort="02. Character advancement" created="20200330201108293" creator="The Islander" modified="20201224040333924" modifier="Islander" subtitle="Character advancement" synopsis="As your go on adventures and overcome challenges, you gain experience, represented by experience points. When you reach a specified experience point total your will gain a level and your ''proficiency bonus'' may increase, as shown below. At higher levels, you gain epic boons (see //Dungeon Master's Guide//, page 232)." tags="Character-creation" title="Character-advancement">
+<div aliases="[[character advancement]] [[experience points]]" caption="Character advancement" caption-sort="02. Character advancement" created="20200330201108293" creator="The Islander" modified="20201225004216321" modifier="Islander" subtitle="Character advancement" synopsis="As your go on adventures and overcome challenges, you gain experience, represented by experience points. When you reach a specified experience point total your will gain a level and your ''proficiency bonus'' may increase, as shown below. At higher levels, you gain epic boons (see //Dungeon Master's Guide//, page 232)." tags="Character-creation" title="Character-advancement">
 <pre>{{$:/.isle/system/Playtest}}
-[img[$:/.isle/images/Character advancement]]
-&lt;&lt;attributionurl &quot;$:/.isle/images/Character advancement&quot;&gt;&gt;
+[img [$:/.isle/images/Character advancement]]
+&lt;&lt;attribution &quot;Character advancement&quot;&gt;&gt;
 {{!!synopsis}}
 
 @@.phb-caption
@@ -17225,8 +17279,8 @@ Character Advancement
 |1,255,000 | 50 | +6 | Epic&amp;nbsp;boon |
 @@</pre>
 </div>
-<div aliases="[[character creation]]" caption="Character creation" created="20200328222144590" creator="The Islander" modified="20201224040037141" modifier="Islander" subtitle="Character creation" tags="[[Table of contents]]" title="Character-creation" toc-sort="caption-sort">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Character creation&quot;&gt;&gt;
+<div aliases="[[character creation]]" caption="Character creation" created="20200328222144590" creator="The Islander" modified="20201224230411093" modifier="Islander" subtitle="Character creation" tags="[[Table of contents]]" title="Character-creation" toc-sort="caption-sort">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
 <div created="20200427051611886" creator="Islander" information-subject="person" modified="20201108232806804" modifier="Islander" tags="People-of-Walkure" title="Chemosh">
@@ -17234,8 +17288,8 @@ Character Advancement
 &lt;&lt;known location:&quot;[[Walkure]], {{$:/.isle/content/Locations/Stygia}}, or {{$:/.isle/content/Locations/Dis}}&quot; dc:&quot;Person&quot; gender:&quot;her&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="clairconctlar" created="20200329020630172" creator="The Islander" information-subject="race" modified="20201115084530373" modifier="Islander" name-plural="clairconctlar" synopsis="The clairconctlar are a construct race, said by some to be brought into existence through the experimentation of the sorceror king [[Nibenay]]. Other anthropologists surmise that the clairconctlar originate off-world, and are distant offshoot of the now-extinct [[Taalo]]." tags="Races" title="Clairconctlar">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Clairconctlar&quot;&gt;&gt;
+<div aliases="clairconctlar" created="20200329020630172" creator="The Islander" information-subject="race" modified="20201225004333482" modifier="Islander" name-plural="clairconctlar" synopsis="The clairconctlar are a construct race, said by some to be brought into existence through the experimentation of the sorceror king [[Nibenay]]. Other anthropologists surmise that the clairconctlar originate off-world, and are distant offshoot of the now-extinct [[Taalo]]." tags="Races" title="Clairconctlar">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 &lt;&lt;known location:&quot;[[Athas]]&quot; dc:&quot;Race&quot; skills:&quot;Arcana&quot;&gt;&gt;
 {{!!synopsis}}
@@ -17370,8 +17424,8 @@ Zure are made of a porous coral-like material that could be any colour, bright o
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div caption-sort="07. Classes" created="20200331045550586" creator="The Islander" modified="20201224040711956" modifier="Islander" synopsis="Every adventurer is a member of a class. Class broadly describes your vocation, what special talents you possess, and the tactics you are most likely to employ when exploring a dungeon, fighting monsters, or engaging in a tense negotiation." tags="Character-creation" title="Classes">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Classes&quot;&gt;&gt;
+<div caption-sort="07. Classes" created="20200331045550586" creator="The Islander" modified="20201225004323175" modifier="Islander" synopsis="Every adventurer is a member of a class. Class broadly describes your vocation, what special talents you possess, and the tactics you are most likely to employ when exploring a dungeon, fighting monsters, or engaging in a tense negotiation." tags="Character-creation" title="Classes">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
 <div aliases="combat" created="20200418003154448" creator="Islander" modified="20200418003512463" modifier="Islander" synopsis="Combat is the clatter of a sword striking against a shield. The terrible rending sound as monstrous claws tear through armor. A brilliant flash of light as a ball of flame blossoms from a wizard’s spell. The sharp tang of blood in the air, cutting through the stench of vile monsters. Roars of fury, shouts of triumph, cries of pain." tags="Rules" title="Combat">
@@ -17526,10 +17580,10 @@ If all the above requirements are met, the result of the process is an item of t
 <div created="20201224065712630" creator="Islander" modified="20201224072445482" modifier="Islander" tags="" title="Dedicated-Weapon">
 <pre>&lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;</pre>
 </div>
-<div aliases="[[Deionarra's vitals]]" caption="Deionarra's vitals" created="20200407135253067" creator="The Islander" modified="20201118143940783" modifier="Islander" subtitle="Deionarra's vitals" synopsis="General goods." tags="Trade-lists" title="Deionarras-vitals">
+<div aliases="[[Deionarra's vitals]]" caption="Deionarra's vitals" created="20200407135253067" creator="The Islander" modified="20201225003606631" modifier="Islander" subtitle="Deionarra's vitals" synopsis="General goods." tags="Trade-lists" title="Deionarras-vitals">
 <pre>&lt;&lt;tabs-caption &quot;[[$:/.isle/images/Deionarras vitals page 1]] [[$:/.isle/images/Deionarras vitals page 2]] [[$:/.isle/images/Deionarras vitals page 3]] [[$:/.isle/images/Deionarras vitals page 4]] [[$:/.isle/images/Deionarras vitals page 5]]&quot; &quot;$:/.isle/images/Deionarras vitals page 1&quot;&gt;&gt;
 
-&lt;&lt;attributionurl &quot;$:/.isle/images/Deionarras vitals page 1&quot; &quot;Concept&quot;&gt;&gt;</pre>
+&lt;&lt;attribution &quot;Deionarras vitals page 1&quot; &quot;Concept&quot;&gt;&gt;</pre>
 </div>
 <div aliases="[[desolation of vyborg]]" caption="Desolation of Vyborg" created="20200504132811410" creator="Islander" information-subject="event" modified="20200624054223558" modifier="Islander" subtitle="Desolation of Vyborg" tags="Ruins-of-Vyborg Wars" title="Desolation-of-Vyborg">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Desolation of Vyborg&quot;&gt;&gt;
@@ -17539,8 +17593,8 @@ If all the above requirements are met, the result of the process is an item of t
 <div caption="&amp;#x1f3b2; Dice Roller" created="20191225153612392" creator="The Islander" modified="20201029020423797" modifier="Islander" tags="[[Table of contents]]" title="Dice-Roller">
 <pre>&lt;iframe id='dice-roller' src='https://dice.bushido.black/dice/index.html?roll&amp;notation=1d20' width='100%' height='300' style='border: none;'&gt;&lt;/iframe&gt;</pre>
 </div>
-<div aliases="[[dinu dobrescu]]" caption="Dinu Dobrescu" created="20200421013129721" creator="Islander" information-subject="person" modified="20201214180616124" modifier="Islander" person-birth-granularity="year" subtitle="Dinu Dobrescu" tags="People-of-Anchor" title="Dinu-Dobrescu">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Dinu Dobrescu&quot;&gt;&gt;
+<div aliases="[[dinu dobrescu]]" caption="Dinu Dobrescu" created="20200421013129721" creator="Islander" information-subject="person" modified="20201224230523948" modifier="Islander" person-birth-granularity="year" subtitle="Dinu Dobrescu" tags="People-of-Anchor" title="Dinu-Dobrescu">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Anchor]] or [[Daern's Outpost|?]]&quot; dc:&quot;Legendary person&quot; skills:&quot;Religion&quot;&gt;&gt;
 &lt;&lt;person
 subtitle:&quot;Human high cleric of {{$:/.isle/content/Deities/Ezra}}&quot;
@@ -17592,8 +17646,8 @@ The gloura are native to [[Carcosa]]. The evolutionary origins of the gloura beg
 &lt;&lt;hb-disclaimer-all&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div created="20201119014210918" creator="Islander" information-subject="person" modified="20201119014714797" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Enri">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Enri&quot;&gt;&gt;
+<div created="20201119014210918" creator="Islander" information-subject="person" modified="20201224230654844" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Enri">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Athra]]&quot; dc:&quot;Person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;[[Jincilla]] spell blaster&quot;
@@ -17819,8 +17873,8 @@ If the character already has one or more levels of exhaustion, the character tak
 &lt;&lt;location&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="gloura" created="20201216055928950" creator="Islander" information-subject="race" modified="20201219161432018" modifier="Islander" name-plural="gloura" synopsis="The gloura are native to [[Carcosa]]. The evolutionary origins of the gloura begin with the [[daoine sidhe|?]], who were created as sentient inhabitants of the [[Vaglaskógur|?]], the great forest spreading across the southern half of the Carcosi peninsula. The gloura evolve to abandon the wild indulgences of the forest, to instead embrace artificial settlements and technology. The gloura increasingly choose to live underground, and rapidly transition in their biology and composition to become &lt;&lt;race &quot;Elf/Drow&quot; &quot;plural&quot;&gt;&gt;." tags="Races" title="Gloura">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Gloura&quot;&gt;&gt;
+<div aliases="gloura" created="20201216055928950" creator="Islander" information-subject="race" modified="20201225004345791" modifier="Islander" name-plural="gloura" synopsis="The gloura are native to [[Carcosa]]. The evolutionary origins of the gloura begin with the [[daoine sidhe|?]], who were created as sentient inhabitants of the [[Vaglaskógur|?]], the great forest spreading across the southern half of the Carcosi peninsula. The gloura evolve to abandon the wild indulgences of the forest, to instead embrace artificial settlements and technology. The gloura increasingly choose to live underground, and rapidly transition in their biology and composition to become &lt;&lt;race &quot;Elf/Drow&quot; &quot;plural&quot;&gt;&gt;." tags="Races" title="Gloura">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;$macrocall $name=&quot;known&quot; person=&quot;&quot;&quot;[[sidhe|?]]&quot;&quot;&quot; location=&quot;[[Vaglaskógur|?]], [[Jehakka|?]], Thornwood, [[Celerity]], or Jehannum&quot; dc=&quot;Race&quot; skills=&quot;Arcana&quot; /&gt;
 {{!!synopsis}}
 
@@ -17871,8 +17925,8 @@ You can restore one ability point to one of the target's ability scores, if it i
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Groups&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div created="20201108232634934" creator="Islander" information-subject="person" modified="20201115032529636" modifier="Islander" tags="People-of-Jehannum People-of-Celerity" title="Haeckel">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Haeckel&quot;&gt;&gt;
+<div created="20201108232634934" creator="Islander" information-subject="person" modified="20201224230820972" modifier="Islander" tags="People-of-Jehannum People-of-Celerity" title="Haeckel">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Celerity]] or [[Jehannum]]&quot; dc:&quot;Person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
@@ -17973,8 +18027,8 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Kossuth&quot;&gt;&gt;&quot;&q
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="[[ilya houndspar]]" caption="Ilya Houndspar" caption-sort="Ilya Houndspar" created="20201214001040752" creator="Islander" information-subject="person" modified="20201214180630845" modifier="Islander" person-birthplace="[[Tsaritsyn]] in [[Anchor]]" subtitle="Ilya Houndspar" tags="People-of-Anchor" title="Ilya-Houndspar">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Ilya Houndspar&quot;&gt;&gt;
+<div aliases="[[ilya houndspar]]" caption="Ilya Houndspar" caption-sort="Ilya Houndspar" created="20201214001040752" creator="Islander" information-subject="person" modified="20201224230546220" modifier="Islander" person-birthplace="[[Tsaritsyn]] in [[Anchor]]" subtitle="Ilya Houndspar" tags="People-of-Anchor" title="Ilya-Houndspar">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Anchor]], [[Griven]], or [[Qazi]]&quot; dc:&quot;Person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;Human [[Vitandus|https://en.wikipedia.org/wiki/Vitandus]] [[Excommunicare|https://en.wikipedia.org/wiki/Excommunication]] of the {{$:/.isle/content/Groups/Church of Ezra}}&quot;
@@ -18011,8 +18065,8 @@ And he laid hold on the dragon, that old serpent, and bound him a thousand years
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="jincilla" created="20201011160837317" creator="Islander" information-subject="race" modified="20201115084533012" modifier="Islander" name-plural="jincilla" tags="Races" title="Jincilla">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Jincilla&quot;&gt;&gt;
+<div aliases="jincilla" created="20201011160837317" creator="Islander" information-subject="race" modified="20201225004356601" modifier="Islander" name-plural="jincilla" tags="Races" title="Jincilla">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 &lt;&lt;known person:&quot;[[The I|?]]&quot; location:&quot;[[Athas]] or {{$:/.isle/content/Locations/Far Realm}}&quot; dc:&quot;Race&quot; skills:&quot;Nature&quot;&gt;&gt;
 {{!!synopsis}}
@@ -18105,8 +18159,8 @@ Example of a notice:
 
 You can create your character based on any information available to your character with a ''DC 10 or easier skill check''.</pre>
 </div>
-<div created="20200427180714757" creator="Islander" information-subject="race" modified="20200621025756628" modifier="Islander" name-plural="kobolds" synopsis="Kobolds are craven reptilian humanoids that worship evil dragons as demigods and serve them as minions and toadies. Kobolds inhabit dragons' lairs when they can but more commonly infest dungeons, gathering treasures and trinkets to add to their own tiny hoards." tags="Races" title="Kobold">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Kobold&quot;&gt;&gt;
+<div created="20200427180714757" creator="Islander" information-subject="race" modified="20201225004407039" modifier="Islander" name-plural="kobolds" synopsis="Kobolds are craven reptilian humanoids that worship evil dragons as demigods and serve them as minions and toadies. Kobolds inhabit dragons' lairs when they can but more commonly infest dungeons, gathering treasures and trinkets to add to their own tiny hoards." tags="Races" title="Kobold">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;hb-disclaimer-all&gt;&gt;
 &lt;&lt;known person:&quot;dragons, and to all who reside close to kobold settlements or dragon lairs&quot; dc:&quot;Race&quot;&gt;&gt;
 {{!!synopsis}}
@@ -18391,8 +18445,8 @@ You make a separate saving throw for each source of damage.
 !! Mike Mearls
 &lt;$twitter type=&quot;tweet&quot; tweetID=&quot;517712584862998530&quot;/&gt;</pre>
 </div>
-<div created="20201119013100590" creator="Islander" information-subject="person" modified="20201119013622077" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Magyar">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Magyar&quot;&gt;&gt;
+<div created="20201119013100590" creator="Islander" information-subject="person" modified="20201224230718276" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Magyar">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;alsoknown &quot;[[Marda Peaceforge|?]] (shapeshifted)&quot;&gt;&gt;
 &lt;&lt;known location:&quot;[[Athra]]&quot; dc:&quot;Private person&quot; gender:&quot;her&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -18423,8 +18477,8 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Olhydra&quot;&gt;&gt;&quot;&q
 &lt;&lt;known dc:&quot;Plane&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div created="20201118072559755" creator="Islander" information-subject="person" modified="20201119014841245" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Merzelle">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Merzelle&quot;&gt;&gt;
+<div created="20201118072559755" creator="Islander" information-subject="person" modified="20201224230732499" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Merzelle">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;alsoknown &quot;[[Thibault Rainier|?]] (shapeshifted)&quot;&gt;&gt;
 &lt;&lt;known location:&quot;[[Athra]]&quot; dc:&quot;Private person&quot; gender:&quot;her&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -18440,8 +18494,8 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Olhydra&quot;&gt;&gt;&quot;&q
 /&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="[[michel altrue]]" caption="Michel Altrue" created="20201213231458509" creator="Islander" information-subject="person" modified="20201215064854282" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Tsaritsyn]] in [[Anchor]]" person-death-granularity="year" subtitle="Michel Altrue" tags="People-of-Anchor" title="Michel-Altrue">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Michel Altrue&quot;&gt;&gt;
+<div aliases="[[michel altrue]]" caption="Michel Altrue" created="20201213231458509" creator="Islander" information-subject="person" modified="20201224230557284" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Tsaritsyn]] in [[Anchor]]" person-death-granularity="year" subtitle="Michel Altrue" tags="People-of-Anchor" title="Michel-Altrue">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Anchor]], [[Qazi]], or [[Griven]]&quot; dc:&quot;Person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;Human [[Toleratus|https://en.wikipedia.org/wiki/Vitandus]] [[Excommunicare|https://en.wikipedia.org/wiki/Excommunication]] of the {{$:/.isle/content/Groups/Church of Ezra}}&quot;
@@ -18500,14 +18554,14 @@ d-auspice:&quot;[[glittermoon|?]]&quot;
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="modron modrons" created="20200428140045609" creator="Islander" information-subject="race" modified="20201011180540693" modifier="Islander" name-plural="modrons" tags="Races" title="Modron">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Modron&quot;&gt;&gt;
+<div aliases="modron modrons" created="20200428140045609" creator="Islander" information-subject="race" modified="20201225004415215" modifier="Islander" name-plural="modrons" tags="Races" title="Modron">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 &lt;&lt;known location:&quot;[[Mechanus]]&quot; dc:&quot;Race&quot; skills:&quot;Arcana&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div created="20201115032243822" creator="Islander" information-subject="person" modified="20201119012835045" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Mog">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Mog&quot;&gt;&gt;
+<div created="20201115032243822" creator="Islander" information-subject="person" modified="20201224230742388" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Athra]]" person-residence="[[Azim's Camp|?]] in [[Celerity]]" tags="People-of-Athra People-of-Celerity" timeline="Athas" title="Mog">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;alsoknown &quot;[[Azim Makina|?]] (shapeshifted)&quot;&gt;&gt;
 &lt;&lt;known location:&quot;[[Athra]] or [[Grottos]]&quot; dc:&quot;Person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -18532,10 +18586,9 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Olhydra&quot;&gt;&gt;&quot;&q
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Monster encounter&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="[[monster hunting]] butchering butcher" caption="Monster hunting" created="20200415222835858" creator="Islander" modified="20201224083952839" modifier="Islander" subtitle="Monster hunting" synopsis="[[Alchemy]], [[cooking|?]], [[magic item creation|?]], [[poison making|?]], and [[potion brewing|?]] invariably requires an exotic material to complete the [[crafting|?]] task. This material can range from the skin of a yeti to a vial of water taken from a whirlpool on the Elemental Plane of Water. Finding that material should take place as part of an adventure." tags="Gathering" title="Monster-hunting">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Monster hunting&quot;&gt;&gt;
+<div aliases="[[monster hunting]] butchering butcher" caption="Monster hunting" created="20200415222835858" creator="Islander" modified="20201225004049906" modifier="Islander" subtitle="Monster hunting" synopsis="[[Alchemy]], [[cooking|?]], [[magic item creation|?]], [[poison making|?]], and [[potion brewing|?]] invariably requires an exotic material to complete the [[crafting|?]] task. This material can range from the skin of a yeti to a vial of water taken from a whirlpool on the Elemental Plane of Water. Finding that material should take place as part of an adventure." tags="Gathering" title="Monster-hunting">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;$macrocall $name=&quot;adaptation&quot; source=&quot;&quot;&quot;&lt;&lt;sourcebook &quot;xgte&quot;&gt;&gt;, homebrew by [[/u/AeronDrake|https://www.reddit.com/r/UnearthedArcana/comments/8745i9/the_complete_crafter_a_guide_for_harvesting/]], and homebrew by [[/u/Mavrick593|https://www.reddit.com/r/UnearthedArcana/comments/ewawkl/the_comprehensive_guide_to_collecting_crafting_5e/]]&quot;&quot;&quot; /&gt;
-
 {{!!synopsis}}
 
 ! Harvesting Parts
@@ -18621,7 +18674,7 @@ When you use exotic materials to craft a mundane item, elixir, magic item, dish,
 @@margin-top: -150px;
 &amp;nbsp;
 @@
-&lt;&lt;imgfade &quot;$:/.isle/images/Monster hunting/Harvesting parts&quot;&gt;&gt;
+&lt;&lt;imgwattribution tiddler:&quot;Monster hunting/Harvesting parts&quot; border:0&gt;&gt;
 
 !! Value of Harvested Parts
 The value of each harvested unit ranges between 1% to 50% of the experience point value of the creature. You can determine the values of each extracted part in the table below.
@@ -18786,8 +18839,8 @@ To see which days in the year constitute a glittermoon, see &lt;&lt;calendar-fmt
 &lt;&lt;known location:&quot;[[Qazi]] or {{$:/.isle/content/Locations/Calimshan}}&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="naga nagas" article-is-house-rule="false" created="20200606052702608" creator="Islander" information-subject="race" modified="20201224084108606" modifier="Islander" name-plural="nagas" synopsis="Nagas are an intelligent race of monstrous snakes, who possess a humanoid face and a large serpentine body. Created by a long-lost civilization or god, they are a haughty race of immortal guardians who claim to be the pinnacle of the serpentine form. Much like dragons, some are good and some are evil, some are corrupted through necromancy, and some are even ethereal." tags="Races" title="Naga">
-<pre>&lt;&lt;img $:/.isle/images/Naga&gt;&gt;
+<div aliases="naga nagas" article-is-house-rule="false" created="20200606052702608" creator="Islander" information-subject="race" modified="20201225004426585" modifier="Islander" name-plural="nagas" synopsis="Nagas are an intelligent race of monstrous snakes, who possess a humanoid face and a large serpentine body. Created by a long-lost civilization or god, they are a haughty race of immortal guardians who claim to be the pinnacle of the serpentine form. Much like dragons, some are good and some are evil, some are corrupted through necromancy, and some are even ethereal." tags="Races" title="Naga">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;adaptation source:&quot;/u/TheatreLife&quot; url:&quot;https://www.reddit.com/r/DnDBehindTheScreen/comments/38bsrz/naga/&quot; type:&quot;materials&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;known&quot; by=&quot;nagas and &lt;&lt;know-resident&gt;&gt; {{$:/.isle/content/Locations/Toril}}&quot; dc=&quot;Race&quot; /&gt;
 
@@ -18866,8 +18919,8 @@ They're inherently off-putting, even among guardian nagas, with strange personal
 * A deranged spirit naga violently protects a rickety chair of little significance deep inside a tomb.
 * A guardian naga guards the doorway to the Upper Planes, and haughtily mocks their unworthiness — an adventuring party's first clue that the Upper Planes are not necessarily perfect.</pre>
 </div>
-<div created="20200427054308361" creator="Islander" information-subject="person" modified="20201115032511124" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Falsch]] in [[Jehannum]]" person-residence="[[Raine]] in [[Celerity]]" tags="People-of-Jehannum People-of-Celerity" title="Nala">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Nala&quot;&gt;&gt;
+<div created="20200427054308361" creator="Islander" information-subject="person" modified="20201224230836372" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Falsch]] in [[Jehannum]]" person-residence="[[Raine]] in [[Celerity]]" tags="People-of-Jehannum People-of-Celerity" title="Nala">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Celerity]], [[Jehannum]], or [[Anchor]]&quot; dc:&quot;Private person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;&quot;&quot;&lt;&lt;race &quot;Elf/Drow&quot; &quot;case-sentence&quot;&gt;&gt; [[anchorite|?]] of {{$:/.isle/content/Deities/Ezra}}&quot;&quot;&quot;
@@ -19221,8 +19274,8 @@ Excerpts of Jeremy Crawford, speaking on //[[Sage Advice - James Haeck on D&amp;
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Quests&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div caption-sort="06. Races" created="20200329014531755" creator="The Islander" modified="20201224040621556" modifier="Islander" synopsis="Your choice of race affects many different aspects of your background and personality. It establishes fundamental qualities that exist throughout your adventuring career." tags="Character-creation Reference" title="Races">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Races&quot;&gt;&gt;
+<div caption-sort="06. Races" created="20200329014531755" creator="The Islander" modified="20201225004314551" modifier="Islander" synopsis="Your choice of race affects many different aspects of your background and personality. It establishes fundamental qualities that exist throughout your adventuring career." tags="Character-creation Reference" title="Races">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
 <div aliases="[[rafiel vyborg]]" caption="Rafiel Vyborg" caption-sort="Rafiel Vyborg" created="20201214004530403" creator="Islander" information-subject="person" modified="20201214004934905" modifier="Islander" person-birthplace="[[Vyborg|?]]" subtitle="Rafiel Vyborg" tags="NPCs" title="Rafiel-Vyborg">
@@ -19955,8 +20008,8 @@ During monsoon:
 &lt;&lt;tocwresidents&gt;&gt;
 </pre>
 </div>
-<div aliases="[[sergiu dalca]]" caption="Sergiu Dalca" created="20200420064421616" creator="Islander" information-subject="person" modified="20200621155631779" modifier="Islander" person-birth-granularity="year" subtitle="Sergiu Dalca" tags="People-of-Anchor" title="Sergiu-Dalca">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Sergiu Dalca&quot;&gt;&gt;
+<div aliases="[[sergiu dalca]]" caption="Sergiu Dalca" created="20200420064421616" creator="Islander" information-subject="person" modified="20201224230608564" modifier="Islander" person-birth-granularity="year" subtitle="Sergiu Dalca" tags="People-of-Anchor" title="Sergiu-Dalca">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Anchor]] or [[Daern's Outpost]]&quot; dc:&quot;Private person&quot;&gt;&gt;
 &lt;&lt;person
 subtitle:&quot;Human [[anchorite|?]] of {{$:/.isle/content/Deities/Ezra}}&quot;
@@ -20067,8 +20120,8 @@ The sidhe of the underground begin to lose their spiritual ties to Vaglaskógur.
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div caption="Approved sourcebook material" caption-sort="04. Approved sourcebook material" created="20201224031453515" creator="Islander" modified="20201224070736219" modifier="Islander" subtitle="Approved sourcebook material" synopsis="All material in [[Player's Handbook|https://www.dndbeyond.com/sources/phb]], [[Dungeon Master's Guide|https://www.dndbeyond.com/sources/dmg]], [[Monster Manual|https://www.dndbeyond.com/sources/mm]], [[Xanathar's Guide to Everything|https://www.dndbeyond.com/sources/xgte]], [[Eberron: Rising from the Last War|https://www.dndbeyond.com/sources/erftlw]], [[Guildmasters' Guide to Ravnica|https://www.dndbeyond.com/sources/erftlw]], [[Mordenkainen's Tome of Foes|https://www.dndbeyond.com/sources/mtof]], [[Sword Coast Adventurer's Guide|https://www.dndbeyond.com/sources/scag]], and [[Volo's Guide to Monsters|https://www.dndbeyond.com/sources/vgtm]] are approved for use unless specified otherwise in this article. An older version of an official rule is automatically replaced by a newer version described in a different sourcebook. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all official material. All material in any other official sourcebook is ''disallowed'', unless specified otherwise in this article." tags="Character-creation" title="Sourcebooks">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Sourcebooks&quot;&gt;&gt;
+<div caption="Approved sourcebook material" caption-sort="04. Approved sourcebook material" created="20201224031453515" creator="Islander" modified="20201225004249865" modifier="Islander" subtitle="Approved sourcebook material" synopsis="All material in [[Player's Handbook|https://www.dndbeyond.com/sources/phb]], [[Dungeon Master's Guide|https://www.dndbeyond.com/sources/dmg]], [[Monster Manual|https://www.dndbeyond.com/sources/mm]], [[Xanathar's Guide to Everything|https://www.dndbeyond.com/sources/xgte]], [[Eberron: Rising from the Last War|https://www.dndbeyond.com/sources/erftlw]], [[Guildmasters' Guide to Ravnica|https://www.dndbeyond.com/sources/erftlw]], [[Mordenkainen's Tome of Foes|https://www.dndbeyond.com/sources/mtof]], [[Sword Coast Adventurer's Guide|https://www.dndbeyond.com/sources/scag]], and [[Volo's Guide to Monsters|https://www.dndbeyond.com/sources/vgtm]] are approved for use unless specified otherwise in this article. An older version of an official rule is automatically replaced by a newer version described in a different sourcebook. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all official material. All material in any other official sourcebook is ''disallowed'', unless specified otherwise in this article." tags="Character-creation" title="Sourcebooks">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 {{!!synopsis}}
 
@@ -20356,7 +20409,7 @@ Note that this campaign does not use the [[Skills with Different Abilities|https
 &lt;&lt;known location:&quot;[[Qazi]], [[Night]], [[Runic]], [[Crimson Fault|?]], or [[Walkure]]&quot; dc:&quot;Legendary event&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="[[starting equipment]]" caption="Starting equipment" created="20200406155909560" creator="The Islander" modified="20200606134902627" modifier="Islander" subtitle="Starting equipment" synopsis="When you create your character, you receive some gold and equipment based on a combination of your class, background, and level. You decide how your character comes by this starting equipment. It might be an inheritance, or goods that the character purchases during his or her upbringing. You might be equipped with a weapon, armor, and a backpack as part of military service. You might even have stolen your gear. A weapon can be a family heirloom, passed down from generation to generation until your character finally takes up the mantle and follows in an ancestor’s adventurous footsteps." tags="Character-creation" title="Starting-equipment">
+<div aliases="[[starting equipment]]" caption="Starting equipment" caption-sort="12. Starting equipment" created="20200406155909560" creator="The Islander" modified="20201225004017871" modifier="Islander" subtitle="Starting equipment" synopsis="When you create your character, you receive some gold and equipment based on a combination of your class, background, and level. You decide how your character comes by this starting equipment. It might be an inheritance, or goods that the character purchases during his or her upbringing. You might be equipped with a weapon, armor, and a backpack as part of military service. You might even have stolen your gear. A weapon can be a family heirloom, passed down from generation to generation until your character finally takes up the mantle and follows in an ancestor’s adventurous footsteps." tags="Character-creation" title="Starting-equipment">
 <pre>{{!!synopsis}}
 
 All characters receive:
@@ -20541,8 +20594,8 @@ During one of Xera Astra's trips away from Falsch, Bradyn confronts Syrgo with p
 
 Syrgo is stripped of the Astra surname and sent away to be a housekeeper in Xera Astra's estate in [[Quell]], and Nala is sold off to a handler in [[Jehannum]]'s government-run sex trade syndicate, [[Orchidaeum]]. </pre>
 </div>
-<div created="20201219163536158" creator="Islander" information-subject="person" modified="20201219190019964" modifier="Islander" tags="People-of-Celerity People-of-Thornwood" title="Syzmania">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Syzmania&quot;&gt;&gt;
+<div created="20201219163536158" creator="Islander" information-subject="person" modified="20201224230844828" modifier="Islander" tags="People-of-Celerity People-of-Thornwood" title="Syzmania">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Vaglaskógur|?]], [[Jehakka|?]], Thornwood, [[Celerity]], or Jehannum&quot; dc:&quot;Person&quot; gender:&quot;her&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;&quot;&quot;&lt;&lt;race &quot;Elf/Wood elf&quot; &quot;case-sentence&quot;&gt;&gt; monarch&quot;&quot;&quot;
@@ -20573,8 +20626,8 @@ When you are not being threatened or distracted, you can choose to take 10. Inst
 &lt;&lt;known-person-unreliable &quot;[[Komodo Ridge|?]] and [[Daern's Outpost]]&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="[[t'ez jesset]]" caption="T'ez Jesset" created="20201219164459486" creator="Islander" information-subject="person" modified="20201219225226433" modifier="Islander" person-birth-granularity="day" person-death-granularity="year" subtitle="T'ez Jesset" synopsis="T'ez Jesset is born an [[intersex|https://en.wikipedia.org/wiki/Intersex]] drow, possessing [[both female and male reproductive organs|https://en.wikipedia.org/wiki/True_hermaphroditism]]. They are considered a marvel by {{$:/.isle/content/Races/Elf/Drow}} matrons of the time, and their birth is said to be prophetic. Nonetheless, T'ez Jesset's intersex characteristics are considered an overt threat to the matriarchal hierarchy of drow society, as they stand above the political charge of house matriarchs as a bonafide matron, even while comfortably mingling with the tyrannized conclaves of male drow as one of their own. Early in life, T'ez Jesset relinquishes what could have been a promising political career in ascension to a life in the drow military." tags="People-of-Jehannum People-of-Celerity" title="Tez-Jesset">
-<pre>&lt;&lt;img &quot;$:/.isle/images/Tez Jesset&quot;&gt;&gt;
+<div aliases="[[t'ez jesset]]" caption="T'ez Jesset" created="20201219164459486" creator="Islander" information-subject="person" modified="20201224230904404" modifier="Islander" person-birth-granularity="day" person-death-granularity="year" subtitle="T'ez Jesset" synopsis="T'ez Jesset is born an [[intersex|https://en.wikipedia.org/wiki/Intersex]] drow, possessing [[both female and male reproductive organs|https://en.wikipedia.org/wiki/True_hermaphroditism]]. They are considered a marvel by {{$:/.isle/content/Races/Elf/Drow}} matrons of the time, and their birth is said to be prophetic. Nonetheless, T'ez Jesset's intersex characteristics are considered an overt threat to the matriarchal hierarchy of drow society, as they stand above the political charge of house matriarchs as a bonafide matron, even while comfortably mingling with the tyrannized conclaves of male drow as one of their own. Early in life, T'ez Jesset relinquishes what could have been a promising political career in ascension to a life in the drow military." tags="People-of-Jehannum People-of-Celerity" title="Tez-Jesset">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Vaglaskógur|?]], [[Jehakka|?]], Thornwood, [[Celerity]], or Jehannum&quot; dc:&quot;Person&quot; gender:&quot;them&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;Mixed {{$:/.isle/content/Races/Elf/Drow}}, {{$:/.isle/content/Races/Elf/Wood elf}} field commander&quot;
@@ -20635,8 +20688,8 @@ A time comes when the containment mechanisms used to isolate the Jincilla from T
 Not much is known about the aftermath of the Interlude. It is possible the Jincilla and The I are working together, or alternately The I are thralls of their new masters the Jincilla. The Jincilla and The I may have each gone their separate ways.
 </pre>
 </div>
-<div aliases="[[thibault rainier]] thibault" caption="Thibault Rainier" created="20201119014922718" creator="Islander" information-subject="person" modified="20201119015626565" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Baatul]] in [[Anchor]]" person-residence="[[Azim's Camp|?[[ in [[Celerity]]" subtitle="Thibault Rainier" tags="People-of-Anchor People-of-Celerity" title="Thibault-Rainier">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Thibault Rainier&quot;&gt;&gt;
+<div aliases="[[thibault rainier]] thibault" caption="Thibault Rainier" created="20201119014922718" creator="Islander" information-subject="person" modified="20201224230618852" modifier="Islander" person-birth-granularity="year" person-birthplace="[[Baatul]] in [[Anchor]]" person-residence="[[Azim's Camp|?[[ in [[Celerity]]" subtitle="Thibault Rainier" tags="People-of-Anchor People-of-Celerity" title="Thibault-Rainier">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;alsoknown &quot;[[Merzelle]] (doppelganger)&quot;&gt;&gt;
 &lt;&lt;known location:&quot;{{$:/.isle/content/Locations/Khirad}} XIV, [[Azim's Camp|?]] or [[Qazi]]&quot; dc:&quot;Person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -20765,8 +20818,8 @@ faith=&quot;{{$:/.isle/content/Faiths/Human/Ezran/Erudites}}&quot;
 {{!!synopsis}}
 </pre>
 </div>
-<div caption="Approved unofficial material" caption-sort="05. Approved unofficial material" created="20201224040919942" creator="Islander" modified="20201224044542547" modifier="Islander" subtitle="Approved unofficial material" synopsis="All material in any unofficial sourcebook or playtest material is ''disallowed'', unless specified otherwise in this article. For [[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]] specifically, an older version of a rule is automatically replaced by a newer version described in a different release. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all approved unofficial material." tags="Character-creation" title="Unofficial">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Sourcebooks&quot;&gt;&gt;
+<div caption="Approved unofficial material" caption-sort="05. Approved unofficial material" created="20201224040919942" creator="Islander" modified="20201225004305199" modifier="Islander" subtitle="Approved unofficial material" synopsis="All material in any unofficial sourcebook or playtest material is ''disallowed'', unless specified otherwise in this article. For [[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]] specifically, an older version of a rule is automatically replaced by a newer version described in a different release. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all approved unofficial material." tags="Character-creation" title="Unofficial">
+<pre>&lt;&lt;imgwattribution &quot;Sourcebooks&quot;&gt;&gt;
 {{$:/.isle/system/Playtest}}
 {{!!synopsis}}
 </pre>
@@ -20958,8 +21011,8 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Lolth&quot;&gt;&gt;&quot;&quo
 {{!!synopsis}}
 </pre>
 </div>
-<div created="20201213214511399" creator="Islander" information-subject="person" modified="20201213224716705" modifier="Islander" person-birthplace="Delomelonica" tags="People-of-Anchor Darklords" title="Zalma">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Zalma&quot;&gt;&gt;
+<div created="20201213214511399" creator="Islander" information-subject="person" modified="20201224230634740" modifier="Islander" person-birthplace="Delomelonica" tags="People-of-Anchor Darklords" title="Zalma">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Delomelonica|?]], [[Griven]], or [[Qazi]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
