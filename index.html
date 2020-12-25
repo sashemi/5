@@ -1360,9 +1360,21 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/tab/moresidebar-1850697562</li>
+
+<li>$:/state/tab/sidebar--595412856</li>
+
 <li>$:/state/toc/Table of contents-Character-creation-1395397534</li>
 
+<li>$:/state/toc/Table of contents-Rules-1395397534</li>
+
 <li>$:/state/toc/Table of contents/Character-creation-Classes-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Character-creation-Races-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Magic-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Spells-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -4252,12 +4264,12 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 \end
 </pre>
 </div>
-<div created="20200331042858673" creator="The Islander" modified="20201225072558696" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
+<div created="20200331042858673" creator="The Islander" modified="20201225154419911" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/hb">
 <pre>\define hb(text)
 &lt;span class=&quot;myhb&quot;&gt;$text$&lt;/span&gt;
 \end
 
-\define sourcebook(book)
+\define sourcebook(book,show:1)
 \whitespace trim
 //
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;phb&quot;&gt;[[Player's Handbook|https://www.dndbeyond.com/sources/phb]]&lt;/$reveal&gt;
@@ -4272,11 +4284,11 @@ All items are subject to rules for &lt;&lt;item-use-rules&gt;&gt;.
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;tcoe&quot;&gt;[[Tasha's Cauldron of Everything|https://www.dndbeyond.com/sources/tcoe]]&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;tortle&quot;&gt;[[The Tortle Package|https://www.dndbeyond.com/marketplace/sourcebooks/the-tortle-package]]&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;vgtm&quot;&gt;[[Volo's Guide to Monsters|https://www.dndbeyond.com/sources/vgtm]]&lt;/$reveal&gt;
-&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;sac&quot;&gt;[[Sage Advice Compendium|http://media.wizards.com/2017/dnd/downloads/SA-Compendium.pdf]]&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;
-&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;phbe&quot;&gt;[[Player's Handbook Errata|https://media.wizards.com/2020/dnd/downloads/PH-Errata.pdf]]&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;sac&quot;&gt;[[Sage Advice Compendium|http://media.wizards.com/2017/dnd/downloads/SA-Compendium.pdf]]&lt;$reveal type=&quot;match&quot; text=&quot;$show$&quot; default=&quot;1&quot;&gt;&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;phbe&quot;&gt;[[Player's Handbook Errata|https://media.wizards.com/2020/dnd/downloads/PH-Errata.pdf]]&lt;$reveal type=&quot;match&quot; text=&quot;$show$&quot; default=&quot;1&quot;&gt;&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;ua&quot;&gt;[[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]]&lt;/$reveal&gt;
-&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;uacfv&quot;&gt;[[Unearthed Arcana: Class Feature Variants|https://media.wizards.com/2019/dnd/downloads/UA-ClassFeatures.pdf]]&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;
-&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;uacfv_url&quot;&gt;[[Unearthed Arcana: Class Feature Variants|https://dnd.wizards.com/articles/unearthed-arcana/class-feature-variants]]&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;uacfv&quot;&gt;[[Unearthed Arcana: Class Feature Variants|https://media.wizards.com/2019/dnd/downloads/UA-ClassFeatures.pdf]]&lt;$reveal type=&quot;match&quot; text=&quot;$show$&quot; default=&quot;1&quot;&gt;&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; text=&quot;$book$&quot; default=&quot;ualdu&quot;&gt;[[Unearthed Arcana: Light, Dark, Underdark!|https://media.wizards.com/2015/downloads/dnd/02_UA_Underdark_Characters.pdf]]&lt;$reveal type=&quot;match&quot; text=&quot;$show$&quot; default=&quot;1&quot;&gt;&amp;nbsp;&lt;i class=&quot;pdf&quot;&gt;&lt;/i&gt;&lt;/$reveal&gt;&lt;/$reveal&gt;
 //
 \end
 
@@ -16590,11 +16602,29 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
-<div created="20201225083248406" creator="Islander" modified="20201225083248406" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
+<div created="20201225152247343" creator="Islander" modified="20201225152247343" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/System</pre>
+</div>
+<div created="20201225150845024" creator="Islander" modified="20201225162339005" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/.isle/system/Table of contents</pre>
+</div>
+<div created="20201225162341596" creator="Islander" modified="20201225162341596" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
 <pre>open</pre>
 </div>
-<div created="20201225083250701" creator="Islander" modified="20201225083250701" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Classes-1395397534">
+<div created="20201225151935415" creator="Islander" modified="20201225151935415" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
 <pre>open</pre>
+</div>
+<div created="20201225162343748" creator="Islander" modified="20201225162346692" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Classes-1395397534">
+<pre>close</pre>
+</div>
+<div created="20201225162347188" creator="Islander" modified="20201225162347188" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Races-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225151943263" creator="Islander" modified="20201225151943263" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Magic-1395397534">
+<pre>open</pre>
+</div>
+<div created="20201225151937783" creator="Islander" modified="20201225151942359" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Spells-1395397534">
+<pre>close</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -16602,7 +16632,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20201225083251846" creator="Islander" list="Ranger Next-game Sessions Character-creation" modified="20201225083251846" modifier="Islander" title="$:/StoryList">
+<div created="20201225150853784" creator="Islander" list="$:/.isle/macros/hb Ranger Next-game Sessions Character-creation" modified="20201225162348020" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -17656,7 +17686,7 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Olhydra&quot;&gt;&gt;&quot;&q
 {{!!synopsis}}
 </pre>
 </div>
-<div caption="Expensive spells" created="20200628162823255" creator="Islander" modified="20201225064809802" modifier="Islander" subtitle="Expensive spells" synopsis="Some spells require material components to cast. A ''component pouch'' or a ''spellcasting focus'' can be used to substitute for these components, but if a cost is indicated for a component, a character must have that specific component before he or she can cast the spell." tags="Magic" title="Expensive-spells">
+<div caption="Expensive spells" created="20200628162823255" creator="Islander" modified="20201225152108303" modifier="Islander" subtitle="Expensive spells" synopsis="Some spells require material components to cast. A ''component pouch'' or a ''spellcasting focus'' can be used to substitute for these components, but if a cost is indicated for a component, a character must have that specific component before he or she can cast the spell." tags="Magic" title="Expensive-spells">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 ! [[Material Components|https://www.dndbeyond.com/sources/basic-rules/spellcasting#Components]]
 A character can use a ''component pouch'' or a ''spellcasting focus'' (found in &lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;, Chapter 5) in place of the material components specified for a spell. But if a cost is indicated for a component, a character must have that specific component before he or she can cast the spell.
@@ -17673,11 +17703,11 @@ A bard, cleric, druid, paladin, sorcerer, warlock, or wizard can use a spellcast
 * ''//Bard.//'' [[Musical instrument|https://www.dndbeyond.com/sources/basic-rules/equipment#MusicalInstrument]].
 * ''//[[Blood Hunter (Order of the Profane Soul)|https://www.dndbeyond.com/classes/blood-hunter#OrderoftheProfaneSoul]].//'' Beginning at 3rd level, while you have an active Crimson Rite, you can use your weapon as a spellcasting focus.
 * ''//Cleric, Paladin.//'' [[Holy symbol|https://www.dndbeyond.com/sources/basic-rules/equipment#HolySymbol]]; these are special in that you only need to wear one or have it on your shield.
-* ''//Druid//'' [[Druidic focus|https://www.dndbeyond.com/sources/basic-rules/equipment#DruidicFocus]]; a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals.
+* ''//Druid, Ranger.//'' [[Druidic focus|https://www.dndbeyond.com/sources/basic-rules/equipment#DruidicFocus]]; a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals.
 * ''//Sorcerer, Warlock, Wizard.//'' [[Arcane focus|https://www.dndbeyond.com/sources/basic-rules/equipment#ArcaneFocus]]; an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item — designed to channel the power of arcane spells.
 @@
 
-All other spellcasting classes like Arcane Trickster, Eldritch Knight, Ranger, and Way of the Four Elements cannot use spellcasting foci but they can use component pouches.
+All other spellcasting classes like Arcane Trickster, Eldritch Knight, and Way of the Four Elements can't use spellcasting foci but they can use component pouches.
 
 ! [[Component Pouch|https://www.dndbeyond.com/equipment/component-pouch]]
 A component pouch costs 25 gp and is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).
@@ -19272,8 +19302,9 @@ Excerpts of Jeremy Crawford, speaking on [[Sage Advice - James Haeck on D&amp;D 
 {{!!synopsis}}
 </pre>
 </div>
-<div aliases="ranger" created="20200331043155793" creator="The Islander" modified="20201225083600509" modifier="Islander" synopsis="Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization — humanoid raiders, rampaging beasts and monstrosities, terrible giants, and deadly dragons. They learn to track their quarry as a predator does, moving stealthily through the wilds and hiding themselves in brush and rubble. Rangers focus their combat training on techniques that are particularly useful against their specific favored foes." tags="Classes" title="Ranger">
+<div aliases="ranger" created="20200331043155793" creator="The Islander" modified="20201225162817356" modifier="Islander" synopsis="Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization — humanoid raiders, rampaging beasts and monstrosities, terrible giants, and deadly dragons. They learn to track their quarry as a predator does, moving stealthily through the wilds and hiding themselves in brush and rubble. Rangers focus their combat training on techniques that are particularly useful against their specific favored foes." tags="Classes" title="Ranger">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Ranger&quot;&gt;&gt;
+{{$:/.isle/system/Playtest}}
 &lt;&lt;hb-disclaimer&gt;&gt;
 
 @@.phb-caption-class
@@ -19283,7 +19314,7 @@ The Ranger
 @@.phb-table-class
 | !Level |!Features |
 | 1st |Favored Enemy, Favored Foe, Natural Explorer, Deft Explorer |
-| 2nd |Fighting Style, Druidic Warrior, Spellcasting |
+| 2nd |Fighting Style, Druidic Warrior, Spellcasting, Ranged Smite |
 | 3rd |Ranger Archetype, Primeval Awareness, Primal Awareness |
 | 4th |Ability Score Improvement |
 | 5th |Extra Attack |
@@ -19345,13 +19376,15 @@ You have advantage on Wisdom (Survival) checks to track your favored enemy, as w
 
 You are also able to speak one language of your choice that is spoken by your favored enemy, if they speak one at all.
 
-Whenever you finish a long rest, you can replace your favored enemy type with another. You lose all benefits, including spoken language, for your former favored enemy type.
+&lt;&lt;hb &quot;Whenever you finish a long rest, you can replace your favored enemy type with another. You lose all benefits, including spoken language, for your former favored enemy type.&quot;&gt;&gt;
 
 &lt;&lt;hb &quot;At 6th level, you gain a +2 bonus to damage rolls with weapon attacks against your favored enemy.&quot;&gt;&gt;
 
 &lt;&lt;hb &quot;At 14th level, you have advantage on saving throws against the spells and abilities used by a favored enemy.&quot;&gt;&gt;
 
 !! &lt;&lt;pill g &quot;1st&quot;&gt;&gt; Favored Foe
+Source: &lt;&lt;sourcebook &quot;uacfv&quot;&gt;&gt;
+
 ''//Choose Favored Enemy or Favored Foe as a ranger class ability, but not both.//''
 
 Beginning at 1st level, you can call on your bond with nature to mark a creature as your favored foe for a time: you know the //hunter’s mark// spell, and Wisdom is your spellcasting ability for it. You can use it a number of times equal to your Wisdom modifier (a minimum of once) without expending a spell slot and without requiring concentration. You regain all expended uses when you finish a long rest.
@@ -19378,13 +19411,15 @@ While traveling for an hour or more in your favored terrain, you gain the follow
 * When you forage, you find twice as much food as you normally would
 * While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.
 
-Whenever you finish a long rest, you can replace your favored terrain type with another. You lose all benefits for your former favored terrain type.
+&lt;&lt;hb &quot;Whenever you finish a long rest, you can replace your favored terrain type with another. You lose all benefits for your former favored terrain type.&quot;&gt;&gt;
 
 &lt;&lt;hb &quot;At 6th level, you ignore difficult terrain that is a natural part of the environment of your favored terrain.&quot;&gt;&gt;
 
 &lt;&lt;hb &quot;At 10th level, while in your favored terrain, you have advantage on initiative rolls. Additionally, on your first turn during combat, you have advantage on attack rolls against creatures that have not yet acted.&quot;&gt;&gt;
 
 !! &lt;&lt;pill g &quot;1st&quot;&gt;&gt; &lt;&lt;pill g &quot;6th&quot;&gt;&gt; &lt;&lt;pill g &quot;10th&quot;&gt;&gt; Deft Explorer
+Source: &lt;&lt;sourcebook &quot;uacfv&quot;&gt;&gt;
+
 ''//Choose Natural Explorer or Deft Explorer as a ranger class ability, but not both.//''
 
 Beginning at 1st level, you are an unsurpassed explorer and survivor. Choose one of the following benefits, and then choose another one at 6th and 10th level.
@@ -19404,13 +19439,18 @@ As an action, you can give yourself a number of temporary hit points equal to 1d
 Wisdom modifier. You can use this special action a number of times equal to your Wisdom
 modifier (a minimum of once), and you regain all expended uses when you finish a long rest.
 
-In addition, whenever you finish a short rest, your exhaustion level, if any, is decreased by 1.
+In addition, whenever you finish a short rest, your &lt;&lt;exhaustion&gt;&gt; level, if any, is decreased by 1.
 
 !! &lt;&lt;pill g &quot;2nd&quot;&gt;&gt; Fighting Style
-At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You cannot take a Fighting Style option m ore than once, even if you later get to choose again.
+At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You cannot take a Fighting Style option more than once, even if you later get to choose again.
 
 !!! Archery
 You gain a +2 bonus to attack rolls you make with ranged weapons.
+
+!!! Close-Quarters Shooter
+Source: &lt;&lt;sourcebook &quot;ualdu&quot;&gt;&gt;
+
+When making a ranged attack while you are within 5 feet of a hostile creature, you do not have disadvantage on the attack roll. Your ranged attacks ignore half cover and three-quarters cover against targets within 30 feet of you. You have a +1 bonus to attack rolls on ranged attacks.
 
 !!! Defense
 While you are wearing armor, you gain a +1 bonus to AC.
@@ -19418,15 +19458,29 @@ While you are wearing armor, you gain a +1 bonus to AC.
 !!! Dueling
 When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
 
+!!! Thrown Weapon Fighting
+Source: &lt;&lt;sourcebook &quot;tcoe&quot;&gt;&gt;
+
+You can draw a weapon that has the thrown property as part of the attack you make with the weapon.
+
+In addition, when you hit with a ranged attack using a thrown weapon, you gain a +2 bonus to the damage roll.
+
+!!! Tunnel Fighter
+Source: &lt;&lt;sourcebook &quot;ualdu&quot;&gt;&gt;
+
+As a bonus action, you can enter a defensive stance that lasts until the start of your next turn. While in your defensive stance, you can make opportunity attacks without using your reaction, and you can use your reaction to make a melee attack against a creature that moves more than 5 feet while within your reach.
+
+!!! Two-Weapon Fighting
+When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+
 !! &lt;&lt;pill g &quot;2nd&quot;&gt;&gt; Druidic Warrior
+Source: &lt;&lt;sourcebook &quot;uacfv&quot;&gt;&gt;
+
 ''//Choose Fighting Style or Druidic Warrior as a ranger class ability, but not both.//''
 
 At 2nd level, you learn two cantrips of your choice from the druid spell list. They count as ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a level in this class, you can replace one of these cantrips with another cantrip from the druid spell list.
 
-&lt;$macrocall $name=&quot;hb&quot; text=&quot;&quot;&quot;You can use a druidic focus as a spellcasting focus for your ranger spells. See chapter 5, “Equipment,” of the &lt;&lt;sourcebook &quot;phb&quot;&gt;&gt; for a list of things that count as druidic focuses.&quot;&quot;&quot; /&gt;
-
-!!! Two-Weapon Fighting
-When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+&lt;&lt;hb &quot;You can use a [[druidic focus|https://www.dndbeyond.com/sources/basic-rules/equipment#DruidicFocus]] as a spellcasting focus for your ranger spells. A druidic focus might be a sprig of mistletoe or holly, a wand or rod made of yew or another special wood, a staff drawn whole from a living tree, or an object incorporating feathers, fur, bones, and teeth from sacred animals.&quot;&gt;&gt;
 
 !! &lt;&lt;pill g &quot;2nd&quot;&gt;&gt; Spellcasting
 By the time you reach 2nd level, you have learned to use the magical essence of nature to cast spells, much as a druid does. See &lt;&lt;sourcebook &quot;phb&quot;&gt;&gt;, Chapter 10 for the general rules of
@@ -19480,6 +19534,9 @@ Wisdom is your spellcasting ability for your ranger spells, since your magic dra
 ''Spell attack modifier'' = your proficiency bonus + your Wisdom modifier
 &lt;&lt;&lt;
 
+!! &lt;&lt;pill g &quot;2nd&quot;&gt;&gt; Ranged Smite
+Starting at 2nd level, immediately after you take the Attack action on your turn, you can expend one spell slot of 4th level or lower to make one or more ranged weapon attacks as a bonus action. The number of additional attacks is equal to the expended spell's level.
+
 !! &lt;&lt;pill g &quot;3rd&quot;&gt;&gt; &lt;&lt;pill g &quot;7th&quot;&gt;&gt; &lt;&lt;pill g &quot;15th&quot;&gt;&gt; Ranger Archetype
 At 3rd level, you choose an archetype that you strive to emulate: Hunter or Beast Master, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 7th, 11th, and 15th level.
 
@@ -19523,17 +19580,19 @@ In addition, you have advantage on saving throws against plants that are magical
 !! &lt;&lt;pill g &quot;10th&quot;&gt;&gt; Hide in Plain Sight
 ''//Choose Hide in Plain Sight or Fade Away as a ranger class ability, but not both.//''
 
-Starting at 10th level, you can spend 1 minute creating camouflage for yourself. You must have access to fresh mud, dirt, plants, soot, and other naturally occurring materials with which to create your camouflage.
+Starting at 10th level, you can spend 1 &lt;&lt;hb &quot;round&quot;&gt;&gt; creating camouflage for yourself. You must have access to fresh mud, dirt, plants, soot, and other naturally occurring materials with which to create your camouflage.
 
 Once you are camouflaged in this way, you can try to hide by pressing yourself up against a solid surface, such as a tree or wall, that is at least as tall and wide as you are. You gain a +10 bonus to Dexterity (Stealth) checks as long as you remain there without moving or taking actions. Once you move or take an action or a reaction, you must camouflage yourself again to gain this benefit.
 
 !! &lt;&lt;pill g &quot;10th&quot;&gt;&gt; Fade Away
+Source: &lt;&lt;sourcebook &quot;uacfv&quot;&gt;&gt;
+
 ''//Choose Hide in Plain Sight or Fade Away as a ranger class ability, but not both.//''
 
 You can use a bonus action to magically become invisible, along with any equipment you are
 wearing or carrying, until the start of your next turn.
 
-Once you use this feature, you cannot use it again until you finish a short or long rest.
+&lt;&lt;hb &quot;You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.&quot;&gt;&gt;
 
 !! &lt;&lt;pill g &quot;14th&quot;&gt;&gt; Vanish
 Starting at 14th level, you can use the Hide action as a bonus action on your turn. Also, you cannot be tracked by non-magical means, unless you choose to leave a trail.
@@ -19546,7 +19605,8 @@ You are also aware of the location of any invisible creature within 30 feet of y
 !! &lt;&lt;pill g &quot;20th&quot;&gt;&gt; Foe Slayer
 At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against your favored enemy &lt;&lt;hb &quot;or favored foe&quot;&gt;&gt;.
 
-You can choose to use this feature before or after the roll, but before any effects of the roll are applied.</pre>
+You can choose to use this feature before or after the roll, but before any effects of the roll are applied.
+</pre>
 </div>
 <div aliases="[[Ranger's Companion]]" caption="Ranger's Companion" created="20200411054046285" creator="Islander" modified="20200411071907697" modifier="Islander" subtitle="Ranger's Companion" synopsis="You can command your beast companion without sacrificing a bonus action." tags="Class-features" title="Rangers-Companion">
 <pre>&lt;&lt;hb-disclaimer&gt;&gt;
@@ -20812,20 +20872,29 @@ faith=&quot;{{$:/.isle/content/Faiths/Human/Ezran/Erudites}}&quot;
 {{!!synopsis}}
 </pre>
 </div>
-<div caption="Approved unofficial material" caption-sort="05. Approved unofficial material" created="20201224040919942" creator="Islander" modified="20201225075451080" modifier="Islander" subtitle="Approved unofficial material" synopsis="All material in any unofficial sourcebook or playtest material is ''disallowed'', unless specified otherwise in this article. For [[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]] specifically, an older version of a rule is automatically replaced by a newer version described in a different release. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all approved unofficial material." tags="Character-creation" title="Unofficial">
+<div caption="Approved unofficial material" caption-sort="05. Approved unofficial material" created="20201224040919942" creator="Islander" modified="20201225155646062" modifier="Islander" subtitle="Approved unofficial material" synopsis="All material in any unofficial sourcebook or playtest material is ''disallowed'', unless specified otherwise in this article. For [[Unearthed Arcana|https://dnd.wizards.com/articles/unearthed-arcana]] specifically, an older version of a rule is automatically replaced by a newer version described in a different release. Rules specified for [[character creation|?]] or for the [[game in general|Rules]] supercede and override all approved unofficial material." tags="Character-creation" title="Unofficial">
 <pre>&lt;&lt;imgwattribution &quot;Sourcebooks&quot;&gt;&gt;
 {{$:/.isle/system/Playtest}}
 {{!!synopsis}}
 
-! &lt;&lt;sourcebook &quot;uacfv_url&quot;&gt;&gt;
+! &lt;&lt;sourcebook &quot;uacfv&quot; 0&gt;&gt;
 
 Class Feature:
 
 @@.h
 : ''//All classes.//'' Maneuver Versatility, Proficiency Versatility
 : ''//Bard.//'' [[Spell Versatility|?]]
+: ''//Ranger.//'' See [[Ranger]] class
 : ''//Sorcerer//'' Font of Magic options — Empowering Reserves, Imbuing Touch, Sorcerous Fortitude; [[Spell Versatility|?]]
 : ''//Warlock//'' [[Spell Versatility|?]]
+@@
+
+! &lt;&lt;sourcebook &quot;ualdu&quot; 0&gt;&gt;
+
+Fighting Style:
+
+* Close-Quarters Shooter (for [[Ranger]] only)
+* Tunnel Fighter
 </pre>
 </div>
 <div created="20200531152546944" creator="Islander" information-subject="person" modified="20201225021334369" modifier="Islander" tags="People-of-Stout People-of-Shou" title="Vaari">
