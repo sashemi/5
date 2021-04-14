@@ -486,6 +486,8 @@ Error message and password prompt
 
 <li>$:/.isle/content/Locations/Calimshan</li>
 
+<li>$:/.isle/content/Locations/Ched Nasad</li>
+
 <li>$:/.isle/content/Locations/Demiplane of Dread</li>
 
 <li>$:/.isle/content/Locations/Dis</li>
@@ -507,6 +509,8 @@ Error message and password prompt
 <li>$:/.isle/content/Locations/Malatra</li>
 
 <li>$:/.isle/content/Locations/Medinos</li>
+
+<li>$:/.isle/content/Locations/Middledark</li>
 
 <li>$:/.isle/content/Locations/Olympus</li>
 
@@ -1390,15 +1394,9 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
-<li>$:/state/toc/Table of contents-Character-creation-1395397534</li>
+<li>$:/state/toc/Table of contents-NPCs-1395397534</li>
 
-<li>$:/state/toc/Table of contents-Rules-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Character-creation-Races-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Rules-Crafting-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Rules-Magic-1395397534</li>
+<li>$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -2523,6 +2521,9 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 <div created="20200625050149607" creator="Islander" modified="20200625050217086" modifier="Islander" tags="" title="$:/.isle/content/Locations/Calimshan">
 <pre>[[Calimshan|https://forgottenrealms.fandom.com/wiki/Calimshan]]</pre>
 </div>
+<div created="20210414021406920" creator="Islander" modified="20210414021441797" modifier="Islander" tags="" title="$:/.isle/content/Locations/Ched Nasad">
+<pre>[[Ched Nasad|https://forgottenrealms.fandom.com/wiki/Ched_Nasad]]</pre>
+</div>
 <div created="20201227003717278" creator="Islander" modified="20201227003750467" modifier="Islander" tags="" title="$:/.isle/content/Locations/Demiplane of Dread">
 <pre>[[Demiplane of Dread|https://forgottenrealms.fandom.com/wiki/Domains_of_Dread]]</pre>
 </div>
@@ -2555,6 +2556,9 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 </div>
 <div created="20200604200306663" creator="Islander" modified="20200621062239104" modifier="Islander" tags="" title="$:/.isle/content/Locations/Medinos">
 <pre>[[Medinos|https://sashemi.github.io/maps/?campaign=lafindea&amp;map=lafindea&amp;location=ruinsofmedinos]]</pre>
+</div>
+<div created="20210414021452183" creator="Islander" modified="20210414021513733" modifier="Islander" tags="" title="$:/.isle/content/Locations/Middledark">
+<pre>[[Middledark|https://forgottenrealms.fandom.com/wiki/Middledark]]</pre>
 </div>
 <div created="20200619134246467" creator="Islander" modified="20200619134315401" modifier="Islander" tags="" title="$:/.isle/content/Locations/Olympus">
 <pre>[[Olympus|https://forgottenrealms.fandom.com/wiki/Olympus]]</pre>
@@ -4401,7 +4405,7 @@ All of the content in this article is a modification of official game rules. Hou
 \end
 </pre>
 </div>
-<div created="20200420135252071" creator="Islander" modified="20201215191542566" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/known">
+<div created="20200420135252071" creator="Islander" modified="20210414015624974" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/known">
 <pre>\define know-handled()
 those who have personally handled or witnessed
 \end
@@ -4423,7 +4427,7 @@ those who frequent
 \end
 
 \define dc-in-out(dc:&quot;&quot;,add:&quot;0&quot;)
-&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;/&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[$add$]add[10]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[-5]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;/&lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;false&quot; default=&quot;false&quot;&gt;{{$:/.isle/data/Knowledge/DC/$dc$}}&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[5]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;
 \end
 
 \define dc-out(dc:&quot;&quot;,add:&quot;-5&quot;)
@@ -16688,25 +16692,16 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
-<div created="20210413031930333" creator="Islander" modified="20210413033406342" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210414013120627" creator="Islander" modified="20210414021358037" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210413024621412" creator="Islander" modified="20210413052557794" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210414012858260" creator="Islander" modified="20210414021356334" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20210413031815812" creator="Islander" modified="20210413031815812" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
+<div created="20210414012851828" creator="Islander" modified="20210414012851828" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210413034741230" creator="Islander" modified="20210413034741230" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210413031819468" creator="Islander" modified="20210413031819468" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Races-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210413034756998" creator="Islander" modified="20210413034756998" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Crafting-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210413034743582" creator="Islander" modified="20210413034743582" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Magic-1395397534">
+<div created="20210414012854715" creator="Islander" modified="20210414012854715" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -16715,7 +16710,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210413024625580" creator="Islander" list="$:/.isle/macros/known $:/.isle/content/Locations/Phlogiston $:/.isle/content/Locations/Toril $:/.isle/images/Vicissitude Sardis [[$:/.isle/images/Kraken of Seven Spurs]] House-Sardis Deboraka-Sardis Vicissitude Next-game Sessions Character-creation" modified="20210413055014772" modifier="Islander" title="$:/StoryList">
+<div created="20210414012855732" creator="Islander" list="$:/.isle/content/Faiths/Lolth $:/.isle/content/Faiths/Gruumsh $:/.isle/content/Locations/Middledark [[$:/.isle/content/Locations/Ched Nasad]] $:/.isle/content/Locations/Khirad $:/.isle/macros/known Deboraka-Sardis Ogedei Next-game Sessions Character-creation" modified="20210414021708997" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -17729,9 +17724,21 @@ If all the above requirements are met, the result of the process is an item of t
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis &quot;List of Darklords&quot;&gt;&gt;</pre>
 </div>
-<div aliases="deboraka [[deboraka sardis]]" caption="Deboraka Sardis" created="20210412031812868" creator="Islander" information-requires-dc1="true" information-subject="person" modified="20210413054917147" modifier="Islander" subtitle="Deboraka Sardis" synopsis="Deboraka Sardis was once a high priestess of {{$:/.isle/content/Deities/Lolth}}, cloistered behind the high obsidian walls of [[Ebon Arakh|?]]. She ascended to clergy after a half century of military accomplishments, primarily in the construction of a tunnel under the [[Sea of Hope|?]] and expansion of military forces in defense of this northward excursionary passage pointed at the root limbs of [[Lor]]. Lolth's dark gift to her high priestess is in the bounty of her womb, producing hundreds of offspring, much like a spider with an ample clutch." tags="People-of-Jehannum" title="Deboraka-Sardis">
+<div aliases="deboraka [[deboraka sardis]]" caption="Deboraka Sardis" created="20210412031812868" creator="Islander" information-requires-dc1="true" information-subject="person" modified="20210414021730358" modifier="Islander" person-birth-granularity="year" person-birthplace="{{$:/.isle/content/Locations/Ched Nasad}} in {{$:/.isle/content/Locations/Middledark}}" person-residence="[[Chalice]] in [[Jehannum]]" subtitle="Deboraka Sardis" synopsis="Deboraka Sardis was once a high priestess of {{$:/.isle/content/Deities/Lolth}}, cloistered behind the high obsidian walls of [[Ebon Arakh|?]]. She ascended to clergy after a half century of military accomplishments, primarily in the construction of a tunnel under the [[Sea of Hope|?]] and expansion of military forces in defense of this northward excursionary passage pointed at the root limbs of [[Lor]]. Lolth's dark gift to her high priestess is in the bounty of her womb, producing hundreds of offspring, much like a spider with an ample clutch." tags="People-of-Jehannum" title="Deboraka-Sardis">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Chalice]]&quot; dc:&quot;Private person&quot; gender:&quot;her&quot;&gt;&gt;
+&lt;$macrocall $name=&quot;person&quot;
+subtitle=&quot;&quot;&quot;&lt;&lt;race &quot;Elf/Drow&quot; &quot;case-sentence&quot;&gt;&gt; matriarch of [[House Sardis|?]]&quot;&quot;&quot;
+titles=&quot;High Priestess of {{$:/.isle/content/Deities/Lolth}}, Overseer Prime of the Northmarch to [[Lor]]&quot;
+relations=&quot;[[Seneca Sardis|?]] (matriarch)&quot;
+alignment=&quot;Neutral evil&quot;
+dc=&quot;Private person&quot;
+b-era-year=&quot;1599th&quot;
+b-era=&quot;Void&quot;
+b-year=&quot;-1599&quot;
+b-callsign=&quot;Meridean's Mercy&quot;
+faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Lolth&quot;&gt;&gt;&quot;&quot;&quot;
+/&gt;
 {{!!synopsis}}
 
 Deboraka's age is a few thousand years in excess of drow maximums. Such a vulgar extension of mortality is most likely one of Deboraka's many dark gifts. Due to her long age which exceeds even the age of the {{$:/.isle/content/Terms/Demiplane}} which she inhabits, Deboraka likely originates off-world from [[Carcosa]], though it is not clear where she is from.
@@ -17740,7 +17747,7 @@ She is the uncontested matriarch of [[House Sardis|?]]. She is said to be stubbo
 
 Deboraka often appears as a beautiful, silver haired, lithe drow female. She acquires this form and others likely through [[vicissitude|?]], administered by a small army of in-house surgeons and beauticians. Her face is never the same, and her sexual and sadist appetites are a bottomless well.
 
-&lt;&lt;dc-block dc:&quot;Private person&quot; add:5&gt;&gt;
+&lt;&lt;dc-block dc:&quot;Private person&quot; add:10&gt;&gt;
 Deboraka Sardis was a devout disciple of {{$:/.isle/content/Deities/Lolth}} in her military days, but her prayers were never heard by the spider goddess. Instead, her prayers arced their way through {{$:/.isle/content/Locations/Phlogiston}}, scattering into {{$:/.isle/content/Locations/Far Realm}}, only to be answered by an {{$:/.isle/content/Races/Elder Brain}} named [[Sardis]]. It is to this ancient evil entity that Deboraka pledged her life, dedicating herself to Sardis as her secret, dark patron. The worship of Sardis grants Deboraka many dark gifts, as she parrots the worship of Lolth in public to assuage {{$:/.isle/content/Races/Elf/Drow}} suspicions. Her time as a high priestess in [[Ebon Arakh|?]] was spent secretly converting others to Sardis's cause.
 </pre>
 </div>
@@ -18178,9 +18185,9 @@ Hit Points
 
 </pre>
 </div>
-<div aliases="[[house sardis]]" caption="House Sardis" caption-sort="House Sardis" created="20210412042722445" creator="Islander" information-requires-dc1="true" information-requires-dc2="false" information-subject="person" modified="20210413053203618" modifier="Islander" subtitle="House Sardis" synopsis="House Sardis exists in the space between the spaces of {{$:/.isle/content/Races/Elf/Drow}} politics. Its sole matriarch, the grand matron [[Deboraka Sardis|?]] has no political aspirations for herself nor her great house, but it is considered political suicide to cross her. The matron bears the gift of hundreds of her own children, much like a spider with an ample clutch. That her womb could bear so many offspring may be an eldritch gift, or a dark blessing from {{$:/.isle/content/Deities/Lolth}} herself." tags="Groups" title="House-Sardis">
+<div aliases="[[house sardis]]" caption="House Sardis" caption-sort="House Sardis" created="20210412042722445" creator="Islander" information-requires-dc1="true" information-requires-dc2="false" information-subject="person" modified="20210414020117893" modifier="Islander" subtitle="House Sardis" synopsis="House Sardis exists in the space between the spaces of {{$:/.isle/content/Races/Elf/Drow}} politics. Its sole matriarch, the grand matron [[Deboraka Sardis|?]] has no political aspirations for herself nor her great house, but it is considered political suicide to cross her. The matron bears the gift of hundreds of her own children, much like a spider with an ample clutch. That her womb could bear so many offspring may be an eldritch gift, or a dark blessing from {{$:/.isle/content/Deities/Lolth}} herself." tags="Groups" title="House-Sardis">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
-&lt;&lt;known location:&quot;[[Chalice]]&quot; dc:&quot;Group&quot; gender:&quot;it&quot;&gt;&gt;
+&lt;&lt;known location:&quot;[[Chalice]]&quot; dc:&quot;Secretive group&quot; gender:&quot;it&quot;&gt;&gt;
 {{!!synopsis}}
 
 The power of House Sardis is in its resources and contacts. Enemies of the house could find their remote estates besieged by assassins, or their shipments raided and plundered, and entire family trees murdered and absorbed involuntarily into House Sardis. Drow who are captured through pillage may be subjected to [[vicissitude|?]] and other heinous methods so that their appearance and identities are totally altered before they are assimilated body and mind into the Sardis clutch.
@@ -18192,7 +18199,7 @@ The sigil of House Sardis is the Kraken of Seven Spurs. The power of House Sardi
 
 House Sardis has never involved itself in drow politics, though the dangers of interfering in its various businesses are clear to politicians. Deboraka Sardis is driven by financial interests and all the bounty afforded by money, such as slaves, rare goods, illicit drugs, sex trade, and the like.
 
-&lt;&lt;dc-block dc:&quot;Group&quot; add:15&gt;&gt;
+&lt;&lt;dc-block dc:&quot;Secretive group&quot; add:10&gt;&gt;
 House Sardis's true frontman, an {{$:/.isle/content/Races/Elder Brain}} ostentatiously named [[Sardis]] is in control of its matron and the clutch, but may be obfuscated by shadow and deception.
 </pre>
 </div>
@@ -20091,7 +20098,7 @@ Unlike Earthly languages, R’lyehian makes no distinction between nouns, verbs,
 {{!!synopsis}}
 </pre>
 </div>
-<div created="20210412025604772" creator="Islander" information-requires-dc1="true" information-requires-dc2="false" information-subject="person" modified="20210413034239814" modifier="Islander" synopsis="The origins of Sardis the {{$:/.isle/content/Races/Illithid}} is unknown. Sardis has long evolved past {{$:/.isle/content/Races/Elder Brain}} physiology and likely either originates from {{$:/.isle/content/Locations/Far Realm}} or has spent many centuries there. His first-hand understanding of &lt;&lt;race &quot;Aboleth&quot; &quot;plural&quot;&gt;&gt; as apex predators means his presence in Far Realm has been for an impossibly long period, or he has access to time travel or to means of remote temporal observation." tags="People-of-Jehannum" title="Sardis">
+<div created="20210412025604772" creator="Islander" information-requires-dc1="true" information-requires-dc2="false" information-subject="person" modified="20210414020044821" modifier="Islander" synopsis="The origins of Sardis the {{$:/.isle/content/Races/Illithid}} is unknown. Sardis has long evolved past {{$:/.isle/content/Races/Elder Brain}} physiology and likely either originates from {{$:/.isle/content/Locations/Far Realm}} or has spent many centuries there. His first-hand understanding of &lt;&lt;race &quot;Aboleth&quot; &quot;plural&quot;&gt;&gt; as apex predators means his presence in Far Realm has been for an impossibly long period, or he has access to time travel or to means of remote temporal observation." tags="People-of-Jehannum" title="Sardis">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Chalice]]&quot; dc:&quot;Obscure person&quot;&gt;&gt;
 {{!!synopsis}}
@@ -20100,7 +20107,7 @@ Time has worn down Sardis's body and he is no longer physically motile. Life-sus
 
 Sardis's true name is unknown. Sardis's reputation, among mind flayers who know him, is terrifying though over time there may be fewer of those left alive who may remember him.
 
-&lt;&lt;dc-block dc:&quot;Obscure person&quot; add:5&gt;&gt;
+&lt;&lt;dc-block dc:&quot;Obscure person&quot; add:10&gt;&gt;
 [[House Sardis|?]] of [[Chalice]] is not a {{$:/.isle/content/Races/Elf/Drow}} house of any sort, even though its reputation is built on a substantial foundation of affluence, political clout, fear, and criminal association. Its matron [[Deboraka Sardis|?]] is a mere mental puppet of Sardis the {{$:/.isle/content/Races/Elder Brain}}. As such, Sardis captivates hundreds of dark elves, over whom he extends his powerful mind control reaching across many miles and undeterred by interposing material or geological features. All such drow are involuntary members of House Sardis, part of an elaborate subterfuge undetected by those who interact with them.
 
 Sardis uses his dark elves to experience all facets of drow life, and to indulge his hedonistic desires. Sardis's mental impulses are woven into those of his subjects, and he experiences all manners of pleasure and pain through their forced actions. After years of exposure to Sardis's intellect, very little of the host's own psyche and personality remains. If Sardis were to be disconnected from these minds, the hosts's bodies would be rendered impotent and ripped of free will.
