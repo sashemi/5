@@ -1396,6 +1396,8 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/toc/Table of contents-Character-creation-1395397534</li>
+
 <li>$:/state/toc/Table of contents-NPCs-1395397534</li>
 
 <li>$:/state/toc/Table of contents-Player-activities-1395397534</li>
@@ -1403,8 +1405,6 @@ Error message and password prompt
 <li>$:/state/toc/Table of contents-Player-characters-1395397534</li>
 
 <li>$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534</li>
-
-<li>$:/state/toc/Table of contents/NPCs-People-of-Jehannum-1395397534</li>
 
 <li>$:/state/toc/Table of contents/Player-characters-Daigoro-Raizan-1395397534</li>
 
@@ -4418,7 +4418,7 @@ All of the content in this article is a modification of official game rules. Hou
 \end
 </pre>
 </div>
-<div created="20200420135252071" creator="Islander" modified="20210414015624974" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/known">
+<div created="20200420135252071" creator="Islander" modified="20210414051310545" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/known">
 <pre>\define know-handled()
 those who have personally handled or witnessed
 \end
@@ -4453,12 +4453,12 @@ The information directly beneath this notice is known with a successful DC &lt;$
 &lt;/blockquote&gt;
 \end
 
-\define known(location,person:&quot;&quot;,dc:&quot;Locality&quot;,skills:&quot;History&quot;,source:&quot;&lt;&lt;article&gt;&gt;&quot;,gender:&quot;him&quot;)
+\define known(location:&quot;&quot;,person:&quot;&quot;,dc:&quot;Locality&quot;,skills:&quot;History&quot;,source:&quot;&lt;&lt;article&gt;&gt;&quot;,gender:&quot;him&quot;)
 &lt;blockquote style=&quot;background-color: #dfeeee;&quot;&gt;
 The information directly beneath this notice is known
 &lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;false&quot; default=&quot;true&quot;&gt;only&lt;/$reveal&gt;
 to
-&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;location&quot;&gt;&lt;$list filter=&quot;[all[current]!tag[Moons]!tag[Landmarks]!tag[Establishments]!tag[Concepts]]&quot; emptyMessage=&quot;&quot;&quot;&lt;&lt;know-resident&gt;&gt; $location$&quot;&quot;&quot;&gt;&lt;&lt;know-resident&gt;&gt; &lt;&lt;article&gt;&gt;&lt;$set name=&quot;loc-comma&quot; filter=&quot;[&lt;__location__&gt;regexp[(?i)\,]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text=&lt;&lt;loc-comma&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;,&lt;/$reveal&gt;&lt;/$set&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt; $location$&lt;/$reveal&gt;&lt;/$list&gt;&lt;$list filter=&quot;[all[current]tag[Establishments]]&quot;&gt;, and &lt;&lt;know-frequent&gt;&gt; &lt;&lt;article&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;person&quot;&gt;&lt;&lt;know-resident&gt;&gt; $location$, &lt;$reveal type=&quot;match&quot; text=&quot;$dc$&quot; default=&quot;Deity&quot;&gt;worshippers of &lt;&lt;article&gt;&gt;, &lt;/$reveal&gt;and &lt;&lt;know-met&gt;&gt; &lt;&lt;article&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;race&quot;&gt;&lt;$list filter=&quot;[all[current]get[name-plural]lowercase[]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;, $person$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt;, and &lt;&lt;know-resident&gt;&gt; $location$&lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;item&quot;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;&lt;know-resident&gt;&gt; $location$, &lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;to &lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;$person$&lt;$set name=&quot;loc-comma&quot; filter=&quot;[&lt;__person__&gt;regexp[(?i)\,]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text=&lt;&lt;loc-comma&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;,&lt;/$reveal&gt;&lt;/$set&gt; &lt;/$reveal&gt;and &lt;&lt;know-handled&gt;&gt; &lt;&lt;article&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;event&quot;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;&lt;know-resident&gt;&gt; $location$, &lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;to &lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;$person$&lt;$set name=&quot;loc-comma&quot; filter=&quot;[&lt;__person__&gt;regexp[(?i)\,]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text=&lt;&lt;loc-comma&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;,&lt;/$reveal&gt;&lt;/$set&gt; &lt;/$reveal&gt;and &lt;&lt;know-present&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;, with a successful DC &lt;&lt;dc-out dc:&quot;$dc$&quot; add:&quot;-5&quot;&gt;&gt; {{$:/.isle/content/Knowledge/Skills/$skills$}} check&lt;/$reveal&gt;.
+&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;location&quot;&gt;&lt;$list filter=&quot;[all[current]!tag[Moons]!tag[Landmarks]!tag[Establishments]!tag[Concepts]]&quot; emptyMessage=&quot;&quot;&quot;&lt;&lt;know-resident&gt;&gt; $location$&quot;&quot;&quot;&gt;&lt;&lt;know-resident&gt;&gt; &lt;&lt;article&gt;&gt;&lt;$set name=&quot;loc-comma&quot; filter=&quot;[&lt;__location__&gt;regexp[(?i)\,]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text=&lt;&lt;loc-comma&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;,&lt;/$reveal&gt;&lt;/$set&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt; $location$&lt;/$reveal&gt;&lt;/$list&gt;&lt;$list filter=&quot;[all[current]tag[Establishments]]&quot;&gt;, and &lt;&lt;know-frequent&gt;&gt; &lt;&lt;article&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;person&quot;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$location$&quot; default=&quot;&quot;&gt;&lt;&lt;know-resident&gt;&gt; $location$, &lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; text=&quot;$dc$&quot; default=&quot;Deity&quot;&gt;worshippers of &lt;&lt;article&gt;&gt;, &lt;$reveal type=&quot;match&quot; text=&quot;$location$&quot; default=&quot;&quot;&gt;and &lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$location$&quot; default=&quot;&quot;&gt;and &lt;/$reveal&gt;&lt;&lt;know-met&gt;&gt; &lt;&lt;article&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;race&quot;&gt;&lt;$list filter=&quot;[all[current]get[name-plural]lowercase[]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;, $person$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt;, and &lt;&lt;know-resident&gt;&gt; $location$&lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;item&quot;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;&lt;know-resident&gt;&gt; $location$, &lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;to &lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;$person$&lt;$set name=&quot;loc-comma&quot; filter=&quot;[&lt;__person__&gt;regexp[(?i)\,]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text=&lt;&lt;loc-comma&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;,&lt;/$reveal&gt;&lt;/$set&gt; &lt;/$reveal&gt;and &lt;&lt;know-handled&gt;&gt; &lt;&lt;article&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;event&quot;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$location$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;&lt;know-resident&gt;&gt; $location$, &lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;to &lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$person$&quot;&quot;&quot; default=&quot;&quot;&gt;$person$&lt;$set name=&quot;loc-comma&quot; filter=&quot;[&lt;__person__&gt;regexp[(?i)\,]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text=&lt;&lt;loc-comma&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;,&lt;/$reveal&gt;&lt;/$set&gt; &lt;/$reveal&gt;and &lt;&lt;know-present&gt;&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;, with a successful DC &lt;&lt;dc-out dc:&quot;$dc$&quot; add:&quot;-5&quot;&gt;&gt; {{$:/.isle/content/Knowledge/Skills/$skills$}} check&lt;/$reveal&gt;.
 &lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;All others can make a successful DC&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;false&quot; default=&quot;false&quot;&gt; {{$:/.isle/data/Knowledge/DC/$dc$}} {{$:/.isle/content/Knowledge/Skills/$skills$}}&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt; &lt;&lt;dc-out dc:&quot;$dc$&quot; add:&quot;5&quot;&gt;&gt; ability&lt;/$reveal&gt; check.&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; state=&quot;!!information-is-unreliable&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;The information is sourced from
 &lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;location&quot;&gt;history&lt;$list filter=&quot;[all[current]tag[Establishments]]&quot;&gt; and &lt;&lt;know-frequent&gt;&gt; &lt;&lt;article&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;person&quot;&gt;&lt;$reveal type=&quot;match&quot; text=&quot;$dc$&quot; default=&quot;Legendary person&quot;&gt;history and &lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; text=&quot;$dc$&quot; default=&quot;Deity&quot;&gt;history, myth, worshippers of &lt;&lt;article&gt;&gt;, and &lt;/$reveal&gt;$source$ $gender$self&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;race&quot; default=&quot;location&quot;&gt;history&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;item&quot;&gt;history&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$source$&quot;&quot;&quot; default=&quot;&lt;&lt;article&gt;&gt;&quot;&gt;, and recollections by $source$&lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-subject&quot; text=&quot;event&quot;&gt;history&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$source$&quot;&quot;&quot; default=&quot;&lt;&lt;article&gt;&gt;&quot;&gt;, and recollections by $source$&lt;/$reveal&gt;&lt;/$reveal&gt;, and may be [[unreliable|https://tvtropes.org/pmwiki/pmwiki.php/Main/UnreliableNarrator]] or [[inaccurate|https://tvtropes.org/pmwiki/pmwiki.php/Main/TruthAndLies]].&lt;/$reveal&gt;
@@ -16705,28 +16705,28 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
-<div created="20210414025402962" creator="Islander" modified="20210414031949364" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210414045141872" creator="Islander" modified="20210414045141872" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210414025334379" creator="Islander" modified="20210414040216686" modifier="Islander" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/More</pre>
+<div created="20210414045030537" creator="Islander" modified="20210414051946441" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/.isle/system/Table of contents</pre>
 </div>
-<div created="20210414030249987" creator="Islander" modified="20210414030249988" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210414051951097" creator="Islander" modified="20210414051953105" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
+<pre>close</pre>
+</div>
+<div created="20210414045054416" creator="Islander" modified="20210414052001705" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210414032907069" creator="Islander" modified="20210414032907069" modifier="Islander" title="$:/state/toc/Table of contents-Player-activities-1395397534">
+<div created="20210414045059560" creator="Islander" modified="20210414045101656" modifier="Islander" title="$:/state/toc/Table of contents-Player-activities-1395397534">
+<pre>close</pre>
+</div>
+<div created="20210414045102728" creator="Islander" modified="20210414051956345" modifier="Islander" title="$:/state/toc/Table of contents-Player-characters-1395397534">
+<pre>close</pre>
+</div>
+<div created="20210414052003785" creator="Islander" modified="20210414052003785" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210414032910597" creator="Islander" modified="20210414032910597" modifier="Islander" title="$:/state/toc/Table of contents-Player-characters-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210414030253660" creator="Islander" modified="20210414030253660" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210414033427068" creator="Islander" modified="20210414033427068" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Jehannum-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210414032912708" creator="Islander" modified="20210414032912708" modifier="Islander" title="$:/state/toc/Table of contents/Player-characters-Daigoro-Raizan-1395397534">
+<div created="20210414045106024" creator="Islander" modified="20210414045112824" modifier="Islander" title="$:/state/toc/Table of contents/Player-characters-Daigoro-Raizan-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -16735,7 +16735,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210414025337443" creator="Islander" list="$:/.isle/content/Faiths/Ghaunadaur Seneca-Sardis House-Sardis Sardis Deboraka-Sardis Next-game Sessions Character-creation" modified="20210414040249926" modifier="Islander" title="$:/StoryList">
+<div created="20210414045034513" creator="Islander" list="Ogedei $:/.isle/macros/known Seneca-Sardis Next-game Sessions Character-creation" modified="20210414052007361" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -20345,9 +20345,9 @@ During monsoon:
 &lt;&lt;tocwresidents&gt;&gt;
 </pre>
 </div>
-<div aliases="seneca [[seneca sardis]]" caption="Seneca Sardis" created="20210412043659064" creator="Islander" information-requires-dc1="true" information-requires-dc2="false" information-subject="person" modified="20210414041514191" modifier="Islander" person-birth-granularity="day" subtitle="Seneca Sardis" tags="People-of-Jehannum" title="Seneca-Sardis">
+<div aliases="seneca [[seneca sardis]]" caption="Seneca Sardis" created="20210412043659064" creator="Islander" information-requires-dc1="true" information-requires-dc2="false" information-subject="person" modified="20210414051851465" modifier="Islander" person-birth-granularity="day" subtitle="Seneca Sardis" tags="People-of-Jehannum" title="Seneca-Sardis">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
-&lt;&lt;known location:&quot;[[Chalice]]&quot; dc:&quot;Private person&quot;&gt;&gt;
+&lt;&lt;known dc:&quot;Private person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
 subtitle=&quot;&quot;&quot;&lt;&lt;race &quot;Elf/Drow&quot; &quot;case-sentence&quot;&gt;&gt; mentalist&quot;&quot;&quot;
 titles=&quot;[[House Sardis|?]] sentry-leader&quot;
