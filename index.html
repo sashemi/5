@@ -1440,23 +1440,9 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
-<li>$:/state/toc/Table of contents-NPCs-1395397534</li>
+<li>$:/state/toc/Table of contents-Player-characters-1395397534</li>
 
-<li>$:/state/toc/Table of contents-Places-1395397534</li>
-
-<li>$:/state/toc/Table of contents-Reference-1395397534</li>
-
-<li>$:/state/toc/Table of contents/NPCs-People-of-Celerity-1395397534</li>
-
-<li>$:/state/toc/Table of contents/NPCs-People-of-Jehannum-1395397534</li>
-
-<li>$:/state/toc/Table of contents/NPCs-People-of-Thornwood-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Reference-Groups-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Reference/Groups-Al-Nashat-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Reference/Groups-House-Astra-1395397534</li>
+<li>$:/state/toc/Table of contents/Player-characters-Daigoro-Raizan-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -4576,7 +4562,7 @@ All of the content in this article is a modification of official game rules. Hou
 \end
 </pre>
 </div>
-<div created="20200420135252071" creator="Islander" modified="20210414051310545" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/known">
+<div created="20200420135252071" creator="Islander" modified="20210420204107459" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/known">
 <pre>\define know-handled()
 those who have personally handled or witnessed
 \end
@@ -4598,7 +4584,7 @@ those who frequent
 \end
 
 \define dc-in-out(dc:&quot;&quot;,add:&quot;0&quot;)
-&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[-5]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;/&lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;false&quot; default=&quot;false&quot;&gt;{{$:/.isle/data/Knowledge/DC/$dc$}}&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[5]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[-5]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;/&lt;/$reveal&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc2&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;false&quot; default=&quot;false&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!information-requires-dc1&quot; text=&quot;true&quot; default=&quot;false&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Knowledge/DC/$dc$]get[text]add[5]add[$add$]max[5]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;&lt;/$reveal&gt;
 \end
 
 \define dc-out(dc:&quot;&quot;,add:&quot;-5&quot;)
@@ -4813,7 +4799,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210414030049228" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<div created="20200429000932368" creator="Islander" modified="20210420203602467" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
 <pre>\define format-number(n t d p)
 \whitespace trim
 &lt;$set name=thousands-separator value=&quot;$t$&quot; emptyValue=&quot;,&quot;&gt;
@@ -4909,16 +4895,16 @@ $era-year$ Year of $era$, &lt;$reveal type=&quot;match&quot; state=&quot;!!timel
 @@.h
 &lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$titles$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Names and Titles.//'' $titles$.&lt;/li&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$relations$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Relations.//'' $relations$.&lt;/li&gt;&lt;/$reveal&gt;
-&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$alignment$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Alignment.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;-5&quot;&gt;&gt;&quot;&quot;&quot; /&gt; $alignment$.&lt;/li&gt;&lt;/$reveal&gt;
-&lt;$reveal type=&quot;match&quot; state=&quot;!!person-birth-granularity&quot; text=&quot;day&quot;&gt;&lt;li&gt;''//Birth.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;0&quot;&gt;&gt;&quot;&quot;&quot; /&gt; &lt;$macrocall $name=&quot;day-fmt&quot; weekday=&quot;$b-weekday$&quot; day=&quot;$b-day$&quot; month=&quot;$b-month$&quot; leap=&quot;$b-leap$&quot; festweek=&quot;$b-festweek$&quot; era-year=&quot;$b-era-year$&quot; era=&quot;$b-era$&quot; year=&quot;$b-year$&quot; callsign=&quot;$b-callsign$&quot; /&gt;; &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$macrocall $name=&quot;altair-$b-altair$&quot; /&gt;; &lt;$macrocall $name=&quot;belen-$b-belen$&quot; /&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$macrocall $name=&quot;ral-$b-ral$&quot; /&gt;; &lt;$macrocall $name=&quot;guthay-$b-guthay$&quot; /&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$b-auspice$&quot; default=&quot;&quot;&gt;; $b-auspice$&lt;/$reveal&gt;.&lt;/li&gt;&lt;/$reveal&gt;
-&lt;$reveal type=&quot;match&quot; state=&quot;!!person-birth-granularity&quot; text=&quot;year&quot;&gt;&lt;li&gt;''//Birth.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;5&quot;&gt;&gt;&quot;&quot;&quot; /&gt; &lt;$macrocall $name=&quot;year-fmt&quot; era-year=&quot;$b-era-year$&quot; era=&quot;$b-era$&quot; year=&quot;$b-year$&quot; callsign=&quot;$b-callsign$&quot; /&gt;.&lt;/li&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$alignment$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Alignment.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;5&quot;&gt;&gt;&quot;&quot;&quot; /&gt; $alignment$.&lt;/li&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!person-birth-granularity&quot; text=&quot;day&quot;&gt;&lt;li&gt;''//Birth.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;10&quot;&gt;&gt;&quot;&quot;&quot; /&gt; &lt;$macrocall $name=&quot;day-fmt&quot; weekday=&quot;$b-weekday$&quot; day=&quot;$b-day$&quot; month=&quot;$b-month$&quot; leap=&quot;$b-leap$&quot; festweek=&quot;$b-festweek$&quot; era-year=&quot;$b-era-year$&quot; era=&quot;$b-era$&quot; year=&quot;$b-year$&quot; callsign=&quot;$b-callsign$&quot; /&gt;; &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$macrocall $name=&quot;altair-$b-altair$&quot; /&gt;; &lt;$macrocall $name=&quot;belen-$b-belen$&quot; /&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$macrocall $name=&quot;ral-$b-ral$&quot; /&gt;; &lt;$macrocall $name=&quot;guthay-$b-guthay$&quot; /&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$b-auspice$&quot; default=&quot;&quot;&gt;; $b-auspice$&lt;/$reveal&gt;.&lt;/li&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!person-birth-granularity&quot; text=&quot;year&quot;&gt;&lt;li&gt;''//Birth.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;10&quot;&gt;&gt;&quot;&quot;&quot; /&gt; &lt;$macrocall $name=&quot;year-fmt&quot; era-year=&quot;$b-era-year$&quot; era=&quot;$b-era$&quot; year=&quot;$b-year$&quot; callsign=&quot;$b-callsign$&quot; /&gt;.&lt;/li&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;nomatch&quot; state=&quot;!!person-birth-granularity&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Age.//''
-&lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;5&quot;&gt;&gt;&quot;&quot;&quot; /&gt; &lt;$reveal type=&quot;match&quot; state=&quot;!!person-death-granularity&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Current year/Carcosa]get[text]subtract[$b-year$]]&quot;&gt;&lt;$macrocall $name=&quot;format-number&quot; p=0 n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Current year/Athas]get[text]subtract[$b-year$]]&quot;&gt;&lt;$macrocall $name=&quot;format-number&quot; p=0 n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt;&lt;/$reveal&gt; $units$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; state=&quot;!!person-death-granularity&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;$list filter=&quot;[[$d-year$]subtract[$b-year$]]&quot;&gt;&lt;$macrocall $name=&quot;format-number&quot; p=0 n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt; $units$ (at time of death)&lt;/$reveal&gt;.&lt;/li&gt;&lt;/$reveal&gt;
+&lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;10&quot;&gt;&gt;&quot;&quot;&quot; /&gt; &lt;$reveal type=&quot;match&quot; state=&quot;!!person-death-granularity&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Current year/Carcosa]get[text]subtract[$b-year$]]&quot;&gt;&lt;$macrocall $name=&quot;format-number&quot; p=0 n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$list filter=&quot;[[$:/.isle/data/Current year/Athas]get[text]subtract[$b-year$]]&quot;&gt;&lt;$macrocall $name=&quot;format-number&quot; p=0 n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt;&lt;/$reveal&gt; $units$&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; state=&quot;!!person-death-granularity&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;$list filter=&quot;[[$d-year$]subtract[$b-year$]]&quot;&gt;&lt;$macrocall $name=&quot;format-number&quot; p=0 n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt; $units$ (at time of death)&lt;/$reveal&gt;.&lt;/li&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; state=&quot;!!person-death-granularity&quot; text=&quot;day&quot;&gt;&lt;li&gt;''//Death&lt;$reveal type=&quot;nomatch&quot; text=&quot;$death-reason$&quot; default=&quot;&quot;&gt; ($death-reason$)&lt;/$reveal&gt;.//'' &lt;$macrocall $name=&quot;day-fmt&quot; weekday=&quot;$d-weekday$&quot; day=&quot;$d-day$&quot; month=&quot;$d-month$&quot; leap=&quot;$d-leap$&quot; festweek=&quot;$d-festweek$&quot; era-year=&quot;$d-era-year$&quot; era=&quot;$d-era$&quot; year=&quot;$d-year$&quot; callsign=&quot;$d-callsign$&quot; /&gt;; &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$macrocall $name=&quot;altair-$d-altair$&quot; /&gt;; &lt;$macrocall $name=&quot;belen-$d-belen$&quot; /&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$macrocall $name=&quot;ral-$d-ral$&quot; /&gt;; &lt;$macrocall $name=&quot;guthay-$d-guthay$&quot; /&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;$d-auspice$&quot; default=&quot;&quot;&gt;; $d-auspice$&lt;/$reveal&gt;.&lt;/li&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;match&quot; state=&quot;!!person-death-granularity&quot; text=&quot;year&quot;&gt;&lt;li&gt;''//Death&lt;$reveal type=&quot;nomatch&quot; text=&quot;$death-reason$&quot; default=&quot;&quot;&gt; ($death-reason$)&lt;/$reveal&gt;.//'' &lt;$macrocall $name=&quot;year-fmt&quot; era-year=&quot;$d-era-year$&quot; era=&quot;$d-era$&quot; year=&quot;$d-year$&quot; callsign=&quot;$d-callsign$&quot; /&gt;.&lt;/li&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;nomatch&quot; state=&quot;&quot;&quot;!!person-birthplace&quot;&quot;&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Place of Birth.//'' {{!!person-birthplace}}.&lt;/li&gt;&lt;/$reveal&gt;
 &lt;$reveal type=&quot;nomatch&quot; state=&quot;&quot;&quot;!!person-residence&quot;&quot;&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Current Residence.//'' {{!!person-residence}}.&lt;/li&gt;&lt;/$reveal&gt;
-&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$faith$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Faith.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;-5&quot;&gt;&gt;&quot;&quot;&quot; /&gt; $faith$.&lt;/li&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;&quot;$faith$&quot;&quot;&quot; default=&quot;&quot;&gt;&lt;li&gt;''//Faith.//'' &lt;$macrocall $name=&quot;pill&quot; color=&quot;w&quot; text=&quot;&quot;&quot;DC &lt;&lt;dc-in-out dc:&quot;$dc$&quot; add:&quot;5&quot;&gt;&gt;&quot;&quot;&quot; /&gt; $faith$.&lt;/li&gt;&lt;/$reveal&gt;
 @@
 
 &lt;p/&gt;
@@ -16863,37 +16849,16 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
-<div created="20210420042222536" creator="Islander" modified="20210420042222536" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210420202744106" creator="Islander" modified="20210420203950130" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210420035226144" creator="Islander" modified="20210420055554818" modifier="Islander" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20210420202132954" creator="Islander" modified="20210420203948138" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20210420052756257" creator="Islander" modified="20210420052756257" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210420202137409" creator="Islander" modified="20210420202137409" modifier="Islander" title="$:/state/toc/Table of contents-Player-characters-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210420054226665" creator="Islander" modified="20210420054226665" modifier="Islander" title="$:/state/toc/Table of contents-Places-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210420055032850" creator="Islander" modified="20210420055032850" modifier="Islander" title="$:/state/toc/Table of contents-Reference-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210420055330857" creator="Islander" modified="20210420055330857" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Celerity-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210420055350985" creator="Islander" modified="20210420055350985" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Jehannum-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210420052759625" creator="Islander" modified="20210420052759625" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Thornwood-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210420055034282" creator="Islander" modified="20210420055034282" modifier="Islander" title="$:/state/toc/Table of contents/Reference-Groups-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210420055035970" creator="Islander" modified="20210420055036754" modifier="Islander" title="$:/state/toc/Table of contents/Reference/Groups-Al-Nashat-1395397534">
-<pre>close</pre>
-</div>
-<div created="20210420055411265" creator="Islander" modified="20210420055411265" modifier="Islander" title="$:/state/toc/Table of contents/Reference/Groups-House-Astra-1395397534">
+<div created="20210420202138913" creator="Islander" modified="20210420202138913" modifier="Islander" title="$:/state/toc/Table of contents/Player-characters-Daigoro-Raizan-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -16902,7 +16867,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210420035232295" creator="Islander" list="Herath Synandriel Shireen Next-game Sessions Character-creation" modified="20210420055559923" modifier="Islander" title="$:/StoryList">
+<div created="20210420202139546" creator="Islander" list="$:/.isle/macros/known Tarsh-Astra Next-game Sessions Character-creation" modified="20210420204004603" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -21361,7 +21326,7 @@ When you are not being threatened or distracted, you can choose to take 10. Inst
 
 &lt;&lt;hb &quot;Taking 10 increases the time needed by you to perform a task by a factor of ten. A task that takes an action takes one minute instead, an activity normally completed within a minute would take ten minutes, and so on.&quot;&gt;&gt;</pre>
 </div>
-<div aliases="tarsh [[tarsh astra]]" caption="Tarsh Astra" created="20210419055209790" creator="Islander" information-subject="person" modified="20210420055307970" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Chalice]] in [[Jehannum]]" person-residence="[[Chalice]] in [[Jehannum]]" subtitle="Tarsh Astra" tags="People-of-Chalice People-of-Jehannum House-Astra" title="Tarsh-Astra">
+<div aliases="tarsh [[tarsh astra]]" caption="Tarsh Astra" created="20210419055209790" creator="Islander" information-subject="person" modified="20210420203918827" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Chalice]] in [[Jehannum]]" person-residence="[[Chalice]] in [[Jehannum]]" subtitle="Tarsh Astra" tags="People-of-Chalice People-of-Jehannum House-Astra" title="Tarsh-Astra">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Chalice]] or [[Falsch]]&quot; dc:&quot;Private person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
