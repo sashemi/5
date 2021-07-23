@@ -784,6 +784,12 @@ Error message and password prompt
 
 <li>$:/.isle/content/Terms/Sentire</li>
 
+<li>$:/.isle/data/Calendar/Carcosa/Days in Months</li>
+
+<li>$:/.isle/data/Calendar/Carcosa/Year Callsigns/Major</li>
+
+<li>$:/.isle/data/Calendar/Carcosa/Year Callsigns/Minor</li>
+
 <li>$:/.isle/data/Calendar/Months</li>
 
 <li>$:/.isle/data/Current year/Athas</li>
@@ -2002,19 +2008,7 @@ Error message and password prompt
 
 <li>$:/state/toc/Table of contents-NPCs-1395397534</li>
 
-<li>$:/state/toc/Table of contents-Reference-1395397534</li>
-
-<li>$:/state/toc/Table of contents-Rules-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Character-creation-Classes-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Character-creation-Subclasses-1395397534</li>
-
-<li>$:/state/toc/Table of contents/NPCs-People-of-Anchor-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Reference-Trade-goods-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Rules-Magic-items-1395397534</li>
+<li>$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -4035,6 +4029,41 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 </div>
 <div created="20201214061557135" creator="Islander" modified="20201214065228718" modifier="Islander" name="sentire" name-case-sentence="Sentire" name-case-sentence-plural="Sentires" name-plural="sentires" tags="" title="$:/.isle/content/Terms/Sentire" url="http://fraternityofshadows.com/wiki/Category:Sentire">
 <pre>&lt;a class=&quot;tc-tiddlylink-external&quot; href={{!!url}} target=&quot;_blank&quot;&gt;{{!!name}}&lt;/a&gt;</pre>
+</div>
+<div created="20210723034917300" creator="Islander" modified="20210723052433920" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Days in Months" type="application/x-tiddler-dictionary">
+<pre>1: 21
+2: 28
+3: 35
+4: 7
+5: 21
+6: 21
+7: 32
+8: 32
+9: 32
+10: 8
+11: 28
+12: 35
+13: 28
+14: 21
+15: 7</pre>
+</div>
+<div created="20210723052502765" creator="Islander" modified="20210723054517638" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Year Callsigns/Major" type="application/x-tiddler-dictionary">
+<pre>0: Ardor
+1: Melchione
+2: Esther
+3: Meridean
+4: Ophyria
+5: Ygrimor</pre>
+</div>
+<div created="20210723052710586" creator="Islander" modified="20210723065003121" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Year Callsigns/Minor" type="application/x-tiddler-dictionary">
+<pre>0: Volition
+1: Mercy
+2: Blade
+3: Descent
+4: Seeking
+5: Anabasis
+6: Star
+7: Venom</pre>
 </div>
 <div created="20200626021154485" creator="Islander" modified="20200626021415323" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Months" type="application/x-tiddler-dictionary">
 <pre>Azazel: 1
@@ -6794,8 +6823,59 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210621053408734" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
-<pre>\define format-number(n t d p)
+<div created="20200429000932368" creator="Islander" modified="20210723080042563" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<pre>\define ordinal(n)
+\whitespace trim
+$n$&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[1]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[11]then[true]else[false]]&quot;&gt;&lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;st&lt;/$reveal&gt;&lt;/$list&gt;&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[2]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[12]then[true]else[false]]&quot;&gt;&lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;nd&lt;/$reveal&gt;&lt;/$list&gt;&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[3]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[13]then[true]else[false]]&quot;&gt;&lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;rd&lt;/$reveal&gt;&lt;/$list&gt;&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:gteq[1]compare:integer:lteq[3]then[false]else[true]]&quot;&gt;&lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;th&lt;/$reveal&gt;&lt;/$list&gt;&lt;$list filter=&quot;[&lt;__n__&gt;remainder[100]compare:integer:gteq[11]compare:integer:lteq[13]]&quot;&gt;&lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;th&lt;/$reveal&gt;&lt;/$list&gt;
+\end
+
+\define mdy()
+&lt;$set name=&quot;date-is-mdy&quot; filter=&quot;[all[current]get[date-start]regexp[(?i)\.]]&quot; emptyValue=&quot;&quot;&gt;
+&lt;$reveal text=&lt;&lt;date-is-mdy&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;&lt;$set name=&quot;year&quot; filter=&quot;[all[current]get[date-start]split[.]last[]]&quot; emptyValue=&quot;&quot;&gt;&lt;$set name=&quot;month&quot; filter=&quot;[all[current]get[date-start]split[.]first[]]&quot; emptyValue=&quot;&quot;&gt;&lt;$set name=&quot;day&quot; filter=&quot;[all[current]get[date-start]split[.]nth[2]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text={{{ [&lt;year&gt;compare:integer:lt[0]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;&lt;$list filter=&quot;[&lt;year&gt;abs[]]&quot;&gt;&lt;$macrocall $name=&quot;ordinal&quot; n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt; Year of the Void&lt;/$reveal&gt;&lt;$reveal text={{{ [&lt;year&gt;compare:integer:gt[0]compare:integer:lteq[12]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;&lt;$list filter=&quot;[&lt;year&gt;]&quot;&gt;&lt;$macrocall $name=&quot;ordinal&quot; n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt; Year of the Storm&lt;/$reveal&gt;&lt;$reveal text={{{ [&lt;year&gt;compare:integer:gteq[13]compare:integer:lteq[603]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;&lt;$list filter=&quot;[&lt;year&gt;add[-12]]&quot;&gt;&lt;$macrocall $name=&quot;ordinal&quot; n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt; Year of the Maze&lt;/$reveal&gt;&lt;$reveal text={{{ [&lt;year&gt;compare:integer:gteq[604]compare:integer:lteq[623]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;&lt;$list filter=&quot;[&lt;year&gt;add[-603]]&quot;&gt;&lt;$macrocall $name=&quot;ordinal&quot; n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt; Year of Hope&lt;/$reveal&gt;&lt;$reveal text={{{ [&lt;year&gt;compare:integer:gteq[624]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;&lt;$list filter=&quot;[&lt;year&gt;add[-623]]&quot;&gt;&lt;$macrocall $name=&quot;ordinal&quot; n=&lt;&lt;currentTiddler&gt;&gt; /&gt;&lt;/$list&gt; Year of Desolation&lt;/$reveal&gt;, &lt;$macrocall $name=&quot;year-callsign&quot; y=&lt;&lt;year&gt;&gt; /&gt;, day is &lt;$macrocall $name=&quot;day-current&quot; y=&lt;&lt;year&gt;&gt; m=&lt;&lt;month&gt;&gt; d=&lt;&lt;day&gt;&gt; /&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$reveal&gt;&lt;/$set&gt;
+\end
+
+\define sum-days-ytd-list(month:500) &lt;$list filter=&quot;[[$:/.isle/data/Calendar/Carcosa/Days in Months]indexes[]compare:integer:lt&lt;__month__&gt;]&quot; variable=&quot;index&quot;&gt;{{{ [[$:/.isle/data/Calendar/Carcosa/Days in Months]getindex&lt;index&gt;] }}},&lt;/$list&gt;
+
+\define day-current(y m d)
+\whitespace trim
+&lt;$wikify name=&quot;sum-days-ytd-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-ytd-list $m$&gt;&gt;&quot;&quot;&quot;&gt;
+&lt;$list filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;] +[sum[]]&quot; variable=&quot;sum-days&quot;&gt;
+&lt;&lt;sum-days&gt;&gt;
+&lt;/$list&gt;
+&lt;/$wikify&gt;
+\end
+
+\define year-callsign(y)
+\whitespace trim
+&lt;$set name=&quot;callsign-cycle-major&quot; filter=&quot;[[$:/.isle/data/Calendar/Carcosa/Year Callsigns/Major]indexes[]maxall[]add[1]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle-minor&quot; filter=&quot;[[$:/.isle/data/Calendar/Carcosa/Year Callsigns/Minor]indexes[]maxall[]add[1]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle&quot; filter=&quot;[&lt;callsign-cycle-major&gt;] =[&lt;callsign-cycle-minor&gt;] +[product[]]&quot;&gt;
+&lt;$reveal text=$y$ type=&quot;gt&quot; default=0&gt;
+  &lt;$set name=&quot;year-cycle-neg&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add&lt;callsign-cycle&gt;abs[]]&quot;&gt;
+  &lt;$set name=&quot;callsign-index-major-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
+  &lt;$set name=&quot;callsign-index-minor-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
+  &lt;$text text={{{ [[$:/.isle/data/Calendar/Carcosa/Year Callsigns/Major]getindex&lt;callsign-index-major-neg&gt;] }}} /&gt;'s&amp;nbsp;
+  &lt;$text text={{{ [[$:/.isle/data/Calendar/Carcosa/Year Callsigns/Minor]getindex&lt;callsign-index-minor-neg&gt;] }}} /&gt;
+  &lt;/$set&gt;
+  &lt;/$set&gt;
+  &lt;/$set&gt;
+&lt;/$reveal&gt;
+&lt;$reveal text=$y$ type=&quot;lt&quot; default=0&gt;
+  &lt;$set name=&quot;year-cycle&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add[-1]]&quot;&gt;
+  &lt;$set name=&quot;callsign-index-major&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
+  &lt;$set name=&quot;callsign-index-minor&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
+  &lt;$text text={{{ [[$:/.isle/data/Calendar/Carcosa/Year Callsigns/Major]getindex&lt;callsign-index-major&gt;] }}} /&gt;'s&amp;nbsp;
+  &lt;$text text={{{ [[$:/.isle/data/Calendar/Carcosa/Year Callsigns/Minor]getindex&lt;callsign-index-minor&gt;] }}} /&gt;
+  &lt;/$set&gt;
+  &lt;/$set&gt;
+  &lt;/$set&gt;
+&lt;/$reveal&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+\define format-number(n t d p:0)
 \whitespace trim
 &lt;$set name=thousands-separator value=&quot;$t$&quot; emptyValue=&quot;,&quot;&gt;
 &lt;$set name=decimal-separator value=&quot;$d$&quot; emptyValue=&quot;.&quot;&gt;
@@ -6820,7 +6900,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;$list filter=&quot;[range[1,$length$]]&quot; variable=position&gt;
 &lt;$set name=digit filter=&quot;[[$(integer)$]split[]nth&lt;position&gt;]&quot;&gt;
 &lt;$set name=zeros filter=&quot;[[$length$]subtract&lt;position&gt;]&quot;&gt;
-&lt;&lt;digit&gt;&gt;{{{ [&lt;zeros&gt;!match[0]remainder[3]match[0]then&lt;thousands-separator&gt;] }}}
+&lt;&lt;digit&gt;&gt;&lt;$text text={{{ [&lt;zeros&gt;!match[0]remainder[3]match[0]then&lt;thousands-separator&gt;] }}} /&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;
 &lt;/$list&gt;
@@ -18020,38 +18100,20 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
 <pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
 </div>
-<div created="20210711165259407" creator="Islander" modified="20210711171500531" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210723034855688" creator="Islander" modified="20210723034855688" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210711165257495" creator="Islander" modified="20210711171924507" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210723034853633" creator="Islander" modified="20210723080048603" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/.isle/system/Table of contents</pre>
 </div>
-<div created="20210711165434838" creator="Islander" modified="20210711170130917" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
-<pre>close</pre>
-</div>
-<div created="20210711170132677" creator="Islander" modified="20210711170132677" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210723080051746" creator="Islander" modified="20210723080051746" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210711165205120" creator="Islander" modified="20210711171938682" modifier="Islander" title="$:/state/toc/Table of contents-Reference-1395397534">
+<div created="20210723035925950" creator="Islander" modified="20210723080909730" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<pre>close</pre>
+</div>
+<div created="20210723035928174" creator="Islander" modified="20210723035928174" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
-</div>
-<div created="20210711165206663" creator="Islander" modified="20210711171936731" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
-<pre>close</pre>
-</div>
-<div created="20210711165436525" creator="Islander" modified="20210711165440166" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Classes-1395397534">
-<pre>close</pre>
-</div>
-<div created="20210711165441342" creator="Islander" modified="20210711170128966" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Subclasses-1395397534">
-<pre>close</pre>
-</div>
-<div created="20210711170134173" creator="Islander" modified="20210711170134173" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Anchor-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210711171943419" creator="Islander" modified="20210711171943419" modifier="Islander" title="$:/state/toc/Table of contents/Reference-Trade-goods-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210711165210127" creator="Islander" modified="20210711171933778" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Magic-items-1395397534">
-<pre>close</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -18059,7 +18121,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210711165211503" creator="Islander" list="Next-game Sessions Character-creation" modified="20210711171951019" modifier="Islander" title="$:/StoryList">
+<div created="20210723034908264" creator="Islander" list="Next-game Sessions Character-creation" modified="20210723080910963" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -21348,9 +21410,9 @@ faith=&quot;{{$:/.isle/content/Faiths/Human/Ezran/Erudites}}&quot;
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div caption="&amp;#9200; Next game" created="20200423004347508" creator="Islander" modified="20210702054357676" modifier="Islander" subtitle="&amp;#9200; Next game" tags="[[Table of contents]]" title="Next-game">
+<div caption="&amp;#9200; Next game" created="20200423004347508" creator="Islander" modified="20210723081401899" modifier="Islander" subtitle="&amp;#9200; Next game" tags="[[Table of contents]]" title="Next-game">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
-&lt;iframe style=&quot;pointer-events: none;&quot; src=&quot;https://free.timeanddate.com/countdown/i7b1dznk/n137/cf13/cm0/cu4/ct4/cs1/cac657b83/co0/cr0/ss0/cac657b83/cpc657b83/pcfdf6e3/tcfff/fs200/szw320/szh135/iso2021-07-11T15:00:00&quot; allowtransparency=&quot;true&quot; frameborder=&quot;0&quot; width=&quot;146&quot; height=&quot;156&quot;&gt;&lt;/iframe&gt;</pre>
+&lt;iframe style=&quot;pointer-events: none;&quot; src=&quot;https://free.timeanddate.com/countdown/i7b1dznk/n137/cf13/cm0/cu4/ct4/cs1/cac657b83/co0/cr0/ss0/cac657b83/cpc657b83/pcfdf6e3/tcfff/fs200/szw320/szh135/iso2021-09-05T15:00:00&quot; allowtransparency=&quot;true&quot; frameborder=&quot;0&quot; width=&quot;145&quot; height=&quot;156&quot;&gt;&lt;/iframe&gt;</pre>
 </div>
 <div created="20200419140154635" creator="Islander" information-subject="location" modified="20201225023027023" modifier="Islander" tags="Carcosa" title="Night">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
@@ -21505,7 +21567,7 @@ As a celestial, the obozu has priority access to [[Divine Wind|?]], allowing it 
 &lt;&lt;known location:&quot;[[Nesanctium]] or [[Zendril]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" information-subject="person" modified="20210624050636267" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
+<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.12.256" information-subject="person" modified="20210723080217484" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Griven]], [[Ordos]], or [[Anchor]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -21527,6 +21589,8 @@ b-auspice=&quot;[[glittermoon|?]]&quot;
 faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Gruumsh&quot;&gt;&gt;&quot;&quot;&quot;
 /&gt;
 {{!!synopsis}}
+
+&lt;&lt;mdy&gt;&gt;
 </pre>
 </div>
 <div aliases="[[okamoto jin]]" caption="Okamoto Jin" created="20210612045119782" creator="Islander" information-subject="person" modified="20210623053654937" modifier="Islander" name-meaning="Okamoto (written: 岡本 literally &quot;hill base&quot;, or &quot;of the foothills&quot;) is the 48th most common Japanese surname." subtitle="Okamoto Jin" tags="People-of-Nesanctium Joshitai" title="Okamoto-Jin">
