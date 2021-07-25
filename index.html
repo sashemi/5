@@ -2020,11 +2020,7 @@ Error message and password prompt
 
 <li>$:/state/toc/Table of contents-NPCs-1395397534</li>
 
-<li>$:/state/toc/Table of contents-Reference-1395397534</li>
-
 <li>$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Reference-Moons-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -7075,7 +7071,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210725083844083" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<div created="20200429000932368" creator="Islander" modified="20210725185202569" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
 <pre>\define ymd-field(f:&quot;date-start&quot;,verbose:&quot;0&quot;)
 \whitespace trim
 &lt;$set name=&quot;date-is-mdy&quot; filter=&quot;[all[current]get[date-start]regexp[(?i)\.]]&quot; emptyValue=&quot;&quot;&gt;
@@ -7145,8 +7141,8 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
     &lt;/$set&gt;
     ,&amp;nbsp;&lt;$macrocall $name=&quot;year-callsign&quot; y=$y$ /&gt;
     &lt;$reveal type=&quot;nomatch&quot; text=&quot;$verbose$&quot; default=&quot;0&quot;&gt;
-      &lt;&lt;moon-phase $y$ $m$ $d$ &quot;Altair&quot;&gt;&gt;
-      &lt;&lt;moon-phase-name $y$ $m$ $d$ &quot;Altair&quot;&gt;&gt;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;phase&quot; param:&quot;Altair&quot;&gt;&gt;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;phase-name&quot; param:&quot;Altair&quot;&gt;&gt;
     &lt;/$reveal&gt;
   &lt;/$reveal&gt;
   &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
@@ -7206,20 +7202,20 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;/$set&gt;
 \end
 
-\define day-current(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
+\define _day-current(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
 \whitespace trim
 &lt;$wikify name=&quot;sum-days-ytd-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-ytd-list $m$&gt;&gt;&quot;&quot;&quot;&gt;
   &lt;$set name=&quot;nudge-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[2]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
   &lt;$set name=&quot;fin-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[4]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
     &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$set name=&quot;sum-days-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
-        &lt;$text text=&lt;&lt;sum-days-carcosa&gt;&gt; &gt;
-      &lt;/$list&gt;
+      &lt;$set name=&quot;day-current-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
+        &lt;$text text=&lt;&lt;day-current-carcosa&gt;&gt; /&gt;
+      &lt;/$set&gt;
     &lt;/$reveal&gt;
     &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$set name=&quot;sum-days-athas&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[365]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot;&gt;
-        &lt;$text text=&lt;&lt;sum-days-athas&gt;&gt; &gt;
-      &lt;/$list&gt;
+      &lt;$set name=&quot;day-current-athas&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[365]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot;&gt;
+        &lt;$text text=&lt;&lt;day-current-athas&gt;&gt; /&gt;
+      &lt;/$set&gt;
     &lt;/$reveal&gt;
   &lt;/$set&gt;
   &lt;/$set&gt;
@@ -7246,59 +7242,58 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;/$set&gt;
 \end
 
-\define moon-phase(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;,moon:&quot;&quot;)
-\whitespace trim
-&lt;$wikify name=&quot;sum-days-ytd-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-ytd-list $m$&gt;&gt;&quot;&quot;&quot;&gt;
-  &lt;$set name=&quot;nudge-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[2]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
-  &lt;$set name=&quot;fin-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[4]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$set name=&quot;sum-days-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
-        &lt;$set select=0 name=&quot;moon-phases&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Moon phases/]addsuffix&lt;__moon__&gt;]&quot;&gt;
-        &lt;$set name=&quot;moon-cycle&quot; filter=&quot;[&lt;moon-phases&gt;indexes[]maxall[]add[1]]&quot;&gt;
-        &lt;$set name=&quot;moon-phase&quot; filter=&quot;[&lt;sum-days-carcosa&gt;add[-1]remainder&lt;moon-cycle&gt;]&quot;&gt;
-          &lt;$text text={{{ [&lt;moon-phases&gt;getindex&lt;moon-phase&gt;] }}} /&gt;
-        &lt;/$set&gt;
-        &lt;/$set&gt;
-        &lt;/$set&gt;
-      &lt;/$set&gt;
-    &lt;/$reveal&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$list filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[365]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot; variable=&quot;sum-days-athas&quot;&gt;
-        &lt;&lt;sum-days-athas&gt;&gt;
-      &lt;/$list&gt;
-    &lt;/$reveal&gt;
-  &lt;/$set&gt;
-  &lt;/$set&gt;
-&lt;/$wikify&gt;
-\end
-
 \define _moon-phase-name(moon-phase:&quot;0&quot;)
 \whitespace trim
-&lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;__moon-phase__&gt;] }}}
+&lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;__moon-phase__&gt;] }}} /&gt;
 \end
 
-\define moon-phase-name(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;,moon:&quot;&quot;)
+\define _auspice(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;,event:&quot;&quot;,param:&quot;&quot;)
 \whitespace trim
 &lt;$wikify name=&quot;sum-days-ytd-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-ytd-list $m$&gt;&gt;&quot;&quot;&quot;&gt;
   &lt;$set name=&quot;nudge-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[2]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
   &lt;$set name=&quot;fin-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[4]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
     &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$set name=&quot;sum-days-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
-        &lt;$set select=0 name=&quot;moon-phases&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Moon phases/]addsuffix&lt;__moon__&gt;]&quot;&gt;
-        &lt;$set name=&quot;moon-cycle&quot; filter=&quot;[&lt;moon-phases&gt;indexes[]maxall[]add[1]]&quot;&gt;
-        &lt;$set name=&quot;moon-phase-index&quot; filter=&quot;[&lt;sum-days-carcosa&gt;add[-1]remainder&lt;moon-cycle&gt;]&quot;&gt;
-          &lt;$set name=&quot;moon-phase-local&quot; filter=&quot;[&lt;moon-phases&gt;getindex&lt;moon-phase-index&gt;]&quot;&gt;
-            &lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase-local&gt;] }}} &gt;
-          &lt;/$set&gt;
+      &lt;$set name=&quot;day-current-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__event__&gt;match[phase]] =[&lt;__event__&gt;match[phase-name]] =[&lt;__event__&gt;match[brightmoon]] =[&lt;__event__&gt;match[glittermoon]] =[&lt;__event__&gt;match[moondark]] =[&lt;__event__&gt;match[glitterdark]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+        &lt;$set select=0 name=&quot;moon-phases-altair&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Moon phases/]addsuffix[Altair]]&quot;&gt;
+        &lt;$set name=&quot;moon-cycle-altair&quot; filter=&quot;[&lt;moon-phases-altair&gt;indexes[]maxall[]add[1]]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-index-altair&quot; filter=&quot;[&lt;day-current-carcosa&gt;add[-1]remainder&lt;moon-cycle-altair&gt;]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-altair&quot; filter=&quot;[&lt;moon-phases-altair&gt;getindex&lt;moon-phase-index-altair&gt;]&quot;&gt;
+        &lt;$set select=0 name=&quot;moon-phases-belen&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Moon phases/]addsuffix[Belen]]&quot;&gt;
+        &lt;$set name=&quot;moon-cycle-belen&quot; filter=&quot;[&lt;moon-phases-belen&gt;indexes[]maxall[]add[1]]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-index-belen&quot; filter=&quot;[&lt;day-current-carcosa&gt;add[-1]remainder&lt;moon-cycle-belen&gt;]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-belen&quot; filter=&quot;[&lt;moon-phases-belen&gt;getindex&lt;moon-phase-index-belen&gt;]&quot;&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;phase&quot;&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$param$&quot;&quot;&quot; default=&quot;Altair&quot;&gt;
+            &lt;$text text=&lt;&lt;moon-phase-altair&gt;&gt; /&gt;
+          &lt;/$reveal&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$param$&quot;&quot;&quot; default=&quot;Belen&quot;&gt;
+            &lt;$text text=&lt;&lt;moon-phase-belen&gt;&gt; /&gt;
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;phase-name&quot;&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$param$&quot;&quot;&quot; default=&quot;Altair&quot;&gt;
+            &lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase-altair&gt;] }}} /&gt;
+          &lt;/$reveal&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$param$&quot;&quot;&quot; default=&quot;Belen&quot;&gt;
+            &lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase-belen&gt;] }}} /&gt;
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;
         &lt;/$set&gt;
         &lt;/$set&gt;
         &lt;/$set&gt;
+        &lt;/$set&gt;
+        &lt;/$set&gt;
+        &lt;/$set&gt;
+        &lt;/$set&gt;
+        &lt;/$set&gt;
+      &lt;/$reveal&gt;
       &lt;/$set&gt;
     &lt;/$reveal&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$list filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[365]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot; variable=&quot;sum-days-athas&quot;&gt;
-        &lt;&lt;sum-days-athas&gt;&gt;
-      &lt;/$list&gt;
+    &lt;$reveal name=&quot;day-current-athas&quot; type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+      &lt;$set name=&quot;day-current-athas&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[365]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot;&gt;
+        &lt;$text text=&lt;&lt;day-current-athas&gt;&gt; /&gt;
+      &lt;/$set&gt;
     &lt;/$reveal&gt;
   &lt;/$set&gt;
   &lt;/$set&gt;
@@ -18555,22 +18550,16 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
 <pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
 </div>
-<div created="20210724205630008" creator="Islander" modified="20210724205630008" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210725182930553" creator="Islander" modified="20210725182930553" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210724205626568" creator="Islander" modified="20210725002506354" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210725182928354" creator="Islander" modified="20210725182928354" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20210724205619368" creator="Islander" modified="20210724205619368" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210725182919106" creator="Islander" modified="20210725182919106" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210724235913313" creator="Islander" modified="20210724235913313" modifier="Islander" title="$:/state/toc/Table of contents-Reference-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210724205622056" creator="Islander" modified="20210724205622056" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210724235915953" creator="Islander" modified="20210724235915954" modifier="Islander" title="$:/state/toc/Table of contents/Reference-Moons-1395397534">
+<div created="20210725182924921" creator="Islander" modified="20210725182924921" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -18579,7 +18568,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210724205624360" creator="Islander" list="$:/.isle/macros/statistics Ogedei Next-game Sessions Character-creation" modified="20210725002522842" modifier="Islander" title="$:/StoryList">
+<div created="20210725182925986" creator="Islander" list="$:/.isle/macros/statistics Ogedei Next-game Sessions Character-creation" modified="20210725182939457" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -22025,7 +22014,7 @@ As a celestial, the obozu has priority access to [[Divine Wind|?]], allowing it 
 &lt;&lt;known location:&quot;[[Nesanctium]] or [[Zendril]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210725083911248" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
+<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210725183148505" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Griven]], [[Ordos]], or [[Anchor]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -22051,8 +22040,6 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Gruumsh&quot;&gt;&gt;&quot;&q
 &lt;&lt;ymd-field verbose:1&gt;&gt;
 
 &lt;&lt;ymd 256 3 36 1&gt;&gt;
-
-&lt;&lt;moon-phase 256 9 24 Altair&gt;&gt;
 
 &lt;&lt;_moon-phase 91193 Altair&gt;&gt;
 
