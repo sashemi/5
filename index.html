@@ -784,6 +784,10 @@ Error message and password prompt
 
 <li>$:/.isle/content/Terms/Sentire</li>
 
+<li>$:/.isle/data/Calendar/Athas/Days in months</li>
+
+<li>$:/.isle/data/Calendar/Athas/Months</li>
+
 <li>$:/.isle/data/Calendar/Athas/Moon phases/Guthay</li>
 
 <li>$:/.isle/data/Calendar/Athas/Moon phases/Ral</li>
@@ -792,6 +796,10 @@ Error message and password prompt
 
 <li>$:/.isle/data/Calendar/Athas/Weekdays/Festival</li>
 
+<li>$:/.isle/data/Calendar/Athas/Year callsigns/Major</li>
+
+<li>$:/.isle/data/Calendar/Athas/Year callsigns/Minor</li>
+
 <li>$:/.isle/data/Calendar/Carcosa/Days in months</li>
 
 <li>$:/.isle/data/Calendar/Carcosa/Months</li>
@@ -799,6 +807,8 @@ Error message and password prompt
 <li>$:/.isle/data/Calendar/Carcosa/Moon phases/Altair</li>
 
 <li>$:/.isle/data/Calendar/Carcosa/Moon phases/Belen</li>
+
+<li>$:/.isle/data/Calendar/Carcosa/Seasons</li>
 
 <li>$:/.isle/data/Calendar/Carcosa/Weekdays</li>
 
@@ -4042,6 +4052,40 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 <div created="20201214061557135" creator="Islander" modified="20201214065228718" modifier="Islander" name="sentire" name-case-sentence="Sentire" name-case-sentence-plural="Sentires" name-plural="sentires" tags="" title="$:/.isle/content/Terms/Sentire" url="http://fraternityofshadows.com/wiki/Category:Sentire">
 <pre>&lt;a class=&quot;tc-tiddlylink-external&quot; href={{!!url}} target=&quot;_blank&quot;&gt;{{!!name}}&lt;/a&gt;</pre>
 </div>
+<div created="20210727053917975" creator="Islander" modified="20210727053958900" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Days in months" type="application/x-tiddler-dictionary">
+<pre>0: 30
+1: 30
+2: 30
+3: 30
+4: 5
+5: 30
+6: 30
+7: 30
+8: 30
+9: 5
+10: 30
+11: 30
+12: 30
+13: 30
+14: 5</pre>
+</div>
+<div created="20210727053349528" creator="Islander" modified="20210727053425116" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Months" type="application/x-tiddler-dictionary">
+<pre>0: Dominary
+1: Sedulous
+2: Fortuary
+3: Macro
+4: Dessalia
+5: Fifthover
+6: Hexameron
+7: Morrow
+8: Octavus
+9: Assalia
+10: Thaumast
+11: Anabasis
+12: Hoard
+13: Flagstaad
+14: Zenalia</pre>
+</div>
 <div created="20210724185001207" creator="Islander" modified="20210724190500371" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Moon phases/Guthay" type="application/x-tiddler-dictionary">
 <pre>0: 0
 1: 0
@@ -4219,6 +4263,28 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 3: Fourth Day
 4: Fifth Day</pre>
 </div>
+<div created="20210727054159662" creator="Islander" modified="20210727054342860" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Year callsigns/Major" type="application/x-tiddler-dictionary">
+<pre>0: Ral
+1: Friend
+2: Desert
+3: Priest
+4: Wind
+5: Dragon
+6: Mountain
+7: King
+8: Silt
+9: Enemy
+10: Guthay</pre>
+</div>
+<div created="20210727054010078" creator="Islander" modified="20210727054144171" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Year callsigns/Minor" type="application/x-tiddler-dictionary">
+<pre>0: Fury
+1: Contemplation
+2: Vengeance
+3: Slumber
+4: Defiance
+5: Reverence
+6: Agitation</pre>
+</div>
 <div created="20210723034917300" creator="Islander" modified="20210724070805401" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Days in months" type="application/x-tiddler-dictionary">
 <pre>1: 21
 2: 28
@@ -4291,6 +4357,15 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 11: 5
 12: 5
 13: 6</pre>
+</div>
+<div created="20210727030652439" creator="Islander" modified="20210727031641131" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Seasons" type="application/x-tiddler-dictionary">
+<pre>Wake: 77
+Summer: 120
+Churn: 88
+Bleak: 176
+Monsoon: 49
+Equinox1: 95
+Equinox2: 128</pre>
 </div>
 <div created="20210724222133524" creator="Islander" modified="20210724222512632" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Weekdays" type="application/x-tiddler-dictionary">
 <pre>0: Mournier
@@ -7071,14 +7146,14 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210727011850806" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<div created="20200429000932368" creator="Islander" modified="20210727080731037" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
 <pre>\define _auspice(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;,event:&quot;&quot;,param:&quot;&quot;)
 \whitespace trim
 &lt;$wikify name=&quot;sum-days-ytd-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-ytd-list $m$&gt;&gt;&quot;&quot;&quot;&gt;
   &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
     &lt;$set name=&quot;nudge-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[2]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
     &lt;$set name=&quot;fin-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[4]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
-    &lt;$set name=&quot;day-current-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
+    &lt;$set name=&quot;day-current-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;] +[sum[]]&quot;&gt;
     &lt;$reveal text={{{ [&lt;__event__&gt;match[phase]] =[&lt;__event__&gt;match[phase-name]] =[&lt;__event__&gt;match[brightmoon]] =[&lt;__event__&gt;match[glittermoon]] =[&lt;__event__&gt;match[moondark]] =[&lt;__event__&gt;match[glitterdark]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
       &lt;$set select=0 name=&quot;moon-phases-altair&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Moon phases/]addsuffix[Altair]]&quot;&gt;
       &lt;$set name=&quot;moon-cycle-altair&quot; filter=&quot;[&lt;moon-phases-altair&gt;indexes[]maxall[]add[1]]&quot;&gt;
@@ -7151,18 +7226,136 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
       &lt;/$set&gt;&lt;!-- moon-cycle-altair --&gt;
       &lt;/$set&gt;&lt;!-- moon-phases-altair --&gt;
     &lt;/$reveal&gt;&lt;!-- event eq ??moon related?? --&gt;
-    &lt;$reveal text={{{ [&lt;__event__&gt;match[wake]] =[&lt;__event__&gt;match[summer]] =[&lt;__event__&gt;match[churn]] =[&lt;__event__&gt;match[bleak]] =[&lt;__event__&gt;match[monsoon]] =[&lt;__event__&gt;match[burner-solstice]] =[&lt;__event__&gt;match[shadow-solstice]] =[&lt;__event__&gt;match[equinox]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-    &lt;/$reveal&gt;&lt;!-- event eq ??season related?? --&gt;
+    &lt;$reveal text={{{ [&lt;__event__&gt;match[wake]] =[&lt;__event__&gt;match[summer]] =[&lt;__event__&gt;match[churn]] =[&lt;__event__&gt;match[bleak]] =[&lt;__event__&gt;match[monsoon]] =[&lt;__event__&gt;match[equinox]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[1]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &lt;$reveal text={{{ [&lt;__event__&gt;match[monsoon]then[true]else[false]] :intersection[&lt;day-current-carcosa&gt;compare:integer:lt[13]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+          monsoon
+        &lt;/$reveal&gt;&lt;!-- event eq monsoon &amp;&amp; day-current-carcosa lt 13 --&gt;
+        &lt;$reveal text={{{ [&lt;day-current-carcosa&gt;compare:integer:gteq[13]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+          &lt;$wikify name=&quot;_sum-days-seasons-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-seasons-list&gt;&gt;&quot;&quot;&quot;&gt;
+            &lt;$set name=&quot;season-cycle&quot; filter=&quot;[&lt;_sum-days-seasons-list&gt;split[,]sum[]]&quot;&gt;
+            &lt;$set select=0 name=&quot;days-in-seasons&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Seasons]]&quot;&gt;
+            &lt;$vars wake=&quot;0&quot; summer={{{ [&lt;days-in-seasons&gt;getindex[Wake]] }}} churn={{{ [&lt;days-in-seasons&gt;getindex[Summer]] }}} bleak={{{ [&lt;days-in-seasons&gt;getindex[Churn]] }}} monsoon={{{ [&lt;days-in-seasons&gt;getindex[Bleak]] }}} equinox1={{{ [&lt;days-in-seasons&gt;getindex[Wake]] =[&lt;days-in-seasons&gt;getindex[Equinox1]] +[sum[]] }}} equinox2={{{ [&lt;days-in-seasons&gt;getindex[Churn]] =[&lt;days-in-seasons&gt;getindex[Equinox2]] +[sum[]] }}} &gt;
+            &lt;$reveal text={{{ [&lt;__event__&gt;match[wake]then[true]else[false]] :intersection[&lt;day-current-carcosa&gt;add[-13]remainder&lt;season-cycle&gt;compare:integer:eq&lt;wake&gt;then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              wake
+            &lt;/$reveal&gt;&lt;!-- event eq wake --&gt;
+            &lt;$reveal text={{{ [&lt;__event__&gt;match[summer]then[true]else[false]] :intersection[&lt;day-current-carcosa&gt;add[-13]remainder&lt;season-cycle&gt;compare:integer:eq&lt;summer&gt;then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              summer
+            &lt;/$reveal&gt;&lt;!-- event eq summer --&gt;
+            &lt;$reveal text={{{ [&lt;__event__&gt;match[churn]then[true]else[false]] :intersection[&lt;day-current-carcosa&gt;add[-13]remainder&lt;season-cycle&gt;compare:integer:eq&lt;churn&gt;then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              churn
+            &lt;/$reveal&gt;&lt;!-- event eq churn --&gt;
+            &lt;$reveal text={{{ [&lt;__event__&gt;match[bleak]then[true]else[false]] :intersection[&lt;day-current-carcosa&gt;add[-13]remainder&lt;season-cycle&gt;compare:integer:eq&lt;bleak&gt;then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              summer
+            &lt;/$reveal&gt;&lt;!-- event eq bleak --&gt;
+            &lt;$reveal text={{{ [&lt;__event__&gt;match[monsoon]then[true]else[false]] :intersection[&lt;day-current-carcosa&gt;add[-13]remainder&lt;season-cycle&gt;compare:integer:eq&lt;monsoon&gt;then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              summer
+            &lt;/$reveal&gt;&lt;!-- event eq summer --&gt;
+            &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;equinox&quot;&gt;
+              &lt;$reveal text={{{ [&lt;day-current-carcosa&gt;add[-13]remainder&lt;season-cycle&gt;compare:integer:eq&lt;equinox1&gt;] =[&lt;day-current-carcosa&gt;add[-13]remainder&lt;season-cycle&gt;compare:integer:eq&lt;equinox2&gt;] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+                equinox
+              &lt;/$reveal&gt;&lt;!-- day-current-carcosa mod ??equinoxes?? --&gt;
+            &lt;/$reveal&gt;&lt;!-- event eq equinox --&gt;
+            &lt;/$vars&gt;&lt;!-- ??start of seasons?? --&gt;
+            &lt;/$set&gt;&lt;!-- days-in-seasons --&gt;
+            &lt;/$set&gt;&lt;!-- season-cycle --&gt;
+          &lt;/$wikify&gt;&lt;!-- _sum-days-seasons-list --&gt;
+        &lt;/$reveal&gt;&lt;!-- day-current-carcosa gteq 13 --&gt;
+      &lt;/$reveal&gt;&lt;!-- year gteq 1 --&gt;
+    &lt;/$reveal&gt;&lt;!-- event eq ??season and equinox related?? --&gt;
     &lt;/$set&gt;&lt;!-- day-current-carcosa --&gt;
     &lt;/$set&gt;&lt;!-- fin-ytd --&gt;
     &lt;/$set&gt;&lt;!-- nudge-ytd --&gt;
   &lt;/$reveal&gt;&lt;!-- !!timeline neq Athas --&gt;
   &lt;$reveal name=&quot;day-current-athas&quot; type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-    &lt;$set name=&quot;day-current-athas&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[365]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot;&gt;
-      &lt;$text text=&lt;&lt;day-current-athas&gt;&gt; /&gt;
+    &lt;$set name=&quot;day-current-athas&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[375]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;] +[sum[]]&quot;&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[1]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__event__&gt;match[phase]] =[&lt;__event__&gt;match[phase-name]] =[&lt;__event__&gt;match[ash-moon]] =[&lt;__event__&gt;match[burnt-moon]] =[&lt;__event__&gt;match[dead-sky]] =[&lt;__event__&gt;match[shadow-moon]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+        &lt;$set select=0 name=&quot;moon-phases-ral&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Moon phases/]addsuffix[Ral]]&quot;&gt;
+        &lt;$set name=&quot;moon-cycle-ral&quot; filter=&quot;[&lt;moon-phases-ral&gt;indexes[]maxall[]add[1]]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-index-ral&quot; filter=&quot;[&lt;day-current-athas&gt;add[-1]remainder&lt;moon-cycle-ral&gt;]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-ral&quot; filter=&quot;[&lt;moon-phases-ral&gt;getindex&lt;moon-phase-index-ral&gt;]&quot;&gt;
+        &lt;$set select=0 name=&quot;moon-phases-guthay&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Moon phases/]addsuffix[Guthay]]&quot;&gt;
+        &lt;$set name=&quot;moon-cycle-guthay&quot; filter=&quot;[&lt;moon-phases-guthay&gt;indexes[]maxall[]add[1]]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-index-guthay&quot; filter=&quot;[&lt;day-current-athas&gt;add[-1]remainder&lt;moon-cycle-guthay&gt;]&quot;&gt;
+        &lt;$set name=&quot;moon-phase-guthay&quot; filter=&quot;[&lt;moon-phases-guthay&gt;getindex&lt;moon-phase-index-guthay&gt;]&quot;&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$param$&quot;&quot;&quot; default=&quot;Ral&quot;&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;phase&quot;&gt;
+            &lt;$text text=&lt;&lt;moon-phase-ral&gt;&gt; /&gt;
+          &lt;/$reveal&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;phase-name&quot;&gt;
+            &lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase-ral&gt;] }}} /&gt;
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;&lt;!-- param eq Ral --&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$param$&quot;&quot;&quot; default=&quot;Guthay&quot;&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;phase&quot;&gt;
+            &lt;$text text=&lt;&lt;moon-phase-guthay&gt;&gt; /&gt;
+          &lt;/$reveal&gt;
+          &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;phase-name&quot;&gt;
+            &lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase-guthay&gt;] }}} /&gt;
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;&lt;!-- param eq Guthay --&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;ash-moon&quot;&gt;
+          &lt;$reveal text={{{ [&lt;moon-phase-ral&gt;compare:integer:eq[4]then[true]else[false]] :intersection[&lt;moon-phase-guthay&gt;compare:integer:eq[4]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+            ash-moon
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;&lt;!-- event eq ash-moon --&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;burnt-moon&quot;&gt;
+          &lt;$reveal text={{{ [&lt;moon-phase-ral&gt;compare:integer:eq[4]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+            &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:eq[4]] =[&lt;__m__&gt;add[-1]compare:integer:eq[9]] =[&lt;__m__&gt;add[-1]compare:integer:eq[14]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+              burnt-moon
+            &lt;/$reveal&gt;
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;&lt;!-- event eq burnt-moon --&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;dead-sky&quot;&gt;
+          &lt;$reveal text={{{ [&lt;moon-phase-ral&gt;compare:integer:eq[0]] =[&lt;moon-phase-guthay&gt;compare:integer:eq[0]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+            &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:gteq[5]]compare:integer:lteq[11]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+              dead-sky
+            &lt;/$reveal&gt;
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;&lt;!-- event eq dead-sky --&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;shadow-moon&quot;&gt;
+          &lt;$reveal text={{{ [&lt;moon-phase-ral&gt;compare:integer:eq[0]] =[&lt;moon-phase-guthay&gt;compare:integer:eq[0]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+            &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:eq[4]] =[&lt;__m__&gt;add[-1]compare:integer:eq[9]] =[&lt;__m__&gt;add[-1]compare:integer:eq[14]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+              shadow-moon
+            &lt;/$reveal&gt;
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;&lt;!-- event eq shadow-moon --&gt;
+        &lt;/$set&gt;&lt;!-- moon-phase-guthay --&gt;
+        &lt;/$set&gt;&lt;!-- moon-phase-index-guthay --&gt;
+        &lt;/$set&gt;&lt;!-- moon-cycle-guthay --&gt;
+        &lt;/$set&gt;&lt;!-- moon-phases-guthay --&gt;
+        &lt;/$set&gt;&lt;!-- moon-phase-ral --&gt;
+        &lt;/$set&gt;&lt;!-- moon-phase-index-ral --&gt;
+        &lt;/$set&gt;&lt;!-- moon-cycle-ral --&gt;
+        &lt;/$set&gt;&lt;!-- moon-phases-ral --&gt;
+      &lt;/$reveal&gt;&lt;!-- event eq ??moon related?? --&gt;
+      &lt;$reveal text={{{ [&lt;__event__&gt;match[sun-ascending]] =[&lt;__event__&gt;match[sun-descending]] =[&lt;__event__&gt;match[high-sun]] =[&lt;__event__&gt;match[highest-sun]] =[&lt;__event__&gt;match[low-sun]] =[&lt;__event__&gt;match[on-the-cusp]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+        &lt;$reveal text={{{ [&lt;__event__&gt;match[sun-ascending]then[true]else[false]] :intersection[&lt;__m__&gt;add[-1]compare:integer:gteq[7]compare:integer:lteq[11]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+          sun-ascending
+        &lt;/$reveal&gt;&lt;!-- event eq sun-ascending &amp;&amp; month gteq 7 &amp;&amp; month lteq 11 --&gt;
+        &lt;$reveal text={{{ [&lt;__event__&gt;match[sun-descending]then[true]else[false]] :intersection[&lt;__m__&gt;add[-1]compare:integer:gteq[2]compare:integer:lteq[6]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+          sun-descending
+        &lt;/$reveal&gt;&lt;!-- event eq sun-descending &amp;&amp; month gteq 2 &amp;&amp; month lteq 6 --&gt;
+        &lt;$reveal type=&quot;match&quot; text=&quot;&quot;&quot;$event$&quot;&quot;&quot; default=&quot;high-sun&quot;&gt;
+          &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:lteq[1]] =[&lt;__m__&gt;add[-1]compare:integer:gteq[12]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+            high-sun
+          &lt;/$reveal&gt;
+        &lt;/$reveal&gt;&lt;!-- event eq sun-descending &amp;&amp; month lteq 1 &amp;&amp; month gteq 12 --&gt;
+      &lt;/$reveal&gt;&lt;!-- event eq ??season related?? --&gt;
+    &lt;/$reveal&gt;&lt;!-- year gteq 1 --&gt;
     &lt;/$set&gt;&lt;!-- day-current-athas --&gt;
   &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
 &lt;/$wikify&gt;&lt;!-- sum-days-ytd-list --&gt;
+\end
+
+\define sum-days-seasons-list()
+\whitespace trim
+&lt;$set select=0 name=&quot;days-in-seasons&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Seasons]]&quot;&gt;
+&lt;$list filter=&quot;[&lt;days-in-seasons&gt;indexes[]compare:string:ne[Equinox1]compare:string:ne[Equinox2]]&quot; variable=&quot;index&quot;&gt;
+  {{{ [&lt;days-in-seasons&gt;getindex&lt;index&gt;] }}},
+&lt;/$list&gt;
+&lt;/$set&gt;
 \end
 
 \define ymd-field(f:&quot;date-start&quot;,verbose:&quot;0&quot;)
@@ -7242,6 +7435,12 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
       &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;moondark&quot;&gt;&gt;&amp;nbsp;
       &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;glittermoon&quot;&gt;&gt;&amp;nbsp;
       &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;glitterdark&quot;&gt;&gt;&amp;nbsp;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;wake&quot;&gt;&gt;&amp;nbsp;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;summer&quot;&gt;&gt;&amp;nbsp;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;churn&quot;&gt;&gt;&amp;nbsp;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;bleak&quot;&gt;&gt;&amp;nbsp;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;monsoon&quot;&gt;&gt;&amp;nbsp;
+      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$ event:&quot;equinox&quot;&gt;&gt;&amp;nbsp;
     &lt;/$reveal&gt;
   &lt;/$reveal&gt;
   &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
@@ -18596,16 +18795,16 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
 <pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
 </div>
-<div created="20210726163654455" creator="Islander" modified="20210726171201792" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210727030615018" creator="Islander" modified="20210727030615018" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210726163647953" creator="Islander" modified="20210726171159513" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210727030609859" creator="Islander" modified="20210727041203242" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20210726171152056" creator="Islander" modified="20210726171152056" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210727041158202" creator="Islander" modified="20210727041158202" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210726171156256" creator="Islander" modified="20210726171156256" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
+<div created="20210727041201042" creator="Islander" modified="20210727041201042" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -18614,7 +18813,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210726163733528" creator="Islander" list="$:/.isle/macros/statistics Ogedei Next-game Sessions Character-creation" modified="20210726171210336" modifier="Islander" title="$:/StoryList">
+<div created="20210727030638891" creator="Islander" list="$:/.isle/data/Calendar/Athas/Months $:/.isle/macros/statistics Ogedei Next-game Sessions Character-creation" modified="20210727064226076" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -22060,7 +22259,7 @@ As a celestial, the obozu has priority access to [[Divine Wind|?]], allowing it 
 &lt;&lt;known location:&quot;[[Nesanctium]] or [[Zendril]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210725183148505" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
+<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210727052233764" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Griven]], [[Ordos]], or [[Anchor]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -22085,7 +22284,7 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Gruumsh&quot;&gt;&gt;&quot;&q
 
 &lt;&lt;ymd-field verbose:1&gt;&gt;
 
-&lt;&lt;ymd 256 3 36 1&gt;&gt;
+&lt;&lt;ymd 255 15 2 1&gt;&gt;
 
 &lt;&lt;_moon-phase 91193 Altair&gt;&gt;
 
