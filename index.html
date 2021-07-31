@@ -7200,8 +7200,40 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210731065343063" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
-<pre>\define _day_of_season(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
+<div created="20200429000932368" creator="Islander" modified="20210731191759032" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<pre>\define year-callsign(y:&quot;1&quot;)
+\whitespace trim
+&lt;$set select=0 name=&quot;year-callsigns&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Year callsigns/]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle-major&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Major]indexes[]maxall[]add[1]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle-minor&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Minor]indexes[]maxall[]add[1]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle&quot; filter=&quot;[&lt;callsign-cycle-major&gt;] =[&lt;callsign-cycle-minor&gt;] +[product[]]&quot;&gt;
+  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:lt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set name=&quot;year-cycle-neg&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add&lt;callsign-cycle&gt;abs[]]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-major-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-minor-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major-neg&gt;] }}} /&gt;'s&amp;nbsp;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor-neg&gt;] }}} /&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+  &lt;/$reveal&gt;&lt;!-- year lt 0 --&gt;
+  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set name=&quot;year-cycle&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add[-1]]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-major&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-minor&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major&gt;] }}} /&gt;'s&amp;nbsp;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor&gt;] }}} /&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+  &lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+\define _day_of_season(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
 \whitespace trim
 &lt;$wikify name=&quot;_sum-days-seasons-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-seasons-list&gt;&gt;&quot;&quot;&quot;&gt;
   &lt;$set name=&quot;season-cycle&quot; filter=&quot;[&lt;_sum-days-seasons-list&gt;split[,]sum[]]&quot;&gt;
@@ -7568,38 +7600,6 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;/$reveal&gt;
 &lt;$reveal text={{{ [&lt;__m__&gt;length[]compare:integer:eq[0]then[true]else[false]] }}} type=&quot;nomatch&quot; default=&quot;false&quot;&gt;
 &lt;/$reveal&gt;
-\end
-
-\define year-callsign(y:&quot;1&quot;)
-\whitespace trim
-&lt;$set select=0 name=&quot;year-callsigns&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Year callsigns/]]&quot;&gt;
-&lt;$set name=&quot;callsign-cycle-major&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Major]indexes[]maxall[]add[1]]&quot;&gt;
-&lt;$set name=&quot;callsign-cycle-minor&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Minor]indexes[]maxall[]add[1]]&quot;&gt;
-&lt;$set name=&quot;callsign-cycle&quot; filter=&quot;[&lt;callsign-cycle-major&gt;] =[&lt;callsign-cycle-minor&gt;] +[product[]]&quot;&gt;
-&lt;$reveal text=$y$ type=&quot;gt&quot; default=0&gt;
-  &lt;$set name=&quot;year-cycle-neg&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add&lt;callsign-cycle&gt;abs[]]&quot;&gt;
-  &lt;$set name=&quot;callsign-index-major-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
-  &lt;$set name=&quot;callsign-index-minor-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
-  &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major-neg&gt;] }}} /&gt;'s&amp;nbsp;
-  &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor-neg&gt;] }}} /&gt;
-  &lt;/$set&gt;
-  &lt;/$set&gt;
-  &lt;/$set&gt;
-&lt;/$reveal&gt;
-&lt;$reveal text=$y$ type=&quot;lt&quot; default=0&gt;
-  &lt;$set name=&quot;year-cycle&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add[-1]]&quot;&gt;
-  &lt;$set name=&quot;callsign-index-major&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
-  &lt;$set name=&quot;callsign-index-minor&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
-  &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major&gt;] }}} /&gt;'s&amp;nbsp;
-  &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor&gt;] }}} /&gt;
-  &lt;/$set&gt;
-  &lt;/$set&gt;
-  &lt;/$set&gt;
-&lt;/$reveal&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
 \end
 
 \define month-name(m:&quot;1&quot;)
@@ -18895,16 +18895,16 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
 <pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
 </div>
-<div created="20210731032859324" creator="Islander" modified="20210731032859324" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210731172343911" creator="Islander" modified="20210731172343911" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210731032853301" creator="Islander" modified="20210731033128692" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210731172341007" creator="Islander" modified="20210731172341007" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20210731033112628" creator="Islander" modified="20210731033127332" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
-<pre>close</pre>
+<div created="20210731172144470" creator="Islander" modified="20210731172144470" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<pre>open</pre>
 </div>
-<div created="20210731033122148" creator="Islander" modified="20210731033122148" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
+<div created="20210731172151125" creator="Islander" modified="20210731172151125" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -18913,7 +18913,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210731032921365" creator="Islander" list="$:/.isle/macros/statistics Ogedei [[$:/.isle/data/Calendar/Carcosa/Season first days]] [[$:/.isle/data/Calendar/Carcosa/Season lengths]] [[$:/.isle/data/Calendar/Carcosa/Season last days]] Next-game Sessions Character-creation" modified="20210731033141037" modifier="Islander" title="$:/StoryList">
+<div created="20210731172151966" creator="Islander" list="$:/.isle/macros/statistics Ogedei Next-game Sessions Character-creation" modified="20210731174012150" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
