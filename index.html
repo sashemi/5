@@ -4392,14 +4392,14 @@ High-Sun: 125</pre>
 12: 5
 13: 6</pre>
 </div>
-<div created="20210728030009693" creator="Islander" modified="20210728030752554" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Season first days" type="application/x-tiddler-dictionary">
+<div created="20210728030009693" creator="Islander" modified="20210731065116456" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Season first days" type="application/x-tiddler-dictionary">
 <pre>Wake: 0
 Summer: 77
 Churn: 197
 Bleak: 285
 Monsoon: 461
 Burner-Equinox: 172
-Shadow-Equinox: 413</pre>
+Shadow-Equinox: 393</pre>
 </div>
 <div created="20210727030652439" creator="Islander" modified="20210730034508392" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Season last days" type="application/x-tiddler-dictionary">
 <pre>Wake: 76
@@ -7200,20 +7200,40 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210730091031122" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<div created="20200429000932368" creator="Islander" modified="20210731065343063" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
 <pre>\define _day_of_season(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
+\whitespace trim
 &lt;$wikify name=&quot;_sum-days-seasons-list&quot; text=&quot;&quot;&quot;&lt;&lt;sum-days-seasons-list&gt;&gt;&quot;&quot;&quot;&gt;
   &lt;$set name=&quot;season-cycle&quot; filter=&quot;[&lt;_sum-days-seasons-list&gt;split[,]sum[]]&quot;&gt;
   &lt;$set filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Season offset]get[text]]&quot; name=&quot;season-offset&quot;&gt;
   &lt;$wikify name=&quot;dn-list&quot; text=&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt; &gt;
     &lt;$set name=&quot;dn&quot; value=&lt;&lt;dn-list&gt;&gt; &gt;
-    &lt;$set name=&quot;ds&quot; filter=&quot;[&lt;dn&gt;add[-1]add&lt;season-offset&gt;remainder&lt;season-cycle&gt;]&quot;&gt;
+    &lt;$set name=&quot;ds&quot; filter=&quot;[&lt;dn&gt;add[-1]subtract&lt;season-offset&gt;remainder&lt;season-cycle&gt;]&quot;&gt;
     &lt;$set select=0 name=&quot;season-first-days&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Season first days]]&quot;&gt;
     &lt;$set select=0 name=&quot;season-last-days&quot; filter=&quot;[{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/Season last days]]&quot;&gt;
       &lt;$list filter=&quot;[&lt;season-first-days&gt;indexes[]compare:string:ne[Burner-Equinox]compare:string:ne[Shadow-Equinox]compare:string:ne[Highest-Sun]compare:string:ne[Low-Sun]]&quot; variable=&quot;season-index&quot;&gt;
-        &lt;$set name=&quot;_season-current&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-index&gt;compare:integer:lteq&lt;ds&gt;then&lt;season-index&gt;] :intersection[&lt;season-last-days&gt;getindex&lt;season-index&gt;compare:integer:gteq&lt;ds&gt;then&lt;season-index&gt;]&quot;&gt;
-        &lt;$set name=&quot;season-day&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;_season-current&gt;subtract&lt;ds&gt;abs[]]&quot;&gt;
-            &lt;$text text=&lt;&lt;season-day&gt;&gt; /&gt; of &lt;$text text=&lt;&lt;_season-current&gt;&gt; /&gt;
+        &lt;$set name=&quot;season-current&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-index&gt;compare:integer:lteq&lt;ds&gt;then&lt;season-index&gt;] :intersection[&lt;season-last-days&gt;getindex&lt;season-index&gt;compare:integer:gteq&lt;ds&gt;then&lt;season-index&gt;]&quot;&gt;
+        &lt;$set name=&quot;season-day&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-current&gt;subtract&lt;ds&gt;abs[]add[1]]&quot;&gt;
+          &lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;season-current&gt;&gt; default=&quot;&quot;&gt;
+            &lt;$text text={{{ [&lt;season-current&gt;lowercase[]] }}} /&gt;
+            &amp;nbsp;&lt;$text text=&lt;&lt;season-day&gt;&gt; /&gt;
+            &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+              &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Burner-Equinox]subtract&lt;ds&gt;compare:integer:eq[0]then[Burner-Equinox]] }}} type=&quot;match&quot; default=&quot;Burner-Equinox&quot;&gt;
+                &amp;nbsp;far-equinox
+              &lt;/$reveal&gt;&lt;!-- ds falls on burner-equinox --&gt;
+              &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Shadow-Equinox]subtract&lt;ds&gt;compare:integer:eq[0]then[Shadow-Equinox]] }}} type=&quot;match&quot; default=&quot;Shadow-Equinox&quot;&gt;
+                &amp;nbsp;far-equinox
+              &lt;/$reveal&gt;&lt;!-- ds falls on shadow-equinox --&gt;
+            &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+            &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+              &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Highest-Sun]add[-1]subtract&lt;ds&gt;compare:integer:gteq[0]compare:integer:lteq[1]then[Highest-Sun]] }}} type=&quot;match&quot; default=&quot;Highest-Sun&quot;&gt;
+                &amp;nbsp;highest-sun
+              &lt;/$reveal&gt;&lt;!-- ds falls on highest-sun --&gt;
+              &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Low-Sun]add[-1]subtract&lt;ds&gt;compare:integer:gteq[0]compare:integer:lteq[1]then[Low-Sun]] }}} type=&quot;match&quot; default=&quot;Low-Sun&quot;&gt;
+                &amp;nbsp;low-sun
+              &lt;/$reveal&gt;&lt;!-- ds falls on low-sun --&gt;
+            &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+          &lt;/$reveal&gt;&lt;!-- season-current ne [blank] --&gt;
         &lt;/$set&gt;&lt;!-- season-day --&gt;
         &lt;/$set&gt;&lt;!-- season-current --&gt;
       &lt;/$list&gt;&lt;!-- season-index --&gt;
@@ -18875,16 +18895,16 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
 <pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
 </div>
-<div created="20210730034200151" creator="Islander" modified="20210730034200151" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210731032859324" creator="Islander" modified="20210731032859324" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210730034150064" creator="Islander" modified="20210730050622472" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210731032853301" creator="Islander" modified="20210731033128692" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20210730050558280" creator="Islander" modified="20210730050558280" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
-<pre>open</pre>
+<div created="20210731033112628" creator="Islander" modified="20210731033127332" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<pre>close</pre>
 </div>
-<div created="20210730050602040" creator="Islander" modified="20210730050602041" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
+<div created="20210731033122148" creator="Islander" modified="20210731033122148" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -18893,7 +18913,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210730034301281" creator="Islander" list="$:/.isle/macros/statistics Ogedei [[$:/.isle/data/Calendar/Carcosa/Season lengths]] [[$:/.isle/data/Calendar/Carcosa/Season first days]] [[$:/.isle/data/Calendar/Carcosa/Season last days]] Sessions Character-creation" modified="20210730055309473" modifier="Islander" title="$:/StoryList">
+<div created="20210731032921365" creator="Islander" list="$:/.isle/macros/statistics Ogedei [[$:/.isle/data/Calendar/Carcosa/Season first days]] [[$:/.isle/data/Calendar/Carcosa/Season lengths]] [[$:/.isle/data/Calendar/Carcosa/Season last days]] Next-game Sessions Character-creation" modified="20210731033141037" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -22339,7 +22359,7 @@ As a celestial, the obozu has priority access to [[Divine Wind|?]], allowing it 
 &lt;&lt;known location:&quot;[[Nesanctium]] or [[Zendril]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210730051057073" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
+<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210731065615135" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Griven]], [[Ordos]], or [[Anchor]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -22370,7 +22390,7 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Gruumsh&quot;&gt;&gt;&quot;&q
 
 &lt;&lt;day-current 256 9 24&gt;&gt;
 
-&lt;&lt;_day_of_season 256 9 24&gt;&gt;
+&lt;&lt;_day_of_season 257 7 13&gt;&gt;
 </pre>
 </div>
 <div aliases="[[okamoto jin]]" caption="Okamoto Jin" created="20210612045119782" creator="Islander" information-subject="person" modified="20210623053654937" modifier="Islander" name-meaning="Okamoto (written: 岡本 literally &quot;hill base&quot;, or &quot;of the foothills&quot;) is the 48th most common Japanese surname." subtitle="Okamoto Jin" tags="People-of-Nesanctium Joshitai" title="Okamoto-Jin">
