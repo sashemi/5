@@ -826,6 +826,8 @@ Error message and password prompt
 
 <li>$:/.isle/data/Calendar/Carcosa/Season year 1</li>
 
+<li>$:/.isle/data/Calendar/Carcosa/Week lengths</li>
+
 <li>$:/.isle/data/Calendar/Carcosa/Weekdays</li>
 
 <li>$:/.isle/data/Calendar/Carcosa/Year callsigns/Major</li>
@@ -2048,13 +2050,7 @@ Error message and password prompt
 
 <li>$:/state/toc/Table of contents-NPCs-1395397534</li>
 
-<li>$:/state/toc/Table of contents-Reference-1395397534</li>
-
-<li>$:/state/toc/Table of contents-Rules-1395397534</li>
-
 <li>$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534</li>
-
-<li>$:/state/toc/Table of contents/Rules-Adventuring-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -4327,22 +4323,22 @@ High-Sun: 125</pre>
 5: Reverence
 6: Agitation</pre>
 </div>
-<div created="20210723034917300" creator="Islander" modified="20210724070805401" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Days in months" type="application/x-tiddler-dictionary">
-<pre>1: 21
-2: 28
-3: 35
-4: 7
+<div created="20210723034917300" creator="Islander" modified="20210804075139946" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Days in months" type="application/x-tiddler-dictionary">
+<pre>0: 21
+1: 28
+2: 35
+3: 7
+4: 21
 5: 21
-6: 21
+6: 32
 7: 32
 8: 32
-9: 32
-10: 8
-11: 28
-12: 35
-13: 28
-14: 21
-15: 7</pre>
+9: 8
+10: 28
+11: 35
+12: 28
+13: 21
+14: 7</pre>
 </div>
 <div created="20200626021154485" creator="Islander" modified="20210724232937401" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Months" type="application/x-tiddler-dictionary">
 <pre>0: Azazel
@@ -4429,6 +4425,23 @@ Monsoon: 49</pre>
 <div created="20210728031955518" creator="Islander" modified="20210728032035266" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Season year 1">
 <pre>Monsoon</pre>
 </div>
+<div created="20210804034936603" creator="Islander" modified="20210804035221897" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Week lengths" type="application/x-tiddler-dictionary">
+<pre>0: 7
+1: 7
+2: 7
+3: 7
+4: 7
+5: 7
+6: 8
+7: 8
+8: 8
+9: 8
+10: 7
+11: 7
+12: 7
+13: 7
+14: 7</pre>
+</div>
 <div created="20210724222133524" creator="Islander" modified="20210724222512632" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Carcosa/Weekdays" type="application/x-tiddler-dictionary">
 <pre>0: Mournier
 1: Toulash
@@ -4457,10 +4470,10 @@ Monsoon: 49</pre>
 6: Star
 7: Venom</pre>
 </div>
-<div created="20210803040304289" creator="Islander" modified="20210803040352102" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Moon glyphs" type="application/x-tiddler-dictionary">
+<div created="20210803040304289" creator="Islander" modified="20210804073923412" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Moon glyphs" type="application/x-tiddler-dictionary">
 <pre>Altair: ma
 Belen: mb
-Ral: mh
+Ral: mf
 Guthay: mm</pre>
 </div>
 <div created="20210724234955140" creator="Islander" modified="20210731215715386" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Moon phase names" type="application/x-tiddler-dictionary">
@@ -7214,7 +7227,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210803054848984" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<div created="20200429000932368" creator="Islander" modified="20210804075223035" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
 <pre>\define _auspice(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
 \whitespace trim
 &lt;$wikify name=&quot;day-of-season&quot; text=&quot;&quot;&quot;&lt;&lt;_day-of-season $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
@@ -7223,16 +7236,16 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
     &lt;$text text=&lt;&lt;moon-phase-altair&gt;&gt; /&gt;
   &lt;$wikify name=&quot;moon-phase-belen&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Belen&quot;&gt;&gt;&quot;&quot;&quot;&gt;
     ;&lt;$text text=&lt;&lt;moon-phase-belen&gt;&gt; /&gt;
-  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[12]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$wikify name=&quot;weekday&quot; text=&quot;&quot;&quot;&lt;&lt;_weekday $d$&gt;&gt;&quot;&quot;&quot;&gt;
     ;
+  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[12]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$wikify name=&quot;weekday&quot; text=&quot;&quot;&quot;&lt;&lt;_weekday $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
     &lt;$reveal text={{{ [&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[4]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[4]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
       &lt;$text text={{{ [&lt;weekday&gt;match[Dragul]then[glittermoon]else[brightmoon]] }}} /&gt;
     &lt;/$reveal&gt;
     &lt;$set name=&quot;moondark-0-6&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[0]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[6]then[true]]&quot;&gt;
     &lt;$set name=&quot;moondark-1-7&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[1]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[7]then[true]]&quot;&gt;
     &lt;$set name=&quot;moondark-1-0&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[1]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[0]then[true]]&quot;&gt;
-    &lt;$reveal text={{{ [&lt;moondark-0-6&gt;] [&lt;moondark-1-7&gt;] [&lt;moondark-1-0&gt;] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$reveal text={{{ [&lt;moondark-0-6&gt;addsuffix&lt;moondark-1-7&gt;addsuffix&lt;moondark-1-0&gt;search-replace:gi[false],[]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
       &lt;$text text={{{ [&lt;weekday&gt;match[Dragul]then[glitterdark]else[moondark]] }}} /&gt;
     &lt;/$reveal&gt;
     &lt;/$set&gt;&lt;!-- moondark-1-0 --&gt;
@@ -7248,6 +7261,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
     &lt;$text text=&lt;&lt;moon-phase-ral&gt;&gt; /&gt;
   &lt;$wikify name=&quot;moon-phase-guthay&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Guthay&quot;&gt;&gt;&quot;&quot;&quot;&gt;
     ;&lt;$text text=&lt;&lt;moon-phase-guthay&gt;&gt; /&gt;
+    ;
   &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
     &lt;$set select=0 name=&quot;ash-moon&quot; filter=&quot;[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[4]then[_ash-moon_]] :intersection[&lt;moon-phase-guthay&gt;split[,]nth[3]compare:integer:eq[4]then[_ash-moon_]]&quot;&gt;
     &lt;$set select=0 name=&quot;burnt-moon&quot; filter=&quot;[&lt;__m__&gt;add[-1]compare:integer:eq[4]then[_burnt-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[_burnt-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[_burnt-moon_]] :intersection[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[4]then[_burnt-moon_]]&quot;&gt;
@@ -7301,7 +7315,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
   &lt;/$reveal&gt;&lt;!-- auspice[2] ne &lt;blank&gt; --&gt;
   &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[3]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
     &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-      ;&amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[3]split[,]nth[3]] }}}&lt;/$link&gt;
+      ;&amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[3]] }}} /&gt;&lt;/$link&gt;
     &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
     &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
       ;
@@ -7347,7 +7361,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 \define ymd(y:&quot;1&quot;,m:&quot;&quot;,d:&quot;&quot;,verbose:&quot;1&quot;)
 \whitespace trim
 &lt;$reveal text={{{ [&lt;__m__&gt;!is[blank]then[true]] :intersection[&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-  &lt;$macrocall $name=&quot;_weekday&quot; d=$d$ /&gt;
+  &lt;$macrocall $name=&quot;_weekday&quot; m=$m$ d=$d$ /&gt;
   ,&amp;nbsp;&lt;$macrocall $name=&quot;ordinal&quot; n=$d$ /&gt;
   &amp;nbsp;&lt;$macrocall $name=&quot;_month-name&quot; m=$m$ /&gt;
   &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[2]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
@@ -7415,7 +7429,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
     &lt;/a&gt;
     &lt;/$set&gt;&lt;!-- url-athas --&gt;
     &lt;$set select=0 name=&quot;url-athas-cycles&quot; filter=&quot;[&lt;__m__&gt;multiply[0]addprefix[&amp;month=]addprefix&lt;__y__&gt;addprefix[?year=]addprefix[ae1464f65999e5b7291a480c338fd8ba]addprefix[https://app.fantasy-calendar.com/calendars/]addsuffix[&amp;day=]addsuffix[1]]&quot;&gt;
-    &lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-athas-cycles&gt;&gt; target=&quot;_blank&quot;&gt;
+    &amp;nbsp;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-athas-cycles&gt;&gt; target=&quot;_blank&quot;&gt;
       &amp;#x1f4c5;
     &lt;/a&gt;
     &lt;/$set&gt;&lt;!-- url-athas-cycles --&gt;
@@ -7429,11 +7443,11 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;/$reveal&gt;&lt;!-- verbose gteq 2 --&gt;
 \end
 
-\define F-cal-prefix() [{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]]
+\define F-cal-prefix() [{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/]]
 
 \define _year-callsign(y:&quot;1&quot;)
 \whitespace trim
-&lt;$set select=0 name=&quot;year-callsigns&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Year callsigns/]]&quot;&gt;
+&lt;$set select=0 name=&quot;year-callsigns&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Year callsigns/]]&quot;&gt;
 &lt;$set name=&quot;callsign-cycle-major&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Major]indexes[]maxall[]add[1]]&quot;&gt;
 &lt;$set name=&quot;callsign-cycle-minor&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Minor]indexes[]maxall[]add[1]]&quot;&gt;
 &lt;$set name=&quot;callsign-cycle&quot; filter=&quot;[&lt;callsign-cycle-major&gt;] =[&lt;callsign-cycle-minor&gt;] +[product[]]&quot;&gt;
@@ -7463,18 +7477,20 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;/$set&gt;
 \end
 
-\define _month-name(m:&quot;1&quot;)
+\define _sum-days-ytd-list(m:&quot;99&quot;)
 \whitespace trim
-&lt;$set select=0 name=&quot;months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Months]]&quot;&gt;
+&lt;$set select=0 name=&quot;days-in-months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Days in months]]&quot;&gt;
 &lt;$set name=&quot;month-index&quot; filter=&quot;[&lt;__m__&gt;add[-1]]&quot;&gt;
-  &lt;$text text={{{ [&lt;months&gt;getindex&lt;month-index&gt;] }}} /&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
+&lt;$list filter=&quot;[&lt;days-in-months&gt;indexes[]compare:integer:lt&lt;month-index&gt;]&quot; variable=&quot;index&quot;&gt;
+  {{{ [&lt;days-in-months&gt;getindex&lt;index&gt;] }}},
+&lt;/$list&gt;
+&lt;/$set&gt;&lt;!-- month-index --&gt;
+&lt;/$set&gt;&lt;!-- days-in-months --&gt;
 \end
 
 \define _sum-days-ytd-list(m:&quot;99&quot;)
 \whitespace trim
-&lt;$set select=0 name=&quot;days-in-months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Days in months]]&quot;&gt;
+&lt;$set select=0 name=&quot;days-in-months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Days in months]]&quot;&gt;
 &lt;$list filter=&quot;[&lt;days-in-months&gt;indexes[]compare:integer:lt&lt;__m__&gt;]&quot; variable=&quot;index&quot;&gt;
   {{{ [&lt;days-in-months&gt;getindex&lt;index&gt;] }}},
 &lt;/$list&gt;
@@ -7501,28 +7517,55 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;/$wikify&gt;&lt;!-- sum-days-ytd-list --&gt;
 \end
 
-\define _weekday(d:&quot;1&quot;)
+\define _weekday(m:&quot;1&quot;,d:&quot;1&quot;)
 \whitespace trim
-&lt;$set select=0 name=&quot;weekdays&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Weekdays]]&quot;&gt;
-&lt;$set name=&quot;week&quot; filter=&quot;[&lt;weekdays&gt;indexes[]maxall[]add[1]]&quot;&gt;
-&lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
-  &lt;$text text={{{ [&lt;weekdays&gt;getindex&lt;day-index&gt;] }}} /&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
+&lt;$set select=0 name=&quot;weekdays&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Weekdays]]&quot;&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$set name=&quot;month-index&quot; filter=&quot;[&lt;__m__&gt;add[-1]]&quot;&gt;
+  &lt;$set name=&quot;week&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Week lengths]getindex&lt;month-index&gt;]&quot;&gt;
+  &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
+    &lt;$text text={{{ [&lt;weekdays&gt;getindex&lt;day-index&gt;] }}} /&gt;
+  &lt;/$set&gt;&lt;!-- day-index --&gt;
+  &lt;/$set&gt;&lt;!-- week --&gt;
+  &lt;/$set&gt;&lt;!-- month-index --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:ne[4]then[true]] :intersection[&lt;__m__&gt;add[-1]compare:integer:ne[9]then[true]] :intersection[&lt;__m__&gt;add[-1]compare:integer:ne[14]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set name=&quot;week&quot; filter=&quot;[&lt;weekdays&gt;indexes[]maxall[]add[1]]&quot;&gt;
+    &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;weekdays&gt;getindex&lt;day-index&gt;] }}} /&gt;
+    &lt;/$set&gt;&lt;!-- day-index --&gt;
+    &lt;/$set&gt;&lt;!-- week --&gt;
+  &lt;/$reveal&gt;&lt;!-- month ne 4 &amp;&amp; month ne 9 &amp;&amp; month ne 14 --&gt;
+  &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:eq[4]then[true]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[true]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set name=&quot;festival-week&quot; filter=&quot;[&lt;weekdays&gt;addsuffix[/Festival]indexes[]maxall[]add[1]]&quot;&gt;
+    &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;weekdays&gt;addsuffix[/Festival]getindex&lt;day-index&gt;] }}} /&gt;
+    &lt;/$set&gt;&lt;!-- day-index --&gt;
+    &lt;/$set&gt;&lt;!-- festival-week --&gt;
+  &lt;/$reveal&gt;&lt;!-- month eq 4 || month eq 9 || month eq 14 --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+&lt;/$set&gt;&lt;!-- weekdays --&gt;
 \end
 
 \define _moon-phase(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;,moon:&quot;&quot;)
 \whitespace trim
 &lt;$wikify name=&quot;dn&quot; text=&quot;&quot;&quot;&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot; &gt;
-&lt;$set select=0 name=&quot;moon-phases&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Moon phases/]addsuffix&lt;__moon__&gt;]&quot;&gt;
+&lt;$set select=0 name=&quot;moon-phases&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Moon phases/]addsuffix&lt;__moon__&gt;]&quot;&gt;
 &lt;$set name=&quot;moon-cycle&quot; filter=&quot;[&lt;moon-phases&gt;indexes[]maxall[]add[1]]&quot;&gt;
 &lt;$set name=&quot;moon-phase-index&quot; filter=&quot;[&lt;dn&gt;add[-1]remainder&lt;moon-cycle&gt;]&quot;&gt;
 &lt;$set name=&quot;moon-phase&quot; filter=&quot;[&lt;moon-phases&gt;getindex&lt;moon-phase-index&gt;]&quot;&gt;
-&lt;$reveal text={{{ [&lt;__moon__&gt;match[Altair]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[6]then[true]] :else[&lt;___moon__&gt;match[Belen]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[12]then[true]] :else[&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+&lt;$set name=&quot;altair-y-6&quot; filter=&quot;[&lt;__moon__&gt;match[Altair]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[6]then[true]]&quot;&gt;
+&lt;$set name=&quot;belen-y-12&quot; filter=&quot;[&lt;__moon__&gt;match[Belen]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[12]then[true]]&quot;&gt;
+&lt;$set name=&quot;athas-y-0&quot; filter=&quot;[all[current]get[timeline]match[Athas]then[true]] :intersection[&lt;__y__&gt;compare:integer:gt[0]then[true]]&quot;&gt;
+&lt;$reveal text={{{ [&lt;altair-y-6&gt;addsuffix&lt;belen-y-12&gt;addsuffix&lt;athas-y-0&gt;search-replace:gi[false],[]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
   &lt;$text text={{{ [&lt;__moon__&gt;lowercase[]] }}} /&gt;
   ,&lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase&gt;lowercase[]] }}} /&gt;
   ,&lt;$text text=&lt;&lt;moon-phase&gt;&gt; /&gt;
 &lt;/$reveal&gt;&lt;!-- moon eq Altair &amp;&amp; year gteq 6 || moon eq Belen &amp;&amp; year gteq 12 || year gt 0 --&gt;
+&lt;/$set&gt;&lt;!-- athas-y-0 --&gt;
+&lt;/$set&gt;&lt;!-- belen-y-12 --&gt;
+&lt;/$set&gt;&lt;!-- altair-y-6 --&gt;
 &lt;/$set&gt;&lt;!-- moon-phase --&gt;
 &lt;/$set&gt;&lt;!-- moon-phase-index --&gt;
 &lt;/$set&gt;&lt;!-- moon-cycle --&gt;
@@ -7532,7 +7575,7 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 
 \define _sum-days-seasons-list()
 \whitespace trim
-&lt;$set select=0 name=&quot;days-in-seasons&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Season lengths]]&quot;&gt;
+&lt;$set select=0 name=&quot;days-in-seasons&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season lengths]]&quot;&gt;
 &lt;$list filter=&quot;[&lt;days-in-seasons&gt;indexes[]]&quot; variable=&quot;index&quot;&gt;
   {{{ [&lt;days-in-seasons&gt;getindex&lt;index&gt;] }}},
 &lt;/$list&gt;
@@ -7541,49 +7584,51 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 
 \define _day-of-season(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
 \whitespace trim
-&lt;$wikify name=&quot;sum-days-seasons-list&quot; text=&quot;&quot;&quot;&lt;&lt;_sum-days-seasons-list&gt;&gt;&quot;&quot;&quot;&gt;
-  &lt;$set name=&quot;season-cycle&quot; filter=&quot;[&lt;sum-days-seasons-list&gt;split[,]sum[]]&quot;&gt;
-  &lt;$set filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Season offset]get[text]]&quot; name=&quot;season-offset&quot;&gt;
-  &lt;$wikify name=&quot;dn&quot; text=&quot;&quot;&quot;&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
-  &lt;$set name=&quot;ds&quot; filter=&quot;[&lt;dn&gt;add[-1]subtract&lt;season-offset&gt;remainder&lt;season-cycle&gt;]&quot;&gt;
-  &lt;$set select=0 name=&quot;season-first-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Season first days]]&quot;&gt;
-  &lt;$set select=0 name=&quot;season-last-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[/Season last days]]&quot;&gt;
-    &lt;$list filter=&quot;[&lt;season-first-days&gt;indexes[]compare:string:ne[Burner-Equinox]compare:string:ne[Shadow-Equinox]compare:string:ne[Highest-Sun]compare:string:ne[Low-Sun]]&quot; variable=&quot;season-index&quot;&gt;
-      &lt;$set name=&quot;season-current&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-index&gt;compare:integer:lteq&lt;ds&gt;then&lt;season-index&gt;] :intersection[&lt;season-last-days&gt;getindex&lt;season-index&gt;compare:integer:gteq&lt;ds&gt;then&lt;season-index&gt;]&quot;&gt;
-      &lt;$set name=&quot;season-day&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-current&gt;subtract&lt;ds&gt;abs[]add[1]]&quot;&gt;
-      &lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;season-current&gt;&gt; default=&quot;&quot;&gt;
-        &lt;$text text={{{ [&lt;season-current&gt;lowercase[]] }}} /&gt;
-        ,&lt;$text text=&lt;&lt;season-day&gt;&gt; /&gt;
-        &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-          &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Burner-Equinox]subtract&lt;ds&gt;abs[]compare:integer:eq[0]then[true]] [&lt;season-first-days&gt;getindex[Shadow-Equinox]subtract&lt;ds&gt;abs[]compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-            ,far-equinox
-          &lt;/$reveal&gt;&lt;!-- ds falls on burner-equinox || shadow-equinox --&gt;
-          &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[summer]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-            ,burner-solstice
-          &lt;/$reveal&gt;&lt;!-- ds falls on first day of summer --&gt;
-          &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[bleak]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-            ,shadow-solstice
-          &lt;/$reveal&gt;&lt;!-- ds falls on first day of bleak --&gt;
-        &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-        &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-          &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Highest-Sun]add[-1]subtract&lt;ds&gt;abs[]compare:integer:gteq[0]compare:integer:lteq[1]then[Highest-Sun]] }}} type=&quot;match&quot; default=&quot;Highest-Sun&quot;&gt;
-            ,highest-sun
-          &lt;/$reveal&gt;&lt;!-- ds falls on highest-sun --&gt;
-          &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Low-Sun]add[-1]subtract&lt;ds&gt;abs[]compare:integer:gteq[0]compare:integer:lteq[1]then[Low-Sun]] }}} type=&quot;match&quot; default=&quot;Low-Sun&quot;&gt;
-            ,low-sun
-          &lt;/$reveal&gt;&lt;!-- ds falls on low-sun --&gt;
-        &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
-      &lt;/$reveal&gt;&lt;!-- season-current ne &lt;empty&gt; --&gt;
-      &lt;/$set&gt;&lt;!-- season-day --&gt;
-      &lt;/$set&gt;&lt;!-- season-current --&gt;
-    &lt;/$list&gt;&lt;!-- season-index --&gt;
-  &lt;/$set&gt;&lt;!-- season-last-days --&gt;
-  &lt;/$set&gt;&lt;!-- season-first-days --&gt;
-  &lt;/$set&gt;&lt;!-- ds --&gt;
-  &lt;/$wikify&gt;&lt;!-- dn --&gt;
-  &lt;/$set&gt;&lt;!-- season-offset --&gt;
-  &lt;/$set&gt;&lt;!-- season-cycle --&gt;
-&lt;/$wikify&gt;&lt;!-- sum-days-seasons-list --&gt;
+&lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+  &lt;$wikify name=&quot;sum-days-seasons-list&quot; text=&quot;&quot;&quot;&lt;&lt;_sum-days-seasons-list&gt;&gt;&quot;&quot;&quot;&gt;
+    &lt;$set name=&quot;season-cycle&quot; filter=&quot;[&lt;sum-days-seasons-list&gt;split[,]sum[]]&quot;&gt;
+    &lt;$set filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season offset]get[text]]&quot; name=&quot;season-offset&quot;&gt;
+    &lt;$wikify name=&quot;dn&quot; text=&quot;&quot;&quot;&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
+    &lt;$set name=&quot;ds&quot; filter=&quot;[&lt;dn&gt;add[-1]subtract&lt;season-offset&gt;remainder&lt;season-cycle&gt;]&quot;&gt;
+    &lt;$set select=0 name=&quot;season-first-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season first days]]&quot;&gt;
+    &lt;$set select=0 name=&quot;season-last-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season last days]]&quot;&gt;
+      &lt;$list filter=&quot;[&lt;season-first-days&gt;indexes[]compare:string:ne[Burner-Equinox]compare:string:ne[Shadow-Equinox]compare:string:ne[Highest-Sun]compare:string:ne[Low-Sun]]&quot; variable=&quot;season-index&quot;&gt;
+        &lt;$set name=&quot;season-current&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-index&gt;compare:integer:lteq&lt;ds&gt;then&lt;season-index&gt;] :intersection[&lt;season-last-days&gt;getindex&lt;season-index&gt;compare:integer:gteq&lt;ds&gt;then&lt;season-index&gt;]&quot;&gt;
+        &lt;$set name=&quot;season-day&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-current&gt;subtract&lt;ds&gt;abs[]add[1]]&quot;&gt;
+        &lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;season-current&gt;&gt; default=&quot;&quot;&gt;
+          &lt;$text text={{{ [&lt;season-current&gt;lowercase[]] }}} /&gt;
+          ,&lt;$text text=&lt;&lt;season-day&gt;&gt; /&gt;
+          &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Burner-Equinox]subtract&lt;ds&gt;abs[]compare:integer:eq[0]then[true]] [&lt;season-first-days&gt;getindex[Shadow-Equinox]subtract&lt;ds&gt;abs[]compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              ,far-equinox
+            &lt;/$reveal&gt;&lt;!-- ds falls on burner-equinox || shadow-equinox --&gt;
+            &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[summer]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              ,burner-solstice
+            &lt;/$reveal&gt;&lt;!-- ds falls on first day of summer --&gt;
+            &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[bleak]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              ,shadow-solstice
+            &lt;/$reveal&gt;&lt;!-- ds falls on first day of bleak --&gt;
+          &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+          &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Highest-Sun]add[-1]subtract&lt;ds&gt;abs[]compare:integer:gteq[0]compare:integer:lteq[1]then[Highest-Sun]] }}} type=&quot;match&quot; default=&quot;Highest-Sun&quot;&gt;
+              ,highest-sun
+            &lt;/$reveal&gt;&lt;!-- ds falls on highest-sun --&gt;
+            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Low-Sun]add[-1]subtract&lt;ds&gt;abs[]compare:integer:gteq[0]compare:integer:lteq[1]then[Low-Sun]] }}} type=&quot;match&quot; default=&quot;Low-Sun&quot;&gt;
+              ,low-sun
+            &lt;/$reveal&gt;&lt;!-- ds falls on low-sun --&gt;
+          &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+        &lt;/$reveal&gt;&lt;!-- season-current ne &lt;empty&gt; --&gt;
+        &lt;/$set&gt;&lt;!-- season-day --&gt;
+        &lt;/$set&gt;&lt;!-- season-current --&gt;
+      &lt;/$list&gt;&lt;!-- season-index --&gt;
+    &lt;/$set&gt;&lt;!-- season-last-days --&gt;
+    &lt;/$set&gt;&lt;!-- season-first-days --&gt;
+    &lt;/$set&gt;&lt;!-- ds --&gt;
+    &lt;/$wikify&gt;&lt;!-- dn --&gt;
+    &lt;/$set&gt;&lt;!-- season-offset --&gt;
+    &lt;/$set&gt;&lt;!-- season-cycle --&gt;
+  &lt;/$wikify&gt;&lt;!-- sum-days-seasons-list --&gt;
+&lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
 \end
 
 \define format-number(n t d p:0)
@@ -7944,7 +7989,7 @@ Attunement may be required after adding an enchantment.
 <div created="20200407185653996" creator="The Islander" modified="20201029022031637" modifier="Islander" tags="$:/tags/RawMarkup" title="$:/.isle/styles/fonts">
 <pre>&lt;link href=&quot;https://fonts.googleapis.com/css?family=Magra:wght@700&amp;display=swap&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</pre>
 </div>
-<div created="20200415220947698" creator="Islander" modified="20201031002404232" modifier="Islander" tags="$:/tags/Stylesheet" title="$:/.isle/styles/glyphs">
+<div created="20200415220947698" creator="Islander" modified="20210804074257572" modifier="Islander" tags="$:/tags/Stylesheet" title="$:/.isle/styles/glyphs">
 <pre>i.EEL,
 i.FEL,
 i.WaEL,
@@ -7955,6 +8000,7 @@ i.mb-0,i.mb-1,i.mb-2,i.mb-3,i.mb-4,i.mb-5,i.mb-6,i.mb-7,
 i.ma-0,i.ma-1,i.ma-2,i.ma-3,i.ma-4,i.ma-5,i.ma-6,i.ma-7,
 i.mh-0,i.mh-1,i.mh-2,i.mh-3,i.mh-4,i.mh-5,i.mh-6,i.mh-7,
 i.mm-0,i.mm-1,i.mm-2,i.mm-3,i.mm-4,i.mm-5,i.mm-6,i.mm-7,
+i.mf-0,i.mf-1,i.mf-2,i.mf-3,i.mf-4,i.mf-5,i.mf-6,i.mf-7,
 i.pdf
 {
   background-size: 14px 14px;
@@ -7974,14 +8020,14 @@ i.WiEL { background-image: url(https://vis.bushido.black/images/essences/wind.pn
 i.LEL { background-image: url(https://vis.bushido.black/images/essences/light.png); }
 i.OEL { background-image: url(https://vis.bushido.black/images/essences/dark.png); }
 
-i.mb-0,i.ma-0,i.mh-0,i.mm-0 { background-image: url(https://vis.bushido.black/images/moons/moon-0-new-moon.svg); }
-i.mb-1,i.ma-1,i.mh-1,i.mm-1 { background-image: url(https://vis.bushido.black/images/moons/moon-1-waxing-crescent.svg); }
-i.mb-2,i.ma-2,i.mh-2,i.mm-2 { background-image: url(https://vis.bushido.black/images/moons/moon-2-first-quarter.svg); }
-i.mb-3,i.ma-3,i.mh-3,i.mm-3 { background-image: url(https://vis.bushido.black/images/moons/moon-3-waxing-gibbous.svg); }
-i.mb-4,i.ma-4,i.mh-4,i.mm-4 { background-image: url(https://vis.bushido.black/images/moons/moon-4-full-moon.svg); }
-i.mb-5,i.ma-5,i.mh-5,i.mm-5 { background-image: url(https://vis.bushido.black/images/moons/moon-5-waning-gibbous.svg); }
-i.mb-6,i.ma-6,i.mh-6,i.mm-6 { background-image: url(https://vis.bushido.black/images/moons/moon-6-last-quarter.svg); }
-i.mb-7,i.ma-7,i.mh-7,i.mm-7 { background-image: url(https://vis.bushido.black/images/moons/moon-7-waning-crescent.svg); }
+i.mb-0,i.ma-0,i.mh-0,i.mm-0,i.mf-0 { background-image: url(https://vis.bushido.black/images/moons/moon-0-new-moon.svg); }
+i.mb-1,i.ma-1,i.mh-1,i.mm-1,i.mf-1 { background-image: url(https://vis.bushido.black/images/moons/moon-1-waxing-crescent.svg); }
+i.mb-2,i.ma-2,i.mh-2,i.mm-2,i.mf-2 { background-image: url(https://vis.bushido.black/images/moons/moon-2-first-quarter.svg); }
+i.mb-3,i.ma-3,i.mh-3,i.mm-3,i.mf-3 { background-image: url(https://vis.bushido.black/images/moons/moon-3-waxing-gibbous.svg); }
+i.mb-4,i.ma-4,i.mh-4,i.mm-4,i.mf-4 { background-image: url(https://vis.bushido.black/images/moons/moon-4-full-moon.svg); }
+i.mb-5,i.ma-5,i.mh-5,i.mm-5,i.mf-5 { background-image: url(https://vis.bushido.black/images/moons/moon-5-waning-gibbous.svg); }
+i.mb-6,i.ma-6,i.mh-6,i.mm-6,i.mf-6 { background-image: url(https://vis.bushido.black/images/moons/moon-6-last-quarter.svg); }
+i.mb-7,i.ma-7,i.mh-7,i.mm-7,i.mf-7 { background-image: url(https://vis.bushido.black/images/moons/moon-7-waning-crescent.svg); }
 
 i.pdf {
   background-image: url(https://vis.bushido.black/images/extensions/file-pdf-regular.svg);
@@ -8009,7 +8055,14 @@ i.mm-0,i.mm-1,i.mm-2,i.mm-3,i.mm-4,i.mm-5,i.mm-6,i.mm-7
 {
   -webkit-filter: invert(0.3) sepia(1);
   filter: invert(0.3) sepia(1);
-}</pre>
+}
+
+i.mf-0,i.mf-1,i.mf-2,i.mf-3,i.mf-4,i.mf-5,i.mf-6,i.mf-7
+{
+  -webkit-filter: hue-rotate(140deg) saturate(100) brightness(5);
+  filter: hue-rotate(140deg) saturate(5) brightness(5); 
+}
+</pre>
 </div>
 <div created="20200326200934827" creator="The Islander" modified="20201225075941319" modifier="Islander" tags="$:/tags/Stylesheet" title="$:/.isle/styles/main" type="text/css">
 <pre>.tc-tiddler-body h1,
@@ -18836,25 +18889,16 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
 <pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
 </div>
-<div created="20210803031451957" creator="Islander" modified="20210803031452485" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210804031831192" creator="Islander" modified="20210804073515059" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210803031446182" creator="Islander" modified="20210803053439622" modifier="Islander" title="$:/state/tab/sidebar--595412856">
-<pre>$:/.isle/system/Table of contents</pre>
+<div created="20210804031820809" creator="Islander" modified="20210804073511532" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20210803031440270" creator="Islander" modified="20210803031440270" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210804031823680" creator="Islander" modified="20210804031823680" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210803053444678" creator="Islander" modified="20210803053501926" modifier="Islander" title="$:/state/toc/Table of contents-Reference-1395397534">
-<pre>close</pre>
-</div>
-<div created="20210803053503494" creator="Islander" modified="20210803053503494" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210803031443262" creator="Islander" modified="20210803031443262" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
-<pre>open</pre>
-</div>
-<div created="20210803053507438" creator="Islander" modified="20210803053507438" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Adventuring-1395397534">
+<div created="20210804031825560" creator="Islander" modified="20210804031825560" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -18863,7 +18907,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210803031444142" creator="Islander" list="[[$:/.isle/data/Calendar/Moon glyphs]] $:/.isle/macros/statistics Ogedei Next-game Sessions Character-creation" modified="20210803040256806" modifier="Islander" title="$:/StoryList">
+<div created="20210804031826601" creator="Islander" list="$:/.isle/macros/statistics Ogedei Next-game Sessions Character-creation" modified="20210804075302667" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -22309,7 +22353,7 @@ As a celestial, the obozu has priority access to [[Divine Wind|?]], allowing it 
 &lt;&lt;known location:&quot;[[Nesanctium]] or [[Zendril]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210803044135142" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
+<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210804072948035" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" timeline="Athas" title="Ogedei">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Griven]], [[Ordos]], or [[Anchor]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -22332,19 +22376,19 @@ faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Gruumsh&quot;&gt;&gt;&quot;&q
 /&gt;
 {{!!synopsis}}
 
-&lt;&lt;ymd 123 1 12 2&gt;&gt;
+&lt;&lt;ymd 13142 1 1 2&gt;&gt;
 
-&lt;&lt;auspices 123 1 12&gt;&gt;
+&lt;&lt;auspices 13142 1 1&gt;&gt;
 
 &lt;hr/&gt;
 
 &lt;&lt;ymd-field verbose:2&gt;&gt;
 
-&lt;&lt;_moon-phase 256 9 24 Altair&gt;&gt;
+&lt;&lt;_moon-phase 13142 1 1 Ral&gt;&gt;
 
-&lt;&lt;_day-current 256 9 24&gt;&gt;
+&lt;&lt;_day-current 13142 1 1&gt;&gt;
 
-&lt;&lt;_day-of-season 256 1 20&gt;&gt;
+&lt;&lt;_day-of-season 13142 1 1&gt;&gt;
 </pre>
 </div>
 <div aliases="[[okamoto jin]]" caption="Okamoto Jin" created="20210612045119782" creator="Islander" information-subject="person" modified="20210623053654937" modifier="Islander" name-meaning="Okamoto (written: 岡本 literally &quot;hill base&quot;, or &quot;of the foothills&quot;) is the 48th most common Japanese surname." subtitle="Okamoto Jin" tags="People-of-Nesanctium Joshitai" title="Okamoto-Jin">
