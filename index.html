@@ -1896,6 +1896,8 @@ Error message and password prompt
 
 <li>$:/.isle/macros/button-roll-dice</li>
 
+<li>$:/.isle/macros/calendar</li>
+
 <li>$:/.isle/macros/case</li>
 
 <li>$:/.isle/macros/chart</li>
@@ -4235,7 +4237,7 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 123: 7
 124: 7</pre>
 </div>
-<div created="20210724184626447" creator="Islander" modified="20210724184935788" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Moon phases/Ral" type="application/x-tiddler-dictionary">
+<div created="20210724184626447" creator="Islander" modified="20210805030545175" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Moon phases/Ral" type="application/x-tiddler-dictionary">
 <pre>0: 0
 1: 0
 2: 0
@@ -4270,12 +4272,12 @@ Old Night, a dire death god; ┇ &lt;&lt;pill g &quot;Byagoona&quot;&gt;&gt;, go
 31: 7
 32: 7</pre>
 </div>
-<div created="20210728030602661" creator="Islander" modified="20210728033122450" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Season first days" type="application/x-tiddler-dictionary">
+<div created="20210728030602661" creator="Islander" modified="20210805043321791" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Season first days" type="application/x-tiddler-dictionary">
 <pre>Sun-Ascending: 0
 Sun-Descending: 125
 High-Sun: 250
-Highest-Sun: -60
-Low-Sun: 250</pre>
+Highest-Sun: 315
+Low-Sun: 125</pre>
 </div>
 <div created="20210805002924932" creator="Islander" modified="20210805003123967" modifier="Islander" tags="" title="$:/.isle/data/Calendar/Athas/Season last days" type="application/x-tiddler-dictionary">
 <pre>Sun-Ascending: 124
@@ -6681,6 +6683,438 @@ Wine: alcohol
 &lt;/$button&gt;
 \end</pre>
 </div>
+<div created="20210805060710899" creator="Islander" modified="20210805060804696" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/calendar">
+<pre>\define ymd-field(f:&quot;date-start&quot;,verbose:&quot;1&quot;)
+\whitespace trim
+&lt;$reveal text={{{ [all[current]get&lt;__f__&gt;regexp[(?i)\.]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+  &lt;$set name=&quot;year&quot; filter=&quot;[all[current]get&lt;__f__&gt;split[.]last[]]&quot; emptyValue=&quot;1&quot;&gt;
+  &lt;$set name=&quot;month&quot; filter=&quot;[all[current]get&lt;__f__&gt;split[.]first[]]&quot; emptyValue=&quot;1&quot;&gt;
+  &lt;$set name=&quot;day&quot; filter=&quot;[all[current]get&lt;__f__&gt;split[.]nth[2]]&quot; emptyValue=&quot;1&quot;&gt;
+    &lt;$macrocall $name=&quot;ymd&quot; y=&lt;&lt;year&gt;&gt; m=&lt;&lt;month&gt;&gt; d=&lt;&lt;day&gt;&gt; verbose=$verbose$ /&gt;
+  &lt;/$set&gt;
+  &lt;/$set&gt;
+  &lt;/$set&gt;
+&lt;/$reveal&gt;
+\end
+
+\define ymd(y:&quot;1&quot;,m:&quot;&quot;,d:&quot;&quot;,verbose:&quot;1&quot;)
+\whitespace trim
+&lt;$reveal text={{{ [&lt;__m__&gt;!is[blank]then[true]] :intersection[&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+  &lt;$macrocall $name=&quot;_weekday&quot; m=$m$ d=$d$ /&gt;
+  ,&amp;nbsp;&lt;$macrocall $name=&quot;ordinal&quot; n=$d$ /&gt;
+  &amp;nbsp;&lt;$macrocall $name=&quot;_month-name&quot; m=$m$ /&gt;
+  &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[2]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__m__&gt;compare:integer:eq[3]then[true]else[false]] :intersection[&lt;__d__&gt;compare:integer:eq[36]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &amp;nbsp;([[the Nudge|?]])
+      &lt;/$reveal&gt;
+      &lt;$reveal text={{{ [&lt;__m__&gt;compare:integer:eq[3]then[true]else[false]] :intersection[&lt;__d__&gt;compare:integer:eq[37]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &amp;nbsp;([[the Fin|?]])
+      &lt;/$reveal&gt;
+    &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+  ,&amp;nbsp;
+  &lt;/$reveal&gt;&lt;!-- verbose gteq 2 --&gt;
+&lt;/$reveal&gt;&lt;!-- month ne &lt;blank&gt; &amp;&amp; verbose gteq 1 --&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$set select=0 name=&quot;url-carcosa&quot; filter=&quot;[&lt;__m__&gt;multiply[0]addprefix[&amp;month=]addprefix&lt;__y__&gt;addprefix[?year=]addprefix[325349d50d9915104d1f0f669c5e11db]addprefix[https://app.fantasy-calendar.com/calendars/]addsuffix[&amp;day=]addsuffix[1]]&quot;&gt;
+  &lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-carcosa&gt;&gt; target=&quot;_blank&quot;&gt;
+  &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:lt[0]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;abs[]] }}} /&gt;
+      &amp;nbsp;Year of the Void
+    &lt;/$reveal&gt;&lt;!-- year lt 0 --&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]compare:integer:lteq[12]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$macrocall $name=&quot;ordinal&quot; n=&quot;&quot;&quot;$y$&quot;&quot;&quot; /&gt;
+      &amp;nbsp;Year of the Storm
+    &lt;/$reveal&gt;&lt;!-- year gt 0 &amp;&amp; year lteq 12 --&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[13]compare:integer:lteq[603]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-12]] }}} /&gt;
+      &amp;nbsp;Year of the Maze
+    &lt;/$reveal&gt;&lt;!-- year gteq 13 &amp;&amp; year lteq 603 --&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[604]compare:integer:lteq[623]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-603]] }}} /&gt;
+      &amp;nbsp;Year of Hope
+    &lt;/$reveal&gt;&lt;!-- year gteq 604 &amp;&amp; year lteq 623 --&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[624]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-623]] }}} /&gt;
+      &amp;nbsp;Year of Desolation
+    &lt;/$reveal&gt;&lt;!-- year gteq 624 --&gt;
+  &lt;/$reveal&gt;&lt;!-- verbose gteq 1 --&gt;
+  &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$macrocall $name=&quot;format-number&quot; n=&quot;&quot;&quot;$y$&quot;&quot;&quot; /&gt;
+    &amp;nbsp;F.C.
+  &lt;/$reveal&gt;&lt;!-- verbose eq 0 --&gt;
+  &lt;/a&gt;
+  &lt;/$set&gt;&lt;!-- url-carcosa --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$set select=0 name=&quot;url-athas&quot; filter=&quot;[&lt;__m__&gt;multiply[0]addprefix[&amp;month=]addprefix&lt;__y__&gt;addprefix[?year=]addprefix[abcd3575520d9209c74ee2aaea1ab135]addprefix[https://app.fantasy-calendar.com/calendars/]addsuffix[&amp;day=]addsuffix[1]]&quot;&gt;
+  &lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-athas&gt;&gt; target=&quot;_blank&quot;&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:lt[0]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;abs[]] }}} /&gt;
+        &amp;nbsp;Year of the Gulf
+      &lt;/$reveal&gt;&lt;!-- verbose gteq 1 --&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &lt;$macrocall $name=&quot;format-number&quot; n=&quot;&quot;&quot;$y$&quot;&quot;&quot; /&gt;
+        &amp;nbsp;W.A.
+      &lt;/$reveal&gt;&lt;!-- verbose eq 0 --&gt;
+    &lt;/$reveal&gt;&lt;!-- year lt 0 --&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]compare:integer:lteq[616]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;remainder[77]] }}} /&gt; 
+        &amp;nbsp;Year of
+        &amp;nbsp;&lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;divide[77]floor[]add[1]] }}} /&gt;
+        &amp;nbsp;World's Age
+      &lt;/$reveal&gt;&lt;!-- verbose gteq 1 --&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &lt;$macrocall $name=&quot;format-number&quot; n=&quot;&quot;&quot;$y$&quot;&quot;&quot; /&gt;
+        &amp;nbsp;W.A.
+      &lt;/$reveal&gt;&lt;!-- verbose eq 0 --&gt;
+    &lt;/$reveal&gt;&lt;!-- year gt 0 &amp;&amp; year lteq 616 --&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[617]compare:integer:lteq[15194]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;remainder[77]] }}} /&gt; 
+        &amp;nbsp;Year of
+        &amp;nbsp;&lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-616]divide[77]floor[]add[1]] }}} /&gt;
+        &amp;nbsp;King's Age
+      &lt;/$reveal&gt;&lt;!-- verbose gteq 1 --&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        &lt;$macrocall $name=&quot;format-number&quot; n={{{ [&lt;__y__&gt;add[-616]] }}} /&gt;
+        &amp;nbsp;K.A.
+      &lt;/$reveal&gt;&lt;!-- verbose eq 0 --&gt;
+    &lt;/$reveal&gt;&lt;!-- year gteq 617 &amp;&amp; year lteq 15194 --&gt;
+    &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[15195]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        Free Year
+      &lt;/$reveal&gt;&lt;!-- verbose gteq 1 --&gt;
+      &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+        F.Y.
+      &lt;/$reveal&gt;&lt;!-- verbose eq 0 --&gt;
+      &amp;nbsp;&lt;$macrocall $name=&quot;format-number&quot; n={{{ [&lt;__y__&gt;add[-15194]] }}} /&gt;
+    &lt;/$reveal&gt;&lt;!-- year gteq 15195 --&gt;
+  &lt;/a&gt;
+  &lt;/$set&gt;&lt;!-- url-athas --&gt;
+  &lt;$set select=0 name=&quot;url-athas-cycles&quot; filter=&quot;[&lt;__m__&gt;multiply[0]addprefix[&amp;month=]addprefix&lt;__y__&gt;addprefix[?year=]addprefix[ae1464f65999e5b7291a480c338fd8ba]addprefix[https://app.fantasy-calendar.com/calendars/]addsuffix[&amp;day=]addsuffix[1]]&quot;&gt;
+  &amp;nbsp;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-athas-cycles&gt;&gt; target=&quot;_blank&quot;&gt;
+    &amp;#x1f4c5;
+  &lt;/a&gt;
+  &lt;/$set&gt;&lt;!-- url-athas-cycles --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+&lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[2]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+  ,&amp;nbsp;&lt;$macrocall $name=&quot;_year-callsign&quot; y=&quot;&quot;&quot;$y$&quot;&quot;&quot;/&gt;
+  &lt;$reveal text={{{ [&lt;__m__&gt;!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+      &lt;&lt;auspices y:$y$ m:$m$ d:$d$&gt;&gt;
+  &lt;/$reveal&gt;&lt;!-- month ne &lt;blank&gt; --&gt;
+&lt;/$reveal&gt;&lt;!-- verbose gteq 2 --&gt;
+\end
+
+\define F-cal-prefix() [{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/]]
+
+\define _year-callsign(y:&quot;1&quot;)
+\whitespace trim
+&lt;$set select=0 name=&quot;year-callsigns&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Year callsigns/]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle-major&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Major]indexes[]maxall[]add[1]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle-minor&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Minor]indexes[]maxall[]add[1]]&quot;&gt;
+&lt;$set name=&quot;callsign-cycle&quot; filter=&quot;[&lt;callsign-cycle-major&gt;] =[&lt;callsign-cycle-minor&gt;] +[product[]]&quot;&gt;
+  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:lt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set name=&quot;year-cycle-neg&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add&lt;callsign-cycle&gt;abs[]]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-major-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-minor-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major-neg&gt;] }}} /&gt;'s&amp;nbsp;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor-neg&gt;] }}} /&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+  &lt;/$reveal&gt;&lt;!-- year lt 0 --&gt;
+  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set name=&quot;year-cycle&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add[-1]]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-major&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
+    &lt;$set name=&quot;callsign-index-minor&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major&gt;] }}} /&gt;'s&amp;nbsp;
+      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor&gt;] }}} /&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+    &lt;/$set&gt;
+  &lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+\define _month-name(m:&quot;1&quot;)
+\whitespace trim
+&lt;$set select=0 name=&quot;months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Months]]&quot;&gt;
+&lt;$set name=&quot;month-index&quot; filter=&quot;[&lt;__m__&gt;add[-1]]&quot;&gt;
+  &lt;$text text={{{ [&lt;months&gt;getindex&lt;month-index&gt;] }}} /&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+\define _sum-days-ytd-list(m:&quot;99&quot;)
+\whitespace trim
+&lt;$set select=0 name=&quot;days-in-months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Days in months]]&quot;&gt;
+&lt;$set name=&quot;month-index&quot; filter=&quot;[&lt;__m__&gt;add[-1]]&quot;&gt;
+&lt;$list filter=&quot;[&lt;days-in-months&gt;indexes[]compare:integer:lt&lt;month-index&gt;]&quot; variable=&quot;index&quot;&gt;
+  {{{ [&lt;days-in-months&gt;getindex&lt;index&gt;] }}},
+&lt;/$list&gt;
+&lt;/$set&gt;&lt;!-- month-index --&gt;
+&lt;/$set&gt;&lt;!-- days-in-months --&gt;
+\end
+
+\define _day-current(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
+\whitespace trim
+&lt;$wikify name=&quot;sum-days-ytd-list&quot; text=&quot;&quot;&quot;&lt;&lt;_sum-days-ytd-list $m$&gt;&gt;&quot;&quot;&quot;&gt;
+  &lt;$set name=&quot;nudge-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[2]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
+  &lt;$set name=&quot;fin-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[4]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
+    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+      &lt;$set name=&quot;day-current-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
+        &lt;$text text=&lt;&lt;day-current-carcosa&gt;&gt; /&gt;
+      &lt;/$set&gt;
+    &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+      &lt;$set name=&quot;day-current-athas&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[375]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot;&gt;
+        &lt;$text text=&lt;&lt;day-current-athas&gt;&gt; /&gt;
+      &lt;/$set&gt;
+    &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+  &lt;/$set&gt;&lt;!-- fin-ytd --&gt;
+  &lt;/$set&gt;&lt;!-- nudge-ytd --&gt;
+&lt;/$wikify&gt;&lt;!-- sum-days-ytd-list --&gt;
+\end
+
+\define _weekday(m:&quot;1&quot;,d:&quot;1&quot;)
+\whitespace trim
+&lt;$set select=0 name=&quot;weekdays&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Weekdays]]&quot;&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$set name=&quot;month-index&quot; filter=&quot;[&lt;__m__&gt;add[-1]]&quot;&gt;
+  &lt;$set name=&quot;week&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Week lengths]getindex&lt;month-index&gt;]&quot;&gt;
+  &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
+    &lt;$text text={{{ [&lt;weekdays&gt;getindex&lt;day-index&gt;] }}} /&gt;
+  &lt;/$set&gt;&lt;!-- day-index --&gt;
+  &lt;/$set&gt;&lt;!-- week --&gt;
+  &lt;/$set&gt;&lt;!-- month-index --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:ne[4]then[true]] :intersection[&lt;__m__&gt;add[-1]compare:integer:ne[9]then[true]] :intersection[&lt;__m__&gt;add[-1]compare:integer:ne[14]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set name=&quot;week&quot; filter=&quot;[&lt;weekdays&gt;indexes[]maxall[]add[1]]&quot;&gt;
+    &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;weekdays&gt;getindex&lt;day-index&gt;] }}} /&gt;
+    &lt;/$set&gt;&lt;!-- day-index --&gt;
+    &lt;/$set&gt;&lt;!-- week --&gt;
+  &lt;/$reveal&gt;&lt;!-- month ne 4 &amp;&amp; month ne 9 &amp;&amp; month ne 14 --&gt;
+  &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:eq[4]then[true]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[true]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set select=0 name=&quot;festival-week&quot; filter=&quot;[&lt;weekdays&gt;addsuffix[/Festival]indexes[]maxall[]add[1]]&quot;&gt;
+    &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;festival-week&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;weekdays&gt;addsuffix[/Festival]getindex&lt;day-index&gt;] }}} /&gt;
+    &lt;/$set&gt;&lt;!-- day-index --&gt;
+    &lt;/$set&gt;&lt;!-- festival-week --&gt;
+  &lt;/$reveal&gt;&lt;!-- month eq 4 || month eq 9 || month eq 14 --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+&lt;/$set&gt;&lt;!-- weekdays --&gt;
+\end
+
+\define _moon-phase(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;,moon:&quot;&quot;)
+\whitespace trim
+&lt;$wikify name=&quot;dn&quot; text=&quot;&quot;&quot;&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot; &gt;
+&lt;$set select=0 name=&quot;moon-phases&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Moon phases/]addsuffix&lt;__moon__&gt;]&quot;&gt;
+&lt;$set name=&quot;moon-cycle&quot; filter=&quot;[&lt;moon-phases&gt;indexes[]maxall[]add[1]]&quot;&gt;
+&lt;$set name=&quot;moon-phase-index&quot; filter=&quot;[&lt;dn&gt;add[-1]remainder&lt;moon-cycle&gt;]&quot;&gt;
+&lt;$set name=&quot;moon-phase&quot; filter=&quot;[&lt;moon-phases&gt;getindex&lt;moon-phase-index&gt;]&quot;&gt;
+&lt;$set name=&quot;altair-y-6&quot; filter=&quot;[&lt;__moon__&gt;match[Altair]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[6]then[true]]&quot;&gt;
+&lt;$set name=&quot;belen-y-12&quot; filter=&quot;[&lt;__moon__&gt;match[Belen]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[12]then[true]]&quot;&gt;
+&lt;$set name=&quot;athas-y-0&quot; filter=&quot;[all[current]get[timeline]match[Athas]then[true]] :intersection[&lt;__y__&gt;compare:integer:gt[0]then[true]]&quot;&gt;
+&lt;$reveal text={{{ [&lt;altair-y-6&gt;addsuffix&lt;belen-y-12&gt;addsuffix&lt;athas-y-0&gt;search-replace:gi[false],[]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+  &lt;$text text={{{ [&lt;__moon__&gt;lowercase[]] }}} /&gt;
+  ,&lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase&gt;lowercase[]] }}} /&gt;
+  ,&lt;$text text=&lt;&lt;moon-phase&gt;&gt; /&gt;
+&lt;/$reveal&gt;&lt;!-- moon eq Altair &amp;&amp; year gteq 6 || moon eq Belen &amp;&amp; year gteq 12 || year gt 0 --&gt;
+&lt;/$set&gt;&lt;!-- athas-y-0 --&gt;
+&lt;/$set&gt;&lt;!-- belen-y-12 --&gt;
+&lt;/$set&gt;&lt;!-- altair-y-6 --&gt;
+&lt;/$set&gt;&lt;!-- moon-phase --&gt;
+&lt;/$set&gt;&lt;!-- moon-phase-index --&gt;
+&lt;/$set&gt;&lt;!-- moon-cycle --&gt;
+&lt;/$set&gt;&lt;!-- moon-phases --&gt;
+&lt;/$wikify&gt;&lt;!-- dn --&gt;
+\end
+
+\define _sum-days-seasons-list()
+\whitespace trim
+&lt;$set select=0 name=&quot;days-in-seasons&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season lengths]]&quot;&gt;
+&lt;$list filter=&quot;[&lt;days-in-seasons&gt;indexes[]]&quot; variable=&quot;index&quot;&gt;
+  {{{ [&lt;days-in-seasons&gt;getindex&lt;index&gt;] }}},
+&lt;/$list&gt;
+&lt;/$set&gt;
+\end
+
+\define _day-of-season(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
+\whitespace trim
+&lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+  &lt;$wikify name=&quot;sum-days-seasons-list&quot; text=&quot;&quot;&quot;&lt;&lt;_sum-days-seasons-list&gt;&gt;&quot;&quot;&quot;&gt;
+    &lt;$set name=&quot;season-cycle&quot; filter=&quot;[&lt;sum-days-seasons-list&gt;split[,]sum[]]&quot;&gt;
+    &lt;$set filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season offset]get[text]]&quot; name=&quot;season-offset&quot;&gt;
+    &lt;$wikify name=&quot;dn&quot; text=&quot;&quot;&quot;&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
+    &lt;$set name=&quot;ds&quot; filter=&quot;[&lt;dn&gt;add[-1]subtract&lt;season-offset&gt;remainder&lt;season-cycle&gt;]&quot;&gt;
+    &lt;$set select=0 name=&quot;season-first-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season first days]]&quot;&gt;
+    &lt;$set select=0 name=&quot;season-last-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season last days]]&quot;&gt;
+      &lt;$list filter=&quot;[&lt;season-first-days&gt;indexes[]compare:string:ne[Burner-Equinox]compare:string:ne[Shadow-Equinox]compare:string:ne[Highest-Sun]compare:string:ne[Low-Sun]]&quot; variable=&quot;season-index&quot;&gt;
+        &lt;$set name=&quot;season-current&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-index&gt;compare:integer:lteq&lt;ds&gt;then&lt;season-index&gt;] :intersection[&lt;season-last-days&gt;getindex&lt;season-index&gt;compare:integer:gteq&lt;ds&gt;then&lt;season-index&gt;]&quot;&gt;
+        &lt;$set name=&quot;season-day&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-current&gt;subtract&lt;ds&gt;abs[]add[1]]&quot;&gt;
+        &lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;season-current&gt;&gt; default=&quot;&quot;&gt;
+          &lt;$text text={{{ [&lt;season-current&gt;lowercase[]] }}} /&gt;
+          ,&lt;$text text=&lt;&lt;season-day&gt;&gt; /&gt;
+          &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Burner-Equinox]subtract&lt;ds&gt;compare:integer:eq[0]then[true]] [&lt;season-first-days&gt;getindex[Shadow-Equinox]subtract&lt;ds&gt;compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              ,far-equinox
+            &lt;/$reveal&gt;&lt;!-- ds falls on burner-equinox || shadow-equinox --&gt;
+            &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[summer]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              ,burner-solstice
+            &lt;/$reveal&gt;&lt;!-- ds falls on first day of summer --&gt;
+            &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[bleak]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+              ,shadow-solstice
+            &lt;/$reveal&gt;&lt;!-- ds falls on first day of bleak --&gt;
+          &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+          &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Highest-Sun]subtract&lt;ds&gt;compare:integer:gteq[0]compare:integer:lteq[1]then[Highest-Sun]] }}} type=&quot;match&quot; default=&quot;Highest-Sun&quot;&gt;
+              ,highest-sun
+            &lt;/$reveal&gt;&lt;!-- ds falls on highest-sun --&gt;
+            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Low-Sun]subtract&lt;ds&gt;compare:integer:gteq[0]compare:integer:lteq[1]then[Low-Sun]] }}} type=&quot;match&quot; default=&quot;Low-Sun&quot;&gt;
+              ,low-sun
+            &lt;/$reveal&gt;&lt;!-- ds falls on low-sun --&gt;
+          &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+        &lt;/$reveal&gt;&lt;!-- season-current ne &lt;empty&gt; --&gt;
+        &lt;/$set&gt;&lt;!-- season-day --&gt;
+        &lt;/$set&gt;&lt;!-- season-current --&gt;
+      &lt;/$list&gt;&lt;!-- season-index --&gt;
+    &lt;/$set&gt;&lt;!-- season-last-days --&gt;
+    &lt;/$set&gt;&lt;!-- season-first-days --&gt;
+    &lt;/$set&gt;&lt;!-- ds --&gt;
+    &lt;/$wikify&gt;&lt;!-- dn --&gt;
+    &lt;/$set&gt;&lt;!-- season-offset --&gt;
+    &lt;/$set&gt;&lt;!-- season-cycle --&gt;
+  &lt;/$wikify&gt;&lt;!-- sum-days-seasons-list --&gt;
+&lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
+\end
+
+\define _auspice(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
+\whitespace trim
+&lt;$wikify name=&quot;day-of-season&quot; text=&quot;&quot;&quot;&lt;&lt;_day-of-season $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$wikify name=&quot;moon-phase-altair&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Altair&quot;&gt;&gt;&quot;&quot;&quot;&gt;
+    &lt;$text text=&lt;&lt;moon-phase-altair&gt;&gt; /&gt;
+  &lt;$wikify name=&quot;moon-phase-belen&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Belen&quot;&gt;&gt;&quot;&quot;&quot;&gt;
+    ;&lt;$text text=&lt;&lt;moon-phase-belen&gt;&gt; /&gt;
+    ;
+  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[12]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$wikify name=&quot;weekday&quot; text=&quot;&quot;&quot;&lt;&lt;_weekday $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
+    &lt;$reveal text={{{ [&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[4]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[4]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+      &lt;$text text={{{ [&lt;weekday&gt;match[Dragul]then[glittermoon]else[brightmoon]] }}} /&gt;
+    &lt;/$reveal&gt;
+    &lt;$set name=&quot;moondark-0-6&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[0]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[6]then[true]]&quot;&gt;
+    &lt;$set name=&quot;moondark-1-7&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[1]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[7]then[true]]&quot;&gt;
+    &lt;$set name=&quot;moondark-1-0&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[1]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[0]then[true]]&quot;&gt;
+    &lt;$reveal text={{{ [&lt;moondark-0-6&gt;addsuffix&lt;moondark-1-7&gt;addsuffix&lt;moondark-1-0&gt;search-replace:gi[false],[]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+      &lt;$text text={{{ [&lt;weekday&gt;match[Dragul]then[glitterdark]else[moondark]] }}} /&gt;
+    &lt;/$reveal&gt;
+    &lt;/$set&gt;&lt;!-- moondark-1-0 --&gt;
+    &lt;/$set&gt;&lt;!-- moondark-1-7 --&gt;
+    &lt;/$set&gt;&lt;!-- moondark-0-6 --&gt;
+    &lt;/$wikify&gt;&lt;!-- weekday --&gt;
+  &lt;/$reveal&gt;&lt;!-- year gteq 12 --&gt;
+  &lt;/$wikify&gt;&lt;!-- moon-phase-belen --&gt;
+  &lt;/$wikify&gt;&lt;!-- moon-phase-altair --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+  &lt;$wikify name=&quot;moon-phase-ral&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Ral&quot;&gt;&gt;&quot;&quot;&quot;&gt;
+    &lt;$text text=&lt;&lt;moon-phase-ral&gt;&gt; /&gt;
+  &lt;$wikify name=&quot;moon-phase-guthay&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Guthay&quot;&gt;&gt;&quot;&quot;&quot;&gt;
+    ;&lt;$text text=&lt;&lt;moon-phase-guthay&gt;&gt; /&gt;
+    ;
+  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set select=0 name=&quot;ash-moon&quot; filter=&quot;[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[4]then[_ash-moon_]] :intersection[&lt;moon-phase-guthay&gt;split[,]nth[3]compare:integer:eq[4]then[_ash-moon_]]&quot;&gt;
+    &lt;$set select=0 name=&quot;burnt-moon&quot; filter=&quot;[&lt;__m__&gt;add[-1]compare:integer:eq[4]then[_burnt-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[_burnt-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[_burnt-moon_]] :intersection[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[4]then[_burnt-moon_]]&quot;&gt;
+    &lt;$set select=0 name=&quot;dead-sky&quot; filter=&quot;[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[0]then[_dead-sky_]] [&lt;moon-phase-guthay&gt;split[,]nth[3]compare:integer:eq[0]then[_dead-sky_]] :intersection[&lt;day-of-season&gt;split[,]nth[1]match[sun-descending]then[_dead-sky_]]&quot;&gt;
+    &lt;$set select=0 name=&quot;shadow-moon-ral&quot; filter=&quot;[&lt;__m__&gt;add[-1]compare:integer:eq[4]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[_shadow-moon_]] :intersection[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[0]then[_shadow-moon_]]&quot;&gt;
+    &lt;$set select=0 name=&quot;shadow-moon-guthay&quot; filter=&quot;[&lt;__m__&gt;add[-1]compare:integer:eq[4]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[_shadow-moon_]] :intersection[&lt;moon-phase-guthay&gt;split[,]nth[3]compare:integer:eq[0]then[_shadow-moon_]]&quot;&gt;
+    &lt;$set select=0 name=&quot;shadow-moon&quot; filter=&quot;[&lt;shadow-moon-ral&gt;] [&lt;shadow-moon-guthay&gt;]&quot;&gt;
+      &lt;$text text={{{ [&lt;ash-moon&gt;addsuffix&lt;burnt-moon&gt;addsuffix&lt;dead-sky&gt;addsuffix&lt;shadow-moon&gt;search-replace:gi[__],[,]search-replace:gi[_],[]] }}} /&gt;
+    &lt;/$set&gt;&lt;!-- shadow-moon --&gt;
+    &lt;/$set&gt;&lt;!-- shadow-moon-guthay --&gt;
+    &lt;/$set&gt;&lt;!-- shadow-moon-ral --&gt;
+    &lt;/$set&gt;&lt;!-- dead-sky --&gt;
+    &lt;/$set&gt;&lt;!-- burnt-moon --&gt;
+    &lt;/$set&gt;&lt;!-- ash-moon --&gt;
+  &lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
+  &lt;/$wikify&gt;&lt;!-- moon-phase-guthay --&gt;
+  &lt;/$wikify&gt;&lt;!-- moon-phase-ral --&gt;
+&lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+  ;&lt;$text text=&lt;&lt;day-of-season&gt;&gt; /&gt;
+&lt;/$wikify&gt;&lt;!-- day-of-season --&gt;
+\end
+
+\define auspices(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
+\whitespace trim
+&lt;$wikify name=&quot;auspice&quot; text=&quot;&quot;&quot;&lt;&lt;_auspice $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
+  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[1]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set select=0 name=&quot;moon-phase&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[1]split[,]nth[3]]&quot;&gt;
+    &lt;$set select=0 name=&quot;moon-phase-name&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[1]split[,]nth[2]search-replace:gi[-],[ ]]&quot;&gt;
+    &lt;$set select=0 name=&quot;moon&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[1]split[,]nth[1]titlecase[]]&quot;&gt;
+    &lt;$set select=0 name=&quot;mclass&quot; filter=&quot;[[$:/.isle/data/Calendar/Moon glyphs]getindex&lt;moon&gt;addsuffix[-]addsuffix&lt;moon-phase&gt;]&quot;&gt;
+      ;&amp;nbsp;&lt;i class=&lt;&lt;mclass&gt;&gt; &gt;&lt;/i&gt;
+      &amp;nbsp;&lt;$link to=&lt;&lt;moon&gt;&gt; /&gt;,
+      &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-phase-name&gt;&gt;&lt;/$link&gt;
+    &lt;/$set&gt;&lt;!-- moon-phase --&gt;
+    &lt;/$set&gt;&lt;!-- moon-phase-name --&gt;
+    &lt;/$set&gt;&lt;!-- moon --&gt;
+    &lt;/$set&gt;&lt;!-- mclass --&gt;
+  &lt;/$reveal&gt;&lt;!-- auspice[1] ne &lt;blank&gt; --&gt;
+  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[2]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$set select=0 name=&quot;moon-phase&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[2]split[,]nth[3]]&quot;&gt;
+    &lt;$set select=0 name=&quot;moon-phase-name&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[2]split[,]nth[2]search-replace:gi[-],[ ]]&quot;&gt;
+    &lt;$set select=0 name=&quot;moon&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[2]split[,]nth[1]titlecase[]]&quot;&gt;
+    &lt;$set select=0 name=&quot;mclass&quot; filter=&quot;[[$:/.isle/data/Calendar/Moon glyphs]getindex&lt;moon&gt;addsuffix[-]addsuffix&lt;moon-phase&gt;]&quot;&gt;
+      ;&amp;nbsp;&lt;i class=&lt;&lt;mclass&gt;&gt; &gt;&lt;/i&gt;
+      &amp;nbsp;&lt;$link to=&lt;&lt;moon&gt;&gt; /&gt;,
+      &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-phase-name&gt;&gt;&lt;/$link&gt;
+    &lt;/$set&gt;&lt;!-- moon-phase --&gt;
+    &lt;/$set&gt;&lt;!-- moon-phase-name --&gt;
+    &lt;/$set&gt;&lt;!-- moon --&gt;
+    &lt;/$set&gt;&lt;!-- mclass --&gt;
+  &lt;/$reveal&gt;&lt;!-- auspice[2] ne &lt;blank&gt; --&gt;
+  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[3]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
+      ;&amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[3]] }}} /&gt;&lt;/$link&gt;
+    &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
+    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
+      ;
+      &lt;$list variable=&quot;moon-auspice&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[3]split[,]butlast[]search-replace:gi[-],[ ]]&quot;&gt;
+        &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-auspice&gt;&gt;&lt;/$link&gt;,
+      &lt;/$list&gt;
+      &lt;$list variable=&quot;moon-auspice&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[3]split[,]last[]search-replace:gi[-],[ ]]&quot;&gt;
+        &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-auspice&gt;&gt;&lt;/$link&gt;
+      &lt;/$list&gt;
+    &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
+  &lt;/$reveal&gt;&lt;!-- auspice[3] ne &lt;blank&gt; --&gt;
+  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+    ;&amp;nbsp;
+    &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[2]compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+      start&amp;nbsp;of
+    &lt;/$reveal&gt;&lt;!-- auspice[4][2] eq 1 --&gt;
+    &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[2]compare:integer:ne[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+      &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[2]] }}} /&gt;&amp;nbsp;day&amp;nbsp;of
+    &lt;/$reveal&gt;&lt;!-- auspice[4][2] ne 1 --&gt;
+    &amp;nbsp;&lt;$link to=&quot;Seasons&quot;&gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[1]search-replace:gi[-],[ ]] }}} /&gt;&lt;/$link&gt;
+    &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[3]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+      &lt;$set select=0 name=&quot;season-auspice-link&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[4]split[,]nth[3]regexp[(?i)equinox]then[Equinox]else[Seasons]]&quot;&gt;
+      ;&amp;nbsp;&lt;$link to=&lt;&lt;season-auspice-link&gt;&gt; &gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[3]search-replace:gi[-],[ ]] }}} /&gt;&lt;/$link&gt;
+      &lt;/$set&gt;&lt;!-- season-auspice-link --&gt;
+    &lt;/$reveal&gt;&lt;!-- auspice[4][3] ne &lt;blank&gt; --&gt;
+  &lt;/$reveal&gt;&lt;!-- auspice[4] ne &lt;blank&gt; --&gt;
+&lt;/$wikify&gt;&lt;!-- auspice --&gt;
+\end
+</pre>
+</div>
 <div created="20200606132116604" creator="Islander" modified="20210624044409978" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/case">
 <pre>\define recase(prefix,name,format:&quot;case-sentence&quot;)
 &lt;a class=&quot;tc-tiddlylink-external&quot; href={{$:/.isle/content/$prefix$/$name$!!url}} target=&quot;_blank&quot;&gt;{{$:/.isle/content/$prefix$/$name$!!name-$format$}}&lt;/a&gt;
@@ -6749,7 +7183,7 @@ $amount$
 &lt;img style=&quot;float:right;padding:2px;padding-top:0px;filter:invert(0.3) sepia(1);&quot; width=&quot;32&quot; height=&quot;32&quot; src=&quot;https://maps.bushido.black/images/symbols/$symbol$.svg&quot; alt=&quot;&quot;&gt;
 \end</pre>
 </div>
-<div created="20200604211157123" creator="Islander" modified="20200606211927622" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/global">
+<div created="20200604211157123" creator="Islander" modified="20210805060942857" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/global">
 <pre>\define article()
 &lt;$transclude field=&quot;subtitle&quot;&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$transclude&gt;
 \end
@@ -6776,6 +7210,67 @@ $amount$
 
 \define case-sentence(string)
 &lt;$list filter=&quot;[&lt;__string__&gt;sentencecase[]]&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/$list&gt;
+\end
+
+\define format-number(n t d p:0)
+\whitespace trim
+&lt;$set name=thousands-separator value=&quot;$t$&quot; emptyValue=&quot;,&quot;&gt;
+&lt;$set name=decimal-separator value=&quot;$d$&quot; emptyValue=&quot;.&quot;&gt;
+&lt;$set name=decimal-places value=&quot;$p$&quot; emptyValue=&quot;2&quot;&gt;
+&lt;$set name=fixed-decimal value={{{ [[$n$]fixed&lt;decimal-places&gt;] }}}&gt;
+&lt;$set name=integer value={{{ [&lt;fixed-decimal&gt;split[.]first[]] }}}&gt;
+&lt;$set name=remainder value={{{ [&lt;fixed-decimal&gt;split[.]last[]] }}}&gt;
+&lt;$set name=length filter=&quot;[&lt;integer&gt;length[]]&quot;&gt;
+&lt;$macrocall $name=each-digit length=&lt;&lt;length&gt;&gt; /&gt;
+&lt;$list filter=&quot;[&lt;decimal-places&gt;!match[0]]&quot; variable=nul&gt;&lt;&lt;decimal-separator&gt;&gt;&lt;&lt;remainder&gt;&gt;&lt;/$list&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+\define each-digit(length)
+\whitespace trim
+&lt;$list filter=&quot;[range[1,$length$]]&quot; variable=position&gt;
+&lt;$set name=digit filter=&quot;[[$(integer)$]split[]nth&lt;position&gt;]&quot;&gt;
+&lt;$set name=zeros filter=&quot;[[$length$]subtract&lt;position&gt;]&quot;&gt;
+&lt;&lt;digit&gt;&gt;&lt;$text text={{{ [&lt;zeros&gt;!match[0]remainder[3]match[0]then&lt;thousands-separator&gt;] }}} /&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$list&gt;
+\end
+
+\define ordinal(n)
+\whitespace trim
+$n$
+&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[1]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[11]then[true]else[false]]&quot;&gt;
+  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
+    st
+  &lt;/$reveal&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[2]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[12]then[true]else[false]]&quot;&gt;
+  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
+    nd
+  &lt;/$reveal&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[3]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[13]then[true]else[false]]&quot;&gt;
+  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
+    rd
+  &lt;/$reveal&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:gteq[1]compare:integer:lteq[3]then[false]else[true]]&quot;&gt;
+  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
+    th
+  &lt;/$reveal&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;__n__&gt;remainder[100]compare:integer:gteq[11]compare:integer:lteq[13]]&quot;&gt;
+  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+    th
+  &lt;/$reveal&gt;
+&lt;/$list&gt;
 \end
 </pre>
 </div>
@@ -7234,472 +7729,8 @@ https://maps.bushido.black/?campaign=$c$&amp;map=$m$$(reg)$$(cha)$$(bat)$$(sho)$
 &lt;span class=&quot;pill-$color$&quot;&gt;$text$&lt;/span&gt;
 \end</pre>
 </div>
-<div created="20200429000932368" creator="Islander" modified="20210804075223035" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
-<pre>\define _auspice(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
-\whitespace trim
-&lt;$wikify name=&quot;day-of-season&quot; text=&quot;&quot;&quot;&lt;&lt;_day-of-season $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
-&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-  &lt;$wikify name=&quot;moon-phase-altair&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Altair&quot;&gt;&gt;&quot;&quot;&quot;&gt;
-    &lt;$text text=&lt;&lt;moon-phase-altair&gt;&gt; /&gt;
-  &lt;$wikify name=&quot;moon-phase-belen&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Belen&quot;&gt;&gt;&quot;&quot;&quot;&gt;
-    ;&lt;$text text=&lt;&lt;moon-phase-belen&gt;&gt; /&gt;
-    ;
-  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[12]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$wikify name=&quot;weekday&quot; text=&quot;&quot;&quot;&lt;&lt;_weekday $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
-    &lt;$reveal text={{{ [&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[4]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[4]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-      &lt;$text text={{{ [&lt;weekday&gt;match[Dragul]then[glittermoon]else[brightmoon]] }}} /&gt;
-    &lt;/$reveal&gt;
-    &lt;$set name=&quot;moondark-0-6&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[0]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[6]then[true]]&quot;&gt;
-    &lt;$set name=&quot;moondark-1-7&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[1]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[7]then[true]]&quot;&gt;
-    &lt;$set name=&quot;moondark-1-0&quot; filter=&quot;[&lt;moon-phase-altair&gt;split[,]nth[3]compare:integer:eq[1]then[true]] :intersection[&lt;moon-phase-belen&gt;split[,]nth[3]compare:integer:eq[0]then[true]]&quot;&gt;
-    &lt;$reveal text={{{ [&lt;moondark-0-6&gt;addsuffix&lt;moondark-1-7&gt;addsuffix&lt;moondark-1-0&gt;search-replace:gi[false],[]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-      &lt;$text text={{{ [&lt;weekday&gt;match[Dragul]then[glitterdark]else[moondark]] }}} /&gt;
-    &lt;/$reveal&gt;
-    &lt;/$set&gt;&lt;!-- moondark-1-0 --&gt;
-    &lt;/$set&gt;&lt;!-- moondark-1-7 --&gt;
-    &lt;/$set&gt;&lt;!-- moondark-0-6 --&gt;
-    &lt;/$wikify&gt;&lt;!-- weekday --&gt;
-  &lt;/$reveal&gt;&lt;!-- year gteq 12 --&gt;
-  &lt;/$wikify&gt;&lt;!-- moon-phase-belen --&gt;
-  &lt;/$wikify&gt;&lt;!-- moon-phase-altair --&gt;
-&lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-  &lt;$wikify name=&quot;moon-phase-ral&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Ral&quot;&gt;&gt;&quot;&quot;&quot;&gt;
-    &lt;$text text=&lt;&lt;moon-phase-ral&gt;&gt; /&gt;
-  &lt;$wikify name=&quot;moon-phase-guthay&quot; text=&quot;&quot;&quot;&lt;&lt;_moon-phase $y$ $m$ $d$ &quot;Guthay&quot;&gt;&gt;&quot;&quot;&quot;&gt;
-    ;&lt;$text text=&lt;&lt;moon-phase-guthay&gt;&gt; /&gt;
-    ;
-  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$set select=0 name=&quot;ash-moon&quot; filter=&quot;[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[4]then[_ash-moon_]] :intersection[&lt;moon-phase-guthay&gt;split[,]nth[3]compare:integer:eq[4]then[_ash-moon_]]&quot;&gt;
-    &lt;$set select=0 name=&quot;burnt-moon&quot; filter=&quot;[&lt;__m__&gt;add[-1]compare:integer:eq[4]then[_burnt-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[_burnt-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[_burnt-moon_]] :intersection[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[4]then[_burnt-moon_]]&quot;&gt;
-    &lt;$set select=0 name=&quot;dead-sky&quot; filter=&quot;[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[0]then[_dead-sky_]] [&lt;moon-phase-guthay&gt;split[,]nth[3]compare:integer:eq[0]then[_dead-sky_]] :intersection[&lt;day-of-season&gt;split[,]nth[1]match[sun-ascending]then[_dead-sky_]]&quot;&gt;
-    &lt;$set select=0 name=&quot;shadow-moon-ral&quot; filter=&quot;[&lt;__m__&gt;add[-1]compare:integer:eq[4]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[_shadow-moon_]] :intersection[&lt;moon-phase-ral&gt;split[,]nth[3]compare:integer:eq[0]then[_shadow-moon_]]&quot;&gt;
-    &lt;$set select=0 name=&quot;shadow-moon-guthay&quot; filter=&quot;[&lt;__m__&gt;add[-1]compare:integer:eq[4]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[_shadow-moon_]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[_shadow-moon_]] :intersection[&lt;moon-phase-guthay&gt;split[,]nth[3]compare:integer:eq[0]then[_shadow-moon_]]&quot;&gt;
-    &lt;$set select=0 name=&quot;shadow-moon&quot; filter=&quot;[&lt;shadow-moon-ral&gt;] [&lt;shadow-moon-guthay&gt;]&quot;&gt;
-      &lt;$text text={{{ [&lt;ash-moon&gt;addsuffix&lt;burnt-moon&gt;addsuffix&lt;dead-sky&gt;addsuffix&lt;shadow-moon&gt;search-replace:gi[__],[,]search-replace:gi[_],[]] }}} /&gt;
-    &lt;/$set&gt;&lt;!-- shadow-moon --&gt;
-    &lt;/$set&gt;&lt;!-- shadow-moon-guthay --&gt;
-    &lt;/$set&gt;&lt;!-- shadow-moon-ral --&gt;
-    &lt;/$set&gt;&lt;!-- dead-sky --&gt;
-    &lt;/$set&gt;&lt;!-- burnt-moon --&gt;
-    &lt;/$set&gt;&lt;!-- ash-moon --&gt;
-  &lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
-  &lt;/$wikify&gt;&lt;!-- moon-phase-guthay --&gt;
-  &lt;/$wikify&gt;&lt;!-- moon-phase-ral --&gt;
-&lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
-  ;&lt;$text text=&lt;&lt;day-of-season&gt;&gt; /&gt;
-&lt;/$wikify&gt;&lt;!-- day-of-season --&gt;
-\end
-
-\define auspices(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
-\whitespace trim
-&lt;$wikify name=&quot;auspice&quot; text=&quot;&quot;&quot;&lt;&lt;_auspice $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
-  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[1]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$set select=0 name=&quot;moon-phase&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[1]split[,]nth[3]]&quot;&gt;
-    &lt;$set select=0 name=&quot;moon-phase-name&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[1]split[,]nth[2]search-replace:gi[-],[ ]]&quot;&gt;
-    &lt;$set select=0 name=&quot;moon&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[1]split[,]nth[1]titlecase[]]&quot;&gt;
-    &lt;$set select=0 name=&quot;mclass&quot; filter=&quot;[[$:/.isle/data/Calendar/Moon glyphs]getindex&lt;moon&gt;addsuffix[-]addsuffix&lt;moon-phase&gt;]&quot;&gt;
-      ;&amp;nbsp;&lt;i class=&lt;&lt;mclass&gt;&gt; &gt;&lt;/i&gt;
-      &amp;nbsp;&lt;$link to=&lt;&lt;moon&gt;&gt; /&gt;,
-      &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-phase-name&gt;&gt;&lt;/$link&gt;
-    &lt;/$set&gt;&lt;!-- moon-phase --&gt;
-    &lt;/$set&gt;&lt;!-- moon-phase-name --&gt;
-    &lt;/$set&gt;&lt;!-- moon --&gt;
-    &lt;/$set&gt;&lt;!-- mclass --&gt;
-  &lt;/$reveal&gt;&lt;!-- auspice[1] ne &lt;blank&gt; --&gt;
-  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[2]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$set select=0 name=&quot;moon-phase&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[2]split[,]nth[3]]&quot;&gt;
-    &lt;$set select=0 name=&quot;moon-phase-name&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[2]split[,]nth[2]search-replace:gi[-],[ ]]&quot;&gt;
-    &lt;$set select=0 name=&quot;moon&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[2]split[,]nth[1]titlecase[]]&quot;&gt;
-    &lt;$set select=0 name=&quot;mclass&quot; filter=&quot;[[$:/.isle/data/Calendar/Moon glyphs]getindex&lt;moon&gt;addsuffix[-]addsuffix&lt;moon-phase&gt;]&quot;&gt;
-      ;&amp;nbsp;&lt;i class=&lt;&lt;mclass&gt;&gt; &gt;&lt;/i&gt;
-      &amp;nbsp;&lt;$link to=&lt;&lt;moon&gt;&gt; /&gt;,
-      &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-phase-name&gt;&gt;&lt;/$link&gt;
-    &lt;/$set&gt;&lt;!-- moon-phase --&gt;
-    &lt;/$set&gt;&lt;!-- moon-phase-name --&gt;
-    &lt;/$set&gt;&lt;!-- moon --&gt;
-    &lt;/$set&gt;&lt;!-- mclass --&gt;
-  &lt;/$reveal&gt;&lt;!-- auspice[2] ne &lt;blank&gt; --&gt;
-  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[3]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-      ;&amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[3]] }}} /&gt;&lt;/$link&gt;
-    &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-      ;
-      &lt;$list variable=&quot;moon-auspice&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[3]split[,]butlast[]search-replace:gi[-],[ ]]&quot;&gt;
-        &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-auspice&gt;&gt;&lt;/$link&gt;,
-      &lt;/$list&gt;
-      &lt;$list variable=&quot;moon-auspice&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[3]split[,]last[]search-replace:gi[-],[ ]]&quot;&gt;
-        &amp;nbsp;&lt;$link to=&quot;Moon-phases&quot;&gt;&lt;&lt;moon-auspice&gt;&gt;&lt;/$link&gt;
-      &lt;/$list&gt;
-    &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
-  &lt;/$reveal&gt;&lt;!-- auspice[3] ne &lt;blank&gt; --&gt;
-  &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    ;&amp;nbsp;
-    &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[2]compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-      start&amp;nbsp;of
-    &lt;/$reveal&gt;&lt;!-- auspice[4][2] eq 1 --&gt;
-    &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[2]compare:integer:ne[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-      &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[2]] }}} /&gt;&amp;nbsp;day&amp;nbsp;of
-    &lt;/$reveal&gt;&lt;!-- auspice[4][2] ne 1 --&gt;
-    &amp;nbsp;&lt;$link to=&quot;Seasons&quot;&gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[1]search-replace:gi[-],[ ]] }}} /&gt;&lt;/$link&gt;
-    &lt;$reveal text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[3]!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-      &lt;$set select=0 name=&quot;season-auspice-link&quot; filter=&quot;[&lt;auspice&gt;split[;]nth[4]split[,]nth[3]regexp[(?i)equinox]then[Equinox]else[Seasons]]&quot;&gt;
-      ;&amp;nbsp;&lt;$link to=&lt;&lt;season-auspice-link&gt;&gt; &gt;&lt;$text text={{{ [&lt;auspice&gt;split[;]nth[4]split[,]nth[3]search-replace:gi[-],[ ]] }}} /&gt;&lt;/$link&gt;
-      &lt;/$set&gt;&lt;!-- season-auspice-link --&gt;
-    &lt;/$reveal&gt;&lt;!-- auspice[4][3] ne &lt;blank&gt; --&gt;
-  &lt;/$reveal&gt;&lt;!-- auspice[4] ne &lt;blank&gt; --&gt;
-&lt;/$wikify&gt;&lt;!-- auspice --&gt;
-\end
-
-\define ymd-field(f:&quot;date-start&quot;,verbose:&quot;1&quot;)
-\whitespace trim
-&lt;$reveal text={{{ [all[current]get&lt;__f__&gt;regexp[(?i)\.]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-  &lt;$set name=&quot;year&quot; filter=&quot;[all[current]get&lt;__f__&gt;split[.]last[]]&quot; emptyValue=&quot;1&quot;&gt;
-  &lt;$set name=&quot;month&quot; filter=&quot;[all[current]get&lt;__f__&gt;split[.]first[]]&quot; emptyValue=&quot;1&quot;&gt;
-  &lt;$set name=&quot;day&quot; filter=&quot;[all[current]get&lt;__f__&gt;split[.]nth[2]]&quot; emptyValue=&quot;1&quot;&gt;
-    &lt;$macrocall $name=&quot;ymd&quot; y=&lt;&lt;year&gt;&gt; m=&lt;&lt;month&gt;&gt; d=&lt;&lt;day&gt;&gt; verbose=$verbose$ /&gt;
-  &lt;/$set&gt;
-  &lt;/$set&gt;
-  &lt;/$set&gt;
-&lt;/$reveal&gt;
-\end
-
-\define ymd(y:&quot;1&quot;,m:&quot;&quot;,d:&quot;&quot;,verbose:&quot;1&quot;)
-\whitespace trim
-&lt;$reveal text={{{ [&lt;__m__&gt;!is[blank]then[true]] :intersection[&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-  &lt;$macrocall $name=&quot;_weekday&quot; m=$m$ d=$d$ /&gt;
-  ,&amp;nbsp;&lt;$macrocall $name=&quot;ordinal&quot; n=$d$ /&gt;
-  &amp;nbsp;&lt;$macrocall $name=&quot;_month-name&quot; m=$m$ /&gt;
-  &lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[2]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$reveal text={{{ [&lt;__m__&gt;compare:integer:eq[3]then[true]else[false]] :intersection[&lt;__d__&gt;compare:integer:eq[36]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-        &amp;nbsp;([[the Nudge|?]])
-      &lt;/$reveal&gt;
-      &lt;$reveal text={{{ [&lt;__m__&gt;compare:integer:eq[3]then[true]else[false]] :intersection[&lt;__d__&gt;compare:integer:eq[37]then[true]else[false]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-        &amp;nbsp;([[the Fin|?]])
-      &lt;/$reveal&gt;
-    &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-  &lt;/$reveal&gt;&lt;!-- verbose gteq 2 --&gt;
-&lt;/$reveal&gt;&lt;!-- month ne &lt;blank&gt; &amp;&amp; verbose gteq 1 --&gt;
-&lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-  ,&amp;nbsp;
-  &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-    &lt;$set select=0 name=&quot;url-carcosa&quot; filter=&quot;[&lt;__m__&gt;multiply[0]addprefix[&amp;month=]addprefix&lt;__y__&gt;addprefix[?year=]addprefix[325349d50d9915104d1f0f669c5e11db]addprefix[https://app.fantasy-calendar.com/calendars/]addsuffix[&amp;day=]addsuffix[1]]&quot;&gt;
-    &lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-carcosa&gt;&gt; target=&quot;_blank&quot;&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:lt[0]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;abs[]] }}} /&gt;
-        &amp;nbsp;Year of the Void
-      &lt;/$reveal&gt;&lt;!-- year lt 0 --&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]compare:integer:lteq[12]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n=&quot;&quot;&quot;$y$&quot;&quot;&quot; /&gt;
-        &amp;nbsp;Year of the Storm
-      &lt;/$reveal&gt;&lt;!-- year gt 0 &amp;&amp; year lteq 12 --&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[13]compare:integer:lteq[603]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-12]] }}} /&gt;
-        &amp;nbsp;Year of the Maze
-      &lt;/$reveal&gt;&lt;!-- year gteq 13 &amp;&amp; year lteq 603 --&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[604]compare:integer:lteq[623]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-603]] }}} /&gt;
-        &amp;nbsp;Year of Hope
-      &lt;/$reveal&gt;&lt;!-- year gteq 604 &amp;&amp; year lteq 623 --&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[624]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-623]] }}} /&gt;
-        &amp;nbsp;Year of Desolation
-      &lt;/$reveal&gt;&lt;!-- year gteq 624 --&gt;
-    &lt;/a&gt;
-    &lt;/$set&gt;&lt;!-- url-carcosa --&gt;
-  &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-  &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-    &lt;$set select=0 name=&quot;url-athas&quot; filter=&quot;[&lt;__m__&gt;multiply[0]addprefix[&amp;month=]addprefix&lt;__y__&gt;addprefix[?year=]addprefix[abcd3575520d9209c74ee2aaea1ab135]addprefix[https://app.fantasy-calendar.com/calendars/]addsuffix[&amp;day=]addsuffix[1]]&quot;&gt;
-    &lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-athas&gt;&gt; target=&quot;_blank&quot;&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:lt[0]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;abs[]] }}} /&gt;
-        &amp;nbsp;Year of the Gulf
-      &lt;/$reveal&gt;&lt;!-- year lt 0 --&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]compare:integer:lteq[616]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;remainder[77]] }}} /&gt;
-        &amp;nbsp;Year of
-        &amp;nbsp;&lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;divide[77]floor[]] }}} /&gt;
-        &amp;nbsp;World's Age
-      &lt;/$reveal&gt;&lt;!-- year gt 0 &amp;&amp; year lteq 616 --&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[617]compare:integer:lteq[15194]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        &lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;remainder[77]] }}} /&gt;
-        &amp;nbsp;Year of
-        &amp;nbsp;&lt;$macrocall $name=&quot;ordinal&quot; n={{{ [&lt;__y__&gt;add[-616]divide[77]floor[]] }}} /&gt;
-        &amp;nbsp;King's Age
-      &lt;/$reveal&gt;&lt;!-- year gteq 617 &amp;&amp; year lteq 15194 --&gt;
-      &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gteq[15195]] }}} type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-        Free Year
-        &amp;nbsp;&lt;$text text={{{ [&lt;__y__&gt;sub[-15194]] }}} /&gt;
-      &lt;/$reveal&gt;&lt;!-- year gteq 15195 --&gt;
-    &lt;/a&gt;
-    &lt;/$set&gt;&lt;!-- url-athas --&gt;
-    &lt;$set select=0 name=&quot;url-athas-cycles&quot; filter=&quot;[&lt;__m__&gt;multiply[0]addprefix[&amp;month=]addprefix&lt;__y__&gt;addprefix[?year=]addprefix[ae1464f65999e5b7291a480c338fd8ba]addprefix[https://app.fantasy-calendar.com/calendars/]addsuffix[&amp;day=]addsuffix[1]]&quot;&gt;
-    &amp;nbsp;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;url-athas-cycles&gt;&gt; target=&quot;_blank&quot;&gt;
-      &amp;#x1f4c5;
-    &lt;/a&gt;
-    &lt;/$set&gt;&lt;!-- url-athas-cycles --&gt;
-  &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
-&lt;/$reveal&gt;&lt;!-- verbose gteq 1 --&gt;
-&lt;$reveal text={{{ [&lt;__verbose__&gt;compare:integer:gteq[2]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-  ,&amp;nbsp;&lt;$macrocall $name=&quot;_year-callsign&quot; y=&quot;&quot;&quot;$y$&quot;&quot;&quot;/&gt;
-  &lt;$reveal text={{{ [&lt;__m__&gt;!is[blank]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-      &lt;&lt;_auspice y:$y$ m:$m$ d:$d$&gt;&gt;
-  &lt;/$reveal&gt;&lt;!-- month ne &lt;blank&gt; --&gt;
-&lt;/$reveal&gt;&lt;!-- verbose gteq 2 --&gt;
-\end
-
-\define F-cal-prefix() [{!!timeline}match[Athas]then[Athas]else[Carcosa]addprefix[$:/.isle/data/Calendar/]addsuffix[/]]
-
-\define _year-callsign(y:&quot;1&quot;)
-\whitespace trim
-&lt;$set select=0 name=&quot;year-callsigns&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Year callsigns/]]&quot;&gt;
-&lt;$set name=&quot;callsign-cycle-major&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Major]indexes[]maxall[]add[1]]&quot;&gt;
-&lt;$set name=&quot;callsign-cycle-minor&quot; filter=&quot;[&lt;year-callsigns&gt;addsuffix[Minor]indexes[]maxall[]add[1]]&quot;&gt;
-&lt;$set name=&quot;callsign-cycle&quot; filter=&quot;[&lt;callsign-cycle-major&gt;] =[&lt;callsign-cycle-minor&gt;] +[product[]]&quot;&gt;
-  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:lt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$set name=&quot;year-cycle-neg&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add&lt;callsign-cycle&gt;abs[]]&quot;&gt;
-    &lt;$set name=&quot;callsign-index-major-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
-    &lt;$set name=&quot;callsign-index-minor-neg&quot; filter=&quot;[&lt;year-cycle-neg&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
-      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major-neg&gt;] }}} /&gt;'s&amp;nbsp;
-      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor-neg&gt;] }}} /&gt;
-    &lt;/$set&gt;
-    &lt;/$set&gt;
-    &lt;/$set&gt;
-  &lt;/$reveal&gt;&lt;!-- year lt 0 --&gt;
-  &lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$set name=&quot;year-cycle&quot; filter=&quot;[&lt;__y__&gt;remainder&lt;callsign-cycle&gt;add[-1]]&quot;&gt;
-    &lt;$set name=&quot;callsign-index-major&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-major&gt;]&quot;&gt;
-    &lt;$set name=&quot;callsign-index-minor&quot; filter=&quot;[&lt;year-cycle&gt;remainder&lt;callsign-cycle-minor&gt;]&quot;&gt;
-      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Major]getindex&lt;callsign-index-major&gt;] }}} /&gt;'s&amp;nbsp;
-      &lt;$text text={{{ [&lt;year-callsigns&gt;addsuffix[Minor]getindex&lt;callsign-index-minor&gt;] }}} /&gt;
-    &lt;/$set&gt;
-    &lt;/$set&gt;
-    &lt;/$set&gt;
-  &lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-\end
-
-\define _sum-days-ytd-list(m:&quot;99&quot;)
-\whitespace trim
-&lt;$set select=0 name=&quot;days-in-months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Days in months]]&quot;&gt;
-&lt;$set name=&quot;month-index&quot; filter=&quot;[&lt;__m__&gt;add[-1]]&quot;&gt;
-&lt;$list filter=&quot;[&lt;days-in-months&gt;indexes[]compare:integer:lt&lt;month-index&gt;]&quot; variable=&quot;index&quot;&gt;
-  {{{ [&lt;days-in-months&gt;getindex&lt;index&gt;] }}},
-&lt;/$list&gt;
-&lt;/$set&gt;&lt;!-- month-index --&gt;
-&lt;/$set&gt;&lt;!-- days-in-months --&gt;
-\end
-
-\define _sum-days-ytd-list(m:&quot;99&quot;)
-\whitespace trim
-&lt;$set select=0 name=&quot;days-in-months&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Days in months]]&quot;&gt;
-&lt;$list filter=&quot;[&lt;days-in-months&gt;indexes[]compare:integer:lt&lt;__m__&gt;]&quot; variable=&quot;index&quot;&gt;
-  {{{ [&lt;days-in-months&gt;getindex&lt;index&gt;] }}},
-&lt;/$list&gt;
-&lt;/$set&gt;
-\end
-
-\define _day-current(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
-\whitespace trim
-&lt;$wikify name=&quot;sum-days-ytd-list&quot; text=&quot;&quot;&quot;&lt;&lt;_sum-days-ytd-list $m$&gt;&gt;&quot;&quot;&quot;&gt;
-  &lt;$set name=&quot;nudge-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[2]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
-  &lt;$set name=&quot;fin-ytd&quot; filter=&quot;[&lt;__y__&gt;remainder[4]compare:integer:eq[0]then[1]else[0]] =[&lt;__m__&gt;compare:integer:gt[3]then[1]else[0]] +[product[]]&quot;&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$set name=&quot;day-current-carcosa&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[356]] =[&lt;__y__&gt;abs[]add[-1]divide[2]floor[]] =[&lt;__y__&gt;abs[]add[-1]divide[4]floor[]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;add&lt;nudge-ytd&gt;add&lt;fin-ytd&gt;]  +[sum[]]&quot;&gt;
-        &lt;$text text=&lt;&lt;day-current-carcosa&gt;&gt; /&gt;
-      &lt;/$set&gt;
-    &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-    &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-      &lt;$set name=&quot;day-current-athas&quot; filter=&quot;[&lt;__y__&gt;abs[]add[-1]multiply[375]] =[&lt;sum-days-ytd-list&gt;split[,]sum[]] =[&lt;__d__&gt;]  +[sum[]]&quot;&gt;
-        &lt;$text text=&lt;&lt;day-current-athas&gt;&gt; /&gt;
-      &lt;/$set&gt;
-    &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
-  &lt;/$set&gt;&lt;!-- fin-ytd --&gt;
-  &lt;/$set&gt;&lt;!-- nudge-ytd --&gt;
-&lt;/$wikify&gt;&lt;!-- sum-days-ytd-list --&gt;
-\end
-
-\define _weekday(m:&quot;1&quot;,d:&quot;1&quot;)
-\whitespace trim
-&lt;$set select=0 name=&quot;weekdays&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Weekdays]]&quot;&gt;
-&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-  &lt;$set name=&quot;month-index&quot; filter=&quot;[&lt;__m__&gt;add[-1]]&quot;&gt;
-  &lt;$set name=&quot;week&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Week lengths]getindex&lt;month-index&gt;]&quot;&gt;
-  &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
-    &lt;$text text={{{ [&lt;weekdays&gt;getindex&lt;day-index&gt;] }}} /&gt;
-  &lt;/$set&gt;&lt;!-- day-index --&gt;
-  &lt;/$set&gt;&lt;!-- week --&gt;
-  &lt;/$set&gt;&lt;!-- month-index --&gt;
-&lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-  &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:ne[4]then[true]] :intersection[&lt;__m__&gt;add[-1]compare:integer:ne[9]then[true]] :intersection[&lt;__m__&gt;add[-1]compare:integer:ne[14]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$set name=&quot;week&quot; filter=&quot;[&lt;weekdays&gt;indexes[]maxall[]add[1]]&quot;&gt;
-    &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
-      &lt;$text text={{{ [&lt;weekdays&gt;getindex&lt;day-index&gt;] }}} /&gt;
-    &lt;/$set&gt;&lt;!-- day-index --&gt;
-    &lt;/$set&gt;&lt;!-- week --&gt;
-  &lt;/$reveal&gt;&lt;!-- month ne 4 &amp;&amp; month ne 9 &amp;&amp; month ne 14 --&gt;
-  &lt;$reveal text={{{ [&lt;__m__&gt;add[-1]compare:integer:eq[4]then[true]] [&lt;__m__&gt;add[-1]compare:integer:eq[9]then[true]] [&lt;__m__&gt;add[-1]compare:integer:eq[14]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-    &lt;$set name=&quot;festival-week&quot; filter=&quot;[&lt;weekdays&gt;addsuffix[/Festival]indexes[]maxall[]add[1]]&quot;&gt;
-    &lt;$set name=&quot;day-index&quot; filter=&quot;[&lt;__d__&gt;add[-1]remainder&lt;week&gt;]&quot;&gt;
-      &lt;$text text={{{ [&lt;weekdays&gt;addsuffix[/Festival]getindex&lt;day-index&gt;] }}} /&gt;
-    &lt;/$set&gt;&lt;!-- day-index --&gt;
-    &lt;/$set&gt;&lt;!-- festival-week --&gt;
-  &lt;/$reveal&gt;&lt;!-- month eq 4 || month eq 9 || month eq 14 --&gt;
-&lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
-&lt;/$set&gt;&lt;!-- weekdays --&gt;
-\end
-
-\define _moon-phase(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;,moon:&quot;&quot;)
-\whitespace trim
-&lt;$wikify name=&quot;dn&quot; text=&quot;&quot;&quot;&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot; &gt;
-&lt;$set select=0 name=&quot;moon-phases&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Moon phases/]addsuffix&lt;__moon__&gt;]&quot;&gt;
-&lt;$set name=&quot;moon-cycle&quot; filter=&quot;[&lt;moon-phases&gt;indexes[]maxall[]add[1]]&quot;&gt;
-&lt;$set name=&quot;moon-phase-index&quot; filter=&quot;[&lt;dn&gt;add[-1]remainder&lt;moon-cycle&gt;]&quot;&gt;
-&lt;$set name=&quot;moon-phase&quot; filter=&quot;[&lt;moon-phases&gt;getindex&lt;moon-phase-index&gt;]&quot;&gt;
-&lt;$set name=&quot;altair-y-6&quot; filter=&quot;[&lt;__moon__&gt;match[Altair]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[6]then[true]]&quot;&gt;
-&lt;$set name=&quot;belen-y-12&quot; filter=&quot;[&lt;__moon__&gt;match[Belen]then[true]] :intersection[&lt;__y__&gt;compare:integer:gteq[12]then[true]]&quot;&gt;
-&lt;$set name=&quot;athas-y-0&quot; filter=&quot;[all[current]get[timeline]match[Athas]then[true]] :intersection[&lt;__y__&gt;compare:integer:gt[0]then[true]]&quot;&gt;
-&lt;$reveal text={{{ [&lt;altair-y-6&gt;addsuffix&lt;belen-y-12&gt;addsuffix&lt;athas-y-0&gt;search-replace:gi[false],[]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-  &lt;$text text={{{ [&lt;__moon__&gt;lowercase[]] }}} /&gt;
-  ,&lt;$text text={{{ [[$:/.isle/data/Calendar/Moon phase names]getindex&lt;moon-phase&gt;lowercase[]] }}} /&gt;
-  ,&lt;$text text=&lt;&lt;moon-phase&gt;&gt; /&gt;
-&lt;/$reveal&gt;&lt;!-- moon eq Altair &amp;&amp; year gteq 6 || moon eq Belen &amp;&amp; year gteq 12 || year gt 0 --&gt;
-&lt;/$set&gt;&lt;!-- athas-y-0 --&gt;
-&lt;/$set&gt;&lt;!-- belen-y-12 --&gt;
-&lt;/$set&gt;&lt;!-- altair-y-6 --&gt;
-&lt;/$set&gt;&lt;!-- moon-phase --&gt;
-&lt;/$set&gt;&lt;!-- moon-phase-index --&gt;
-&lt;/$set&gt;&lt;!-- moon-cycle --&gt;
-&lt;/$set&gt;&lt;!-- moon-phases --&gt;
-&lt;/$wikify&gt;&lt;!-- dn --&gt;
-\end
-
-\define _sum-days-seasons-list()
-\whitespace trim
-&lt;$set select=0 name=&quot;days-in-seasons&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season lengths]]&quot;&gt;
-&lt;$list filter=&quot;[&lt;days-in-seasons&gt;indexes[]]&quot; variable=&quot;index&quot;&gt;
-  {{{ [&lt;days-in-seasons&gt;getindex&lt;index&gt;] }}},
-&lt;/$list&gt;
-&lt;/$set&gt;
-\end
-
-\define _day-of-season(y:&quot;1&quot;,m:&quot;1&quot;,d:&quot;1&quot;)
-\whitespace trim
-&lt;$reveal text={{{ [&lt;__y__&gt;compare:integer:gt[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-  &lt;$wikify name=&quot;sum-days-seasons-list&quot; text=&quot;&quot;&quot;&lt;&lt;_sum-days-seasons-list&gt;&gt;&quot;&quot;&quot;&gt;
-    &lt;$set name=&quot;season-cycle&quot; filter=&quot;[&lt;sum-days-seasons-list&gt;split[,]sum[]]&quot;&gt;
-    &lt;$set filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season offset]get[text]]&quot; name=&quot;season-offset&quot;&gt;
-    &lt;$wikify name=&quot;dn&quot; text=&quot;&quot;&quot;&lt;&lt;_day-current $y$ $m$ $d$&gt;&gt;&quot;&quot;&quot;&gt;
-    &lt;$set name=&quot;ds&quot; filter=&quot;[&lt;dn&gt;add[-1]subtract&lt;season-offset&gt;remainder&lt;season-cycle&gt;]&quot;&gt;
-    &lt;$set select=0 name=&quot;season-first-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season first days]]&quot;&gt;
-    &lt;$set select=0 name=&quot;season-last-days&quot; filter=&quot;[subfilter&lt;F-cal-prefix&gt;addsuffix[Season last days]]&quot;&gt;
-      &lt;$list filter=&quot;[&lt;season-first-days&gt;indexes[]compare:string:ne[Burner-Equinox]compare:string:ne[Shadow-Equinox]compare:string:ne[Highest-Sun]compare:string:ne[Low-Sun]]&quot; variable=&quot;season-index&quot;&gt;
-        &lt;$set name=&quot;season-current&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-index&gt;compare:integer:lteq&lt;ds&gt;then&lt;season-index&gt;] :intersection[&lt;season-last-days&gt;getindex&lt;season-index&gt;compare:integer:gteq&lt;ds&gt;then&lt;season-index&gt;]&quot;&gt;
-        &lt;$set name=&quot;season-day&quot; filter=&quot;[&lt;season-first-days&gt;getindex&lt;season-current&gt;subtract&lt;ds&gt;abs[]add[1]]&quot;&gt;
-        &lt;$reveal type=&quot;nomatch&quot; text=&lt;&lt;season-current&gt;&gt; default=&quot;&quot;&gt;
-          &lt;$text text={{{ [&lt;season-current&gt;lowercase[]] }}} /&gt;
-          ,&lt;$text text=&lt;&lt;season-day&gt;&gt; /&gt;
-          &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;
-            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Burner-Equinox]subtract&lt;ds&gt;abs[]compare:integer:eq[0]then[true]] [&lt;season-first-days&gt;getindex[Shadow-Equinox]subtract&lt;ds&gt;abs[]compare:integer:eq[0]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-              ,far-equinox
-            &lt;/$reveal&gt;&lt;!-- ds falls on burner-equinox || shadow-equinox --&gt;
-            &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[summer]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-              ,burner-solstice
-            &lt;/$reveal&gt;&lt;!-- ds falls on first day of summer --&gt;
-            &lt;$reveal text={{{ [&lt;season-current&gt;lowercase[]match[bleak]then[true]] :intersection[&lt;season-day&gt;compare:integer:eq[1]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
-              ,shadow-solstice
-            &lt;/$reveal&gt;&lt;!-- ds falls on first day of bleak --&gt;
-          &lt;/$reveal&gt;&lt;!-- !!timeline eq Carcosa --&gt;
-          &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;
-            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Highest-Sun]add[-1]subtract&lt;ds&gt;abs[]compare:integer:gteq[0]compare:integer:lteq[1]then[Highest-Sun]] }}} type=&quot;match&quot; default=&quot;Highest-Sun&quot;&gt;
-              ,highest-sun
-            &lt;/$reveal&gt;&lt;!-- ds falls on highest-sun --&gt;
-            &lt;$reveal text={{{ [&lt;season-first-days&gt;getindex[Low-Sun]add[-1]subtract&lt;ds&gt;abs[]compare:integer:gteq[0]compare:integer:lteq[1]then[Low-Sun]] }}} type=&quot;match&quot; default=&quot;Low-Sun&quot;&gt;
-              ,low-sun
-            &lt;/$reveal&gt;&lt;!-- ds falls on low-sun --&gt;
-          &lt;/$reveal&gt;&lt;!-- !!timeline eq Athas --&gt;
-        &lt;/$reveal&gt;&lt;!-- season-current ne &lt;empty&gt; --&gt;
-        &lt;/$set&gt;&lt;!-- season-day --&gt;
-        &lt;/$set&gt;&lt;!-- season-current --&gt;
-      &lt;/$list&gt;&lt;!-- season-index --&gt;
-    &lt;/$set&gt;&lt;!-- season-last-days --&gt;
-    &lt;/$set&gt;&lt;!-- season-first-days --&gt;
-    &lt;/$set&gt;&lt;!-- ds --&gt;
-    &lt;/$wikify&gt;&lt;!-- dn --&gt;
-    &lt;/$set&gt;&lt;!-- season-offset --&gt;
-    &lt;/$set&gt;&lt;!-- season-cycle --&gt;
-  &lt;/$wikify&gt;&lt;!-- sum-days-seasons-list --&gt;
-&lt;/$reveal&gt;&lt;!-- year gt 0 --&gt;
-\end
-
-\define format-number(n t d p:0)
-\whitespace trim
-&lt;$set name=thousands-separator value=&quot;$t$&quot; emptyValue=&quot;,&quot;&gt;
-&lt;$set name=decimal-separator value=&quot;$d$&quot; emptyValue=&quot;.&quot;&gt;
-&lt;$set name=decimal-places value=&quot;$p$&quot; emptyValue=&quot;2&quot;&gt;
-&lt;$set name=fixed-decimal value={{{ [[$n$]fixed&lt;decimal-places&gt;] }}}&gt;
-&lt;$set name=integer value={{{ [&lt;fixed-decimal&gt;split[.]first[]] }}}&gt;
-&lt;$set name=remainder value={{{ [&lt;fixed-decimal&gt;split[.]last[]] }}}&gt;
-&lt;$set name=length filter=&quot;[&lt;integer&gt;length[]]&quot;&gt;
-&lt;$macrocall $name=each-digit length=&lt;&lt;length&gt;&gt; /&gt;
-&lt;$list filter=&quot;[&lt;decimal-places&gt;!match[0]]&quot; variable=nul&gt;&lt;&lt;decimal-separator&gt;&gt;&lt;&lt;remainder&gt;&gt;&lt;/$list&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-\end
-
-\define each-digit(length)
-\whitespace trim
-&lt;$list filter=&quot;[range[1,$length$]]&quot; variable=position&gt;
-&lt;$set name=digit filter=&quot;[[$(integer)$]split[]nth&lt;position&gt;]&quot;&gt;
-&lt;$set name=zeros filter=&quot;[[$length$]subtract&lt;position&gt;]&quot;&gt;
-&lt;&lt;digit&gt;&gt;&lt;$text text={{{ [&lt;zeros&gt;!match[0]remainder[3]match[0]then&lt;thousands-separator&gt;] }}} /&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$list&gt;
-\end
-
-\define ordinal(n)
-\whitespace trim
-$n$
-&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[1]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[11]then[true]else[false]]&quot;&gt;
-  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
-    st
-  &lt;/$reveal&gt;
-&lt;/$list&gt;
-&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[2]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[12]then[true]else[false]]&quot;&gt;
-  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
-    nd
-  &lt;/$reveal&gt;
-&lt;/$list&gt;
-&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:eq[3]then[true]else[false]] :intersection[&lt;__n__&gt;remainder[100]compare:integer:ne[13]then[true]else[false]]&quot;&gt;
-  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
-    rd
-  &lt;/$reveal&gt;
-&lt;/$list&gt;
-&lt;$list filter=&quot;[&lt;__n__&gt;remainder[10]compare:integer:gteq[1]compare:integer:lteq[3]then[false]else[true]]&quot;&gt;
-  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;match&quot; default=&quot;true&quot;&gt;
-    th
-  &lt;/$reveal&gt;
-&lt;/$list&gt;
-&lt;$list filter=&quot;[&lt;__n__&gt;remainder[100]compare:integer:gteq[11]compare:integer:lteq[13]]&quot;&gt;
-  &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
-    th
-  &lt;/$reveal&gt;
-&lt;/$list&gt;
-\end
-
-\define location()
+<div created="20200429000932368" creator="Islander" modified="20210805060758408" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/statistics">
+<pre>\define location()
 &lt;p&gt;
   &lt;$reveal type=&quot;match&quot; state=&quot;!!location-has-government&quot; text=&quot;true&quot; default=&quot;true&quot;&gt;
     &lt;$list filter=&quot;[[$:/.isle/data/Locations/Government]getindex[$(currentTiddler)$]addprefix[$:/.isle/content/Governments/]]&quot;&gt;
@@ -7996,7 +8027,7 @@ Attunement may be required after adding an enchantment.
 <div created="20200407185653996" creator="The Islander" modified="20201029022031637" modifier="Islander" tags="$:/tags/RawMarkup" title="$:/.isle/styles/fonts">
 <pre>&lt;link href=&quot;https://fonts.googleapis.com/css?family=Magra:wght@700&amp;display=swap&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</pre>
 </div>
-<div created="20200415220947698" creator="Islander" modified="20210804074257572" modifier="Islander" tags="$:/tags/Stylesheet" title="$:/.isle/styles/glyphs">
+<div created="20200415220947698" creator="Islander" modified="20210805033245558" modifier="Islander" tags="$:/tags/Stylesheet" title="$:/.isle/styles/glyphs">
 <pre>i.EEL,
 i.FEL,
 i.WaEL,
@@ -8044,7 +8075,7 @@ i.pdf {
 
 i.mb-0,i.mb-1,i.mb-2,i.mb-3,i.mb-4,i.mb-5,i.mb-6,i.mb-7
 {
-  -webkit-filter: hue-rotate(240deg) saturate(100) brightness(5);
+  -webkit-filter: hue-rotate(240deg) saturate(5) brightness(5);
   filter: hue-rotate(240deg) saturate(5) brightness(5); 
 }
 
@@ -8066,8 +8097,8 @@ i.mm-0,i.mm-1,i.mm-2,i.mm-3,i.mm-4,i.mm-5,i.mm-6,i.mm-7
 
 i.mf-0,i.mf-1,i.mf-2,i.mf-3,i.mf-4,i.mf-5,i.mf-6,i.mf-7
 {
-  -webkit-filter: hue-rotate(140deg) saturate(100) brightness(5);
-  filter: hue-rotate(140deg) saturate(5) brightness(5); 
+  -webkit-filter: hue-rotate(70deg) saturate(140) brightness(3);
+  filter: hue-rotate(140deg) saturate(100) brightness(3); 
 }
 </pre>
 </div>
@@ -18896,16 +18927,16 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
 <pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
 </div>
-<div created="20210805002720678" creator="Islander" modified="20210805002720678" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210805025515294" creator="Islander" modified="20210805025515294" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210805002717928" creator="Islander" modified="20210805003135543" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210805025509150" creator="Islander" modified="20210805061033072" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/.isle/system/Table of contents</pre>
 </div>
-<div created="20210805003137254" creator="Islander" modified="20210805003137254" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210805025553726" creator="Islander" modified="20210805025553726" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210805003140398" creator="Islander" modified="20210805003140398" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
+<div created="20210805025559013" creator="Islander" modified="20210805025559013" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -18914,7 +18945,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210805002804576" creator="Islander" list="Ogedei [[$:/.isle/data/Calendar/Athas/Season last days]] [[$:/.isle/data/Calendar/Carcosa/Season lengths]] [[$:/.isle/data/Calendar/Carcosa/Season first days]] [[$:/.isle/data/Calendar/Carcosa/Season last days]] [[$:/.isle/data/Calendar/Athas/Season first days]] [[$:/.isle/data/Calendar/Athas/Season lengths]] Next-game Sessions Character-creation" modified="20210805003141743" modifier="Islander" title="$:/StoryList">
+<div created="20210805025530230" creator="Islander" list="Next-game Sessions Character-creation" modified="20210805060623952" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -22360,7 +22391,7 @@ As a celestial, the obozu has priority access to [[Divine Wind|?]], allowing it 
 &lt;&lt;known location:&quot;[[Nesanctium]] or [[Zendril]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210804072948035" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" timeline="Athas" title="Ogedei">
+<div aliases="ogedei [[ogedei arath-knorr]]" caption="Ogedei Arath-Knorr" created="20200531010824274" creator="Islander" date-start="3.37.256" information-subject="person" modified="20210805061014808" modifier="Islander" person-birth-granularity="day" person-birthplace="[[Ordos]]" person-residence="[[Vrogzodgren]] in [[Griven]]" subtitle="Ogedei Arath-Knorr" tags="People-of-Griven" title="Ogedei">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;known location:&quot;[[Griven]], [[Ordos]], or [[Anchor]]&quot; dc:&quot;Legendary person&quot;&gt;&gt;
 &lt;$macrocall $name=&quot;person&quot;
@@ -22382,20 +22413,6 @@ b-auspice=&quot;[[glittermoon|?]]&quot;
 faith=&quot;&quot;&quot;&lt;&lt;faith-simple &quot;Gruumsh&quot;&gt;&gt;&quot;&quot;&quot;
 /&gt;
 {{!!synopsis}}
-
-&lt;&lt;ymd 13142 1 1 2&gt;&gt;
-
-&lt;&lt;auspices 13142 1 1&gt;&gt;
-
-&lt;hr/&gt;
-
-&lt;&lt;ymd-field verbose:2&gt;&gt;
-
-&lt;&lt;_moon-phase 13142 1 1 Ral&gt;&gt;
-
-&lt;&lt;_day-current 13142 1 1&gt;&gt;
-
-&lt;&lt;_day-of-season 13142 1 1&gt;&gt;
 </pre>
 </div>
 <div aliases="[[okamoto jin]]" caption="Okamoto Jin" created="20210612045119782" creator="Islander" information-subject="person" modified="20210623053654937" modifier="Islander" name-meaning="Okamoto (written: 岡本 literally &quot;hill base&quot;, or &quot;of the foothills&quot;) is the 48th most common Japanese surname." subtitle="Okamoto Jin" tags="People-of-Nesanctium Joshitai" title="Okamoto-Jin">
