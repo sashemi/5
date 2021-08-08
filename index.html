@@ -2050,11 +2050,25 @@ Error message and password prompt
 
 <li>$:/state/tab/moresidebar-1850697562</li>
 
+<li>$:/state/tab/search-results/sidebar</li>
+
 <li>$:/state/tab/sidebar--595412856</li>
 
-<li>$:/state/toc/Table of contents-NPCs-1395397534</li>
+<li>$:/state/toc/Table of contents-Character-creation-1395397534</li>
 
-<li>$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534</li>
+<li>$:/state/toc/Table of contents-Reference-1395397534</li>
+
+<li>$:/state/toc/Table of contents-Rules-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Character-creation-Classes-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Character-creation-Races-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Adventuring-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Social-interaction-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Rules-Spells-1395397534</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -7274,7 +7288,7 @@ $n$
 \end
 </pre>
 </div>
-<div created="20200426012505238" creator="Islander" modified="20210507061830609" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/glossary">
+<div created="20200426012505238" creator="Islander" modified="20210808101300695" modifier="Islander" tags="$:/tags/Macro" title="$:/.isle/macros/glossary">
 <pre>\define blinded()
 [[blinded|https://www.dndbeyond.com/sources/basic-rules/appendix-a-conditions#Blinded]]
 \end
@@ -7283,8 +7297,26 @@ $n$
 &lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Carcosa&quot; default=&quot;Carcosa&quot;&gt;&lt;$set name=link_text filter=&quot; $year$&quot; value=&quot;&quot;&quot;&lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt; FC&quot;&quot;&quot; emptyValue=&quot;Far Cycle calendar&quot;&gt;&lt;$set name=link_url filter=&quot; $year$&quot; value=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db?year=$year$&amp;month=0&amp;day=1&quot; emptyValue=&quot;https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;link_url&gt;&gt; target=&quot;_blank&quot;&gt;&lt;&lt;link_text&gt;&gt;&lt;/a&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$reveal&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!timeline&quot; text=&quot;Athas&quot; default=&quot;Carcosa&quot;&gt;&lt;$set name=link_text filter=&quot; $year$&quot; value=&quot;&quot;&quot;&lt;&lt;format-number n:&quot;$year$&quot; p:0&gt;&gt; MC&quot;&quot;&quot; emptyValue=&quot;Merchant's Calendar&quot;&gt;&lt;$set name=link_url filter=&quot; $year$&quot; value=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba?year=$year$&amp;month=0&amp;day=1&quot; emptyValue=&quot;https://app.fantasy-calendar.com/calendars/ae1464f65999e5b7291a480c338fd8ba&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;link_url&gt;&gt; target=&quot;_blank&quot;&gt;&lt;&lt;link_text&gt;&gt;&lt;/a&gt;&lt;/$set&gt;&lt;/$set&gt;&lt;/$reveal&gt;
 \end
 
+\define condition(c:&quot;charmed&quot;,case:&quot;lower&quot;)
+\whitespace trim
+&lt;$set name=&quot;condition-link&quot; filter=&quot;[&lt;__c__&gt;titlecase[]addprefix[https://www.dndbeyond.com/sources/basic-rules/appendix-a-conditions#]]&quot;&gt;
+&lt;a class=&quot;tc-tiddlylink-external&quot; href=&lt;&lt;condition-link&gt;&gt; target=&quot;_blank&quot;&gt;
+  &lt;$reveal type=&quot;match&quot; text=&quot;$case$&quot; default=&quot;lower&quot;&gt;
+    $c$
+  &lt;/$reveal&gt;
+  &lt;$reveal type=&quot;match&quot; text=&quot;$case$&quot; default=&quot;title&quot;&gt;
+    &lt;$text text={{{ [&lt;__c__&gt;titlecase[]] }}} /&gt;
+  &lt;/$reveal&gt;
+&lt;/a&gt;
+&lt;/$set&gt;
+\end
+
 \define charmed()
 [[charmed|https://www.dndbeyond.com/sources/basic-rules/appendix-a-conditions#Charmed]]
+\end
+
+\define charmed()
+[[frightened|https://www.dndbeyond.com/sources/basic-rules/appendix-a-conditions#Frightened]]
 \end
 
 \define concentration()
@@ -18924,19 +18956,40 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20170612192911097" creator="The Islander" modified="20200328220529526" modifier="The Islander" title="$:/SiteTitle">
 <pre>The Fifth Season</pre>
 </div>
-<div created="20210702195500365" creator="Islander" modified="20210708002029216" modifier="Islander" title="$:/state/search/currentTab">
-<pre>$:/plugins/TheDiveO/TwFusejs/ui/fusesearchresults</pre>
+<div created="20210702195500365" creator="Islander" modified="20210808095659551" modifier="Islander" title="$:/state/search/currentTab">
+<pre>$:/core/ui/DefaultSearchResultList</pre>
 </div>
-<div created="20210805025515294" creator="Islander" modified="20210805025515294" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20210808094052776" creator="Islander" modified="20210808094052776" modifier="Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210805025509150" creator="Islander" modified="20210805061033072" modifier="Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20210808095659551" creator="Islander" modified="20210808095659551" modifier="Islander" title="$:/state/tab/search-results/sidebar">
+<pre>$:/core/ui/DefaultSearchResultList</pre>
+</div>
+<div created="20210808094050568" creator="Islander" modified="20210808104724752" modifier="Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/.isle/system/Table of contents</pre>
 </div>
-<div created="20210805025553726" creator="Islander" modified="20210805025553726" modifier="Islander" title="$:/state/toc/Table of contents-NPCs-1395397534">
+<div created="20210808043644753" creator="Islander" modified="20210808050214264" modifier="Islander" title="$:/state/toc/Table of contents-Character-creation-1395397534">
 <pre>open</pre>
 </div>
-<div created="20210805025559013" creator="Islander" modified="20210805025559013" modifier="Islander" title="$:/state/toc/Table of contents/NPCs-People-of-Griven-1395397534">
+<div created="20210808041010153" creator="Islander" modified="20210808045809400" modifier="Islander" title="$:/state/toc/Table of contents-Reference-1395397534">
+<pre>close</pre>
+</div>
+<div created="20210808041011488" creator="Islander" modified="20210808041011488" modifier="Islander" title="$:/state/toc/Table of contents-Rules-1395397534">
+<pre>open</pre>
+</div>
+<div created="20210808043649955" creator="Islander" modified="20210808043651337" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Classes-1395397534">
+<pre>close</pre>
+</div>
+<div created="20210808043651737" creator="Islander" modified="20210808104726847" modifier="Islander" title="$:/state/toc/Table of contents/Character-creation-Races-1395397534">
+<pre>open</pre>
+</div>
+<div created="20210808041012632" creator="Islander" modified="20210808041012632" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Adventuring-1395397534">
+<pre>open</pre>
+</div>
+<div created="20210808045812433" creator="Islander" modified="20210808045812433" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Social-interaction-1395397534">
+<pre>open</pre>
+</div>
+<div created="20210808045705584" creator="Islander" modified="20210808045705584" modifier="Islander" title="$:/state/toc/Table of contents/Rules-Spells-1395397534">
 <pre>open</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
@@ -18945,7 +18998,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20160407102858708" creator="t" modified="20200410234750614" modifier="The Islander" title="$:/status/UserName">
 <pre>Islander</pre>
 </div>
-<div created="20210805025530230" creator="Islander" list="Next-game Sessions Character-creation" modified="20210805060623952" modifier="Islander" title="$:/StoryList">
+<div created="20210808041014497" creator="Islander" list="Sanity Next-game Sessions Character-creation" modified="20210808104730552" modifier="Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -19083,7 +19136,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div aliases="[[ability scores]]" caption="Ability scores" caption-sort="01. Ability scores" created="20200328225523612" creator="The Islander" modified="20201225004037112" modifier="Islander" subtitle="Ability scores" synopsis="Much of what you do in the game depends on your six abilities: ''Strength'', ''Dexterity'', ''Constitution'', ''Intelligence'', ''Wisdom'', and ''Charisma''. Each ability has a score, which is a number you record on your character sheet. New characters use point buy method to determine ability scores." tags="Character-creation" title="Ability-scores">
+<div aliases="[[ability scores]]" caption="Ability scores" caption-sort="01. Ability scores" created="20200328225523612" creator="The Islander" modified="20210808051208241" modifier="Islander" subtitle="Ability scores" synopsis="Much of what you do in the game depends on your six abilities: ''Strength'', ''Dexterity'', ''Constitution'', ''Intelligence'', ''Wisdom'', and ''Charisma''. Each ability has a score, which is a number you record on your character sheet. New characters use point buy method to determine ability scores." tags="Character-creation" title="Ability-scores">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 
 One of three methods can be used to determine your character's ability scores.
@@ -19146,6 +19199,16 @@ Racial Bonuses
 |All others | +2 | +1 |
 @@
 
+! Honor and Sanity
+When you create your character, you may record an [[Honor]] ability score if your character's ancestry, heritage, or background permits it. Not all characters possess an Honor ability score.
+
+All characters record a [[Sanity]] ability score, regardless of background.
+
+This is the starting Honor and Sanity ability scores for any new character. Honor and Sanity cannot be increased by the Ability Score Improvement feature. These ability scores only increase and decrease through adventuring and questing.
+
+@@.numberCircle
+13
+@@
 </pre>
 </div>
 <div aliases="adamantite" created="20210621020357371" creator="Islander" modified="20210621055548242" modifier="Islander" tags="Trade-goods" title="Adamantite">
@@ -19296,7 +19359,7 @@ Apollo appears as an incredibly handsome young man. At will, he can change the s
 
 His bow can target anything in his line of sight, and he can loose arrows of any composition and magical quality. Apollo has a lyre that is able to raise spirits and strength in friendly creatures. The lyre can also bestow curses and disintegrate opponents. In battle, Apollo's aura grants a wide range of protections.</pre>
 </div>
-<div aliases="[[arcane archer]]" caption="Arcane Archer" created="20200427020749481" creator="Islander" modified="20201227015725296" modifier="Islander" subtitle="Arcane Archer" synopsis="An Arcane Archer studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. " tags="Subclasses" title="Arcane-Archer">
+<div aliases="[[arcane archer]]" caption="Arcane Archer" created="20200427020749481" creator="Islander" modified="20210808101429048" modifier="Islander" subtitle="Arcane Archer" synopsis="An Arcane Archer studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. " tags="Subclasses" title="Arcane-Archer">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 &lt;&lt;adaptation book:&quot;xgte&quot; quoted:0&gt;&gt;
@@ -19350,7 +19413,7 @@ If an option requires a saving throw, your Arcane Shot save DC is calculated as 
 
 @@.h
 * ''//Banishing Arrow.//'' You use abjuration magic to try to temporarily banish your target to a harmless location &lt;&lt;hb &quot;in a short-lived, materialized demiplane&quot;&gt;&gt;. &lt;&lt;hb &quot;Add your archery die as force damage to the the creature hit by the arrow.&quot;&gt;&gt; The target must also succeed on a Charisma saving throw or be banished. While banished in this way, the target's speed is 0, and it is &lt;&lt;incapacitated&gt;&gt;. At the end of its next turn, the target reappears in the space it vacated or in the nearest unoccupied space if that space is occupied.&lt;br/&gt;&lt;br/&gt;&lt;&lt;hb &quot;After you reach 18th level in this class, you can use up to two archery dice on this shot.&quot;&gt;&gt;&lt;br/&gt;&lt;br/&gt;
-* ''//Beguiling Arrow.//'' Your enchantment magic causes this arrow to temporarily beguile its target. &lt;&lt;hb &quot;Add your archery die&quot;&gt;&gt; as psychic damage to the the creature hit by the arrow, and choose one of your allies within 30 feet of the target. The target must succeed on a Wisdom saving throw, or it is &lt;&lt;charmed&gt;&gt; by the chosen ally until the start of your next turn. This effect ends early if the chosen ally attacks the charmed target, deals damage to it, or forces it to make a saving throw.&lt;br/&gt;&lt;br/&gt;&lt;&lt;hb &quot;You can use up to two archery dice on this shot. After you reach 18th level in this class, you can use up to three archery dice on this shot.&quot;&gt;&gt;&lt;br/&gt;&lt;br/&gt;
+* ''//Beguiling Arrow.//'' Your enchantment magic causes this arrow to temporarily beguile its target. &lt;&lt;hb &quot;Add your archery die&quot;&gt;&gt; as psychic damage to the the creature hit by the arrow, and choose one of your allies within 30 feet of the target. The target must succeed on a Wisdom saving throw, or it is &lt;&lt;condition charmed&gt;&gt; by the chosen ally until the start of your next turn. This effect ends early if the chosen ally attacks the charmed target, deals damage to it, or forces it to make a saving throw.&lt;br/&gt;&lt;br/&gt;&lt;&lt;hb &quot;You can use up to two archery dice on this shot. After you reach 18th level in this class, you can use up to three archery dice on this shot.&quot;&gt;&gt;&lt;br/&gt;&lt;br/&gt;
 * ''//Bursting Arrow.//'' You imbue your arrow with force energy drawn from the school of evocation. The energy detonates after your attack. Immediately after the arrow hits the creature, the target and all other creatures within 10 feet of it take force damage &lt;&lt;hb &quot;equal to your archery die roll.&quot;&gt;&gt;&lt;br/&gt;&lt;br/&gt;&lt;&lt;hb &quot;You can use up to two archery dice on this shot.&quot;&gt;&gt;&lt;br/&gt;&lt;br/&gt;
 * ''//Enfeebling Arrow.//'' You weave necromantic magic into your arrow. &lt;&lt;hb &quot;Add your archery die&quot;&gt;&gt; as necrotic damage to the the creature hit by the arrow. The target must also succeed on a Constitution saving throw, or the damage dealt by its weapon attacks is halved until the start of your next turn.&lt;br/&gt;&lt;br/&gt;&lt;&lt;hb &quot;You can use up to two archery dice on this shot. After you reach 18th level in this class, you can use up to three archery dice on this shot.&quot;&gt;&gt;&lt;br/&gt;&lt;br/&gt;
 * ''//Grasping Arrow.//'' When this arrow strikes its target, conjuration magic creates grasping, poisonous brambles, which wrap around the target. &lt;&lt;hb &quot;Add your archery die&quot;&gt;&gt; as poison damage to the the creature hit by the arrow, its speed is reduced by 10 feet, and it additionally takes slashing damage &lt;&lt;hb &quot;equal to your archery die roll&quot;&gt;&gt; the first time on each turn it moves 1 foot or more without teleporting. The target or any creature that can reach it can use its action to remove the brambles with a successful Strength (Athletics) check against your Arcane Shot save DC. Otherwise, the brambles last for 1 minute or until you use this option again.&lt;br/&gt;&lt;br/&gt;&lt;&lt;hb &quot;Use of Grasping Arrow counts as use of two archery dice. After you reach 18th level in this class, you can use up to four archery dice on this shot, with two dice rolled for the initial poison damage, and two dice for subsequent slashing damage.&quot;&gt;&gt;&lt;br/&gt;&lt;br/&gt;
@@ -19827,7 +19890,7 @@ Prior to Chalkhill Uprising, murder is unheard of among the sidhe. The attempted
 
 Thousands of sidhe are imprisoned in cinerariums over the years and these morbid groves can be found in different locations on [[Carcosa]].</pre>
 </div>
-<div aliases="clairconctlar" created="20200329020630172" creator="The Islander" information-subject="race" modified="20210702182731583" modifier="Islander" name-plural="clairconctlar" synopsis="The clairconctlar are a construct race, said by some to be brought into existence through the experimentation of the sorceror king [[Nibenay]]. Other anthropologists surmise that the clairconctlar originate off-world, and are distant offshoot of the now-extinct [[taalo|?]]." tags="Races" title="Clairconctlar">
+<div aliases="clairconctlar" created="20200329020630172" creator="The Islander" information-subject="race" modified="20210808101520784" modifier="Islander" name-plural="clairconctlar" synopsis="The clairconctlar are a construct race, said by some to be brought into existence through the experimentation of the sorceror king [[Nibenay]]. Other anthropologists surmise that the clairconctlar originate off-world, and are distant offshoot of the now-extinct [[taalo|?]]." tags="Races" title="Clairconctlar">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 {{$:/.isle/system/Playtest}}
 &lt;&lt;known location:&quot;[[Athas]]&quot; dc:&quot;Race&quot; skills:&quot;Arcana&quot;&gt;&gt;
@@ -19900,7 +19963,7 @@ A conc rock cannot be merged with, superimposed, or contained inside a clairconc
 
 !! Possession by a New Owner
 
-Another person can take physical possession of your conc rock. They can spend a [[short rest|?]] to learn of your conc rock's properties, and then &lt;&lt;attune&gt;&gt; to it, as if it is a magic item (this can’t be the same short rest used to learn the conc rock's properties). If this happens, you are &lt;&lt;charmed&gt;&gt; and part of an involuntary telepathic link as long as you and the new owner are on the same plane of existence. The new owner of the conc rock can use this telepathic link to issue commands to you (no action required), which you do your best to obey. The new owner must be &lt;&lt;conscious&gt;&gt; to give telepathic commands. They can specify a simple and general course of action, such as &quot;Attack that creature&quot;, &quot;Run over there&quot;, or &quot;Fetch that object&quot;. If you complete the order and do not receive further direction from the new owner, you defend and preserve yourself to the best of your ability.
+Another person can take physical possession of your conc rock. They can spend a [[short rest|?]] to learn of your conc rock's properties, and then &lt;&lt;attune&gt;&gt; to it, as if it is a magic item (this can’t be the same short rest used to learn the conc rock's properties). If this happens, you are &lt;&lt;condition charmed&gt;&gt; and part of an involuntary telepathic link as long as you and the new owner are on the same plane of existence. The new owner of the conc rock can use this telepathic link to issue commands to you (no action required), which you do your best to obey. The new owner must be &lt;&lt;conscious&gt;&gt; to give telepathic commands. They can specify a simple and general course of action, such as &quot;Attack that creature&quot;, &quot;Run over there&quot;, or &quot;Fetch that object&quot;. If you complete the order and do not receive further direction from the new owner, you defend and preserve yourself to the best of your ability.
 
 The new owner can use their action to take total and precise control of you. Until the end of the new owner's next turn, you take only the actions they choose, and are not able to do anything that they do not allow you to do. During this time, the new owner can also cause you to use a reaction, but this requires them to use their own reaction as well.
 
@@ -20109,13 +20172,13 @@ Currencies may act as stores of value and be traded between nations, which deter
 &lt;&lt;tocwsynopsis&gt;&gt;
 </pre>
 </div>
-<div caption="Current year" caption-sort="13. Current year" created="20201118071916439" creator="Islander" modified="20201227002532837" modifier="Islander" subtitle="Current year" synopsis="This is the current year in the campaign." tags="Character-creation" title="Current-year">
+<div caption="Current year" caption-sort="13. Current year" created="20201118071916439" creator="Islander" modified="20210808050413505" modifier="Islander" subtitle="Current year" synopsis="This is the current year in the campaign." tags="Character-creation" title="Current-year">
 <pre>{{!!synopsis}}
 ! Carcosa
 [[Far Cycle|https://app.fantasy-calendar.com/calendars/325349d50d9915104d1f0f669c5e11db]]
 
 @@.numberCircle
-&lt;$macrocall $name=&quot;format-number&quot; n={{$:/.isle/data/Current year/Carcosa}} p=&quot;0&quot;/&gt;
+&lt;$macrocall $name=&quot;format-number&quot; n={{$:/.isle/data/Current year/Carcosa}} /&gt;
 @@
 
 ! Athas
@@ -20123,7 +20186,7 @@ Currencies may act as stores of value and be traded between nations, which deter
 
 @@.numberCircle
 @@width:3.3em;height:2.7em;padding-top:42px;
-&lt;$macrocall $name=&quot;format-number&quot; n={{$:/.isle/data/Current year/Athas}} p=&quot;0&quot;/&gt;
+&lt;$macrocall $name=&quot;format-number&quot; n={{$:/.isle/data/Current year/Athas}} /&gt;
 @@
 @@</pre>
 </div>
@@ -20777,14 +20840,14 @@ If the character already has one or more levels of exhaustion, the character tak
 &lt;&lt;producers-and-consumers&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div aliases="[[greater restoration]]" caption="Greater restoration" created="20200415021615773" creator="Islander" modified="20200428132040493" modifier="Islander" subtitle="Greater restoration" synopsis="Rules to cure a disease, remove a curse or the [[petrified|https://roll20.net/compendium/dnd5e/Conditions#toc_10]] condition, and restoration of reduced ability scores have been changed to use opposed ability check like //dispel magic// and //counterspell// rules for higher level spells." tags="Spells" title="Greater-restoration">
+<div aliases="[[greater restoration]]" caption="Greater restoration" created="20200415021615773" creator="Islander" modified="20210808050058697" modifier="Islander" subtitle="Greater restoration" synopsis="Rules to cure a disease, remove a curse or the [[petrified|https://roll20.net/compendium/dnd5e/Conditions#toc_10]] condition, and restoration of reduced ability scores have been changed to use opposed ability check like //dispel magic// and //counterspell// rules for higher level spells." tags="Spells" title="Greater-restoration">
 <pre>&lt;&lt;hb-disclaimer-all&gt;&gt;
 
 //Greater restoration// can remove one curse of rating 5 or below affecting a creature, including the target's attunement to a cursed magic item. You must be aware of the nature of the curse, but not its origin or how it works, in order to target it. For a curse of rating 6 or above, make an ability check using your Spellcasting Ability. The DC equals 10 + the [[rating of the curse|Curses]]. On a successful check, the curse is removed.
 
 This spell does not automatically remove the &lt;&lt;petrified&gt;&gt; condition affecting the target. A petrified condition resulting from a spell of 5th level or lower on the target ends. For a spell of 6th level or higher, make an ability check using your Spellcasting Ability. The DC equals 10 + the spell's level. On a successful check, the petrified condition ends.
 
-You can restore one ability point to one of the target's ability scores, if it is reduced, but doing so increases your &lt;&lt;exhaustion&gt;&gt; level by one.
+You can restore one ability point to one of the target's ability scores, if it is reduced, but doing so increases your &lt;&lt;exhaustion&gt;&gt; level by one. Unlike other abilities, Honor can't be restored with //greater restoration//. 
 
 ''//At Higher Levels.//'' When you cast this spell using a spell slot of 6th level or higher, you automatically remove a single curse on the target if the rating of the curse is equal to or less than the level of the spell slot you used. You can also automatically remove the petrified condition affecting the target if the spell's level is equal to or less than the level of the spell slot you used.
 </pre>
@@ -21318,7 +21381,7 @@ The lone and level sands stretch far away.
 &quot;&quot;&quot;
 @@</pre>
 </div>
-<div aliases="[[land vehicles]] land-vehicles" created="20210621062527742" creator="Islander" modified="20210621062724683" modifier="Islander" tags="Rules" title="Land-vehicles">
+<div aliases="[[land vehicles]] land-vehicles" caption="Land vehicles" created="20210621062527742" creator="Islander" modified="20210808045841825" modifier="Islander" subtitle="Land vehicles" tags="Rules" title="Land-vehicles">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;producers-and-consumers&gt;&gt;
 {{!!synopsis}}
@@ -21402,10 +21465,10 @@ You cannot use //lesser restoration// to cure yourself of a disease with a ratin
 ''//At Higher Levels.//'' When you cast this spell using a spell slot of 3rd level or higher, you automatically end a single disease on the target if the rating of the disease is equal to or less than the level of the spell slot you used. You can also cure yourself of a disease with a rating equal to or less than the level of the spell slot you used.
 </pre>
 </div>
-<div aliases="[[starting level]]" caption="Current party level" caption-sort="03. Current party level" created="20200330200042036" creator="The Islander" modified="20201224040346324" modifier="Islander" subtitle="Current party level" synopsis="This is the average character level for members of the adventuring party and the starting level for any new character. The starting character's accrued [[experience points|?]] is equal to the minimum required to achieve this level." tags="Character-creation" title="Level">
+<div aliases="[[starting level]]" caption="Current party level" caption-sort="03. Current party level" created="20200330200042036" creator="The Islander" modified="20210808050317905" modifier="Islander" subtitle="Current party level" synopsis="This is the average character level for members of the adventuring party and the starting level for any new character. The starting character's accrued [[experience points|?]] is equal to the minimum required to achieve this level." tags="Character-creation" title="Level">
 <pre>{{!!synopsis}}
 @@.numberCircle
-9th
+&lt;$macrocall $name=&quot;ordinal&quot; n=&quot;9&quot;/&gt;
 @@</pre>
 </div>
 <div aliases="[[ley line]] [[ley lines]]" caption="Ley line" created="20210510031049988" creator="Islander" modified="20210510073029245" modifier="Islander" subtitle="Ley line" synopsis="Ley lines (/leɪ/) refer to straight alignments drawn along excitations and harmonic convergence points of gravitational, electromagnetic, and magical energies. Ley lines can coincide with the locations of historic structures and prominent landmarks, and ancient societies have likely deliberately erected structures along them." tags="Magic" title="Ley-line">
@@ -23505,9 +23568,32 @@ Unlike Earthly languages, R’lyehian makes no distinction between nouns, verbs,
 &lt;&lt;known location:&quot;[[Nesanctium]]&quot; person:&quot;[[Obi Belen|?]], [[Joshitai]]&quot; source:&quot;[[Obi Belen|?]]&quot; dc:&quot;Common item&quot; skills:&quot;Arcana&quot; case:&quot;plural&quot;&gt;&gt;
 {{!!synopsis}}</pre>
 </div>
-<div created="20200506224722108" creator="Islander" modified="20201225031827389" modifier="Islander" tags="Adventuring" title="Sanity">
+<div created="20200506224722108" creator="Islander" modified="20210808105738775" modifier="Islander" tags="Adventuring" title="Sanity">
 <pre>&lt;&lt;imgwattribution&gt;&gt;
 {{!!synopsis}}
+
+! Stress
+A character is at risk of accumulating points of Stress in certain situations. These points are compared directly to a player’s Sanity ability score, which both improves a character’s resolve against accumulating Stress, and sets the bar for how many points of Stress a character can have before suffering ill effects. For example, a character with a 12 Sanity score will receive a +1 to Sanity saving throws, and have a maximum threshold of 12 Stress points before undergoing a bout of Madness (detailed below).
+
+! Gaining Stress
+Here are some examples of circumstances in which a character might have to make a Sanity saving throw to avoid accumulating points of Stress:
+
+* When confronted by a violent or unnatural scene
+* Going longer than 24 hours without food, water or rest
+* Being struck by a critical hit from an attack
+* Failing a saving throw to avoid a trap’s effects by 5 or more
+
+Under the following circumstances, a character will always accumulate a point of Stress:
+
+* Failing a saving throw to avoid being Frightened by 5 or more
+* Being reduced to 0 hit points
+* Directly encountering a scene that relates to one or more Seeds of Fear
+
+! Madness
+When a character’s total points of Stress is greater than their Sanity score, they become afflicted with a form of long-term Madness. This Madness lasts for at least &lt;&lt;button-roll-dice 10d10&gt;&gt; hours, and persists while the total amount of Stress points is greater than the character’s Sanity ability score. Once this bout of Madness passes, a character’s Stress score is reset to 0 and the character gains 1 point of Permanent Stress. Permanent Stress cannot be removed in any way.
+
+Reducing Stress
+Reducing a character’s stress will become important as time goes on. At the end of a long rest, each character reduces their Stress by 1 point. If the long rest happens in an environment conducive to at least a Comfortable lifestyle, a character may reduce their stress by 2 points.
 </pre>
 </div>
 <div aliases="sannish" created="20210621001351679" creator="Islander" modified="20210621060559922" modifier="Islander" tags="Drugs" title="Sannish">
